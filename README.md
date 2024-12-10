@@ -1,13 +1,21 @@
-
 ## Introduction
 
-MagTIP calculates the TIP (Time of Increased Probability) of earthquakes basing on the geomagnetic records of Central Weather Bureau of Taiwan. 
-The algorithm allows for the optimization of the model parameters, and gives the overall TIP (named joint-station TIP). 
-The probability of capturing a target event in space and time can be derived based on the joint-station TIP, by considering the results from a large set of randomly permuted of model parameters simultaneously.
+GEMS-MagTIP is an integrated algorithm that calculates the Time of Increased Probability (TIP) for earthquakes based on geoelectric and geomagnetic field data. 
+It represents the culmination of advancements from the earlier GEMSTIP and MagTIP systems, combining their methodologies into a multivariate framework that supports diverse data sources.
 
-In the traditional TIP forecasting, the type and the number of input data have to be uniquely formatted otherwise re-training according to the new format is required. 
-As a result, either the conversion for fitting new data to old format (where some information must lose), or an extra waiting period (e.g. 7 years) for re-training models with new data, is required. 
-The time scale of the evolution of the underground dynamical system is generally thought to be large, hence data collected from old stations are precious. For being able to fully utilizing both the data from the most modern instruments and older sensors, the project of this year aims for the multivariate MagTIP forecasting system. 
+### Historical Development
 
-The newest multivariate MagTIP forecasting system not only supports three-component and one-component geomagnetic signals simultaneously, but also allows additional earthquake-relevant time series to be involved in calculating TIP.
+The development began with GEMSTIP (Geoelectric Monitoring System's Time of Increased Probability), which focused on geoelectric field anomalies. GEMSTIP utilized predictive modeling, binary classification, and statistical analysis to identify earthquake precursors in geoelectric data. This system demonstrated significant correlations between geoelectric anomalies and seismic events and was instrumental in establishing the feasibility of probabilistic earthquake forecasting.
 
+Building upon GEMSTIP, MagTIP expanded the algorithm to include geomagnetic field data. 
+It greatly improves computational efficiency, support for both full-field and triaxial magnetic data, and introduces a rolling forecast system. 
+MagTIP's advancements made it possible to integrate data from both modern and legacy instruments, ensuring the preservation and utilization of valuable historical records.
+
+
+### GEMS-MagTIP: Unified and Multivariate
+
+The current GEMS-MagTIP system integrates the capabilities of both GEMSTIP and MagTIP, enabling the simultaneous use of geoelectric and geomagnetic data. 
+This multivariate system supports a wide range of geo-electromagnetic data types, including three-component and one-component signals, in the calculation of statistical indicators (e.g., skewness, kurtosis, Fisher Information, Shannon Entropy) for earthquake's time of increased probability.
+
+GEMS-MagTIP system represents an advancement in earthquake precursor research.
+It provides a robust and adaptable tool to identify geo-electromagnetic anomalies correlated with large earthquake events, and allows joint-station probabilistic earthquake forecasting based on the concept of TIP. 
