@@ -1,3 +1,7 @@
+# README
+
+The documentation of GEMS-MagTIP: https://okatsn.github.io/GEMS-MagTIP/
+
 ## Introduction
 
 GEMS-MagTIP is an integrated algorithm that calculates the Time of Increased Probability (TIP) for earthquakes based on geoelectric and geomagnetic field data. 
