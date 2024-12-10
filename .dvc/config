@@ -1,0 +1,4 @@
+[core]
+    remote = gems-magtip-assets
+['remote "gems-magtip-assets"']
+    url = gdrive://1bCgIsvCdZ8tMFUl_vdDQarRHqBxWCKYa
