@@ -1,6 +1,6 @@
 # README
 
-The documentation of GEMS-MagTIP: https://okatsn.github.io/GEMS-MagTIP/
+The documentation of GEMS-MagTIP: https://cgrg-lab.github.io/GEMS-MagTIP/
 
 ## Introduction
 
