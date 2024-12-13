@@ -6,15 +6,15 @@ title: "Library"
 
 ## Main Functions
 
-There are roughly four stages in the MagTIP forecasting process: 
+There are four major stages in the complete GEMS-MagTIP workflow, and each stage is wrapped by the main functions as below: 
 
-1. the calculation of statistical index
-2. the calculation of anomaly index number according to 1.
-3. the calculation of TIP and the Molchan score according to 2.
-4. probability forecasts according to 2. and 3.
+1. `statind`: The calculation of statistical indices.
+2. `anomalyind`: The calculation of anomaly indices number according to statistical indices.
+3. `molscore`: Training phase based on anomaly indices, which involves the calculation of single-station TIP, matching TIP by target earthquakes and calculate Molchan scores accordingly.
+4. `molscore3`: Forecasting phase based on the model parameters of the highest Molchan scores, involving the calculation of joint-station TIP and probability based on the results of 2 and 3.
 
-The four stages is wrapped by four functions with keyword options that we can customize the parameters related to model optimization and probability forecast. 
-The four main functions are wrapper functions for routine training and forecasting process. As follow:
+The four stages is wrapped by four functions with keyword arguments that we can customize some hyper parameters which are associated with model optimization and probability forecast. 
+
 
 
 ```{julia}
