@@ -8,10 +8,10 @@ title: "Library"
 
 There are four major stages in the complete GEMS-MagTIP workflow, and each stage is wrapped by the main functions as below: 
 
-1. `statind`: The calculation of statistical indices.
-2. `anomalyind`: The calculation of anomaly indices number according to statistical indices.
-3. `molscore`: Training phase based on anomaly indices, which involves the calculation of single-station TIP, matching TIP by target earthquakes and calculate Molchan scores accordingly.
-4. `molscore3`: Forecasting phase based on the model parameters of the highest Molchan scores, involving the calculation of joint-station TIP and probability based on the results of 2 and 3.
+1. [`statind`](#statind): The calculation of statistical indices.
+2. [`anomalyind`](#anomalyind): The calculation of anomaly indices number according to statistical indices.
+3. [`molscore`](#molscore): Training phase based on anomaly indices, which involves the calculation of single-station TIP, matching TIP by target earthquakes and calculate Molchan scores accordingly.
+4. [`molscore3`](#molscore3): Forecasting phase based on the model parameters of the highest Molchan scores, involving the calculation of joint-station TIP and probability based on the results of 2 and 3.
 
 The four stages is wrapped by four functions with keyword arguments that we can customize some hyper parameters which are associated with model optimization and probability forecast. 
 
@@ -24,7 +24,6 @@ using ReadMatlabDocstrings, GEMSMagTIPDocumentation, OkFiles, Markdown
 
 y = [getdoc(dir_0("GEMS-MagTIP-insider/src/main/statind.m"), filename_header=3),
     getdoc(dir_0("GEMS-MagTIP-insider/src/main/statind_parfor.m"), filename_header=3),
-    getdoc(dir_0("GEMS-MagTIP-insider/src/main/statind_append.m"), filename_header=3),
     getdoc(dir_0("GEMS-MagTIP-insider/src/main/anomalyind.m"), filename_header=3),
     getdoc(dir_0("GEMS-MagTIP-insider/src/main/molscore.m"), filename_header=3),
     getdoc(dir_0("GEMS-MagTIP-insider/src/main/molscore_parfor.m"), filename_header=3),
