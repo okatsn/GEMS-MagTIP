@@ -2,9 +2,22 @@
 title: "Library"
 ---
 
-# Hello
+## Main functions
 
 ```{julia}
-using ReadMatlabDocstrings, GEMSMagTIPDocumentation
-getdoc(dir_0("GEMS-MagTIP-insider/src/main/anomalyind.m"))
+#| echo: false
+
+using ReadMatlabDocstrings, GEMSMagTIPDocumentation, OkFiles, Markdown
+
+y = [getdoc(dir_0("GEMS-MagTIP-insider/src/main/statind.m"), filename_header=3),
+    getdoc(dir_0("GEMS-MagTIP-insider/src/main/statind_parfor.m"), filename_header=3),
+    getdoc(dir_0("GEMS-MagTIP-insider/src/main/statind_append.m"), filename_header=3),
+    getdoc(dir_0("GEMS-MagTIP-insider/src/main/anomalyind.m"), filename_header=3),
+    getdoc(dir_0("GEMS-MagTIP-insider/src/main/molscore.m"), filename_header=3),
+    getdoc(dir_0("GEMS-MagTIP-insider/src/main/molscore_parfor.m"), filename_header=3),
+    getdoc(dir_0("GEMS-MagTIP-insider/src/main/molscore3.m"), filename_header=3),
+    getdoc(dir_0("GEMS-MagTIP-insider/src/main/molscore3_parfor.m"), filename_header=3)]
+
+Markdown.parse(reduce(*, y))
+
 ```
