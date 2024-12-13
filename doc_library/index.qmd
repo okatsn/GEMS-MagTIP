@@ -1,3 +1,10 @@
 ---
 title: "Library"
 ---
+
+# Hello
+
+```{julia}
+using ReadMatlabDocstrings, GEMSMagTIPDocumentation
+getdoc(dir_0("GEMS-MagTIP-insider/src/main/anomalyind.m"))
+```
