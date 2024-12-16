@@ -84,38 +84,17 @@ dir_jointstation = 'output_var/JointStation';
 
 #### Earthquake catalog and station information
 
-Please download catalog of events $M_L \geq 5$ from GDMSN, and move it to `spreadsheet/catalog.csv`.
-
-- The headers (column names) for `catalog.csv` should be 'time', 'Lon', 'Lat', 'Depth', and 'Mag'.
-- The headers for `station_location.csv` should be being 'code', 'format', 'Lon', 'Lat' for `station_location.csv`.
-- The order of column names can be arbitrarily arranged, but the strings have to be exactly the same as above.
-
-Here is an example `catalog.csv`:
-
-Supported format:
-
-GDMSN form:
-
-| date | time | lat | lon | depth | ML | nstn | dmin | gap | trms | ERH | ERZ | fixed | nph | quality |
-|------|------|-----|-----|-------|----|------|------|-----|------|-----|-----|-------|-----|---------|
-|...   |...   |...  |...  |...    |... |...   |...   |...  |...   |...  |...  |...    |...  |...      |
-
-
-Typical form: 
-
-
-| time | Lon | Lat | Depth | Mag |
-|------|-----|-----|-------|-----|
-| 2020/8/10 06:41 | 121.59 | 23.81 | 29.86  | 3.41 |
-| 2020/8/10 06:29 | 120.57 | 22.18 | 43.54  | 3.02 |
-| 2020/8/10 06:14 | 121.7  | 22.17 | 124.78 | 4.13 |
-| ...             | ...    | ...   | ...    | ...  |
-
+{{< include "../GEMS-MagTIP-insider/spreadsheet/README.md" >}}
 
 The `station_location.csv` specifies the location of every station;
-here is the `station_location.csv`: 
+here is a partial view on `station_location.csv`: 
 
-{{< include "../GEMS-MagTIP-insider/spreadsheet/original_csv/station_location.csv" >}}
+```{julia}
+#| echo: false
+using DataFrames, CSV, GEMSMagTIPDocumentation, PrettyTables
+df = CSV.read(dir_0("GEMS-MagTIP-insider/spreadsheet/original_csv/station_location.csv"), DataFrame) 
+pretty_table(df[16:end, :];max_num_of_rows = 8,backend = Val(:html), show_subheader= false)
+```
 
 ### Executing Main Functions in the Correct Order
 
