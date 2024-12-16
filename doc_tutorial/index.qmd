@@ -7,11 +7,16 @@ title: "Tutorial"
 ### Environment
 ```{julia}
 #| echo: false
+#| eval: false
+
+# #KEYNOTE: Use Quarto's include interface is much more direct to read external content and show it here.
+# This block is just for references; you can freely delete this block whenever you want.
 using Markdown, GEMSMagTIPDocumentation
 open(dir_0("GEMS-MagTIP-insider/_environment.txt")) do str
     Markdown.parse(read(str, String))
 end
 ```
+{{< include "../GEMS-MagTIP-insider/_environment.txt" >}}
 
 
 ### Dependencies
