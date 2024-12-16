@@ -55,9 +55,11 @@ y = [
 Markdown.parse(reduce(*, y))
 ```
 
-## Available filters
+## Available Preprocessing Functions
 
-These are filters that can be applied in the [`statind`](#statind) stage via the `'Preprocess'` keyword argument:
+
+{{< include "../GEMS-MagTIP-insider/src/preprocess/README.md" >}}
+
 
 ```{julia}
 #| echo: false
@@ -68,12 +70,48 @@ y = [getdoc(f, filename_header=3) for f in files]
 Markdown.parse(reduce(*, y))
 ```
 
-## Tools
+
+::: {.callout-note}
+`generalfilterprocess` is the core shared among `'ULF_X'` and `BP_X` family; please refer [Filtering Functions](#filtering-functions).
+:::
+
+
+## Filtering Functions
 
 ```{julia}
 #| echo: false
 
-files = filelistall(dir_0("GEMS-MagTIP-insider/src/tools"))
+files = filelist(r".*\.m", dir_0("GEMS-MagTIP-insider/src/preprocess/filtering"))
+y = [getdoc(f, filename_header=3) for f in files]
+
+Markdown.parse(reduce(*, y))
+```
+
+
+## Internal API for TIP Calculation
+```{julia}
+#| echo: false
+
+files = filelistall(dir_0("GEMS-MagTIP-insider/src/tip-calculation"))
+y = [getdoc(f, filename_header=3) for f in files]
+
+Markdown.parse(reduce(*, y))
+```
+
+## Format
+
+```{julia}
+#| echo: false
+
+getdoc(dir_0("GEMS-MagTIP-insider/src/@fmt/fmt.m"), filename_header=3) |> Markdown.parse
+```
+
+## Others
+
+```{julia}
+#| echo: false
+
+files = filelistall(dir_0("GEMS-MagTIP-insider/src/others"))
 y = [getdoc(f, filename_header=3) for f in files]
 
 Markdown.parse(reduce(*, y))
