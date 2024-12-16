@@ -19,17 +19,17 @@ Here is the minimal example of the chain of main functions:
 
 ```matlab
 % For windows, use backslash `\`; for unix systems, use slash `/` in the path to directories.
-dir_catalog = 'data\spreadsheet'; 
+dir_catalog = 'data/spreadsheet'; 
         % directory of event catalog & station location
-dir_data = 'data\geomag_1'; 
-        % directory of geomagnetic timeseries
-dir_stat = 'output_var\StatisticIndex'; 
+dir_data = 'data/geomag_1'; 
+        % directory of geomagnetic timeseries of "standard format"
+dir_stat = 'output_var/StatisticIndex'; 
         % directory of statistic indices
-dir_tsAIN = 'output_var\tsAIN'; 
+dir_tsAIN = 'output_var/tsAIN'; 
         % directory for storing anomaly index number (AIN)
-dir_molchan = 'output_var\Molchan'; 
+dir_molchan = 'output_var/Molchan'; 
         % directory for storing Molchan scores
-dir_jointstation = 'output_var\JointStation'; 
+dir_jointstation = 'output_var/JointStation'; 
         % directory for the time series of EQK, TIP and probability
 ```
 
