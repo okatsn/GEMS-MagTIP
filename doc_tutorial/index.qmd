@@ -52,9 +52,13 @@ Here is the minimal example of the chain of main functions:
 
 ### Setting Up Directory Paths
 
+Assigning directories for input/output data or variables is necessary before running any of the main function. 
+
+For example:
+
 ```matlab
 % For windows, use backslash `\`; for unix systems, use slash `/` in the path to directories.
-dir_catalog = 'data/spreadsheet'; 
+dir_catalog = 'spreadsheet'; 
         % directory of event catalog & station location
 dir_data = 'data/geomag_1'; 
         % directory of geomagnetic timeseries of "standard format"
@@ -67,6 +71,51 @@ dir_molchan = 'output_var/Molchan';
 dir_jointstation = 'output_var/JointStation'; 
         % directory for the time series of EQK, TIP and probability
 ```
+
+::: {.callout-tip}
+- You can use [`mkdir_default`](../doc_library/#mkdir_default) to automatically generate empty directories for main functions.
+- You can use [`dirselectassign`](../doc_library/#dirselectassign) to assign directories via file explorer interface.
+:::
+
+::: {.callout-important}
+- `dir_catalog` must contain `catalog.csv`/`catalog.mat` and `station_location.csv`/`station_location.mat`. 
+- `dir_data` is the directory that contains GE or GM data of the standard format; see [`conv_geomagdata`](../doc_library/#conv_geomagdata) and [`conv_gemsdata`](../doc_library/#conv_gemsdata) for the conversion of raw data to the standard format.
+:::
+
+#### Earthquake catalog and station information
+
+Please download catalog of events $M_L \geq 5$ from GDMSN, and move it to `spreadsheet/catalog.csv`.
+
+- The headers (column names) for `catalog.csv` should be 'time', 'Lon', 'Lat', 'Depth', and 'Mag'.
+- The headers for `station_location.csv` should be being 'code', 'format', 'Lon', 'Lat' for `station_location.csv`.
+- The order of column names can be arbitrarily arranged, but the strings have to be exactly the same as above.
+
+Here is an example `catalog.csv`:
+
+Supported format:
+
+GDMSN form:
+
+| date | time | lat | lon | depth | ML | nstn | dmin | gap | trms | ERH | ERZ | fixed | nph | quality |
+|------|------|-----|-----|-------|----|------|------|-----|------|-----|-----|-------|-----|---------|
+|...   |...   |...  |...  |...    |... |...   |...   |...  |...   |...  |...  |...    |...  |...      |
+
+
+Typical form: 
+
+
+| time | Lon | Lat | Depth | Mag |
+|------|-----|-----|-------|-----|
+| 2020/8/10 06:41 | 121.59 | 23.81 | 29.86  | 3.41 |
+| 2020/8/10 06:29 | 120.57 | 22.18 | 43.54  | 3.02 |
+| 2020/8/10 06:14 | 121.7  | 22.17 | 124.78 | 4.13 |
+| ...             | ...    | ...   | ...    | ...  |
+
+
+The `station_location.csv` specifies the location of every station;
+here is the `station_location.csv`: 
+
+{{< include "../GEMS-MagTIP-insider/spreadsheet/original_csv/station_location.csv" >}}
 
 ### Executing Main Functions in the Correct Order
 
