@@ -79,9 +79,13 @@ See [`statind_parfor`](../doc_library/#statind_parfor), [`molscore_parfor`](../d
 :::
 
 ### The Sample Script for Everything
-There is a script **"demo/demo_script.m"** contains the sample codes of the whole process; you can easily make everything set and go through the entire GEMS-MagTIP procedures following the steps below:
-- switch current directory to the folder named "MagTIP-2022"
-- run section(s) in the script
+Here is a sample script **"demo/demo_script.m"** for the whole process.
 
-In the beginning (the first three sections), you will see several pop-out windows for selecting the directory of geomagnetic data (`dir_data`) and loading the toolbox (`dir_toolbox`). 
-Select the right folders as instructed, and they will be automatically added to path and be ready to use.
+::: {.callout-tip}
+You can run `startup0.m` and follows the instruction in the command window to add dependencies and assign input/output directories as described above.
+:::
+
+```matlab
+{{< include "../GEMS-MagTIP-insider/demo/demo_script.m" >}}
+```
+
