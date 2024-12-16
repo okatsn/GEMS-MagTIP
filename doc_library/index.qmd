@@ -1,8 +1,12 @@
 ---
 title: "Library"
 ---
-**⚠Warning:**
-- Please don't assign undocumented name-value pair parameters to the functions. For example, `'CreateInfoOnly'` and `'InParforLoop'`, which are preserved for parallel computing, and you will never need to set them manually.
+
+::: {.callout-warning}
+- Please don't assign undocumented name-value pair parameters to the functions. For example, `'CreateInfoOnly'` and `'InParforLoop'`, which are preserved for parallel computing, and you will never need to set them manually unless you are a developer.
+
+:::
+
 
 ## Main Functions
 
@@ -34,4 +38,30 @@ Markdown.parse(reduce(*, y))
 
 ```
 
-## Load data
+## Load raw data and convert it into a standard format
+
+```{julia}
+#| echo: false
+
+y = [
+    getdoc(dir_0("GEMS-MagTIP-insider/src/readdata/conv_gemsdata.m"), filename_header=3),
+    getdoc(dir_0("GEMS-MagTIP-insider/src/readdata/conv_geomagdata.m"), filename_header=3),
+    getdoc(dir_0("GEMS-MagTIP-insider/src/readdata/readgems.m"), filename_header=3),
+    getdoc(dir_0("GEMS-MagTIP-insider/src/readdata/read_gemsdat.m"), filename_header=3),
+    getdoc(dir_0("GEMS-MagTIP-insider/src/readdata/geoelectric_projection.m"), filename_header=3),
+    getdoc(dir_0("GEMS-MagTIP-insider/src/readdata/standarddataname.m"), filename_header=3),
+    getdoc(dir_0("GEMS-MagTIP-insider/src/readdata/columnind.m"), filename_header=3)]
+
+Markdown.parse(reduce(*, y))
+```
+
+## Tools
+
+```{julia}
+#| echo: false
+
+files = filelistall(dir_0("GEMS-MagTIP-insider/src/tools"))
+y = [getdoc(f, filename_header=3) for f in files]
+
+Markdown.parse(reduce(*, y))
+```
