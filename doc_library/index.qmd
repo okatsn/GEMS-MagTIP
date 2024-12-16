@@ -55,6 +55,19 @@ y = [
 Markdown.parse(reduce(*, y))
 ```
 
+## Available filters
+
+These are filters that can be applied in the [`statind`](#statind) stage via the `'Preprocess'` keyword argument:
+
+```{julia}
+#| echo: false
+
+files = filelist(r".*\.m", dir_0("GEMS-MagTIP-insider/src/preprocess"))
+y = [getdoc(f, filename_header=3) for f in files]
+
+Markdown.parse(reduce(*, y))
+```
+
 ## Tools
 
 ```{julia}
