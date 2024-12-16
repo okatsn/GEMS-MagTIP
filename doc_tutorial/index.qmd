@@ -2,8 +2,9 @@
 title: "Tutorial"
 ---
 
-## Requirement
+## Requirements
 
+### Environment
 ```{julia}
 #| echo: false
 using Markdown, GEMSMagTIPDocumentation
@@ -11,6 +12,33 @@ open(dir_0("GEMS-MagTIP-insider/_environment.txt")) do str
     Markdown.parse(read(str, String))
 end
 ```
+
+
+### Dependencies
+
+GEMS-MagTIP depends on [okatsn/toolbox](https://github.com/okatsn/toolbox) and [CGRG-lab/GEMS-MagTIP-insider](https://github.com/CGRG-lab/GEMS-MagTIP-insider).
+
+You have to add these dependencies to path every time before running your scripts, as follows
+
+#### [CGRG-lab/GEMS-MagTIP-insider](https://github.com/CGRG-lab/GEMS-MagTIP-insider)
+
+Copy [CGRG-lab/GEMS-MagTIP-insider](https://github.com/CGRG-lab/GEMS-MagTIP-insider) to your local drive (e.g., `GEMS-MagTIP-insider`) and add the source code inside to path:
+
+```matlab
+dir_src = 'GEMS-MagTIP-insider/src';
+addpath(genpath(dir_src));
+```
+
+
+#### [okatsn/toolbox](https://github.com/okatsn/toolbox)
+
+Copy [okatsn/toolbox](https://github.com/okatsn/toolbox) to the main directory (e.g., `GEMS-MagTIP-insider/toolbox`) and add the source code inside to path:
+
+```matlab
+dir_toolbox = 'GEMS-MagTIP-insider/toolbox';
+addpath(genpath(dir_toolbox));
+```
+
 
 ## Getting Started
 The [main functions](../doc_library/index.qmd#main-functions) of GEMS-MagTIP take directories that contains intermediate data (those `.mat` files) as input arguments, and output data in the assigned directory. 
@@ -50,11 +78,8 @@ See [`statind_parfor`](../doc_library/#statind_parfor), [`molscore_parfor`](../d
 
 :::
 
-In this document, the input/output variable that contains the information of the path to a directory (i.e., a folder) is prefixed by `dir_`; for example, `dir_data` is the directory for the formatted geomagnetic data, and `dir_stat` is the directory for statistic indices. 
-The `dir_`-prefixed variables are each a sequence of characters being something like `'D:\MagTIP-2022\output_var\StatisticIndex'`. 
-
 ### The Sample Script for Everything
-There is a script **"demo/demo_script.m"** contains the sample codes of the whole process; you can easily make everything set and go through the entire MagTIP procedures following the steps below:
+There is a script **"demo/demo_script.m"** contains the sample codes of the whole process; you can easily make everything set and go through the entire GEMS-MagTIP procedures following the steps below:
 - switch current directory to the folder named "MagTIP-2022"
 - run section(s) in the script
 
