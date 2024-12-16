@@ -50,6 +50,8 @@ The [main functions](../doc_library/index.qmd#main-functions) of GEMS-MagTIP tak
 
 Here is the minimal example of the chain of main functions:
 
+### Setting Up Directory Paths
+
 ```matlab
 % For windows, use backslash `\`; for unix systems, use slash `/` in the path to directories.
 dir_catalog = 'data/spreadsheet'; 
@@ -65,6 +67,8 @@ dir_molchan = 'output_var/Molchan';
 dir_jointstation = 'output_var/JointStation'; 
         % directory for the time series of EQK, TIP and probability
 ```
+
+### Executing Main Functions in the Correct Order
 
 ```matlab
 statind(dir_data,dir_stat); 
@@ -83,7 +87,7 @@ See [`statind_parfor`](../doc_library/#statind_parfor), [`molscore_parfor`](../d
 
 :::
 
-### The Sample Script for Everything
+### Comprehensive Sample Script
 Here is a sample script **"demo/demo_script.m"** for the whole process.
 
 ::: {.callout-tip}
