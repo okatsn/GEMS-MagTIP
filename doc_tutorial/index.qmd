@@ -13,7 +13,36 @@ end
 ```
 
 ## Getting Started
-The main functions of MagTIP take directories that contains necessary files as input arguments, and all output variables are saved in another directory as ".mat" files.
+The [main functions](../doc_library/index.qmd#main-functions) of GEMS-MagTIP take directories that contains intermediate data (those `.mat` files) as input arguments, and output data in the assigned directory. 
+
+Here is the minimal example of the chain of main functions:
+
+```matlab
+dir_catalog = 'data\spreadsheet'; 
+        % directory of event catalog & station location
+dir_data = 'data\geomag_1'; 
+        % directory of geomagnetic timeseries
+dir_stat = 'output_var\StatisticIndex'; 
+        % directory of statistic indices
+dir_tsAIN = 'output_var\tsAIN'; 
+        % directory for storing anomaly index number (AIN)
+dir_molchan = 'output_var\Molchan'; 
+        % directory for storing Molchan scores
+dir_jointstation = 'output_var\JointStation'; 
+        % directory for the time series of EQK, TIP and probability
+```
+
+```matlab
+statind(dir_data,dir_stat); 
+
+anomalyind(dir_stat,dir_tsAIN); 
+
+molscore(dir_tsAIN,dir_catalog,dir_molchan); 
+
+molscore3(dir_tsAIN,dir_molchan,dir_catalog,dir_jointstation); 
+```
+
+
 In this document, the input/output variable that contains the information of the path to a directory (i.e., a folder) is prefixed by `dir_`; for example, `dir_data` is the directory for the formatted geomagnetic data, and `dir_stat` is the directory for statistic indices. 
 The `dir_`-prefixed variables are each a sequence of characters being something like `'D:\MagTIP-2022\output_var\StatisticIndex'`. 
 
