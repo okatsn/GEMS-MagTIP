@@ -1,3 +1,13 @@
 ---
 title: "Tutorial"
 ---
+
+## Requirement
+
+```{julia}
+#| echo: false
+using Markdown, GEMSMagTIPDocumentation
+open(dir_0("GEMS-MagTIP-insider/_environment.txt")) do str
+    Markdown.parse(read(str, String))
+end
+```
