@@ -49,8 +49,10 @@ y = [
     getdoc(dir_0("GEMS-MagTIP-insider/src/readdata/readgems.m"), filename_header=3),
     getdoc(dir_0("GEMS-MagTIP-insider/src/readdata/read_gemsdat.m"), filename_header=3),
     getdoc(dir_0("GEMS-MagTIP-insider/src/readdata/geoelectric_projection.m"), filename_header=3),
+    getdoc(dir_0("GEMS-MagTIP-insider/src/readdata/columnind.m"), filename_header=3),
     getdoc(dir_0("GEMS-MagTIP-insider/src/readdata/standarddataname.m"), filename_header=3),
-    getdoc(dir_0("GEMS-MagTIP-insider/src/readdata/columnind.m"), filename_header=3)]
+    getdoc(dir_0("GEMS-MagTIP-insider/src/readdata/write_data.m"), filename_header=3),
+]
 
 Markdown.parse(reduce(*, y))
 ```

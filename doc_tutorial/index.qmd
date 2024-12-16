@@ -50,6 +50,53 @@ The [main functions](../doc_library/index.qmd#main-functions) of GEMS-MagTIP tak
 
 Here is the minimal example of the chain of main functions:
 
+### Prepare your data
+
+You have to prepare/update the following data:
+
+- earthquake catalog
+- geo-electric data of standard format
+- geo-magnetic data of standard format
+
+#### Earthquake catalog and station information
+
+{{< include "../GEMS-MagTIP-insider/spreadsheet/README.md" >}}
+
+The `station_location.csv` specifies the location of every station;
+here is a partial view on `station_location.csv`: 
+
+```{julia}
+#| echo: false
+using DataFrames, CSV, GEMSMagTIPDocumentation, PrettyTables
+df = CSV.read(dir_0("GEMS-MagTIP-insider/spreadsheet/original_csv/station_location.csv"), DataFrame) 
+pretty_table(df[16:end, :];max_num_of_rows = 8,backend = Val(:html), show_subheader= false)
+```
+
+
+#### Data of the standard format
+
+Converting raw data into a standard format is crucial.
+The conversion involves verification of date-time, conduct projection for geo-electric data to NS-EW, format the file name for indexing, and etc..
+
+Here is the minimal script for converting raw data into the standard format:
+
+```matlab
+dir_gems_raw = 'rawdata/GEMSdat'; % raw GEMS data
+dir_mag_raw = 'rawdata/MAG'; % raw MAG data
+dir_data = 'dataStandard'; % output directory
+conv_gemsdata(dir_gems_raw, dir_data, dir_catalog); 
+conv_geomagdata(dir_mag_raw, dir_data); 
+```
+
+
+::: {.callout-tip}
+Feel free to organize files and folders under `dir_data`, or convert the same raw data twice, because in GEMS-MagTIP data loading relies on the name of the standard format and the conversion functions will handle duplicated files.
+
+See [`standarddataname`](../doc_library/#standarddataname) and [`write_data`](../doc_library/#write_data)
+:::
+
+For more information please refer the section [Load raw data and convert it into a standard format](../doc_library/#load-raw-data-and-convert-it-into-a-standard-format)
+
 ### Setting Up Directory Paths
 
 Assigning directories for input/output data or variables is necessary before running any of the main function. 
@@ -60,7 +107,7 @@ For example:
 % For windows, use backslash `\`; for unix systems, use slash `/` in the path to directories.
 dir_catalog = 'spreadsheet'; 
         % directory of event catalog & station location
-dir_data = 'data/geomag_1'; 
+dir_data = 'dataStandard'; 
         % directory of geomagnetic timeseries of "standard format"
 dir_stat = 'output_var/StatisticIndex'; 
         % directory of statistic indices
@@ -82,19 +129,7 @@ dir_jointstation = 'output_var/JointStation';
 - `dir_data` is the directory that contains GE or GM data of the standard format; see [`conv_geomagdata`](../doc_library/#conv_geomagdata) and [`conv_gemsdata`](../doc_library/#conv_gemsdata) for the conversion of raw data to the standard format.
 :::
 
-#### Earthquake catalog and station information
 
-{{< include "../GEMS-MagTIP-insider/spreadsheet/README.md" >}}
-
-The `station_location.csv` specifies the location of every station;
-here is a partial view on `station_location.csv`: 
-
-```{julia}
-#| echo: false
-using DataFrames, CSV, GEMSMagTIPDocumentation, PrettyTables
-df = CSV.read(dir_0("GEMS-MagTIP-insider/spreadsheet/original_csv/station_location.csv"), DataFrame) 
-pretty_table(df[16:end, :];max_num_of_rows = 8,backend = Val(:html), show_subheader= false)
-```
 
 ### Executing Main Functions in the Correct Order
 
