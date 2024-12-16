@@ -11,3 +11,16 @@ open(dir_0("GEMS-MagTIP-insider/_environment.txt")) do str
     Markdown.parse(read(str, String))
 end
 ```
+
+## Getting Started
+The main functions of MagTIP take directories that contains necessary files as input arguments, and all output variables are saved in another directory as ".mat" files.
+In this document, the input/output variable that contains the information of the path to a directory (i.e., a folder) is prefixed by `dir_`; for example, `dir_data` is the directory for the formatted geomagnetic data, and `dir_stat` is the directory for statistic indices. 
+The `dir_`-prefixed variables are each a sequence of characters being something like `'D:\MagTIP-2022\output_var\StatisticIndex'`. 
+
+### The Sample Script for Everything
+There is a script **"demo/demo_script.m"** contains the sample codes of the whole process; you can easily make everything set and go through the entire MagTIP procedures following the steps below:
+- switch current directory to the folder named "MagTIP-2022"
+- run section(s) in the script
+
+In the beginning (the first three sections), you will see several pop-out windows for selecting the directory of geomagnetic data (`dir_data`) and loading the toolbox (`dir_toolbox`). 
+Select the right folders as instructed, and they will be automatically added to path and be ready to use.
