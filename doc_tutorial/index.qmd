@@ -16,7 +16,7 @@ open(dir_0("GEMS-MagTIP-insider/_environment.txt")) do str
     Markdown.parse(read(str, String))
 end
 ```
-{{< include "../GEMS-MagTIP-insider/_environment.txt" >}}
+{{< include "/GEMS-MagTIP-insider/_environment.txt" >}}
 
 
 ### Dependencies
@@ -60,7 +60,7 @@ You have to prepare/update the following data:
 
 #### Earthquake catalog and station information
 
-{{< include "../GEMS-MagTIP-insider/spreadsheet/README.md" >}}
+{{< include "/GEMS-MagTIP-insider/spreadsheet/README.md" >}}
 
 The `station_location.csv` specifies the location of every station;
 here is a partial view on `station_location.csv`: 
@@ -158,7 +158,7 @@ You can run `startup0.m` and follows the instruction in the command window to ad
 :::
 
 ```matlab
-{{< include "../GEMS-MagTIP-insider/demo/demo_script.m" >}}
+{{< include "/GEMS-MagTIP-insider/demo/demo_script.m" >}}
 ```
 
 

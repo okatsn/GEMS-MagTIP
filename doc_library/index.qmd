@@ -60,7 +60,7 @@ Markdown.parse(reduce(*, y))
 ## Available Preprocessing Functions
 
 
-{{< include "../GEMS-MagTIP-insider/src/preprocess/README.md" >}}
+{{< include "/GEMS-MagTIP-insider/src/preprocess/README.md" >}}
 
 
 ```{julia}
