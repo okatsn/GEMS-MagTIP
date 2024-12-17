@@ -18,6 +18,7 @@ Building upon GEMSTIP, MagTIP expanded the algorithm to include geomagnetic fiel
 It greatly improves computational efficiency, support for both full-field and triaxial magnetic data, and introduces a rolling forecast system. 
 MagTIP's advancements made it possible to integrate data from both modern and legacy instruments, ensuring the preservation and utilization of valuable historical records.
 
+![Historical milestones of GEMS-MagTIP development](assets/general/DevelopmentHistory2024.png){width=80%}
 
 ### GEMS-MagTIP: Unified and Multivariate
 

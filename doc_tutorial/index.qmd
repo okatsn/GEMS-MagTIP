@@ -95,7 +95,7 @@ Feel free to organize files and folders under `dir_data`, or convert the same ra
 See [`standarddataname`](../doc_library/#standarddataname) and [`write_data`](../doc_library/#write_data)
 :::
 
-For more information please refer the section [Load raw data and convert it into a standard format](../doc_library/#load-raw-data-and-convert-it-into-a-standard-format)
+For more information please refer the section [Load raw data and convert it into a standard format](../doc_library/#load-raw-data-and-convert-it-into-a-standard-format).
 
 ### Setting Up Directory Paths
 
@@ -125,7 +125,7 @@ dir_jointstation = 'output_var/JointStation';
 :::
 
 ::: {.callout-important}
-- `dir_catalog` must contain `catalog.csv`/`catalog.mat` and `station_location.csv`/`station_location.mat`. 
+- `dir_catalog` must contain `catalog.csv` or `catalog.mat`, and `station_location.csv` or `station_location.mat`. 
 - `dir_data` is the directory that contains GE or GM data of the standard format; see [`conv_geomagdata`](../doc_library/#conv_geomagdata) and [`conv_gemsdata`](../doc_library/#conv_gemsdata) for the conversion of raw data to the standard format.
 :::
 
@@ -161,3 +161,5 @@ You can run `startup0.m` and follows the instruction in the command window to ad
 {{< include "../GEMS-MagTIP-insider/demo/demo_script.m" >}}
 ```
 
+
+## Visualization of the results
