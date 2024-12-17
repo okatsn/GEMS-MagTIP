@@ -163,3 +163,27 @@ You can run `startup0.m` and follows the instruction in the command window to ad
 
 
 ## Visualization of the results
+
+### Plot EQK-TIP of each station
+
+```matlab
+{{< include "/GEMS-MagTIP-insider/demo/plot_eqktip.m" >}}
+```
+
+### EQK-TIP in a 2D temporal-spatial coordinate system
+
+```matlab
+{{< include "/GEMS-MagTIP-insider/demo/plot_eqktip3.m" >}}
+```
+
+### Plot fitting degree
+
+```matlab
+{{< include "/GEMS-MagTIP-insider/demo/plot_fitting_degree.m" >}}
+```
+
+### Plot probability map
+
+```matlab
+{{< include "/GEMS-MagTIP-insider/demo/plot_probability.m" >}}
+```
