@@ -46,7 +46,7 @@ addpath(genpath(dir_toolbox));
 
 
 ## Getting Started
-The [main functions](../doc_library/index.qmd#main-functions) of GEMS-MagTIP take directories that contains intermediate data (those `.mat` files) as input arguments, and output data in the assigned directory. 
+The [main functions](/doc_library/index.qmd#main-functions) of GEMS-MagTIP take directories that contains intermediate data (those `.mat` files) as input arguments, and output data in the assigned directory. 
 
 Here is the minimal example of the chain of main functions:
 
@@ -92,10 +92,10 @@ conv_geomagdata(dir_mag_raw, dir_data);
 ::: {.callout-tip}
 Feel free to organize files and folders under `dir_data`, or convert the same raw data twice, because in GEMS-MagTIP data loading relies on the name of the standard format and the conversion functions will handle duplicated files.
 
-See [`standarddataname`](../doc_library/#standarddataname) and [`write_data`](../doc_library/#write_data)
+See [`standarddataname`](/doc_library/#standarddataname) and [`write_data`](/doc_library/#write_data)
 :::
 
-For more information please refer the section [Load raw data and convert it into a standard format](../doc_library/#load-raw-data-and-convert-it-into-a-standard-format).
+For more information please refer the section [Load raw data and convert it into a standard format](/doc_library/#load-raw-data-and-convert-it-into-a-standard-format).
 
 ### Setting Up Directory Paths
 
@@ -120,13 +120,13 @@ dir_jointstation = 'output_var/JointStation';
 ```
 
 ::: {.callout-tip}
-- You can use [`mkdir_default`](../doc_library/#mkdir_default) to automatically generate empty directories for main functions.
-- You can use [`dirselectassign`](../doc_library/#dirselectassign) to assign directories via file explorer interface.
+- You can use [`mkdir_default`](/doc_library/#mkdir_default) to automatically generate empty directories for main functions.
+- You can use [`dirselectassign`](/doc_library/#dirselectassign) to assign directories via file explorer interface.
 :::
 
 ::: {.callout-important}
 - `dir_catalog` must contain `catalog.csv` or `catalog.mat`, and `station_location.csv` or `station_location.mat`. 
-- `dir_data` is the directory that contains GE or GM data of the standard format; see [`conv_geomagdata`](../doc_library/#conv_geomagdata) and [`conv_gemsdata`](../doc_library/#conv_gemsdata) for the conversion of raw data to the standard format.
+- `dir_data` is the directory that contains GE or GM data of the standard format; see [`conv_geomagdata`](/doc_library/#conv_geomagdata) and [`conv_gemsdata`](/doc_library/#conv_gemsdata) for the conversion of raw data to the standard format.
 :::
 
 
@@ -146,7 +146,7 @@ molscore3(dir_tsAIN,dir_molchan,dir_catalog,dir_jointstation);
 ::: {.callout-tip}
 `statind`, `molscore`, and `molscore3` have alternatives which run the same calculation in parallel.
 In most cases you can simply append `_parfor` (e.g., `molscore3_parfor(...) `) in the function name with no need to modify input arguments to do run in parallel. 
-See [`statind_parfor`](../doc_library/#statind_parfor), [`molscore_parfor`](../doc_library/#molscore_parfor), and [`molscore3_parfor`](../doc_library/#molscore3_parfor).
+See [`statind_parfor`](/doc_library/#statind_parfor), [`molscore_parfor`](/doc_library/#molscore_parfor), and [`molscore3_parfor`](/doc_library/#molscore3_parfor).
 
 :::
 
