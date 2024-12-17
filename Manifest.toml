@@ -255,9 +255,9 @@ uuid = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 
 [[deps.ReadMatlabDocstrings]]
 deps = ["Markdown"]
-path = "/home/jovyan/.julia/dev/ReadMatlabDocstrings"
+git-tree-sha1 = "312894d004b0f204c0dac10f6b41974c8ad9ba94"
 uuid = "5ac41729-0616-47d0-b24e-40b588cdc0a8"
-version = "0.0.1"
+version = "0.1.0"
 
 [[deps.Reexport]]
 git-tree-sha1 = "45e428421666073eab6f2da5c9d310d99bb12f9b"
