@@ -170,20 +170,31 @@ You can run `startup0.m` and follows the instruction in the command window to ad
 {{< include "/GEMS-MagTIP-insider/demo/plot_eqktip.m" >}}
 ```
 
+![An example of EQK-TIP plot.](/assets/example_eqktip1.png){width="80%"}
+
 ### EQK-TIP in a 2D temporal-spatial coordinate system
 
 ```matlab
 {{< include "/GEMS-MagTIP-insider/demo/plot_eqktip3.m" >}}
 ```
+![EQK-TIP plot in temporal-spatial coordinates explained.](/assets/general/matchingDiagram_TIP3D_explained.png){width="80%"}
+
 
 ### Plot fitting degree
 
 ```matlab
 {{< include "/GEMS-MagTIP-insider/demo/plot_fitting_degree.m" >}}
 ```
+::: {.column-margin}
+![An example of fitting degree plot.](/assets/example_fitting_degree.png)
+:::
 
 ### Plot probability map
 
 ```matlab
 {{< include "/GEMS-MagTIP-insider/demo/plot_probability.m" >}}
 ```
+
+::: {.column-margin}
+![An example of probability plot.](/assets/probmap_403_example.png)
+:::
