@@ -2,6 +2,8 @@
 title: "Library"
 ---
 
+::: {.content-visible when-profile="en"}
+
 ::: {.callout-warning}
 - Please don't assign undocumented name-value pair parameters to the functions. For example, `'CreateInfoOnly'` and `'InParforLoop'`, which are preserved for parallel computing, and you will never need to set them manually unless you are a developer.
 
@@ -18,6 +20,12 @@ There are four major stages in the complete GEMS-MagTIP workflow, and each stage
 4. [`molscore3`](#molscore3): Forecasting phase based on the model parameters of the highest Molchan scores, involving the calculation of joint-station TIP and probability based on the results of 2 and 3.
 
 The four stages is wrapped by four functions with keyword arguments that we can customize some hyper parameters which are associated with model optimization and probability forecast. 
+:::
+
+
+::: {.content-visible when-profile="zhtw"}
+zh-TW version is currently unavailable.
+:::
 
 
 
@@ -38,7 +46,14 @@ Markdown.parse(reduce(*, y))
 
 ```
 
+::: {.content-visible when-profile="en"}
+
 ## Load raw data and convert it into a standard format
+:::
+
+::: {.content-visible when-profile="zhtw"}
+zh-TW version is currently unavailable.
+:::
 
 ```{julia}
 #| echo: false
@@ -57,10 +72,17 @@ y = [
 Markdown.parse(reduce(*, y))
 ```
 
+::: {.content-visible when-profile="en"}
+
 ## Available Preprocessing Functions
 
 
 {{< include "/GEMS-MagTIP-insider/src/preprocess/README.md" >}}
+:::
+
+::: {.content-visible when-profile="zhtw"}
+zh-TW version is currently unavailable.
+:::
 
 
 ```{julia}
@@ -72,13 +94,26 @@ y = [getdoc(f, filename_header=3) for f in files]
 Markdown.parse(reduce(*, y))
 ```
 
-
+::: {.content-visible when-profile="en"}
 ::: {.callout-note}
 `generalfilterprocess` is the core shared among `'ULF_X'` and `BP_X` family; please refer [Filtering Functions](#filtering-functions).
 :::
 
+:::
+
+::: {.content-visible when-profile="zhtw"}
+zh-TW version is currently unavailable.
+:::
+
+
+::: {.content-visible when-profile="en"}
 
 ## Filtering Functions
+:::
+
+::: {.content-visible when-profile="zhtw"}
+zh-TW version is currently unavailable.
+:::
 
 ```{julia}
 #| echo: false
@@ -90,7 +125,14 @@ Markdown.parse(reduce(*, y))
 ```
 
 
+::: {.content-visible when-profile="en"}
 ## Internal API for TIP Calculation
+:::
+
+::: {.content-visible when-profile="zhtw"}
+zh-TW version is currently unavailable.
+:::
+
 ```{julia}
 #| echo: false
 
@@ -100,7 +142,13 @@ y = [getdoc(f, filename_header=3) for f in files]
 Markdown.parse(reduce(*, y))
 ```
 
+::: {.content-visible when-profile="en"}
 ## Format
+:::
+
+::: {.content-visible when-profile="zhtw"}
+zh-TW version is currently unavailable.
+:::
 
 ```{julia}
 #| echo: false
@@ -108,7 +156,13 @@ Markdown.parse(reduce(*, y))
 getdoc(dir_0("GEMS-MagTIP-insider/src/@fmt/fmt.m"), filename_header=3) |> Markdown.parse
 ```
 
+::: {.content-visible when-profile="en"}
 ## Others
+:::
+
+::: {.content-visible when-profile="zhtw"}
+zh-TW version is currently unavailable.
+:::
 
 ```{julia}
 #| echo: false
