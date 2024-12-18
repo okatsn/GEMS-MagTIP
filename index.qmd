@@ -5,10 +5,19 @@ title: "GEMS-MagTIP"
 
 The documentation of GEMS-MagTIP: https://cgrg-lab.github.io/GEMS-MagTIP/
 
+::: {.content-visible when-profile="en"}
+
 ## Introduction to GEMS-MagTIP
 
 GEMS-MagTIP is an integrated algorithm that calculates the Time of Increased Probability (TIP) for earthquakes based on geoelectric and geomagnetic field data. 
 It represents the culmination of advancements from the earlier GEMSTIP (GeoElectric Monitoring System's TIP) and MagTIP systems, combining their methodologies into a multivariate framework that supports diverse data sources.
+
+:::
+
+::: {.content-visible when-profile="zhtw"}
+GEMS-MagTIP 是一個...(翻譯未完)
+:::
+
 
 
 ![Schematic illustration of the TIP concept](assets/general/fig_TIP_concept.png){width=80%}

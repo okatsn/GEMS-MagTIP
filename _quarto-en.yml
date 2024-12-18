@@ -1,0 +1,18 @@
+project:
+  output-dir: docs
+
+website:
+  title: "GEMS-MagTIP"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: doc_tutorial/index.qmd
+        text: Tutorial
+      - href: doc_library/index.qmd
+        text: Library
+
+      - about.qmd
+
+
+
