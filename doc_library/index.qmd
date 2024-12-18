@@ -8,9 +8,11 @@ title: "Library"
 - Please don't assign undocumented name-value pair parameters to the functions. For example, `'CreateInfoOnly'` and `'InParforLoop'`, which are preserved for parallel computing, and you will never need to set them manually unless you are a developer.
 
 :::
-
+:::
 
 ## Main Functions
+
+::: {.content-visible when-profile="en"}
 
 There are four major stages in the complete GEMS-MagTIP workflow, and each stage is wrapped by the main functions as below: 
 
@@ -46,14 +48,12 @@ Markdown.parse(reduce(*, y))
 
 ```
 
-::: {.content-visible when-profile="en"}
+
 
 ## Load raw data and convert it into a standard format
-:::
 
-::: {.content-visible when-profile="zhtw"}
-zh-TW version is currently unavailable.
-:::
+
+
 
 ```{julia}
 #| echo: false
@@ -72,9 +72,10 @@ y = [
 Markdown.parse(reduce(*, y))
 ```
 
+## Available Preprocessing Functions
+
 ::: {.content-visible when-profile="en"}
 
-## Available Preprocessing Functions
 
 
 {{< include "/GEMS-MagTIP-insider/src/preprocess/README.md" >}}
@@ -106,14 +107,7 @@ zh-TW version is currently unavailable.
 :::
 
 
-::: {.content-visible when-profile="en"}
-
 ## Filtering Functions
-:::
-
-::: {.content-visible when-profile="zhtw"}
-zh-TW version is currently unavailable.
-:::
 
 ```{julia}
 #| echo: false
@@ -125,13 +119,7 @@ Markdown.parse(reduce(*, y))
 ```
 
 
-::: {.content-visible when-profile="en"}
 ## Internal API for TIP Calculation
-:::
-
-::: {.content-visible when-profile="zhtw"}
-zh-TW version is currently unavailable.
-:::
 
 ```{julia}
 #| echo: false
@@ -142,13 +130,7 @@ y = [getdoc(f, filename_header=3) for f in files]
 Markdown.parse(reduce(*, y))
 ```
 
-::: {.content-visible when-profile="en"}
 ## Format
-:::
-
-::: {.content-visible when-profile="zhtw"}
-zh-TW version is currently unavailable.
-:::
 
 ```{julia}
 #| echo: false
@@ -156,13 +138,7 @@ zh-TW version is currently unavailable.
 getdoc(dir_0("GEMS-MagTIP-insider/src/@fmt/fmt.m"), filename_header=3) |> Markdown.parse
 ```
 
-::: {.content-visible when-profile="en"}
 ## Others
-:::
-
-::: {.content-visible when-profile="zhtw"}
-zh-TW version is currently unavailable.
-:::
 
 ```{julia}
 #| echo: false

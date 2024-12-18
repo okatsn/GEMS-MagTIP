@@ -1,9 +1,5 @@
 # To render with this profile (will be merged with `_quarto.yml`), please run quarto render --profile zhtw
 # See https://quarto.org/docs/projects/profiles.html
-# KEYNOTE: A code block may result in ChatGPT translation output error. 
-# To avoid this, please find all code blocks in the documents and manually 
-# remove them before feeding the qmd script to ChatGPT. 
-# Here is a helpful regular expression: ```.*\n+([\n\s\r]|.)*?```
 project:
   output-dir: docs/zh-TW
 
