@@ -1,0 +1,200 @@
+---
+title: "教程"
+---
+
+## Requirements
+
+### Environment
+```{julia}
+#| echo: false
+#| eval: false
+
+# #KEYNOTE: Use Quarto's include interface is much more direct to read external content and show it here.
+# This block is just for references; you can freely delete this block whenever you want.
+using Markdown, GEMSMagTIPDocumentation
+open(dir_0("GEMS-MagTIP-insider/_environment.txt")) do str
+    Markdown.parse(read(str, String))
+end
+```
+{{< include "/GEMS-MagTIP-insider/_environment.txt" >}}
+
+
+### Dependencies
+
+GEMS-MagTIP depends on [okatsn/toolbox](https://github.com/okatsn/toolbox) and [CGRG-lab/GEMS-MagTIP-insider](https://github.com/CGRG-lab/GEMS-MagTIP-insider).
+
+You have to add these dependencies to path every time before running your scripts, as follows
+
+#### [CGRG-lab/GEMS-MagTIP-insider](https://github.com/CGRG-lab/GEMS-MagTIP-insider)
+
+Copy [CGRG-lab/GEMS-MagTIP-insider](https://github.com/CGRG-lab/GEMS-MagTIP-insider) to your local drive (e.g., `GEMS-MagTIP-insider`) and add the source code inside to path:
+
+```matlab
+dir_src = 'GEMS-MagTIP-insider/src';
+addpath(genpath(dir_src));
+```
+
+
+#### [okatsn/toolbox](https://github.com/okatsn/toolbox)
+
+Copy [okatsn/toolbox](https://github.com/okatsn/toolbox) to the main directory (e.g., `GEMS-MagTIP-insider/toolbox`) and add the source code inside to path:
+
+```matlab
+dir_toolbox = 'GEMS-MagTIP-insider/toolbox';
+addpath(genpath(dir_toolbox));
+```
+
+
+## Getting Started
+The [main functions](/doc_library/index.qmd#main-functions) of GEMS-MagTIP take directories that contains intermediate data (those `.mat` files) as input arguments, and output data in the assigned directory. 
+
+Here is the minimal example of the chain of main functions:
+
+### Prepare your data
+
+You have to prepare/update the following data:
+
+- earthquake catalog
+- geo-electric data of standard format
+- geo-magnetic data of standard format
+
+#### Earthquake catalog and station information
+
+{{< include "/GEMS-MagTIP-insider/spreadsheet/README.md" >}}
+
+The `station_location.csv` specifies the location of every station;
+here is a partial view on `station_location.csv`: 
+
+```{julia}
+#| echo: false
+using DataFrames, CSV, GEMSMagTIPDocumentation, PrettyTables
+df = CSV.read(dir_0("GEMS-MagTIP-insider/spreadsheet/original_csv/station_location.csv"), DataFrame) 
+pretty_table(df[16:end, :];max_num_of_rows = 8,backend = Val(:html), show_subheader= false)
+```
+
+
+#### Data of the standard format
+
+Converting raw data into a standard format is crucial.
+The conversion involves verification of date-time, conduct projection for geo-electric data to NS-EW, format the file name for indexing, and etc..
+
+Here is the minimal script for converting raw data into the standard format:
+
+```matlab
+dir_gems_raw = 'rawdata/GEMSdat'; % raw GEMS data
+dir_mag_raw = 'rawdata/MAG'; % raw MAG data
+dir_data = 'dataStandard'; % output directory
+conv_gemsdata(dir_gems_raw, dir_data, dir_catalog); 
+conv_geomagdata(dir_mag_raw, dir_data); 
+```
+
+
+::: {.callout-tip}
+Feel free to organize files and folders under `dir_data`, or convert the same raw data twice, because in GEMS-MagTIP data loading relies on the name of the standard format and the conversion functions will handle duplicated files.
+
+See [`standarddataname`](/doc_library/#standarddataname) and [`write_data`](/doc_library/#write_data)
+:::
+
+For more information please refer the section [Load raw data and convert it into a standard format](/doc_library/#load-raw-data-and-convert-it-into-a-standard-format).
+
+### Setting Up Directory Paths
+
+Assigning directories for input/output data or variables is necessary before running any of the main function. 
+
+For example:
+
+```matlab
+% For windows, use backslash `\`; for unix systems, use slash `/` in the path to directories.
+dir_catalog = 'spreadsheet'; 
+        % directory of event catalog & station location
+dir_data = 'dataStandard'; 
+        % directory of geomagnetic timeseries of "standard format"
+dir_stat = 'output_var/StatisticIndex'; 
+        % directory of statistic indices
+dir_tsAIN = 'output_var/tsAIN'; 
+        % directory for storing anomaly index number (AIN)
+dir_molchan = 'output_var/Molchan'; 
+        % directory for storing Molchan scores
+dir_jointstation = 'output_var/JointStation'; 
+        % directory for the time series of EQK, TIP and probability
+```
+
+::: {.callout-tip}
+- You can use [`mkdir_default`](/doc_library/#mkdir_default) to automatically generate empty directories for main functions.
+- You can use [`dirselectassign`](/doc_library/#dirselectassign) to assign directories via file explorer interface.
+:::
+
+::: {.callout-important}
+- `dir_catalog` must contain `catalog.csv` or `catalog.mat`, and `station_location.csv` or `station_location.mat`. 
+- `dir_data` is the directory that contains GE or GM data of the standard format; see [`conv_geomagdata`](/doc_library/#conv_geomagdata) and [`conv_gemsdata`](/doc_library/#conv_gemsdata) for the conversion of raw data to the standard format.
+:::
+
+
+
+### Executing Main Functions in the Correct Order
+
+```matlab
+statind(dir_data,dir_stat); 
+
+anomalyind(dir_stat,dir_tsAIN); 
+
+molscore(dir_tsAIN,dir_catalog,dir_molchan); 
+
+molscore3(dir_tsAIN,dir_molchan,dir_catalog,dir_jointstation); 
+```
+
+::: {.callout-tip}
+`statind`, `molscore`, and `molscore3` have alternatives which run the same calculation in parallel.
+In most cases you can simply append `_parfor` (e.g., `molscore3_parfor(...) `) in the function name with no need to modify input arguments to do run in parallel. 
+See [`statind_parfor`](/doc_library/#statind_parfor), [`molscore_parfor`](/doc_library/#molscore_parfor), and [`molscore3_parfor`](/doc_library/#molscore3_parfor).
+
+:::
+
+### Comprehensive Sample Script
+Here is a sample script **"demo/demo_script.m"** for the whole process.
+
+::: {.callout-tip}
+You can run `startup0.m` and follows the instruction in the command window to add dependencies and assign input/output directories as described above.
+:::
+
+```matlab
+{{< include "/GEMS-MagTIP-insider/demo/demo_script.m" >}}
+```
+
+
+## Visualization of the results
+
+### Plot EQK-TIP of each station
+
+```matlab
+{{< include "/GEMS-MagTIP-insider/demo/plot_eqktip.m" >}}
+```
+
+![An example of EQK-TIP plot.](/assets/example_eqktip1.png){width="80%"}
+
+### EQK-TIP in a 2D temporal-spatial coordinate system
+
+```matlab
+{{< include "/GEMS-MagTIP-insider/demo/plot_eqktip3.m" >}}
+```
+![EQK-TIP plot in temporal-spatial coordinates explained.](/assets/general/matchingDiagram_TIP3D_explained.png){width="80%"}
+
+
+### Plot fitting degree
+
+```matlab
+{{< include "/GEMS-MagTIP-insider/demo/plot_fitting_degree.m" >}}
+```
+::: {.column-margin}
+![An example of fitting degree plot.](/assets/example_fitting_degree.png)
+:::
+
+### Plot probability map
+
+```matlab
+{{< include "/GEMS-MagTIP-insider/demo/plot_probability.m" >}}
+```
+
+::: {.column-margin}
+![An example of probability plot.](/assets/probmap_403_example.png)
+:::

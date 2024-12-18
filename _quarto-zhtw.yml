@@ -1,3 +1,4 @@
+# To render with this profile (will be merged with `_quarto.yml`), please run quarto render --profile zhtw
 # See https://quarto.org/docs/projects/profiles.html
 project:
   output-dir: docs/zh-TW
@@ -5,11 +6,11 @@ project:
 website:
   navbar:
     left:
-      - href: index.qmd
-        text: Home
-      - href: doc_tutorial/index.qmd
-        text: Tutorial
-      - href: doc_library/index.qmd
-        text: Library
+      - href: index.zh-TW.qmd
+        text: 主頁
+      - href: doc_tutorial/index.zh-TW.qmd
+        text: 教程
+      - href: doc_library/index.zh-TW.qmd
+        text: 函式庫
 
-      - about.qmd
+      - about.zh-TW.qmd
