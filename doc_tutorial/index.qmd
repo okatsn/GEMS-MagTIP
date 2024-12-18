@@ -13,7 +13,9 @@ title: "Tutorial"
 
 
 ::: {.content-visible when-profile="zhtw"}
-zh-TW version is currently unavailable.
+### 環境
+
+{{< include "/GEMS-MagTIP-insider/_environment.txt" >}}
 :::
 
 
@@ -30,7 +32,9 @@ You have to add these dependencies to path every time before running your script
 :::
 
 ::: {.content-visible when-profile="zhtw"}
-zh-TW version is currently unavailable.
+GEMS-MagTIP 依賴於 [okatsn/toolbox](https://github.com/okatsn/toolbox) 和 [CGRG-lab/GEMS-MagTIP-insider](https://github.com/CGRG-lab/GEMS-MagTIP-insider)。
+
+在執行腳本前，您需要將這些依賴項加入系統的路徑設定，如下所示：
 :::
 
 
@@ -43,7 +47,7 @@ Copy [CGRG-lab/GEMS-MagTIP-insider](https://github.com/CGRG-lab/GEMS-MagTIP-insi
 
 
 ::: {.content-visible when-profile="zhtw"}
-zh-TW version is currently unavailable.
+將 [CGRG-lab/GEMS-MagTIP-insider](https://github.com/CGRG-lab/GEMS-MagTIP-insider) 複製到本地磁碟中 (例如 `GEMS-MagTIP-insider`)，並將其內的原始碼加入系統路徑：
 :::
 
 
@@ -61,10 +65,8 @@ Copy [okatsn/toolbox](https://github.com/okatsn/toolbox) to the main directory (
 :::
 
 ::: {.content-visible when-profile="zhtw"}
-zh-TW version is currently unavailable.
+將 [okatsn/toolbox](https://github.com/okatsn/toolbox) 複製到主目錄中 (例如 `GEMS-MagTIP-insider/toolbox`)，並將其內的原始碼加入系統路徑：
 :::
-
-
 
 ```matlab
 dir_toolbox = 'GEMS-MagTIP-insider/toolbox';
@@ -96,9 +98,25 @@ here is a partial view on `station_location.csv`:
 :::
 
 ::: {.content-visible when-profile="zhtw"}
-zh-TW version is currently unavailable.
-:::
+[GEMS-MagTIP 的主要功能](/doc_library/index.qmd#main-functions) 需要以目錄中的中間數據（如 `.mat` 文件）作為輸入參數，並將輸出數據存放於指定的目錄中。
 
+以下是一個主要功能操作鏈的簡單示例：
+
+### 準備數據
+
+您需要準備/更新以下數據：
+
+- 地震目錄
+- 標準格式的地電數據
+- 標準格式的地磁數據
+
+#### 地震目錄與測站資訊
+
+{{< include "/GEMS-MagTIP-insider/spreadsheet/README.md" >}}
+
+`station_location.csv` 指定了每個測站的位置；
+以下為 `station_location.csv` 的部分內容：
+:::
 
 ```{julia}
 #| echo: false
@@ -119,9 +137,13 @@ Here is the minimal script for converting raw data into the standard format:
 :::
 
 ::: {.content-visible when-profile="zhtw"}
-zh-TW version is currently unavailable.
-:::
+#### 標準格式數據
 
+將原始數據轉換為標準格式非常重要。
+此轉換過程包括日期時間驗證、將地電數據投影為NS-EW格式、格式化文件名稱以供索引等。
+
+以下是一個將原始數據轉換為標準格式的簡單腳本：
+:::
 
 ```matlab
 dir_gems_raw = 'rawdata/GEMSdat'; % raw GEMS data
@@ -144,8 +166,15 @@ For more information please refer the section [Load raw data and convert it into
 :::
 
 ::: {.content-visible when-profile="zhtw"}
-zh-TW version is currently unavailable.
+::: {.callout-tip}
+您可以自由組織 `dir_data` 中的文件和文件夾，或者對同一原始數據進行多次轉換，因為在 GEMS-MagTIP 中數據加載依賴於標準格式的文件名，轉換功能將處理重複的文件。
+
+參閱 [`standarddataname`](/doc_library/#standarddataname) 和 [`write_data`](/doc_library/#write_data)。
 :::
+
+有關更多信息，請參閱[加載原始數據並將其轉換為標準格式](/doc_library/#load-raw-data-and-convert-it-into-a-standard-format)部分。
+:::
+
 
 ::: {.content-visible when-profile="en"}
 
@@ -157,7 +186,11 @@ For example:
 :::
 
 ::: {.content-visible when-profile="zhtw"}
-zh-TW version is currently unavailable.
+### 設置目錄路徑
+
+在運行任何主要功能之前，必須分配輸入/輸出數據或變量的目錄。
+
+例如：
 :::
 
 ```matlab
@@ -190,7 +223,15 @@ dir_jointstation = 'output_var/JointStation';
 :::
 
 ::: {.content-visible when-profile="zhtw"}
-zh-TW version is currently unavailable.
+::: {.callout-tip}
+- 您可以使用 [`mkdir_default`](/doc_library/#mkdir_default) 自動生成主要功能所需的空目錄。
+- 您可以使用 [`dirselectassign`](/doc_library/#dirselectassign) 通過文件瀏覽器界面分配目錄。
+:::
+
+::: {.callout-important}
+- `dir_catalog` 必須包含 `catalog.csv` 或 `catalog.mat`，以及 `station_location.csv` 或 `station_location.mat`。
+- `dir_data` 是包含 GE 或 GM 標準格式數據的目錄；請參閱 [`conv_geomagdata`](/doc_library/#conv_geomagdata) 和 [`conv_gemsdata`](/doc_library/#conv_gemsdata) 以將原始數據轉換為標準格式。
+:::
 :::
 
 
@@ -199,7 +240,7 @@ zh-TW version is currently unavailable.
 :::
 
 ::: {.content-visible when-profile="zhtw"}
-zh-TW version is currently unavailable.
+### 按正確的順序執行主要功能
 :::
 
 
@@ -225,7 +266,11 @@ See [`statind_parfor`](/doc_library/#statind_parfor), [`molscore_parfor`](/doc_l
 :::
 
 ::: {.content-visible when-profile="zhtw"}
-zh-TW version is currently unavailable.
+::: {.callout-tip}
+`statind`、`molscore` 和 `molscore3` 有平行計算的替代方案。
+在大多數情況下，您只需在函數名稱後附加 `_parfor` (例如，`molscore3_parfor(...) `) 即可在不修改輸入參數的情況下進行平行運行。
+參閱 [`statind_parfor`](/doc_library/#statind_parfor)、[`molscore_parfor`](/doc_library/#molscore_parfor) 和 [`molscore3_parfor`](/doc_library/#molscore3_parfor)。
+:::
 :::
 
 
@@ -244,7 +289,12 @@ You can run `startup0.m` and follows the instruction in the command window to ad
 :::
 
 ::: {.content-visible when-profile="zhtw"}
-zh-TW version is currently unavailable.
+### 綜合範例腳本
+以下是整個流程的範例腳本 **"demo/demo_script.m"**。
+
+::: {.callout-tip}
+您可以運行 `startup0.m` 並按照命令視窗中的指示，添加依賴項並分配如上所述的輸入/輸出目錄。
+:::
 :::
 
 
@@ -257,7 +307,9 @@ zh-TW version is currently unavailable.
 
 
 ::: {.content-visible when-profile="zhtw"}
-zh-TW version is currently unavailable.
+## 結果可視化
+
+### 繪製每個測站的 EQK-TIP
 :::
 
 
@@ -273,7 +325,7 @@ zh-TW version is currently unavailable.
 :::
 
 ::: {.content-visible when-profile="zhtw"}
-zh-TW version is currently unavailable.
+### EQK-TIP 在 2D 時間-空間座標系統中的表示
 :::
 
 
@@ -288,7 +340,7 @@ zh-TW version is currently unavailable.
 :::
 
 ::: {.content-visible when-profile="zhtw"}
-zh-TW version is currently unavailable.
+### 繪製擬合程度
 :::
 
 
@@ -304,7 +356,7 @@ zh-TW version is currently unavailable.
 :::
 
 ::: {.content-visible when-profile="zhtw"}
-zh-TW version is currently unavailable.
+### 繪製概率圖
 :::
 
 
