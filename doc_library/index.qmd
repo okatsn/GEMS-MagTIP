@@ -10,6 +10,13 @@ title: "Library"
 :::
 :::
 
+::: {.content-visible when-profile="zhtw"}
+::: {.callout-warning}
+- 請勿將未記錄的名稱-值對參數分配給函數。例如，`'CreateInfoOnly'` 和 `'InParforLoop'`，這些參數是為平行運算保留的，除非您是開發者，否則無需手動設置它們。
+:::
+
+:::
+
 ## Main Functions
 
 ::: {.content-visible when-profile="en"}
