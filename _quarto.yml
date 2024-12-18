@@ -17,9 +17,10 @@ website:
     - icon: github
       href: https://github.com/okatsn/GEMS-MagTIP
     - icon: globe-americas
-      href: ./
+      href: https://okatsn.github.io/GEMS-MagTIP/
     - icon: translate
-      href: ./zh-TW
+      href: https://okatsn.github.io/GEMS-MagTIP/zh-TW
+      # KEYNOTE: you cannot set href as ./docs or ./docs/zh-TW, because it will jumps to /docs/docs/ if you click globe-americas at /docs/
 
 format:
   html:
