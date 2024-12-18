@@ -1,0 +1,13 @@
+md5: f8efac0460ce3006d538941ff8a78c09
+frozen: true
+deps:
+- path: 
+    cwa-geamtip/report-2024/events/Hualien_20240403/Eventid[34]From[2024-04-02]To[2024-04-03].png
+  repo:
+    url: https://github.com/okatsn/ok-assets-registry.git
+    rev_lock: cc241500174b83a90d45338d9fcc91a9286e4519
+outs:
+- md5: 159d5f1b6e1b167cfc79711b60b74800
+  size: 516169
+  hash: md5
+  path: probts_403_example.png

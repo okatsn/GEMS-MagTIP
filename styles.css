@@ -1,1 +1,6 @@
 /* css styles */
+/* https://github.com/quarto-dev/quarto-cli/discussions/7003 */
+.figure {
+    margin: auto;
+    text-align: center;
+}

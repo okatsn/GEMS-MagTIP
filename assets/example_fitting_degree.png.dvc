@@ -1,0 +1,5 @@
+outs:
+- md5: f5777652d540874107fcd37584b0a222
+  size: 116587
+  hash: md5
+  path: example_fitting_degree.png
