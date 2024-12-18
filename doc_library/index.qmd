@@ -26,11 +26,17 @@ The four stages is wrapped by four functions with keyword arguments that we can 
 
 
 ::: {.content-visible when-profile="zhtw"}
-zh-TW version is currently unavailable.
+
+在完整的 GEMS-MagTIP 工作流程中，主要分為四個階段，每個階段對應以下主要功能：
+
+1. [`statind`](#statind)：統計指標的計算。
+2. [`anomalyind`](#anomalyind)：基於統計指標計算異常指標數值。
+3. [`molscore`](#molscore)：基於異常指標的訓練階段，包括單測站 TIP 的計算、匹配目標地震的 TIP，以及計算 Molchan 得分。
+4. [`molscore3`](#molscore3)：基於最高 Molchan 得分的模型參數進行預報階段，包括計算聯合測站 TIP 和基於第 2、3 步結果的概率。
+
+這四個階段由四個函數封裝，並提供關鍵字參數，允許我們自訂一些與模型優化和概率預報相關的超參數。
+
 :::
-
-
-
 ```{julia}
 #| echo: false
 
@@ -82,7 +88,8 @@ Markdown.parse(reduce(*, y))
 :::
 
 ::: {.content-visible when-profile="zhtw"}
-zh-TW version is currently unavailable.
+
+{{< include "/GEMS-MagTIP-insider/src/preprocess/README.md" >}}
 :::
 
 
@@ -103,9 +110,11 @@ Markdown.parse(reduce(*, y))
 :::
 
 ::: {.content-visible when-profile="zhtw"}
-zh-TW version is currently unavailable.
+::: {.callout-note}
+`generalfilterprocess` 是 `'ULF_X'` 和 `BP_X` 系列的核心共用函數；詳情請參考[過濾功能](#filtering-functions)。
 :::
 
+:::
 
 ## Filtering Functions
 
