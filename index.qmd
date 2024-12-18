@@ -15,6 +15,9 @@ It represents the culmination of advancements from the earlier GEMSTIP (GeoElect
 :::
 
 ::: {.content-visible when-profile="zhtw"}
+
+## 簡介
+
 GEMS-MagTIP 是一個...(翻譯未完)
 :::
 
@@ -23,6 +26,7 @@ GEMS-MagTIP 是一個...(翻譯未完)
 ![Schematic illustration of the TIP concept](assets/general/fig_TIP_concept.png){width=80%}
 
 
+::: {.content-visible when-profile="en"}
 
 ### Historical Development
 
@@ -31,8 +35,19 @@ The development began with GEMSTIP (Geoelectric Monitoring System's Time of Incr
 Building upon GEMSTIP, MagTIP expanded the algorithm to include geomagnetic field data. 
 It greatly improves computational efficiency, support for both full-field and triaxial magnetic data, and introduces a rolling forecast system. 
 MagTIP's advancements made it possible to integrate data from both modern and legacy instruments, ensuring the preservation and utilization of valuable historical records.
+:::
+
+::: {.content-visible when-profile="zhtw"}
+
+zh-TW version is currently unavailable.
+
+:::
+
 
 ![Historical milestones of GEMS-MagTIP development](assets/general/DevelopmentHistory2024.png){width=80%}
+
+
+::: {.content-visible when-profile="en"}
 
 ### GEMS-MagTIP: Unified and Multivariate
 
@@ -41,6 +56,12 @@ This multivariate system supports a wide range of geo-electromagnetic data types
 
 GEMS-MagTIP system represents an advancement in earthquake precursor research.
 It provides a robust and adaptable tool to identify geo-electromagnetic anomalies correlated with large earthquake events, and allows joint-station probabilistic earthquake forecasting based on the concept of TIP. 
+:::
+
+::: {.content-visible when-profile="zhtw"}
+zh-TW version is currently unavailable.
+:::
+
 
 ![Geo-electric and magnetic stations in the [Taiwan Geophysical Network for Seismology, TGNS](https://gdms.cwa.gov.tw/network_tgns.php).](assets/general/stationMap_2024.png){width=50%}
 
