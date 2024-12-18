@@ -283,9 +283,6 @@ Here is a sample script **"demo/demo_script.m"** for the whole process.
 You can run `startup0.m` and follows the instruction in the command window to add dependencies and assign input/output directories as described above.
 :::
 
-```matlab
-{{< include "/GEMS-MagTIP-insider/demo/demo_script.m" >}}
-```
 :::
 
 ::: {.content-visible when-profile="zhtw"}
@@ -296,6 +293,10 @@ You can run `startup0.m` and follows the instruction in the command window to ad
 您可以運行 `startup0.m` 並按照命令視窗中的指示，添加依賴項並分配如上所述的輸入/輸出目錄。
 :::
 :::
+
+```matlab
+{{< include "/GEMS-MagTIP-insider/demo/demo_script.m" >}}
+```
 
 
 ::: {.content-visible when-profile="en"}
