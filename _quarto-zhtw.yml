@@ -1,0 +1,15 @@
+# See https://quarto.org/docs/projects/profiles.html
+project:
+  output-dir: docs/zh-TW
+
+website:
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: doc_tutorial/index.qmd
+        text: Tutorial
+      - href: doc_library/index.qmd
+        text: Library
+
+      - about.qmd
