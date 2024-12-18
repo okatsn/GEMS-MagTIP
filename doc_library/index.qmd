@@ -2,13 +2,17 @@
 title: "Library"
 ---
 
+::: {.content-visible when-profile="en"}
+
 ::: {.callout-warning}
 - Please don't assign undocumented name-value pair parameters to the functions. For example, `'CreateInfoOnly'` and `'InParforLoop'`, which are preserved for parallel computing, and you will never need to set them manually unless you are a developer.
 
 :::
-
+:::
 
 ## Main Functions
+
+::: {.content-visible when-profile="en"}
 
 There are four major stages in the complete GEMS-MagTIP workflow, and each stage is wrapped by the main functions as below: 
 
@@ -18,9 +22,21 @@ There are four major stages in the complete GEMS-MagTIP workflow, and each stage
 4. [`molscore3`](#molscore3): Forecasting phase based on the model parameters of the highest Molchan scores, involving the calculation of joint-station TIP and probability based on the results of 2 and 3.
 
 The four stages is wrapped by four functions with keyword arguments that we can customize some hyper parameters which are associated with model optimization and probability forecast. 
+:::
 
 
+::: {.content-visible when-profile="zhtw"}
 
+在完整的 GEMS-MagTIP 工作流程中，主要分為四個階段，每個階段對應以下主要功能：
+
+1. [`statind`](#statind)：統計指標的計算。
+2. [`anomalyind`](#anomalyind)：基於統計指標計算異常指標數值。
+3. [`molscore`](#molscore)：基於異常指標的訓練階段，包括單測站 TIP 的計算、匹配目標地震的 TIP，以及計算 Molchan 得分。
+4. [`molscore3`](#molscore3)：基於最高 Molchan 得分的模型參數進行預報階段，包括計算聯合測站 TIP 和基於第 2、3 步結果的概率。
+
+這四個階段由四個函數封裝，並提供關鍵字參數，允許我們自訂一些與模型優化和概率預報相關的超參數。
+
+:::
 ```{julia}
 #| echo: false
 
@@ -38,7 +54,12 @@ Markdown.parse(reduce(*, y))
 
 ```
 
+
+
 ## Load raw data and convert it into a standard format
+
+
+
 
 ```{julia}
 #| echo: false
@@ -59,8 +80,17 @@ Markdown.parse(reduce(*, y))
 
 ## Available Preprocessing Functions
 
+::: {.content-visible when-profile="en"}
+
+
 
 {{< include "/GEMS-MagTIP-insider/src/preprocess/README.md" >}}
+:::
+
+::: {.content-visible when-profile="zhtw"}
+
+{{< include "/GEMS-MagTIP-insider/src/preprocess/README.md" >}}
+:::
 
 
 ```{julia}
@@ -72,11 +102,19 @@ y = [getdoc(f, filename_header=3) for f in files]
 Markdown.parse(reduce(*, y))
 ```
 
-
+::: {.content-visible when-profile="en"}
 ::: {.callout-note}
 `generalfilterprocess` is the core shared among `'ULF_X'` and `BP_X` family; please refer [Filtering Functions](#filtering-functions).
 :::
 
+:::
+
+::: {.content-visible when-profile="zhtw"}
+::: {.callout-note}
+`generalfilterprocess` 是 `'ULF_X'` 和 `BP_X` 系列的核心共用函數；詳情請參考[過濾功能](#filtering-functions)。
+:::
+
+:::
 
 ## Filtering Functions
 
@@ -91,6 +129,7 @@ Markdown.parse(reduce(*, y))
 
 
 ## Internal API for TIP Calculation
+
 ```{julia}
 #| echo: false
 
