@@ -1,0 +1,8 @@
+schema: '2.0'
+stages:
+  dvc_pull_submodule:
+    cmd: dvc pull
+  quarto_render_default:
+    cmd: quarto render
+  quarto_render_zhtw:
+    cmd: quarto render --profile zhtw
