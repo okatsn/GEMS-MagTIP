@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>GEMS-MagTIP</title>
+<title>brief_report – GEMS-MagTIP 說明文件中文版</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-c32e7a94553be212d23e436c336a7c64.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-c32e7a94553be212d23e436c336a7c64.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -78,8 +112,8 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">GEMS-MagTIP</span>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">GEMS-MagTIP 說明文件中文版</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -89,19 +123,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">主頁</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./doc_tutorial/index.html"> 
-<span class="menu-text">Tutorial</span></a>
+    <a class="nav-link" href="../../doc_tutorial/index.html"> 
+<span class="menu-text">教程</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./doc_library/index.html"> 
-<span class="menu-text">Library</span></a>
+    <a class="nav-link" href="../../doc_library/index.html"> 
+<span class="menu-text">函式庫</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -137,90 +171,179 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction-to-gems-magtip" id="toc-introduction-to-gems-magtip" class="nav-link active" data-scroll-target="#introduction-to-gems-magtip">Introduction to GEMS-MagTIP</a>
+  <li><a href="#brief-report-on-selecting-steepness" id="toc-brief-report-on-selecting-steepness" class="nav-link active" data-scroll-target="#brief-report-on-selecting-steepness">Brief report on selecting <code>'Steepness'</code></a>
   <ul class="collapse">
-  <li><a href="#historical-development" id="toc-historical-development" class="nav-link" data-scroll-target="#historical-development">Historical Development</a></li>
-  <li><a href="#gems-magtip-unified-and-multivariate" id="toc-gems-magtip-unified-and-multivariate" class="nav-link" data-scroll-target="#gems-magtip-unified-and-multivariate">GEMS-MagTIP: Unified and Multivariate</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#testing-code" id="toc-testing-code" class="nav-link" data-scroll-target="#testing-code">Testing code</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">GEMS-MagTIP</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>The documentation of GEMS-MagTIP: https://cgrg-lab.github.io/GEMS-MagTIP/</p>
-<section id="introduction-to-gems-magtip" class="level2">
-<h2 class="anchored" data-anchor-id="introduction-to-gems-magtip">Introduction to GEMS-MagTIP</h2>
-<p>GEMS-MagTIP is an integrated algorithm that calculates the Time of Increased Probability (TIP) for earthquakes based on geoelectric and geomagnetic field data. It represents the culmination of advancements from the earlier GEMSTIP (GeoElectric Monitoring System’s TIP) and MagTIP systems, combining their methodologies into a multivariate framework that supports diverse data sources.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./assets/general/fig_TIP_concept.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption>Schematic illustration of the TIP concept</figcaption>
-</figure>
-</div>
-<section id="historical-development" class="level3">
-<h3 class="anchored" data-anchor-id="historical-development">Historical Development</h3>
-<p>The development began with GEMSTIP (Geoelectric Monitoring System’s Time of Increased Probability), which focused on geoelectric field anomalies. GEMSTIP utilized predictive modeling, binary classification, and statistical analysis to identify earthquake precursors in geoelectric data. This system demonstrated significant correlations between geoelectric anomalies and seismic events and was instrumental in establishing the feasibility of probabilistic earthquake forecasting.</p>
-<p>Building upon GEMSTIP, MagTIP expanded the algorithm to include geomagnetic field data. It greatly improves computational efficiency, support for both full-field and triaxial magnetic data, and introduces a rolling forecast system. MagTIP’s advancements made it possible to integrate data from both modern and legacy instruments, ensuring the preservation and utilization of valuable historical records.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./assets/general/DevelopmentHistory2024.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption>Historical milestones of GEMS-MagTIP development</figcaption>
-</figure>
-</div>
+<section id="brief-report-on-selecting-steepness" class="level1">
+<h1>Brief report on selecting <code>'Steepness'</code></h1>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<ul>
+<li>when sampling frequency is 50Hz, filters mostly failed on almost all analysis.</li>
+</ul>
+<table class="caption-top table">
+<caption>green</caption>
+<colgroup>
+<col style="width: 8%">
+<col style="width: 9%">
+<col style="width: 13%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th>LN, fs=1</th>
+<th>HERM, fs=15</th>
+<th>KUOL, fs=15</th>
+<th>KUOL, fs=50</th>
+<th>ENAN, fs=15</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.93</td>
+<td>BP_35</td>
+<td>✔️</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>BP_40</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>❌</td>
+<td>❌</td>
+<td>✔️</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ULF_A</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>❌</td>
+<td>❌</td>
+<td>✔️</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ULF_B</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>🔺</td>
+<td>✔️</td>
+</tr>
+<tr class="odd">
+<td>0.95</td>
+<td>BP_35</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>❌</td>
+<td>❌</td>
+<td>✔️</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>BP_40</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>❌</td>
+<td>❌</td>
+<td>✔️</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ULF_A</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>❌</td>
+<td>❌</td>
+<td>✔️</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ULF_B</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>✔️</td>
+</tr>
+<tr class="odd">
+<td>0.98</td>
+<td>BP_35</td>
+<td>✔️</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>✔️</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>BP_40</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>❌</td>
+<td>❌</td>
+<td>✔️</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>ULF_A</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>❌</td>
+<td>✔️</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>ULF_B</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>❌</td>
+<td>✔️</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="gems-magtip-unified-and-multivariate" class="level3">
-<h3 class="anchored" data-anchor-id="gems-magtip-unified-and-multivariate">GEMS-MagTIP: Unified and Multivariate</h3>
-<p>The current GEMS-MagTIP system integrates the capabilities of both GEMSTIP and MagTIP, enabling the simultaneous use of geoelectric and geomagnetic data. This multivariate system supports a wide range of geo-electromagnetic data types, including three-component and one-component signals, in the calculation of statistical indicators (e.g., skewness, kurtosis, Fisher Information, Shannon Entropy) for earthquake’s time of increased probability.</p>
-<p>GEMS-MagTIP system represents an advancement in earthquake precursor research. It provides a robust and adaptable tool to identify geo-electromagnetic anomalies correlated with large earthquake events, and allows joint-station probabilistic earthquake forecasting based on the concept of TIP.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./assets/general/stationMap_2024.png" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption>Geo-electric and magnetic stations in the <a href="https://gdms.cwa.gov.tw/network_tgns.php">Taiwan Geophysical Network for Seismology, TGNS</a>.</figcaption>
-</figure>
-</div>
-<div>
-
-</div>
-<div class="quarto-layout-panel" data-layout="[[38,62]]">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 38.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./assets/probmap_403_example.png" class="img-fluid figure-img"></p>
-<figcaption>GEMS-MagTIP probability forecast (map)</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 62.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./assets/probts_403_example.png" class="img-fluid figure-img"></p>
-<figcaption>GEMS-MagTIP probability forecast (time-series)</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
+<section id="testing-code" class="level2">
+<h2 class="anchored" data-anchor-id="testing-code">Testing code</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">dirselectassign</span>(<span class="ss">'dir_sampledata'</span>)<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">dlist</span> <span class="op">=</span> <span class="va">datalist</span>(<span class="ss">'*.mat'</span><span class="op">,</span> <span class="va">dir_sampledata</span>).<span class="va">fullpath</span><span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span> <span class="va">i</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="va">length</span>(<span class="va">dlist</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="va">fpath</span> <span class="op">=</span> <span class="va">dlist</span>{<span class="va">i</span>}<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="va">autobandpassfilter</span>(<span class="va">fpath</span><span class="op">,</span> <span class="ss">'SaveFilter'</span><span class="op">,</span> <span class="va">true</span><span class="op">,</span><span class="ss">'OutputDir'</span><span class="op">,</span> <span class="ss">'filter_temp'</span><span class="op">,</span>  <span class="ss">'Steepness'</span><span class="op">,</span> <span class="fl">0.93</span>)<span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span> <span class="va">i</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="va">length</span>(<span class="va">dlist</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="va">fpath</span> <span class="op">=</span> <span class="va">dlist</span>{<span class="va">i</span>}<span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="va">autobandpassfilter</span>(<span class="va">fpath</span><span class="op">,</span> <span class="ss">'SaveFilter'</span><span class="op">,</span> <span class="va">true</span><span class="op">,</span><span class="ss">'OutputDir'</span><span class="op">,</span> <span class="ss">'filter_temp'</span><span class="op">,</span> <span class="ss">'Steepness'</span><span class="op">,</span> <span class="fl">0.95</span>)<span class="op">;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span> <span class="va">i</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="va">length</span>(<span class="va">dlist</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="va">fpath</span> <span class="op">=</span> <span class="va">dlist</span>{<span class="va">i</span>}<span class="op">;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="va">autobandpassfilter</span>(<span class="va">fpath</span><span class="op">,</span> <span class="ss">'SaveFilter'</span><span class="op">,</span> <span class="va">true</span><span class="op">,</span><span class="ss">'OutputDir'</span><span class="op">,</span> <span class="ss">'filter_temp'</span><span class="op">,</span> <span class="ss">'Steepness'</span><span class="op">,</span> <span class="fl">0.98</span>)<span class="op">;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

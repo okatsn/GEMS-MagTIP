@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>GEMS-MagTIP</title>
+<title>GEMS-MagTIP – GEMS-MagTIP 說明文件中文版</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -79,7 +79,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">GEMS-MagTIP</span>
+    <span class="navbar-title">GEMS-MagTIP 說明文件中文版</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -90,15 +90,15 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Home</span></a>
+<span class="menu-text">主頁</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./doc_tutorial/index.html"> 
-<span class="menu-text">Tutorial</span></a>
+<span class="menu-text">教程</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./doc_library/index.html"> 
-<span class="menu-text">Library</span></a>
+<span class="menu-text">函式庫</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
@@ -137,10 +137,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction-to-gems-magtip" id="toc-introduction-to-gems-magtip" class="nav-link active" data-scroll-target="#introduction-to-gems-magtip">Introduction to GEMS-MagTIP</a>
+  <li><a href="#簡介" id="toc-簡介" class="nav-link active" data-scroll-target="#簡介">簡介</a>
   <ul class="collapse">
-  <li><a href="#historical-development" id="toc-historical-development" class="nav-link" data-scroll-target="#historical-development">Historical Development</a></li>
-  <li><a href="#gems-magtip-unified-and-multivariate" id="toc-gems-magtip-unified-and-multivariate" class="nav-link" data-scroll-target="#gems-magtip-unified-and-multivariate">GEMS-MagTIP: Unified and Multivariate</a></li>
+  <li><a href="#發展歷史" id="toc-發展歷史" class="nav-link" data-scroll-target="#發展歷史">發展歷史</a></li>
+  <li><a href="#gems-magtip統一且多變量" id="toc-gems-magtip統一且多變量" class="nav-link" data-scroll-target="#gems-magtip統一且多變量">GEMS-MagTIP：統一且多變量</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -168,19 +168,19 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>The documentation of GEMS-MagTIP: https://cgrg-lab.github.io/GEMS-MagTIP/</p>
-<section id="introduction-to-gems-magtip" class="level2">
-<h2 class="anchored" data-anchor-id="introduction-to-gems-magtip">Introduction to GEMS-MagTIP</h2>
-<p>GEMS-MagTIP is an integrated algorithm that calculates the Time of Increased Probability (TIP) for earthquakes based on geoelectric and geomagnetic field data. It represents the culmination of advancements from the earlier GEMSTIP (GeoElectric Monitoring System’s TIP) and MagTIP systems, combining their methodologies into a multivariate framework that supports diverse data sources.</p>
+<section id="簡介" class="level2">
+<h2 class="anchored" data-anchor-id="簡介">簡介</h2>
+<p>GEMS-MagTIP 是一個整合演算法，根據地電與地磁場資料計算地震發生機率增加的時間（TIP, Time of Increased Probability）。這套系統結合了先前 GEMSTIP（地電監測系統的TIP）與 MagTIP 的方法學，發展出一個支持多元資料來源的多變量框架。</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./assets/general/fig_TIP_concept.png" class="img-fluid figure-img" style="width:80.0%"></p>
 <figcaption>Schematic illustration of the TIP concept</figcaption>
 </figure>
 </div>
-<section id="historical-development" class="level3">
-<h3 class="anchored" data-anchor-id="historical-development">Historical Development</h3>
-<p>The development began with GEMSTIP (Geoelectric Monitoring System’s Time of Increased Probability), which focused on geoelectric field anomalies. GEMSTIP utilized predictive modeling, binary classification, and statistical analysis to identify earthquake precursors in geoelectric data. This system demonstrated significant correlations between geoelectric anomalies and seismic events and was instrumental in establishing the feasibility of probabilistic earthquake forecasting.</p>
-<p>Building upon GEMSTIP, MagTIP expanded the algorithm to include geomagnetic field data. It greatly improves computational efficiency, support for both full-field and triaxial magnetic data, and introduces a rolling forecast system. MagTIP’s advancements made it possible to integrate data from both modern and legacy instruments, ensuring the preservation and utilization of valuable historical records.</p>
+<section id="發展歷史" class="level3">
+<h3 class="anchored" data-anchor-id="發展歷史">發展歷史</h3>
+<p>GEMSTIP（地電監測系統的TIP）專注於地電場異常的觀測，開啟了此系統的發展。GEMSTIP 使用預測建模、二元分類以及統計分析來辨識地電資料中的地震前兆。系統顯示地電異常與地震事件之間有顯著相關性，並成功建立了地震機率預測的可行性。</p>
+<p>在 GEMSTIP 的基礎上，MagTIP 擴展了演算法以納入地磁場資料。MagTIP 大幅提升了計算效率，支持全磁場與三分量磁場數據，並引入滾動預測系統。MagTIP 的進展使其能整合現代與傳統儀器的資料，確保珍貴的歷史記錄得以保存與利用。</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./assets/general/DevelopmentHistory2024.png" class="img-fluid figure-img" style="width:80.0%"></p>
@@ -188,10 +188,10 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 </section>
-<section id="gems-magtip-unified-and-multivariate" class="level3">
-<h3 class="anchored" data-anchor-id="gems-magtip-unified-and-multivariate">GEMS-MagTIP: Unified and Multivariate</h3>
-<p>The current GEMS-MagTIP system integrates the capabilities of both GEMSTIP and MagTIP, enabling the simultaneous use of geoelectric and geomagnetic data. This multivariate system supports a wide range of geo-electromagnetic data types, including three-component and one-component signals, in the calculation of statistical indicators (e.g., skewness, kurtosis, Fisher Information, Shannon Entropy) for earthquake’s time of increased probability.</p>
-<p>GEMS-MagTIP system represents an advancement in earthquake precursor research. It provides a robust and adaptable tool to identify geo-electromagnetic anomalies correlated with large earthquake events, and allows joint-station probabilistic earthquake forecasting based on the concept of TIP.</p>
+<section id="gems-magtip統一且多變量" class="level3">
+<h3 class="anchored" data-anchor-id="gems-magtip統一且多變量">GEMS-MagTIP：統一且多變量</h3>
+<p>現今的 GEMS-MagTIP 系統整合了 GEMSTIP 和 MagTIP 的功能，實現地電與地磁資料的同步使用。此多變量系統支持多種類型的地電磁資料，包括三分量與單分量訊號，並用於計算地震發生機率增加的時間（TIP）的統計指標（例如偏度、峰度、費雪訊息和夏農熵）。</p>
+<p>GEMS-MagTIP 系統代表了地震前兆研究的進一步發展。它提供了一個強大且靈活的工具，用於識別與大型地震事件相關的地電磁異常，並基於 TIP 概念實現聯合測站的地震機率預測。</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./assets/general/stationMap_2024.png" class="img-fluid figure-img" style="width:50.0%"></p>

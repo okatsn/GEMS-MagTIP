@@ -1,8 +1,36 @@
 schema: '2.0'
 stages:
   dvc_pull_submodule:
-    cmd: dvc pull
+    cmd: git submodule update --remote --rebase && dvc pull
   quarto_render_default:
     cmd: quarto render
   quarto_render_zhtw:
     cmd: quarto render --profile zhtw
+  dvc_pull:
+    cmd: dvc pull
+  quarto_render:
+    cmd: quarto render --profile en && quarto render --profile zhtw
+    deps:
+    - path: .gitmodules
+      hash: md5
+      md5: 1d9a2a64083ba900e79dc1bc9bb4b642
+      size: 119
+    - path: assets
+      hash: md5
+      md5: c1dabaeceded8ed8565e7520de154ee0.dir
+      size: 4723003
+      nfiles: 23
+    - path: doc_library
+      hash: md5
+      md5: 504d3b00a8067410df1d89eedc77bb4e.dir
+      size: 5546
+      nfiles: 1
+    - path: doc_tutorial
+      hash: md5
+      md5: 636e087f50e27a997fbbacd2d3aa4874.dir
+      size: 11833
+      nfiles: 1
+    - path: index.qmd
+      hash: md5
+      md5: 40c0f255a4f0ca565839c61f05695753
+      size: 4669

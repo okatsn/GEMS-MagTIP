@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Library – GEMS-MagTIP</title>
+<title>Library – GEMS-MagTIP 說明文件中文版</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -142,7 +142,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">GEMS-MagTIP</span>
+    <span class="navbar-title">GEMS-MagTIP 說明文件中文版</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -153,15 +153,15 @@ window.Quarto = {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="../index.html"> 
-<span class="menu-text">Home</span></a>
+<span class="menu-text">主頁</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../doc_tutorial/index.html"> 
-<span class="menu-text">Tutorial</span></a>
+<span class="menu-text">教程</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="../doc_library/index.html" aria-current="page"> 
-<span class="menu-text">Library</span></a>
+<span class="menu-text">函式庫</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../about.html"> 
@@ -246,21 +246,21 @@ Warning
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Please don’t assign undocumented name-value pair parameters to the functions. For example, <code>'CreateInfoOnly'</code> and <code>'InParforLoop'</code>, which are preserved for parallel computing, and you will never need to set them manually unless you are a developer.</li>
+<li>請勿將未記錄的名稱-值對參數分配給函數。例如，<code>'CreateInfoOnly'</code> 和 <code>'InParforLoop'</code>，這些參數是為平行運算保留的，除非您是開發者，否則無需手動設置它們。</li>
 </ul>
 </div>
 </div>
 <section id="main-functions" class="level2">
 <h2 class="anchored" data-anchor-id="main-functions">Main Functions</h2>
-<p>There are four major stages in the complete GEMS-MagTIP workflow, and each stage is wrapped by the main functions as below:</p>
+<p>在完整的 GEMS-MagTIP 工作流程中，主要分為四個階段，每個階段對應以下主要功能：</p>
 <ol type="1">
-<li><a href="#statind"><code>statind</code></a>: The calculation of statistical indices.</li>
-<li><a href="#anomalyind"><code>anomalyind</code></a>: The calculation of anomaly indices number according to statistical indices.</li>
-<li><a href="#molscore"><code>molscore</code></a>: Training phase based on anomaly indices, which involves the calculation of single-station TIP, matching TIP by target earthquakes and calculate Molchan scores accordingly.</li>
-<li><a href="#molscore3"><code>molscore3</code></a>: Forecasting phase based on the model parameters of the highest Molchan scores, involving the calculation of joint-station TIP and probability based on the results of 2 and 3.</li>
+<li><a href="#statind"><code>statind</code></a>：統計指標的計算。</li>
+<li><a href="#anomalyind"><code>anomalyind</code></a>：基於統計指標計算異常指標數值。</li>
+<li><a href="#molscore"><code>molscore</code></a>：基於異常指標的訓練階段，包括單測站 TIP 的計算、匹配目標地震的 TIP，以及計算 Molchan 得分。</li>
+<li><a href="#molscore3"><code>molscore3</code></a>：基於最高 Molchan 得分的模型參數進行預報階段，包括計算聯合測站 TIP 和基於第 2、3 步結果的概率。</li>
 </ol>
-<p>The four stages is wrapped by four functions with keyword arguments that we can customize some hyper parameters which are associated with model optimization and probability forecast.</p>
-<div id="8f6243cb" class="cell" data-execution_count="1">
+<p>這四個階段由四個函數封裝，並提供關鍵字參數，允許我們自訂一些與模型優化和概率預報相關的超參數。</p>
+<div id="1ded34f7" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
 <section id="statind" class="level3">
 <h3 class="anchored" data-anchor-id="statind"><code>statind</code></h3>
@@ -461,7 +461,7 @@ molscore3(dir_tsAIN,dir_molchan,dir_catalog,dir_jointstation)</code></pre>
 </section>
 <section id="load-raw-data-and-convert-it-into-a-standard-format" class="level2">
 <h2 class="anchored" data-anchor-id="load-raw-data-and-convert-it-into-a-standard-format">Load raw data and convert it into a standard format</h2>
-<div id="2dc56355" class="cell" data-execution_count="2">
+<div id="e6b3e057" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
 <section id="conv_gemsdata" class="level3">
 <h3 class="anchored" data-anchor-id="conv_gemsdata"><code>conv_gemsdata</code></h3>
@@ -591,38 +591,38 @@ molscore3(dir_tsAIN,dir_molchan,dir_catalog,dir_jointstation)</code></pre>
 </section>
 <section id="available-preprocessing-functions" class="level2">
 <h2 class="anchored" data-anchor-id="available-preprocessing-functions">Available Preprocessing Functions</h2>
-<p>In GEMS-MagTIP, signal processing is conducted via preprocessing functions, Preprocessing functions are special functions that are located in <code>src/preprocess</code>. The <code>no</code> function that simply import the data from a given file path is necessary. You can use <code>prplist = prpfunctions()</code> to list all preprocessing functions. Filtering functions (such as <code>ULF_A</code>,<code>ULF_B</code> in <code>prplist</code>) share the same core function <code>generalfilterprocess</code> that takes the output of <code>loadfilters</code> as their inputs.</p>
-<section id="what-do-preprocessing-functions-do" class="level4">
-<h4 class="anchored" data-anchor-id="what-do-preprocessing-functions-do">What do preprocessing functions do?</h4>
+<p>在 GEMS-MagTIP 中，訊號處理通過預處理函數進行，這些預處理函數是位於 <code>src/preprocess</code> 的特殊函數。 <code>no</code> 函數的功能是從給定的檔案路徑匯入資料，這是必須的。 您可以使用 <code>prplist = prpfunctions()</code> 列出所有的預處理函數。 篩選函數（例如 <code>ULF_A</code>、<code>ULF_B</code>，在 <code>prplist</code> 中）共用核心函數 <code>generalfilterprocess</code>，該函數將 <code>loadfilters</code> 的輸出作為輸入。</p>
+<section id="預處理函數的功能是什麼" class="level4">
+<h4 class="anchored" data-anchor-id="預處理函數的功能是什麼">預處理函數的功能是什麼？</h4>
 <ul>
-<li>import data (namely, <code>M</code>)</li>
-<li>do some pre-process (e.g., band-pass filtering)</li>
-<li>output the processed data as a matrix the same columns as <code>M</code></li>
-<li><code>columnind</code> is applied in preprocessing functions to acquire the indices to time columns, data columns, and etc..</li>
+<li>匯入資料（即 <code>M</code>）</li>
+<li>執行一些預處理（例如帶通濾波）</li>
+<li>將處理後的資料輸出為與 <code>M</code> 具有相同列數的矩陣</li>
+<li>在預處理函數中使用 <code>columnind</code> 獲取時間列、數據列等的索引。</li>
 </ul>
 </section>
-<section id="you-can-define-your-own-preprocessing-functions-to-work-with-statind-as-the-following-points-should-be-satisfied" class="level4">
-<h4 class="anchored" data-anchor-id="you-can-define-your-own-preprocessing-functions-to-work-with-statind-as-the-following-points-should-be-satisfied">You can define your own preprocessing functions to work with <code>statind</code>, as the following points should be satisfied:</h4>
+<section id="如何定義自訂的預處理函數與-statind-配合使用需符合以下要求" class="level4">
+<h4 class="anchored" data-anchor-id="如何定義自訂的預處理函數與-statind-配合使用需符合以下要求">如何定義自訂的預處理函數與 <code>statind</code> 配合使用，需符合以下要求：</h4>
 <ul>
-<li>The first input argument should be the path <code>fpath</code> to the file of standard format.</li>
-<li>Import data from <code>fpath</code>.</li>
-<li>Make sure the column indices is compatible with <code>columnind</code>.</li>
+<li>第一個輸入參數應為標準格式檔案的路徑 <code>fpath</code>。</li>
+<li>從 <code>fpath</code> 匯入資料。</li>
+<li>確保列索引與 <code>columnind</code> 相容。</li>
 </ul>
 </section>
-<section id="example" class="level4">
-<h4 class="anchored" data-anchor-id="example">Example</h4>
-<p>There are four built-in preprocessing functions, <code>BP_35</code>, <code>BP_40</code>, <code>ULF_A</code>, <code>ULF_B</code>; these filters can be applied in the <code>statind</code> stage via the <code>'Preprocess'</code> keyword argument.</p>
-<p>Here is an example of the direct use (not via <code>'Preprocess'</code> interface in the <code>statind</code> stage) of <code>BP_35</code>:</p>
+<section id="範例" class="level4">
+<h4 class="anchored" data-anchor-id="範例">範例</h4>
+<p>內建四個預處理函數，分別為 <code>BP_35</code>、<code>BP_40</code>、<code>ULF_A</code> 和 <code>ULF_B</code>；這些篩選器可透過 <code>statind</code> 階段中的 <code>'Preprocess'</code> 關鍵字參數進行應用。</p>
+<p>以下範例展示直接使用（非通過 <code>statind</code> 階段的 <code>'Preprocess'</code> 接口）<code>BP_35</code> 的方法：</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="va">fpath</span> <span class="op">=</span> <span class="ss">'D:\GeoMag (main)\GeoMag_GO\KUOL\stn[KUOL]dt[20150714]type[GEMS].mat'</span><span class="op">;</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="va">M_out</span> <span class="op">=</span> <span class="va">BP_35</span>(<span class="va">fpath</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>In this example, data is imported from <code>fpath</code> as variable, then call <code>generalfilterprocess</code> which by default use <code>bandpass</code> that creates a band-pass filter every time a data is imported, and output the filtered data as <code>M_out</code> having exactly the same column dimension as <code>M</code> (but with rows might be reduced).</p>
-<p>Here is another example, which apply existing filters (e.g., <code>'Filter[BP_35]samp[1]stp[093].mat'</code>) in <code>dir_filter</code> if possible:</p>
+<p>在此範例中，資料從 <code>fpath</code> 匯入為變數，然後調用 <code>generalfilterprocess</code>，默認使用 <code>bandpass</code>，每次匯入資料時創建一個帶通濾波器，並將過濾後的資料輸出為與 <code>M</code> 具有完全相同列數的 <code>M_out</code>（但行數可能有所減少）。</p>
+<p>另一個範例則是應用現有的篩選器（例如 <code>'Filter[BP_35]samp[1]stp[093].mat'</code>）於 <code>dir_filter</code> 中（如果可能）：</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="va">fpath</span> <span class="op">=</span> <span class="ss">'D:\GeoMag (main)\GeoMag_GO\KUOL\stn[KUOL]dt[20150714]type[GEMS].mat'</span><span class="op">;</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="va">filtpaths</span> <span class="op">=</span> <span class="va">datalist</span>(<span class="ss">'Filter*.mat'</span><span class="op">,</span> <span class="va">dir_filter</span>)<span class="op">;</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="va">FOBJ</span> <span class="op">=</span> <span class="va">loadfilters</span>(<span class="va">filtpaths</span>)<span class="op">;</span> <span class="co">% load all filters as a struct FOBJ</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="va">M_out</span> <span class="op">=</span> <span class="va">BP_35</span>(<span class="va">fpath</span><span class="op">,</span> <span class="va">FOBJ</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<div id="7aec2278" class="cell" data-execution_count="3">
+<div id="5fc968ef" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
 <section id="bp_35" class="level3">
 <h3 class="anchored" data-anchor-id="bp_35"><code>BP_35</code></h3>
@@ -658,13 +658,13 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><code>generalfilterprocess</code> is the core shared among <code>'ULF_X'</code> and <code>BP_X</code> family; please refer <a href="#filtering-functions">Filtering Functions</a>.</p>
+<p><code>generalfilterprocess</code> 是 <code>'ULF_X'</code> 和 <code>BP_X</code> 系列的核心共用函數；詳情請參考<a href="#filtering-functions">過濾功能</a>。</p>
 </div>
 </div>
 </section>
 <section id="filtering-functions" class="level2">
 <h2 class="anchored" data-anchor-id="filtering-functions">Filtering Functions</h2>
-<div id="daa57f43" class="cell" data-execution_count="4">
+<div id="9fd0ebf2" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="5">
 <section id="autobandpassfilter" class="level3">
 <h3 class="anchored" data-anchor-id="autobandpassfilter"><code>autobandpassfilter</code></h3>
@@ -721,7 +721,7 @@ Note
 </section>
 <section id="internal-api-for-tip-calculation" class="level2">
 <h2 class="anchored" data-anchor-id="internal-api-for-tip-calculation">Internal API for TIP Calculation</h2>
-<div id="571cdd21" class="cell" data-execution_count="5">
+<div id="8377a43e" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="6">
 <section id="tiparea" class="level3">
 <h3 class="anchored" data-anchor-id="tiparea"><code>TIPArea</code></h3>
@@ -1076,7 +1076,7 @@ loadAIN(dir_tsAIN,BestModelNames,TimeRange)</code></pre>
 </section>
 <section id="format" class="level2">
 <h2 class="anchored" data-anchor-id="format">Format</h2>
-<div id="1adae204" class="cell" data-execution_count="6">
+<div id="23849cd2" class="cell" data-execution_count="6">
 <section id="fmt" class="level3 cell-output cell-output-display cell-output-markdown" data-execution_count="7">
 <h3 class="anchored" data-anchor-id="fmt"><code>fmt</code></h3>
 <p><code>fmt</code> is a class that</p>
@@ -1117,7 +1117,7 @@ loadAIN(dir_tsAIN,BestModelNames,TimeRange)</code></pre>
 </section>
 <section id="others" class="level2">
 <h2 class="anchored" data-anchor-id="others">Others</h2>
-<div id="80580188" class="cell" data-execution_count="7">
+<div id="ac353d12" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="8">
 <section id="molchan_cb" class="level3">
 <h3 class="anchored" data-anchor-id="molchan_cb"><code>Molchan_CB</code></h3>
