@@ -1,0 +1,17 @@
+# To render with this profile (will be merged with `_quarto.yml`), please run quarto render --profile zhtw
+# See https://quarto.org/docs/projects/profiles.html
+project:
+  output-dir: docs/zh-TW
+
+website:
+  title: "GEMS-MagTIP 說明文件中文版"
+  navbar:
+    left:
+      - href: index.qmd
+        text: 主頁
+      - href: doc_tutorial/index.qmd
+        text: 教程
+      - href: doc_library/index.qmd
+        text: 函式庫
+
+      - about.qmd

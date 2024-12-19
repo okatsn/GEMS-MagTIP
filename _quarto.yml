@@ -1,19 +1,26 @@
 project:
   type: website
   output-dir: docs
-
+# KEYNOTE: 
+# - It is necessary to have docs/index.html, because 
+#   I choose the folder /docs to be deployed on Github page.
+#   In this project, I make profile `en` as default, and 
+#   set its output-dir to docs.
 website:
   title: "GEMS-MagTIP"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - href: doc_tutorial/index.qmd
-        text: Tutorial
-      - href: doc_library/index.qmd
-        text: Library
-
-      - about.qmd
+  page-footer:     
+  # bottom bar
+    left: "Copyright 2025, CGRG-lab and Tsung-Hsi Wu" 
+  navbar: 
+  # top bar
+    right: 
+    - icon: github
+      href: https://github.com/okatsn/GEMS-MagTIP
+    - icon: globe-americas
+      href: https://okatsn.github.io/GEMS-MagTIP/
+    - icon: translate
+      href: https://okatsn.github.io/GEMS-MagTIP/zh-TW
+      # KEYNOTE: you cannot set href as ./docs or ./docs/zh-TW, because it will jumps to /docs/docs/ if you click globe-americas at /docs/
 
 format:
   html:
@@ -21,5 +28,10 @@ format:
     css: styles.css
     toc: true
 
-
+profile:
+  default: en
+  # default profile when using `quarto render`
+  # otherwise, you may need to run `quarto render --profile en`
+  group: 
+    - [en, zhtw]
 
