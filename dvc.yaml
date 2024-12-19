@@ -1,12 +1,12 @@
 stages:
   # See https://dvc.org/doc/user-guide/project-structure/dvcyaml-files#stage-entries
-  quarto_render_default:
-    cmd: quarto render
-    always_changed: true
-  quarto_render_zhtw:
-    cmd: quarto render --profile zhtw
+  quarto_render:
+    cmd: quarto render --profile en,zhtw
     always_changed: true
   dvc_pull_submodule:
     # Initiate submodule is required in the beginning: git submodule update --init
     cmd: dvc pull
     wdir: GEMS-MagTIP-insider
+    # outs:
+    #   - spreadsheet:
+    #       persist: true
