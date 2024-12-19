@@ -116,7 +116,7 @@ here is a partial view on an exemplary `station_location.csv`:
 
 #### 地震目錄與測站資訊
 
-{{< include "/GEMS-MagTIP-insider/spreadsheet/README.zhtw.md" >}}
+{{< include "/GEMS-MagTIP-insider/spreadsheet/README-zhtw.md" >}}
 
 以下為 `station_location.csv` 的部分內容範例：
 :::
