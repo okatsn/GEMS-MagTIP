@@ -96,7 +96,7 @@ Markdown.parse(reduce(*, y))
 
 ::: {.content-visible when-profile="zhtw"}
 
-{{< include "/GEMS-MagTIP-insider/src/preprocess/README.md" >}}
+{{< include "/GEMS-MagTIP-insider/src/preprocess/README-zhtw.md" >}}
 :::
 
 

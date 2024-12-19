@@ -8,16 +8,21 @@ title: "Tutorial"
 
 ### Environment
 
-{{< include "/GEMS-MagTIP-insider/_environment.txt" >}}
+GEMS-MagTIP relies on the following toolboxes;
+type `license('inuse')` in matlab command line or `ver` to list the toolboxes currently available on your machine.
+
 :::
 
 
 ::: {.content-visible when-profile="zhtw"}
 ### 環境
 
-{{< include "/GEMS-MagTIP-insider/_environment.txt" >}}
+GEMS-MagTIP 依賴以下工具箱；
+在 MATLAB 指令列中輸入 `license('inuse')` 或 `ver` 可以列出您電腦上目前可用的工具箱。
+
 :::
 
+{{< include "/GEMS-MagTIP-insider/_environment.txt" >}}
 
 
 
@@ -93,8 +98,7 @@ You have to prepare/update the following data:
 
 {{< include "/GEMS-MagTIP-insider/spreadsheet/README.md" >}}
 
-The `station_location.csv` specifies the location of every station;
-here is a partial view on `station_location.csv`: 
+here is a partial view on an exemplary `station_location.csv`: 
 :::
 
 ::: {.content-visible when-profile="zhtw"}
@@ -112,10 +116,9 @@ here is a partial view on `station_location.csv`:
 
 #### 地震目錄與測站資訊
 
-{{< include "/GEMS-MagTIP-insider/spreadsheet/README.md" >}}
+{{< include "/GEMS-MagTIP-insider/spreadsheet/README.zhtw.md" >}}
 
-`station_location.csv` 指定了每個測站的位置；
-以下為 `station_location.csv` 的部分內容：
+以下為 `station_location.csv` 的部分內容範例：
 :::
 
 ```{julia}
