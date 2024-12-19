@@ -6,3 +6,5 @@ stages:
   quarto_render_zhtw:
     cmd: quarto render --profile zhtw
     always_changed: true
+  dvc_pull_submodule:
+    cmd: cd GEMS-MagTIP && dvc pull
