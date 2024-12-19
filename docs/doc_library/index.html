@@ -1,0 +1,1751 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Library – GEMS-MagTIP</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-c32e7a94553be212d23e436c336a7c64.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">GEMS-MagTIP</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../doc_tutorial/index.html"> 
+<span class="menu-text">Tutorial</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../doc_library/index.html" aria-current="page"> 
+<span class="menu-text">Library</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/okatsn/GEMS-MagTIP"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://okatsn.github.io/GEMS-MagTIP/"> <i class="bi bi-globe-americas" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://okatsn.github.io/GEMS-MagTIP/zh-TW"> <i class="bi bi-translate" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#main-functions" id="toc-main-functions" class="nav-link active" data-scroll-target="#main-functions">Main Functions</a></li>
+  <li><a href="#load-raw-data-and-convert-it-into-a-standard-format" id="toc-load-raw-data-and-convert-it-into-a-standard-format" class="nav-link" data-scroll-target="#load-raw-data-and-convert-it-into-a-standard-format">Load raw data and convert it into a standard format</a></li>
+  <li><a href="#available-preprocessing-functions" id="toc-available-preprocessing-functions" class="nav-link" data-scroll-target="#available-preprocessing-functions">Available Preprocessing Functions</a></li>
+  <li><a href="#filtering-functions" id="toc-filtering-functions" class="nav-link" data-scroll-target="#filtering-functions">Filtering Functions</a></li>
+  <li><a href="#internal-api-for-tip-calculation" id="toc-internal-api-for-tip-calculation" class="nav-link" data-scroll-target="#internal-api-for-tip-calculation">Internal API for TIP Calculation</a></li>
+  <li><a href="#format" id="toc-format" class="nav-link" data-scroll-target="#format">Format</a>
+  <ul class="collapse">
+  <li><a href="#fmt" id="toc-fmt" class="nav-link" data-scroll-target="#fmt"><code>fmt</code></a></li>
+  </ul></li>
+  <li><a href="#others" id="toc-others" class="nav-link" data-scroll-target="#others">Others</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Library</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Please don’t assign undocumented name-value pair parameters to the functions. For example, <code>'CreateInfoOnly'</code> and <code>'InParforLoop'</code>, which are preserved for parallel computing, and you will never need to set them manually unless you are a developer.</li>
+</ul>
+</div>
+</div>
+<section id="main-functions" class="level2">
+<h2 class="anchored" data-anchor-id="main-functions">Main Functions</h2>
+<p>There are four major stages in the complete GEMS-MagTIP workflow, and each stage is wrapped by the main functions as below:</p>
+<ol type="1">
+<li><a href="#statind"><code>statind</code></a>: The calculation of statistical indices.</li>
+<li><a href="#anomalyind"><code>anomalyind</code></a>: The calculation of anomaly indices number according to statistical indices.</li>
+<li><a href="#molscore"><code>molscore</code></a>: Training phase based on anomaly indices, which involves the calculation of single-station TIP, matching TIP by target earthquakes and calculate Molchan scores accordingly.</li>
+<li><a href="#molscore3"><code>molscore3</code></a>: Forecasting phase based on the model parameters of the highest Molchan scores, involving the calculation of joint-station TIP and probability based on the results of 2 and 3.</li>
+</ol>
+<p>The four stages is wrapped by four functions with keyword arguments that we can customize some hyper parameters which are associated with model optimization and probability forecast.</p>
+<div id="30d5a9fb" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
+<section id="statind" class="level3">
+<h3 class="anchored" data-anchor-id="statind"><code>statind</code></h3>
+<p><code>statind(dir_data,dir_output)</code> calculate daily statistics (a statistical quantity as an index of the day) of the daily timeseries in <code>dir_data</code>. The output variables are stored in <code>dir_output</code>.</p>
+<p><strong>Example</strong>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">statind</span>(<span class="va">dir_data</span><span class="op">,</span><span class="va">dir_output</span><span class="op">,</span><span class="ss">'StatName'</span><span class="op">,</span><span class="ss">'S'</span><span class="op">,</span><span class="ss">'StatFunction'</span><span class="op">,@</span><span class="va">skewness</span><span class="op">,</span> <span class="ss">'Preprocess'</span><span class="op">,</span> {<span class="ss">'ULF_A'</span><span class="op">,</span><span class="ss">'ULF_B'</span>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In which, <code>dir_data</code> is the directory for the time series in the standard format; <code>dir_output</code> is the <code>dir_stat</code> mentioned before.</p>
+<p><strong>Keyword Arguments</strong>:</p>
+<ul>
+<li><p><code>'StatName'</code></p>
+<ul>
+<li>The abbreviations for the name of statistical indices. They can be arbitrarily defined but have to be the same number of elements as that of <code>'StatFunction'</code>.</li>
+<li>Default is <code>{'S','K'}</code> (for Skewness and Kurtosis).</li>
+</ul></li>
+<li><p><code>'StatFunction'</code></p>
+<ul>
+<li>The function handle for calculating statistical index.</li>
+<li>It has to be of the same number of elements as that of <code>'StatName'</code></li>
+<li>Default is <code>{@skewness,@kurtosis}</code> for calling the <code>skewness()</code> and <code>kurtosis()</code> functions.</li>
+</ul></li>
+<li><p><code>'Preprocess'</code></p>
+<ul>
+<li>Apply filter(s) to time series loaded from <code>dir_data</code>.</li>
+<li>Default is <code>{'no'}</code>, which applies only minimal preprocessings.</li>
+<li>Use <code>prpfunctions()</code> to list all available preprocessing functions.</li>
+<li>If multiple preprocessing functions are applied, for example <code>{'no', 'ULF_A'}</code>, then two sets of result according to no-filter data and ULF_A band passed data are going to be produced.</li>
+</ul></li>
+<li><p><code>'FilterByDatetime'</code></p>
+<ul>
+<li>It should be a two element datetime array.</li>
+<li>If applied, all files with date time tag not in the range will be ignored.</li>
+<li>Default is <code>[datetime(0001,1,1), datetime(2999,12,31)]</code>, resulting in no data selection by date time tag.</li>
+</ul></li>
+<li><p><code>'UpdateExisting'</code></p>
+<ul>
+<li>If <code>true</code>, the array size in the existing statistic indices (files starts with “[StatisticIndex]”) will be extended, and the <code>DateTime</code> in <em>Information</em> file in the <code>dir_output</code> will all be updated to cover the datetime of the data in <code>dir_data</code>. (<strong>Hint</strong>: use <code>'FilterByDatetime'</code> to avoid re-calculate all data in the <code>dir_data</code>)</li>
+<li>Default is <code>false</code>; that a complete new session starts with the old <code>Info</code> renamed.</li>
+<li>Currently this option is not supported by <code>statind_parfor</code>.</li>
+<li>Noted that <code>'SkipExist'</code> will be set to <code>false</code> if <code>'UpdateExisting'</code> is <code>true</code> to avoid unexpected behavior (there must be something wrong that you update the array sizes of the existing files to adapt latest DateTime, but also skip the calculation of statistical indices for those files).</li>
+<li>Noted that <code>'UpdateExisting'</code> not only extend the full date time list to the latest, but also to the earliest available data time obtained according to the data list of <code>dir_data</code>. Thus, you may like to apply <code>'FilterByDatetime'</code> to prevent the update according to earlier pasts.</li>
+</ul></li>
+<li><p><code>'SkipExist'</code></p>
+<ul>
+<li>Set it <code>true</code> to skip calculations if in the current loop a file in <code>dir_stat</code> of the</li>
+</ul>
+<p>same <code>'stn'</code> and <code>'prp'</code> already exists.</p>
+<ul>
+<li>A typical scenario to use this option is when your last calculation is not completed yet.</li>
+<li>Default is <code>false</code>.</li>
+</ul></li>
+<li><p><code>'LoadFilters', dir_filter</code></p>
+<ul>
+<li>Load all filters in <code>dir_filter</code> once for performance. See <code>loadfilters</code>, <code>generalfilterprocess</code>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="statind_parfor" class="level3">
+<h3 class="anchored" data-anchor-id="statind_parfor"><code>statind_parfor</code></h3>
+<p><code>statind_parfor</code> is the parallel computing version of <code>statind</code>, it takes the same input arguments and keyword options as <code>statind</code>.</p>
+<p>Noted that the option <code>'UpdateExisting', true</code> is not supported in <code>statind_parfor</code>; besides this option, all documented <code>statind</code> keyword arguments are supported as well as the following additional <strong>Keyword Arguments</strong>:</p>
+<ul>
+<li><code>'NumCore'</code>: Assign specific how many CPU workers to be used in the paralell pool.</li>
+<li>Default is <code>0</code>, that the number of CPU cores to be used for paralell computing is automatically decided.</li>
+<li><code>'ReverseDatalist'</code>: Simply reverse the list of data. This might save time when you try to continue from previous unfinished calculation with the <code>'SkipExist'</code> set <code>true</code>. The default is <code>false</code>.</li>
+</ul>
+</section>
+<section id="anomalyind" class="level3">
+<h3 class="anchored" data-anchor-id="anomalyind"><code>anomalyind</code></h3>
+<p><code>anomalyind(dir_stat,dir_output)</code> calculates anomaly index number (AIN) according to a list of <span class="math inline">\(A_\text{thr}\)</span>; <code>dir_out</code> is where the output variables stored.</p>
+<p><strong>Example:</strong></p>
+<pre><code>anomalyind(dir_stat,dir_tsAIN);</code></pre>
+<p><strong>Keyword Arguments</strong>:</p>
+<ul>
+<li><p><code>'AthrList'</code>:</p>
+<ul>
+<li>the list of <span class="math inline">\(A_\text{thr}\)</span> (the multiplier of the median value of the statistical indices within the moving time window)</li>
+<li>default is <code>[1:10]</code></li>
+</ul></li>
+<li><p><code>'MovingWindow'</code></p>
+<ul>
+<li>the moving-window length for calculating the median value mentioned above</li>
+<li>default is <code>1000</code> (days)</li>
+</ul></li>
+</ul>
+<p><strong>Input and output:</strong></p>
+<ul>
+<li><code>anomalyind</code> takes the statistic index output from <code>statind</code> by loading them from <code>dir_stat</code>.</li>
+<li>The calculated anomaly index is saved in <code>dir_tsAIN</code>.</li>
+</ul>
+</section>
+<section id="molscore" class="level3">
+<h3 class="anchored" data-anchor-id="molscore"><code>molscore</code></h3>
+<p><code>molscore(dir_tsAIN,dir_catalog,dir_molchan)</code> is responsible for single station’s TIP &amp; Molchan score calculation.</p>
+<p><strong>Example:</strong></p>
+<pre><code>dir_catalog = 'MyProject/spreadsheet';
+dir_tsAIN = 'MyProject/output_var/tsAIN-J13-TZ2';
+dir_molchan = 'MyProject/output_var/MolchanScore-J13-TZ2';
+molscore(dir_tsAIN,dir_catalog,dir_molchan);</code></pre>
+<p><strong>Keyword Arguments</strong>:</p>
+<ul>
+<li><p>‘TrainingPhase’</p>
+<ul>
+<li><p>Assigns a (set of) training phase(s). It should be of type <code>'calendarDuration'</code>, <code>'duration'</code>, an N by 2 array of <code>'datetime'</code>, or an N by 2 cell array, where N is the number of the training phases. If given an N by 2 array specifying N training phases, then N sets of results will be produced separately, with output format being <code>'[MolScore]stn[%x]ID[%s]prp[%s]dt[%s-%s].mat'</code>.</p></li>
+<li><p>For example, a 4 by 2 datetime array <code>reshape(datetime(2009:2016,2,1),[],2)</code> specifies the start and end date of 4 training phases, with the first column being the datetime of the start and the second column being the end of each training phases.</p></li>
+<li><p>For example, a 3 by 2 cell array</p>
+<pre><code>{calyears(7),datetime(2012,11,11);...
+ calyears(7),datetime(2011,11,11);...
+ calyears(7),datetime(2010,11,11)};</code></pre>
+<p>specifies the end day of the training phases as 2010-Nov-11, 2011-Nov-11 and 2012-Nov-11, all having a length of 7-year-long training period (i.e.&nbsp;<code>calyears(7)</code>). If the duration is negative (e.g.&nbsp;<code>-calyears(7)</code>), the datetime of the second column become the first day of each training phase.</p></li>
+<li><p>Default is <code>calyears(7)</code>, which specifies the end day of training phase the day before the last day of statistical indices or anomaly index number, with a length of 7 year period. That is, in default it “trains” and gives the best models according to the most recent 7-year data.</p></li>
+</ul></li>
+<li><p>‘modparam’</p>
+<ul>
+<li>Specify the model parameters for grid search. It should be a cell array; all elements in the cell array will be directly passed into <code>modparam()</code> as input arguments.</li>
+<li>For example, {<code>'Athr',[1:2:10],'Rc',[20, 30]</code>}.</li>
+<li>Default is <code>{}</code>.</li>
+</ul></li>
+<li><p>‘AdditionalCheck’</p>
+<ul>
+<li>Apply some additional check and tests. This option is for developer.</li>
+<li>Default is <code>false</code>.</li>
+</ul></li>
+<li><p><code>'SkipExist'</code></p>
+<ul>
+<li>Set it <code>true</code> to skip calculations if there is a file in <code>dir_output</code> having exactly the same name already (which means, having the same filter tag, station name and training phase).</li>
+<li>A typical scenario to use this option is when your last calculation was aborted manually or interrupted by an error event.</li>
+<li>Default is <code>false</code>.</li>
+</ul></li>
+</ul>
+<p><strong>Input and output:</strong></p>
+<ul>
+<li><code>molscore</code> takes anomaly indices from <code>dir_tsAIN</code> and earthquake catalog and station information from <code>dir_catalog</code>.</li>
+<li>The output ranked models are saved in <code>dir_molchan</code>.</li>
+<li>In the <code>"[MolchanScore]Information.mat"</code>, <code>Info.DateTime</code> is inherited from <code>"[tsAIN]Information.mat"</code> (whose <code>DateTime</code> is inherited from <code>"[StatisticIndex]Information.mat"</code>)</li>
+</ul>
+</section>
+<section id="molscore_parfor" class="level3">
+<h3 class="anchored" data-anchor-id="molscore_parfor"><code>molscore_parfor</code></h3>
+<p><code>molscore_parfor</code> is the parallel computing version of <code>molscore</code>, it takes the same input arguments and supports all documented keyword arguments as <code>molscore</code>.</p>
+</section>
+<section id="molscore3" class="level3">
+<h3 class="anchored" data-anchor-id="molscore3"><code>molscore3</code></h3>
+<p><code>molscore3</code> calculates the joint-station TIP, the Molchan score between EQK and TIP, the Hit rate, and the earthquake probability. The calculation is based on optimized model given by <code>molscore</code>.</p>
+<p><strong>Example:</strong></p>
+<pre><code>dir_catalog = 'MyProject/spreadsheet';
+dir_tsAIN = 'MyProject/output_var/tsAIN-J13-TZ2';
+dir_molchan = 'MyProject/output_var/MolchanScore-J13-TZ2';
+dir_jointstation = 'MyProject/output_var/JointStation-J13-TZ2';
+molscore3(dir_tsAIN,dir_molchan,dir_catalog,dir_jointstation)</code></pre>
+<p><strong>Keyword Arguments:</strong></p>
+<ul>
+<li><p>‘ForecastingPhase’</p>
+<ul>
+<li>Catalog will be filtered according to this parameter.</li>
+<li>It can be a N by 2 datetime array with its size identical to the training phases (<code>trnphase</code>), specifying the time ranges of N forecasting phases.</li>
+<li>It can be ‘calendarDuration’ or ‘duration’, saying <code>T</code>. In this case, saying the last day of the training phase is <code>trnphase(i, end)</code>, the forecasting phases are set to start from <code>trnphase(i, end) + 1</code>, and end at <code>trnphase(i, end) + T</code>.</li>
+<li>‘auto’. In this case, forecasting phases are set to be as long as possible. That is, until the last day where tsAIN is available.</li>
+<li>Default is one calendar year: <code>calyears(1)</code>.</li>
+<li>Also see <code>formatForecastingPhase()</code>.</li>
+<li>Noted that the actual <code>ProbabilityTime</code> in the output is extended according to the maximum of leading time (<code>Tlead</code>) and predicting time (<code>TPred</code>) model parameters, to maximize the extent that the model can predict. For details, please see refer to the source code of <code>jointstation</code> for how <code>ProbTime</code> is defined.</li>
+</ul></li>
+<li><p>‘OverwriteFile’</p>
+<ul>
+<li>Whether to overwrite existing output files or not.</li>
+<li>Default is <code>true</code>.</li>
+</ul></li>
+<li><p>‘ModelSelect’</p>
+<ul>
+<li>see <code>bestmodel()</code></li>
+</ul></li>
+<li><p>‘ModelSelectOP’</p>
+<ul>
+<li>see <code>bestmodel()</code></li>
+</ul></li>
+<li><p>‘ChooseBest’</p>
+<ul>
+<li>Define the number of maximum best models for each station to be applied.</li>
+<li>Default is 10, which means we pick the models of top 10 fitting degrees each station for calculating predicted TIP(s).</li>
+</ul></li>
+<li><p>‘CombinationNumber’</p>
+<ul>
+<li>Define the total number of random combinations among the best models of each station for joint-station TIP calculation.</li>
+<li>Default is 500, which means for every station a random permutation of ranking numbers (based on the fitting degree) of the best models is performed with each sequence of ranking number having 500 elements, and the ith joint-station model parameter combination is thus from the best models of each station indexed by the ith element of each permutation.</li>
+</ul></li>
+</ul>
+<p><strong>Input and output:</strong></p>
+<ul>
+<li><code>molscore3</code> takes anomaly indices from <code>dir_tsAIN</code>, earthquake catalog and station information from <code>dir_catalog</code>, and ranked model form <code>dir_molchan</code>.</li>
+<li>The output probability is saved in <code>dir_jointstation</code>.</li>
+</ul>
+</section>
+<section id="molscore3_parfor" class="level3">
+<h3 class="anchored" data-anchor-id="molscore3_parfor"><code>molscore3_parfor</code></h3>
+<p><code>molscore3_parfor</code> is the parallel computing version of <code>molscore3</code>, it takes the same input arguments and supports all documented keyword arguments as <code>molscore3</code>.</p>
+</section>
+</div>
+</div>
+</section>
+<section id="load-raw-data-and-convert-it-into-a-standard-format" class="level2">
+<h2 class="anchored" data-anchor-id="load-raw-data-and-convert-it-into-a-standard-format">Load raw data and convert it into a standard format</h2>
+<div id="0f91c872" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
+<section id="conv_gemsdata" class="level3">
+<h3 class="anchored" data-anchor-id="conv_gemsdata"><code>conv_gemsdata</code></h3>
+<p><code>conv_gemsdata(dir_gems_raw, dir_data, dir_catalog)</code> read original GEMS’s data (e.g., <code>2012_02_07_16_45_00.dat</code>) in <code>dir_gems_raw</code>, merge and convert them to the standard format for GEMS-MagTIP.</p>
+<p>Also see <code>"read_gemsdata.m"</code>. <strong>Example</strong>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="va">dir_gems_raw</span> <span class="op">=</span> <span class="ss">'rawdata/GEMSdat'</span><span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">% where the individual data locates in for example:</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">% 'rawdata/GEMSdat/em10/REC/Y2012/M02/D07/2012_02_07_16_45_00.dat'</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="va">dir_data</span> <span class="op">=</span> <span class="ss">'dataStandard/GE'</span><span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="va">dir_catalog</span> <span class="op">=</span> <span class="ss">'spreadsheet'</span><span class="op">;</span> <span class="co">% for obtaining the station information ("station_location.mat");</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="va">conv_gemsdata</span>(<span class="va">dir_gems_raw</span><span class="op">,</span> <span class="va">dir_data</span><span class="op">,</span> <span class="va">dir_catalog</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Keyword Argument:</strong></p>
+<ul>
+<li>‘FilterByDatetime’: See <code>conv_geomagdata</code>.</li>
+</ul>
+</section>
+<section id="conv_geomagdata" class="level3">
+<h3 class="anchored" data-anchor-id="conv_geomagdata"><code>conv_geomagdata</code></h3>
+<p>The original geomagnetic data (which are those in “.csv” format being something like “2008010300.KM” or “20190307.LY”) should be converted to a standard format before any calculation. <code>conv_geomagdata(dir_mag_raw, dir_data)</code> read original data in <code>dir_mag_raw</code> and save them in the standard format at the directory <code>dir_data</code>.</p>
+<p><strong>Keyword Argument:</strong></p>
+<ul>
+<li><p>‘ContinueFromLast’: Default is <code>false</code>. If <code>true</code>, it compares the names of all old files in the <code>dir_mag_raw</code> and the new files in <code>dir_data</code> before conversion to avoid files that are already being converted to be converted again. This additional procedure may take several hours depending on the size of database; a more efficient way for avoiding repeated processing is to manually specify ‘FilterByDatetime’. See below.</p></li>
+<li><p>‘FilterByDatetime’: Only convert the files in the assigned time range(s). It supports:</p>
+<ul>
+<li><p>A datetime. For example, when <code>'FilterByDatetime', datetime(2010,10,10)</code>, only files with time tag being or after 2010-Oct-10 will be converted.</p></li>
+<li><p>N by 2 datetime array, for example,</p>
+<pre><code>'FilterByDatetime', [datetime(2009,12,10), datetime(2010,10,10);...
+                     datetime(2013,12,10), datetime(2017,10,10)];</code></pre>
+<p>, only the files in the two time ranges [2009-Dec-10, 2010-Oct-10] and [2013-Dec-10, 2017-Oct-10] will be converted; otherwise, ignored.</p></li>
+</ul></li>
+<li><p>‘Test’: It take only the assigned ratio (0-1) of data (files) in the directory <code>dir_mag_raw</code>. The files are randomly chosen. This option should only be applied when you want to test your code for reducing the overall computing time. Default is 0 (when the assigned value for ‘Test’ is <span class="math inline">\(\leq 0\)</span> or <span class="math inline">\(\geq 1\)</span>, there is no reduction in the data list).</p></li>
+</ul>
+<p><strong>NOTICE:</strong></p>
+<ul>
+<li>Files in the original format must be uniquely named as ‘20200101.HC’ or ‘2020010109.HC’ for example.</li>
+<li>If not uniquely named, such as ‘../HC/20200101.txt’, ‘../CS/20200101.txt’, the second one will be regarded as a duplicated file and be moved out to an alternative folder (<code>dir_alt</code>)</li>
+<li>every file should have its extension as the code of the corresponding station, e.g.&nbsp;‘20200101.HC’ is correct; ‘20200101.txt’ is not valid and an error will occur.</li>
+</ul>
+</section>
+<section id="readgems" class="level3">
+<h3 class="anchored" data-anchor-id="readgems"><code>readgems</code></h3>
+<p>A general function for reading original gems data. It dispatch the task to the specified function according to file extension.</p>
+</section>
+<section id="read_gemsdat" class="level3">
+<h3 class="anchored" data-anchor-id="read_gemsdat"><code>read_gemsdat</code></h3>
+<p>read <code>yyyy_mm_dd_HH_MM_SS.dat</code> from GEMS developed by AnaSystem The following is GEMS.dat format: Header is the first 100 bytes. All parameters in header is in a unit of 2 bytes Hence, the header has 50 fields.</p>
+<ul>
+<li>0-11 bytes is for date</li>
+<li>0-1: year</li>
+<li>2-3: month</li>
+<li>4-5: day</li>
+<li>6-7: hour</li>
+<li>8-9: minute</li>
+<li>10-11: second</li>
+<li>12-13: sampling rate</li>
+<li>14-15: Channel Options (15 has 4 CHs,255 has 4 CHs,7 has 3 CHs,3 has 2 CHs)</li>
+<li>16-99 bytes are padded by zero, for future use.</li>
+</ul>
+<p>From the 100th byte on, every 4 byte is used to restore data. The order is TimeStamp, Ch1, Ch2, Ch3, Ch4. If one channel is not used, skip it. e.g., only use chn1 and chn3, then recording order is TimeStamp, Ch1, Ch3, TimeStamp, Ch1, Ch3, and so on. In every cycle, TimeStamp is a 4-byte integer, time drift from the header time, unit is minisecond. channel’s data is 4-byte single-precision float. Note that the byte order of all data is “little endian.” The value of voltage is between -10 V and 10 V.</p>
+<p><code>function [data, header] = read_gemsdat(absolute_FileName)</code> input: absolute_FileName: string, absolute full file name output: data = [time,chn1,chn2,chn3,chn4], N x 5 header = [yyyy;mm;dd;HH;MM;SS.SS;fs;chnOPT;…] built-in func: fopen, fclose, fread, fseek self-defined func:</p>
+<p>usage:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>[<span class="va">data</span><span class="op">,</span> <span class="va">header</span>] <span class="op">=</span> <span class="va">read_gemsdat</span>(<span class="ss">'g:\GEMSdat\em10\REC\Y2012\M02\D07\2012_02_07_16_45_00.dat'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Origin</p>
+<ul>
+<li>readanasystem.m</li>
+<li>Author: Han-Lun Hsu</li>
+</ul>
+<p>First modification</p>
+<ul>
+<li>Matlab version: 2018b</li>
+<li>Author: Hong-Jia Chen (redhouse6341@gmail.com)</li>
+<li>Date: 2018/07/01</li>
+</ul>
+<p>Second modification</p>
+<ul>
+<li>Matlab version: 2021b</li>
+<li>Author: Hong-Jia Chen (redhouse6341@gmail.com)</li>
+<li>Date: 2021/10/11</li>
+</ul>
+<blockquote class="blockquote">
+<p>The docstring is revised by Tsung-Hsi Wu in 2024.</p>
+</blockquote>
+</section>
+<section id="geoelectric_projection" class="level3">
+<h3 class="anchored" data-anchor-id="geoelectric_projection"><code>geoelectric_projection</code></h3>
+<p>One field data of any direction can be determined by data of another two directions <code>E(phi)=[-E1*sin(phi-theta2)+E2*sin(phi-theta1)]/sin(theta2-theta1)</code> In this framework, make sure Common Electrode is negative for all channels That is, A is CH01+, B is CH02+, C is CH01- and CH02- <code>function [E] = geoelectric_projection(phi, E1, theta1, E2, theta2)</code> input: phi, theta1, theta2 = ‘degree’ from the north, positive for clockwise E1, E2 = field data of any two direction output: E = field data of the specific direction phi phi = 0 means north phi = 90 means east built-in func: sind numel user-defined func:</p>
+<p>usage:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>[<span class="va">E_EW</span>] <span class="op">=</span> <span class="va">geoelectric_projection</span>(<span class="fl">90</span><span class="op">,</span> <span class="va">E_chn1</span><span class="op">,</span> <span class="fl">15</span><span class="op">,</span> <span class="va">E_chn2</span><span class="op">,</span> <span class="fl">120</span>)<span class="op">;</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>[<span class="va">E_NS</span>] <span class="op">=</span> <span class="va">geoelectric_projection</span>(<span class="fl">0</span><span class="op">,</span> <span class="va">E_chn1</span><span class="op">,</span> <span class="fl">15</span><span class="op">,</span> <span class="va">E_chn2</span><span class="op">,</span> <span class="fl">120</span>)<span class="op">;</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">% where  East is positive;  North is positive</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Reference</p>
+<ul>
+<li>Takahashi et al.&nbsp;(2005): ULF Electromagnetic Environment at Southern Boso Peninsula : Signal Discrimination of the Geoelectromagnetic Data</li>
+</ul>
+<p>Origin</p>
+<ul>
+<li>Matlab version: 2018b</li>
+<li>Author: Hong-Jia Chen (redhouse6341@gmail.com)</li>
+<li>Date: 2020/09/02</li>
+</ul>
+<blockquote class="blockquote">
+<p>The docstring is revised by Tsung-Hsi Wu in 2024.</p>
+</blockquote>
+</section>
+<section id="columnind" class="level3">
+<h3 class="anchored" data-anchor-id="columnind"><code>columnind</code></h3>
+<p>Return column indices for time, data and others according to the type field on the file name of standard format GE/GM data.</p>
+</section>
+<section id="standarddataname" class="level3">
+<h3 class="anchored" data-anchor-id="standarddataname"><code>standarddataname</code></h3>
+<p><code>[fname] = standarddataname(stnm, dtstr, type_j)</code> returns the file name of the standard data format. For example, <code>standarddataname('HUAL', '20120202', 'GEMS0')</code> returns <code>stn[HUAL]dt[20120202]type[GEMS0].mat</code>.</p>
+</section>
+<section id="write_data" class="level3">
+<h3 class="anchored" data-anchor-id="write_data"><code>write_data</code></h3>
+<p>Given the reference tag <code>strcheckwith</code> (that automatically updated inside this function) and the reference tag <code>strj</code> (defined outside the function), <code>write_data</code> creates a new file <code>fname</code> if they are different, and write <code>M</code> into the same <code>matObj</code> if they are the same.</p>
+<p><strong>Example</strong> In the following example, New matfile <code>matObj</code> is created in the first loop with <code>matObj.M = M</code>. In the subsequent loops, new data <code>M</code> will be appended to the same <code>matObj.M</code> until <code>datestr</code> is updated.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="va">dtstr0</span> <span class="op">=</span> <span class="ss">'00000000'</span><span class="op">;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="va">matObj</span> <span class="op">=</span> <span class="fl">0</span><span class="op">;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">for</span> <span class="va">j</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="va">height</span>(<span class="va">table_i</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">dtstr_j</span> <span class="op">=</span> <span class="va">table_i</span>{<span class="va">j</span><span class="op">,</span> <span class="ss">'datestr'</span>}<span class="op">;</span> </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        <span class="op">...</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        [<span class="va">matObj</span><span class="op">,</span> <span class="va">dtstr0</span>] <span class="op">=</span> <span class="va">write_data</span>(<span class="va">M</span><span class="op">,</span> <span class="va">matObj</span><span class="op">,</span> <span class="va">dtstr0</span><span class="op">,</span> <span class="va">dtstr_j</span><span class="op">,</span> <span class="va">dir_i</span><span class="op">,</span> <span class="va">fname</span><span class="op">,</span> <span class="va">dir_alt</span>)<span class="op">;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</div>
+</div>
+</section>
+<section id="available-preprocessing-functions" class="level2">
+<h2 class="anchored" data-anchor-id="available-preprocessing-functions">Available Preprocessing Functions</h2>
+<p>In GEMS-MagTIP, signal processing is conducted via preprocessing functions, Preprocessing functions are special functions that are located in <code>src/preprocess</code>. The <code>no</code> function that simply import the data from a given file path is necessary. You can use <code>prplist = prpfunctions()</code> to list all preprocessing functions. Filtering functions (such as <code>ULF_A</code>,<code>ULF_B</code> in <code>prplist</code>) share the same core function <code>generalfilterprocess</code> that takes the output of <code>loadfilters</code> as their inputs.</p>
+<section id="what-do-preprocessing-functions-do" class="level4">
+<h4 class="anchored" data-anchor-id="what-do-preprocessing-functions-do">What do preprocessing functions do?</h4>
+<ul>
+<li>import data (namely, <code>M</code>)</li>
+<li>do some pre-process (e.g., band-pass filtering)</li>
+<li>output the processed data as a matrix the same columns as <code>M</code></li>
+<li><code>columnind</code> is applied in preprocessing functions to acquire the indices to time columns, data columns, and etc..</li>
+</ul>
+</section>
+<section id="you-can-define-your-own-preprocessing-functions-to-work-with-statind-as-the-following-points-should-be-satisfied" class="level4">
+<h4 class="anchored" data-anchor-id="you-can-define-your-own-preprocessing-functions-to-work-with-statind-as-the-following-points-should-be-satisfied">You can define your own preprocessing functions to work with <code>statind</code>, as the following points should be satisfied:</h4>
+<ul>
+<li>The first input argument should be the path <code>fpath</code> to the file of standard format.</li>
+<li>Import data from <code>fpath</code>.</li>
+<li>Make sure the column indices is compatible with <code>columnind</code>.</li>
+</ul>
+</section>
+<section id="example" class="level4">
+<h4 class="anchored" data-anchor-id="example">Example</h4>
+<p>There are four built-in preprocessing functions, <code>BP_35</code>, <code>BP_40</code>, <code>ULF_A</code>, <code>ULF_B</code>; these filters can be applied in the <code>statind</code> stage via the <code>'Preprocess'</code> keyword argument.</p>
+<p>Here is an example of the direct use (not via <code>'Preprocess'</code> interface in the <code>statind</code> stage) of <code>BP_35</code>:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="va">fpath</span> <span class="op">=</span> <span class="ss">'D:\GeoMag (main)\GeoMag_GO\KUOL\stn[KUOL]dt[20150714]type[GEMS].mat'</span><span class="op">;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="va">M_out</span> <span class="op">=</span> <span class="va">BP_35</span>(<span class="va">fpath</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this example, data is imported from <code>fpath</code> as variable, then call <code>generalfilterprocess</code> which by default use <code>bandpass</code> that creates a band-pass filter every time a data is imported, and output the filtered data as <code>M_out</code> having exactly the same column dimension as <code>M</code> (but with rows might be reduced).</p>
+<p>Here is another example, which apply existing filters (e.g., <code>'Filter[BP_35]samp[1]stp[093].mat'</code>) in <code>dir_filter</code> if possible:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="va">fpath</span> <span class="op">=</span> <span class="ss">'D:\GeoMag (main)\GeoMag_GO\KUOL\stn[KUOL]dt[20150714]type[GEMS].mat'</span><span class="op">;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="va">filtpaths</span> <span class="op">=</span> <span class="va">datalist</span>(<span class="ss">'Filter*.mat'</span><span class="op">,</span> <span class="va">dir_filter</span>)<span class="op">;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="va">FOBJ</span> <span class="op">=</span> <span class="va">loadfilters</span>(<span class="va">filtpaths</span>)<span class="op">;</span> <span class="co">% load all filters as a struct FOBJ</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="va">M_out</span> <span class="op">=</span> <span class="va">BP_35</span>(<span class="va">fpath</span><span class="op">,</span> <span class="va">FOBJ</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<div id="554fa465" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
+<section id="bp_35" class="level3">
+<h3 class="anchored" data-anchor-id="bp_35"><code>BP_35</code></h3>
+<p>The preprocessing function that filter the loaded timeseries with <code>'BP_35'</code> band-pass filter. It applies down sampling to 1 Hz before band-pass filtering (<code>'Downsampling1Hz', true</code>), and applies edge truncations right before output (<code>'EdgeTruncate', 3162</code>); please refer <code>generalfilterprocess</code> for more details. The lower and upper bounds of frequency are <code>[10^(-3.5) 10^(-1.75)]</code> (in unit Hz); please refer <code>fmt.filterRange</code>.</p>
+</section>
+<section id="bp_40" class="level3">
+<h3 class="anchored" data-anchor-id="bp_40"><code>BP_40</code></h3>
+<p>The preprocessing function that filter the loaded timeseries with <code>'BP_40'</code> band-pass filter. It applies down sampling to 1 Hz before band-pass filtering (<code>'Downsampling1Hz', true</code>), and applies edge truncations right before output (<code>'EdgeTruncate', 10000</code>); please refer <code>generalfilterprocess</code> for more details. The lower and upper bounds of frequency are <code>[10^(-4) 10^(-1.75)]</code> (in unit Hz); please refer <code>fmt.filterRange</code>.</p>
+<p><unsupported language=""> <unsupported language=""></unsupported></unsupported></p>
+</section>
+<section id="ulf_a" class="level3">
+<h3 class="anchored" data-anchor-id="ulf_a"><code>ULF_A</code></h3>
+<p>The preprocessing function that filter the loaded timeseries with the <code>'ULF_A'</code> band-pass filter. It applies down sampling to 1 Hz before band-pass filtering (<code>'Downsampling1Hz', true</code>), and applies edge truncations right before output (<code>'EdgeTruncate', 1000</code>); please refer <code>generalfilterprocess</code> for more details. The lower and upper bounds of frequency are <code>[0.001 0.003]</code> (in unit Hz); please refer <code>fmt.filterRange</code>.</p>
+</section>
+<section id="ulf_b" class="level3">
+<h3 class="anchored" data-anchor-id="ulf_b"><code>ULF_B</code></h3>
+<p>The preprocessing function that filter the loaded timeseries with the <code>'ULF_B'</code> band-pass filter. It applies down sampling to 1 Hz before band-pass filtering (<code>'Downsampling1Hz', true</code>), and applies edge truncations right before output (<code>'EdgeTruncate', 1000</code>); please refer <code>generalfilterprocess</code> for more details. The lower and upper bounds of frequency are <code>[0.001 0.01]</code> (in unit Hz); please refer <code>fmt.filterRange</code>.</p>
+</section>
+<section id="no" class="level3">
+<h3 class="anchored" data-anchor-id="no"><code>no</code></h3>
+<p><code>M_prp = no(fpath)</code> does no preprocessing, loads and returns the data of <code>fpath</code> in the form of matrix.</p>
+<p>Other functions might also depends on <code>no</code>. For example, <code>prpfunctions</code> is dependent on <code>no</code> to get the directory of all functions for preprocessing.</p>
+</section>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>generalfilterprocess</code> is the core shared among <code>'ULF_X'</code> and <code>BP_X</code> family; please refer <a href="#filtering-functions">Filtering Functions</a>.</p>
+</div>
+</div>
+</section>
+<section id="filtering-functions" class="level2">
+<h2 class="anchored" data-anchor-id="filtering-functions">Filtering Functions</h2>
+<div id="9ed61e6f" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="5">
+<section id="autobandpassfilter" class="level3">
+<h3 class="anchored" data-anchor-id="autobandpassfilter"><code>autobandpassfilter</code></h3>
+<p>Given a file of standard format, create and save bandpass filter accordingly. See also <code>fmt</code>; <code>generalfilterprocess</code>.</p>
+</section>
+<section id="butterfilt" class="level3">
+<h3 class="anchored" data-anchor-id="butterfilt"><code>butterfilt</code></h3>
+<p>Butterworth filter.</p>
+</section>
+<section id="filterthedata" class="level3">
+<h3 class="anchored" data-anchor-id="filterthedata"><code>filterthedata</code></h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="va">M_dataf</span> <span class="op">=</span> <span class="va">filterthedata</span>(<span class="va">M_input</span><span class="op">,</span><span class="va">prp_tag</span><span class="op">,...</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="ss">'SamplingFrequency'</span><span class="op">,</span><span class="va">fs</span><span class="op">,...</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="ss">'RemoveOutliers'</span><span class="op">,</span><span class="va">true</span>)<span class="op">;</span><span class="co">%</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>where <code>M_input</code> is an <code>n</code> by <code>m</code> array where <code>n</code> is the number of data points, <code>m</code> is the number variable. That is, each row of <code>M_input</code> is a data point; each column is a variable.</p>
+</section>
+<section id="generalfilterprocess" class="level3">
+<h3 class="anchored" data-anchor-id="generalfilterprocess"><code>generalfilterprocess</code></h3>
+<p>Given <code>prp_tag</code>, <code>generalfilterprocess(prp_tag, fpath, 'AvailableFilter', FOBJ)</code> load data from <code>fpath</code>, filter only the data column and return the data as <code>M_prp</code>. The frequency range is inquiried through <code>fmt.filterRange</code> or <code>FOBJ.(prp_tag).(fs_tag)</code>.</p>
+<p>If <code>FOBJ</code> is provided, <code>generalfilterprocess</code> attempts to do filtering with filters in <code>FOBJ</code>; if there is no adequete filter in <code>FOBJ</code>, it applys <code>filterthedata</code> that generates filter for file <code>fpath</code> with warning message.</p>
+<p>Option:</p>
+<ul>
+<li><code>'EdgeTruncate', 1000</code>: Truncate the head/tail by <code>1000</code> data points right before output.</li>
+<li><code>'AbnormalLowValue', 1e-6</code>: Replace data of absolute values less than <code>1e-6</code> to <code>NaN</code>.</li>
+</ul>
+<p><code>generalfilterprocess</code> involves the following processin; see the docsting therein:</p>
+<ul>
+<li><code>loadfilters</code> for information about <code>FOBJ</code>, <code>fs_tag</code> and <code>prp_tag</code>.</li>
+<li><code>fmt</code> for <code>fmt.filterRange</code></li>
+<li><code>filterthedata</code> for automatically create a filter and do filtering</li>
+<li><code>fillNaN</code> for interpolation (which is required before any filtering)</li>
+<li><code>autobandpassfilter</code> for quickly making and saving filters.</li>
+</ul>
+</section>
+<section id="loadfilters" class="level3">
+<h3 class="anchored" data-anchor-id="loadfilters"><code>loadfilters</code></h3>
+<p><code>F = loadfilters(filtpaths)</code> load filters as a nested structure, that <code>opts = F.(prp_tag).(fs_tag)</code> is compatible to <code>signal.internal.filteringfcns.filterData</code> in <code>bandpass</code>. In which, <code>prp_tag</code> should be in the list of <code>prpfunctions()</code> and <code>fs_tag</code> is the sampling frequency prefixed by “fs” (e.g., ‘fs15’ for 15Hz).</p>
+<p>The simplest way to create and save a filter is apply <code>bandpass</code> to data with a certain set of parameters, set debug point inside <code>bandpass</code>, and save <code>opts</code> in the debug scope. For canoical approaches, see <a href="https://www.mathworks.com/discovery/filter-design.html">Filter Design in Matlab</a>.</p>
+<p>The filters should named as ‘Filter[ULF_A]samp[15]….mat’ for example.</p>
+<p>The input <code>filtpaths</code> should be a <code>struct</code> having <code>name</code> for file names and <code>fullpath</code> for file paths.</p>
+<p>See also:</p>
+<ul>
+<li><code>prpfunctions()</code>: list all preprocessing functions that might support <code>F</code>.</li>
+<li><code>signal.internal.filteringfcns.filterData</code> (Signal processing package of matlab)</li>
+<li><code>statind(__)</code></li>
+</ul>
+</section>
+<section id="try_generalfilterprocess" class="level3">
+<h3 class="anchored" data-anchor-id="try_generalfilterprocess"><code>try_generalfilterprocess</code></h3>
+<p>A try-catch wrapper to avoid aborting execution due to error raised in <code>generalfilterprocess</code>.</p>
+</section>
+</div>
+</div>
+</section>
+<section id="internal-api-for-tip-calculation" class="level2">
+<h2 class="anchored" data-anchor-id="internal-api-for-tip-calculation">Internal API for TIP Calculation</h2>
+<div id="a595ba9c" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="6">
+<section id="tiparea" class="level3">
+<h3 class="anchored" data-anchor-id="tiparea"><code>TIPArea</code></h3>
+<p><code>isinS</code> indicates the points of xLon, yLat that are in the range of <code>Rc</code> centered at <code>Lon</code>, <code>Lat</code>. <strong>Unit:</strong></p>
+<ul>
+<li><code>xLon</code> (<code>yLat</code>): degree of longitude (latitude).</li>
+<li><code>Rc</code>: kilometer. Noted that <code>Rc</code> is convert to the unit of degree and be the mean of those based on the latitude and longitude of the center respectively. (Hint: when converting km to deg, it depends on latitude and the longitude. For example, at lower latitude, the distance of 1 deg interval in longitude is much larger than that of 1 deg interval at high latitude.)</li>
+</ul>
+<p><strong>Input:</strong></p>
+<ul>
+<li><code>xLon</code> (<code>yLat</code>): N by 1 array for longitude (latitude)</li>
+<li><code>Rc</code>: M by 1 array of raddi</li>
+<li><code>Lon</code>, <code>Lat</code>: M by 1 array of the coordinate of centers each.</li>
+</ul>
+<p><strong>Output:</strong></p>
+<ul>
+<li><code>isinS</code>: <code>xLon(isinS),yLat(isinS)</code> specify all the points (clearly non-repeated) that are within the ranges of radii <code>Rc</code> inside the centers specified by <code>Lon</code>, <code>Lat</code>.</li>
+</ul>
+</section>
+<section id="tipspatialtemporal" class="level3">
+<h3 class="anchored" data-anchor-id="tipspatialtemporal"><code>TIPspatialtemporal</code></h3>
+<p><strong>Output:</strong></p>
+<ul>
+<li><code>isinTS</code>: a S by T logical array specifying spatial-temporal points that are within the ranges of radii <code>Rc</code> inside the centers specified by <code>Lon</code>, <code>Lat</code>, where <code>[Rc, Lon, Lat] = LatLonRc_TIPtrue</code> is a M by 3 array where <span class="math inline">\(M \geq T\)</span> must be satisfied.</li>
+</ul>
+</section>
+<section id="bestmodel" class="level3">
+<h3 class="anchored" data-anchor-id="bestmodel"><code>bestmodel</code></h3>
+<p><code>[BestModels,BestModelNames,idPermute,molList] = bestmodel(molList,BestN,totalM,StationLocation)</code> filters the best N models out based on fitting degree and perform random permutation of total M combination of them. That is, <code>bestmodel()</code> save the best N (at most) models for each station in <code>BestModels</code>, and gives an array of M elements that are randomly picked from the set of the ranking numbers of the best N (at most) models.</p>
+<p><strong>Input arguments</strong>:</p>
+<ul>
+<li><code>molList</code>: The list of paths to the files of ranked models, which are produced by <code>molscore</code>. Get the <code>molList</code> using <code>datalist(...)</code>.</li>
+<li><code>BestN</code>: The number the models of highest molchan score.</li>
+<li><code>totalM</code>: The amount of randomly permuted combinations of the best N models. That is, M is the number of joint-station models. Noted that the first model combination is forced to be the combination of the best model of each station.</li>
+<li><code>StationLocation</code>: A J by 3 table with the column names being ‘format’, ‘Lon’, ‘Lat’ and row names (i.e.&nbsp;<code>StationLocation.Properties.RowNames</code>) the station codes (e.g.&nbsp;‘TW’, ‘CS’,…) of the total J stations.</li>
+</ul>
+<p><strong>Output arguments</strong>:</p>
+<ul>
+<li><code>BestModels</code>: A J-by-1 cell array containing the best models of total J stations. In each cell there is a table model parameters.</li>
+<li><code>BestModelNames</code>: An J-by-1 cell array containing station names corresponding to <code>BestModels</code> (also J-by-1 cell array).</li>
+<li><code>idPermute</code>: The randomly permuted indices for the best models. It is a J by 1 cell array, where each cell contains a M by 1 double array being the indices for the Jth <code>BestModels</code>. Noted that the first element in the M by 1 double array is always <code>1</code>, which force the first model combination in <code>jointstation()</code> to be the combination of the best model of each station (SEE <code>molscore3()</code>).</li>
+<li><code>molList</code>: The list of paths to the files of ranked models, where the files having all molchan scores to be NaN (hence model parameters cannot be ranked) are excluded.</li>
+</ul>
+<p><strong>Keyword Arguments:</strong></p>
+<ul>
+<li><p>‘NearbyThreshold’: For some reasons (e.g.&nbsp;no target earthquakes at all in the training phase) models cannot be ranked (optimized) for a station (saying ‘MS’) because all molchan scores are NaN. In this situation, <code>bestmodel</code> will try to find if there is a near-by station within 15 km (in default). If there is, for example, a station ‘PT’ nearby within 15km of ‘MS’, then the ranked model ‘PT’ will be taken instead. That is, in the following process in <code>molscore3</code>, the best models of ‘PT’ and the AIN based on the geomagnetic data of ‘MS’ are applied for calculating the probabilities around the station of ‘MS’.</p></li>
+<li><p>‘ModelSelect’: You may filter the table of Molchan scores by using this option. For example, with <code>'ModelSelect', {'Tpred', 5}</code>, all rows whose <code>Tpred</code> is not <code>5</code> will be discard.</p></li>
+<li><p>‘ModelSelectOP’</p>
+<ul>
+<li>The operator function for model selecting if <code>'ModelSelect'</code> have multiple pairs of input argument.</li>
+<li>For example, with <code>'ModelSelect', {'Tpred', 5, 'Tlead', 5}, 'ModelSelectOP', @or</code>, all rows with <code>Tpred=5</code> or <code>Tlead=5</code> was kept; others, discarded.</li>
+<li>Default is <code>@or</code>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="convain" class="level3">
+<h3 class="anchored" data-anchor-id="convain"><code>convAIN</code></h3>
+<p>Calculate the total amount of anomaly indices of each day. That is, saying we have two statistical indices <code>S</code> and <code>K</code>, and the total amount of anomaly indices is less or equal than 2. It is the ‘update_tsAIN’ of the previous version.</p>
+<p><strong>Example</strong>:</p>
+<pre><code>[sum_tsAIN, sum_validateIndex] = convAIN(tsAIN.Athr, tsAIN.validateIndex)</code></pre>
+<p>For each Athr we have one anomaly index (true or false) and validation index (true or false) per day per variable, and the output is the number of “trues” per day. Usually Athr = 1:10, so the output will be a 10 by 1 cell in each there is a N by 1 double; N is the length of the DateTime series.</p>
+<p><strong>Input arguments</strong>:</p>
+<ul>
+<li><code>tsAIN.Athr</code> or <code>tsAIN.validateIndex</code>: A 1-by-10 structure array. See <code>anomalyind</code> for more information.</li>
+</ul>
+<p><strong>Output arguments</strong>:</p>
+<ul>
+<li><code>sum_tsAIN</code> or <code>sum_validateIndex</code>: A 10-by-1 cell array corresponding to <span class="math inline">\(A_{thr} = 1:10\)</span>. In each cell, there is a N-by-1 double array being the sum of anomaly indices or the sum of valid indices of N days.</li>
+</ul>
+</section>
+<section id="dt_tip_true" class="level3">
+<h3 class="anchored" data-anchor-id="dt_tip_true"><code>dt_TIP_true</code></h3>
+<p><code>[dt_TIPtrue,TIPtime,TIP] = dt_TIP_true(DateTimeSAT,vlSAT, Tthr,Tlead,Tpred)</code> return the datetime where TIP is true.</p>
+<p><strong>Input arguments:</strong></p>
+<ul>
+<li><code>DateTimeSAT</code>: M-by-1 datetime array for sum of anomaly days</li>
+<li><code>vlSAT</code>: M-by-1 double array for the values of sum of anomaly days (the anomaly days is summed in the moving window of <code>Tobs</code>)</li>
+<li><code>Tthr</code>: the threshold related to the number of anomaly days in <code>Tobs</code></li>
+<li><code>Tlead</code>: the leading window right before the prediction window</li>
+<li><code>Tpred</code>: the window of prediction (where TIP is true or false according to the number of anmalies in the corresponding Tobs window)</li>
+</ul>
+<p><strong>Output arguments:</strong></p>
+<ul>
+<li><code>dt_TIPtrue</code>: the datetime where <code>TIP</code> is true</li>
+<li><code>TIPtime</code>: an N-by-1 datetime array paired with the <code>TIP</code> array</li>
+<li><code>TIP</code>: an N-by-1 logical array of Time of Increased Probability</li>
+</ul>
+<p>The variable <code>dt_TIPtrue</code> may exceeds the last day of <code>DateTimeSAT</code>, while <code>TIPtime</code> is truncated to not exceed <code>DateTimeSAT(end)</code> in <code>molscore</code>, because in training phase datetime out of <code>DateTimeSAT</code> is assumed to be out of the time range of available earthquake catalog.</p>
+<p><strong>A schematic illustration of the input/output variables:</strong></p>
+<pre><code>sum_validateIndex_all_a_dti (2nd input argument in sumanomalyind)
+               1100111011000001010010000000001010000000 (for example) 
+DateTime_dti   tttttttttttttttttttttttttttttttttttttttt
+Tobs length    |-----|  (Tobs=7, for example) 
+Tlead length          |-------| (Tlead=9, for example) 
+vlSAT                5445543222122233222221112122344332 (for example) 
+DateTimeSAT index    123456789.........................         
+DateTimeSAT    |Tobs |--------------------------------|         
+TIPtime/TIP    |Tobs || Tlead ||--------------------------------------|
+                               ↑                |Tobs || Tlead ||Tpred| 
+                   Tpred start ↑        last AIN data ↑     Tpred end ↑    </code></pre>
+</section>
+<section id="dt_tip_valid" class="level3">
+<h3 class="anchored" data-anchor-id="dt_tip_valid"><code>dt_TIP_valid</code></h3>
+<p><code>dt_TIP_valid</code> gives loosely valid TIP time and strictly invalid TIP time. There are two possibilities for a TIP false: one is that the anomaly index number (AIN) is below the threshold, and the other is that AIN is NaN since anything in comparison with a NaN results in a false. The later we called it an ‘invalid’ TIP time/day.</p>
+<p><strong>Example:</strong></p>
+<pre><code>[TIPtime1,TIP_valid,dates_TIPvalid_st,dates_TIPinvalid_st] = ...
+dt_TIP_valid(DateTimeSAT,sum_validateIndex_all_a_dti,Tobs,Tlead,Tpred)</code></pre>
+<p>This gives the datetime where there is at least one data in the <code>Tobs</code> and hence TIP false is a valid false.</p>
+<p><strong>Input arguments:</strong></p>
+<ul>
+<li><code>DateTimeSAT</code>: see <code>sumanomalyind()</code></li>
+<li><code>sum_validateIndex_all_a_dti</code>: the <code>sum_validateIndex</code> in <code>convAIN()</code></li>
+<li><code>Tobs</code>: the observation time window right before the leading window (<code>Tlead</code>).</li>
+<li><code>Tlead</code>: the leading window right before the prediction window</li>
+<li><code>Tpred</code>: the window of prediction (where TIP is true or false according to the number of anmalies in the corresponding Tobs window)</li>
+</ul>
+<p><strong>Output arguments:</strong></p>
+<ul>
+<li><code>TIPtime1</code>: a 1-d datetime array for <code>TIP_valid</code></li>
+<li><code>TIP_valid</code>: a 1-d logical array indicating whether the TIP is valid or not.</li>
+<li><code>dates_TIPvalid_st</code>: Returns the datetimes of where the TIP have a meaningful <code>true</code>/<code>false</code>.</li>
+<li><code>dates_TIPinvalid_st</code>: Returns the datetimes of where the TIP have a meaningless <code>false</code>. (If TIP is true, then the day should always be valid)</li>
+</ul>
+<p>About the meaningful and meaningless ‘false’, see the comments in <code>anomalyind()</code></p>
+<p>Recalling that sum of AIN is the sum of anomaly index calculated in the moving time window of length Tobs, and the dates <code>DateTimeSAT(sum_AIN_valid)</code> denotes the end day of Tobs where at least one of the anomaly index in the Tobs window is meaningful, we have the following example where Tlead = 9, Tobs = 7, and Tpred = 3, for explicitly demonstrates how the TIP’s valid times are calculated:</p>
+<pre><code>sum_validateIndex_all_a_dti
+              '1100111011000001010010000000001010000000' (for example) 
+DateTime_dti   tttttttttttttttttttttttttttttttttttttttt|
+DateTimeSAT          tttttttttttttttttttttttttttttttttt|
+sum_AIN_valid        1111111111111111111110001111111110|
+dt_AIN_valid         ttttttttttttttttttttt   ttttttttt |
+               |Tobs ||&lt;--a---&gt;|                       |&lt;--b-----&gt;|
+TIPtime                        tttttttttttttttttttttttttttttttttttt
+Tpred moving window            |c|                              |c|
+                               | the same length as DateTimeSAT |
+TIPvalid_0                     123456789........................
+                                \\\\\\\
+TIPvalid_1                       3456789..........................
+
+Therefore, 
+dt_TIPvalid = unique(TIPtime([1:3,2:4,3:5,....]))
+
+% t denotes a datetime object
+% a = Tlead+1 = idinc2predstart
+% b = Tlead+Tpred = idinc2predend
+% c = Tred
+% dt_AIN_valid is DateTimeSAT(sum_AIN_valid), and sum_AIN_valid is a.k.a Tobs_TF.
+% TIPvalid_0 (_1) is a.k.a. TIP_TF_0 (_1)</code></pre>
+</section>
+<section id="eqktip1" class="level3">
+<h3 class="anchored" data-anchor-id="eqktip1"><code>eqktip1</code></h3>
+<pre><code>[EQK,TIP, TIPtime] = eqktip1(eqMR,eqDateTime, DateTimeSAT,vlSAT, ...
+                   Tthr_iMod,Tlead_iMod,Tpred_iMod, Mc_iMod,Rc_iMod)</code></pre>
+<p>provides 1 dimensional logical array of target earthquakes (<code>EQK</code>) and Time of Increased Probability (<code>TIP</code>), corresponding to the 1-d datetime array <code>TIPtime</code>.</p>
+<p><strong>Input arguments:</strong></p>
+<ul>
+<li><code>eqMR</code>: a N by 2 array of all-combination of model magnitudes and radii of detection, with the first column being magnitude and second column the radius of detection.</li>
+<li><code>eqDateTime</code>: a N by 1 cell array. Each cell contains the datetime of target earthquakes satisfying the corresponding row of <code>eqMR</code>; i.e., being larger than eqMR(i,1) and within eqMR(i,2).</li>
+<li><code>DateTimeSAT</code>, <code>vlSAT</code>: see <code>sumanomalyind</code>.</li>
+<li><code>Tthr</code>, <code>Tlead</code>, <code>Tpred</code>: see <code>dt_TIP_true</code>.</li>
+<li><code>Mc_iMod</code>: the current model magnitude.</li>
+<li><code>Rc_iMod</code>: the current model radius of detection.</li>
+</ul>
+<p><strong>Output arguments:</strong></p>
+<ul>
+<li><code>EQK</code>: the M-by-1 logical array for whether there is/are target earthquakes in the day.</li>
+<li><code>TIP</code>: an M-by-1 logical array of Time of Increased Probability</li>
+<li><code>TIPtime</code>: an M-by-1 datetime array paired with the <code>TIP</code> and <code>EQK</code> array</li>
+</ul>
+<p><strong>See also:</strong></p>
+<ul>
+<li><code>[~,eqMR,eqDateTime] = isearthquakeinrange(...)</code> in <code>molscore</code></li>
+<li><code>[DateTimeSAT,vlSAT] = sumanomalyind(...)</code> in <code>molscore</code></li>
+</ul>
+</section>
+<section id="get_modelparam" class="level3">
+<h3 class="anchored" data-anchor-id="get_modelparam"><code>get_modelparam</code></h3>
+<p>Use <code>[var1, var2, ...] = get_modelparam(BestModels, 'name1', 'name2',...)</code> to get specific model parameters uniquely. <code>BestModels</code> is the output of <code>bestmodel()</code>.</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li><code>Tpreds, Tleads = get_modelparam(BestModels, 'Tpred', 'Tlead')</code></li>
+</ul>
+</section>
+<section id="jointstation" class="level3">
+<h3 class="anchored" data-anchor-id="jointstation"><code>jointstation</code></h3>
+<p><code>jointstation</code> calculates hit rates, alarmed rates, and spatial probability.</p>
+<p><strong>Example:</strong></p>
+<p>When it is applied for calculating the hit rates of the training phase:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="va">HitRates_trn</span> <span class="op">=</span> <span class="va">jointstation</span>(<span class="va">BestModels</span><span class="op">,</span><span class="va">BestModelNames</span><span class="op">,</span><span class="va">idPermute</span><span class="op">,...</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>             <span class="va">sum_tsAINs</span><span class="op">,</span><span class="va">sum_validateInds</span><span class="op">,</span><span class="va">DateTime_dti</span><span class="op">,...</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>             <span class="va">CWBcatalog</span><span class="op">,</span><span class="ss">'CalculateHitRate'</span><span class="op">,</span><span class="va">true</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>When it is applied for calculating the forecasting probabilities:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>[<span class="va">HitRates_frc</span><span class="op">,</span> <span class="va">AlarmedRates_frc</span><span class="op">,</span> <span class="va">SpatialProbability</span><span class="op">,</span> <span class="va">xLon</span><span class="op">,</span> <span class="va">yLat</span><span class="op">,</span> <span class="op">...</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="va">validStationTime</span><span class="op">,</span> <span class="va">ProbTime</span><span class="op">,</span> <span class="va">TIP3</span><span class="op">,</span> <span class="va">TIPvalid3</span><span class="op">,</span> <span class="va">EQKs</span><span class="op">,</span> <span class="va">Other</span>]<span class="op">...</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">=</span> <span class="va">jointstation</span>(<span class="va">BestModels</span><span class="op">,</span><span class="va">BestModelNames</span><span class="op">,</span><span class="va">idPermute</span><span class="op">,...</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>         <span class="va">sum_tsAINs</span><span class="op">,</span><span class="va">sum_validateInds</span><span class="op">,</span><span class="va">DateTime_dti</span><span class="op">,...</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>         <span class="va">CWBcatalog</span><span class="op">,</span><span class="ss">'CalculateHitRate'</span><span class="op">,</span><span class="va">true</span><span class="op">,...</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>         <span class="ss">'CalculateAlarmedRate'</span><span class="op">,</span><span class="va">true</span><span class="op">,</span><span class="ss">'CalculateProbability'</span><span class="op">,</span><span class="va">HitRates_trn</span><span class="op">,...</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>         <span class="ss">'StationLocation'</span><span class="op">,</span><span class="va">StationLocation</span><span class="op">,</span> <span class="ss">'Verbose'</span><span class="op">,</span> <span class="va">true</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Keyword Arguments:</strong></p>
+<ul>
+<li><p>‘CalculateHitRate’: Whether to calculate the hit rates. Default is <code>false</code>.</p></li>
+<li><p>‘CalculateAlarmedRate’: Whether to calculate the alarmed rates. Default is <code>false</code>.</p>
+<ul>
+<li>If ‘CalculateProbability’ is true, ‘CalculateAlarmedRate’ will be automatically set to be true since alarmed rates are essential to probability calculation.</li>
+</ul></li>
+<li><p>‘CalculateProbability’: Whether to calculate the spatial probability. Default is <code>false</code>.</p></li>
+<li><p>‘StationLocation’:</p>
+<ul>
+<li>A J by 3 table with the column names being ‘format’, ‘Lon’, ‘Lat’ and row names (i.e.&nbsp;<code>StationLocation.Properties.RowNames</code>) the station codes (e.g.&nbsp;‘TW’, ‘CS’,…) of the total J stations.</li>
+<li>If ‘CalculateAlarmedRate’ is true, ‘StationLocation’ must be specified; otherwise it is impossible to obtain alarm rates.</li>
+<li>Default is <code>0</code>.</li>
+</ul></li>
+</ul>
+<p><strong>Input arguments:</strong></p>
+<ul>
+<li><code>BestModels</code>: A J-by-1 cell array containing the best models of total J stations. In each cell there is a table model parameters.</li>
+<li><code>BestModelNames</code>: An J-by-1 cell array containing station names corresponding to <code>BestModels</code> (also J-by-1 cell array).</li>
+<li><code>idPermute</code>: The randomly permuted indices for the best models. See <code>bestmodel()</code>.</li>
+<li><code>sum_tsAINs</code>: A J-by-1 cell array with each cell corresponding to <code>BestmodelNames</code>. See <code>loadAIN()</code>.</li>
+<li><code>sum_validateInds</code>: A J-by-1 cell array with each cell corresponding to <code>BestmodelNames</code>. See <code>loadAIN()</code>.</li>
+<li><code>DateTime_dti</code>: A T by 1 datetime array for the time series in <code>sum_tsAINs</code> and the <code>sum_validateInds</code>.</li>
+<li><code>CWBcatalog</code>: A table of earthquake catalog. You may load <code>CWBcatalog</code> using <code>only1field([dir_catalog filesep 'catalog.mat'])</code>.</li>
+<li><code>Verbose</code>: Output an additional <code>struct</code> of <code>Other</code> variables.</li>
+</ul>
+<p><strong>Output arguments:</strong></p>
+<ul>
+<li><p><code>HitRates</code>, <code>AlarmedRates</code>: M by 1 array, being the hit rates (alarmed rates) of each combination of best models. M is the amounts of total combinations (the <code>totalM</code> in <code>bestmodel()</code>). They are <code>AlarmedRateForecasting</code> and <code>HitRatesForecasting</code> of <code>molscore3</code>’s output.</p></li>
+<li><p><code>SpatialProbability</code>: A S by T array of the temporal-spatial forecasting probabilities. It is the output variable <code>Probability</code> of <code>molscore3()</code>.</p></li>
+<li><p><code>xLon</code> (<code>yLat</code>): The longitudes (latitudes) of all spatial points as a S by 1 array. It is the output variable <code>ProbabilityLon</code> (<code>ProbabilityLat</code>) of <code>molscore3()</code>.</p></li>
+<li><p><code>validStationTime</code>: A T by J table of the ratio of valid models each day each station. This is for <code>plotProbability()</code>, that the ratio will be demonstrated as gradient color in the marker of each station. If the ratio is zero, the marker on map will be hollow. It is the output variable <code>validStationTime</code> of <code>molscore3()</code>.</p></li>
+<li><p><code>TIP3</code>: A S by T TIP array for the first model (out of the total M models). Since the first element of each cell in <code>idPermute</code> is always 1, indicating the best model, <code>TIP3</code> is essentially the TIP array calculated according to the best model parameter.</p></li>
+<li><p><code>TIPvalid3</code>: A spatial-temporal logical array indicating whether a point (s,t) of TIP true or false is meaningful or not. This is also a S by T array.</p></li>
+<li><p><code>ProbTime</code>: A 1 by T datetime array for <code>TIP3</code>, <code>TIPvalid3</code> and <code>SpatialProbability</code>. This is the <code>ProbabilityTime</code> of <code>molscore3</code>’s output.</p></li>
+<li><p><code>EQKs</code>: The list of target earthquake, with each column</p>
+<ul>
+<li><code>time</code>, <code>Lon</code>, <code>Lat</code>, <code>Depth</code>, <code>Mag</code>: The time, longitude, latitude, depth and magnitude (<span class="math inline">\(M_L\)</span>) of the target earthquake.</li>
+<li><code>InStation</code>: Indicates the target earthquake is of which station.</li>
+<li><code>EqkDist</code>: The distance between the station (as specified by <code>InStation</code>) and hypocenter of the target earthquake. Also see <code>simpleStationEQKdist3D</code>.</li>
+</ul></li>
+<li><p><code>Other</code>: The additional output when ‘Verbose’ is <code>true</code>.</p>
+<ul>
+<li><code>Other.nEQK</code>: The number of target earthquakes for each model in forecasting phase.</li>
+<li><code>Other.areaTIP</code>: The total area (spatial + temporal) of TIP for each model in forecasting phase. See <code>TIPspatialtemporal</code> and <code>TIPArea</code>.</li>
+<li><code>Other.nEQK .* HitRates</code> is the number of hitted earthquakes in this forecasting phase.</li>
+<li><code>Other.areaTIP .* AlarmedRates</code> is the total amount of alarmed TIP area in this forecasting phase.</li>
+<li>Noted that it is nonsesnse to set ‘Verbose’ to be <code>true</code> when ‘calculateHitRate’ and ‘calculateAlarmedRate’ are <code>false</code>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="loadain" class="level3">
+<h3 class="anchored" data-anchor-id="loadain"><code>loadAIN</code></h3>
+<pre><code>[sum_tsAINs,sum_validateInds,DateTime_dti,AthrList] =
+loadAIN(dir_tsAIN,BestModelNames,TimeRange)</code></pre>
+<p>load tsAIN, calculate the summation of anomaly index of each day, and truncate the time series to <code>TimeRange</code>.</p>
+<p>If <code>class(BestModelNames) == 'char'</code>, for example, ‘CS’, the output <code>sum_tsAINs</code> and <code>sum_validateInds</code> are the 10 by 1 cell array directly, instead of a M by 1 cell array inside the J by 1 cell array where J = 1.</p>
+<p><strong>Input arguments:</strong>:</p>
+<ul>
+<li><code>dir_tsAIN</code>: the directory for the saved AIN data. See <code>anomalyind()</code>.</li>
+<li><code>BestModelNames</code>: an J-by-1 cell array containing station names corresponding to <code>BestModels</code> (also J-by-1 cell array).</li>
+<li><code>TimeRange</code>: a two-element datetime array.</li>
+</ul>
+<p><strong>Output arguments:</strong>:</p>
+<ul>
+<li><code>sum_tsAINs</code>: a J-by-1 cell array with each cell corresponding to <code>BestmodelNames</code>. In each cell there is a 10-by-1 cell corresponding to the list of <span class="math inline">\(A_{thr}\)</span> (<code>AthrList = 1:10</code>), being the timeseries of the summation of anomaly index of each day.</li>
+<li><code>sum_validateInds</code>: a J-by-1 cell array with each cell corresponding to <code>BestmodelNames</code>. In each cell there is a 10-by-1 cell corresponding to the list of <span class="math inline">\(A_{thr}\)</span> (<code>AthrList = 1:10</code>), being the summation of the indicators for the valid statistical indices of each day.</li>
+</ul>
+</section>
+<section id="modparam" class="level3">
+<h3 class="anchored" data-anchor-id="modparam"><code>modparam</code></h3>
+<p>In GEMS-MagTIP, model parameters defines TIP and target earthquakes (EQK). <code>[PredParam,varargout]=modparam()</code> generate the whole set of model parameters that are going to be used in the training phase by <code>molscore</code>.</p>
+<p><strong>Keyword Arguments:</strong></p>
+<ul>
+<li><p>‘Rc’: Radius (range) of detection in unit kilometer. Default is <code>[20:10:100])</code></p></li>
+<li><p>‘NthrRatio’:</p>
+<ul>
+<li>The ratio threshold to be converted to the number of anomalous statistic index every day.</li>
+<li>‘NthrRatio’ should be calculated automatically in <code>molscore()</code> according to the maximum possible number of statistic indices among the anomaly index calculated by <code>anomalyind()</code>.</li>
+<li><code>Nthr</code> is the threshold (integer) for the number of anomalous statistic indices each day.</li>
+<li>Default is <code>[0.01, 0.99]</code>, which is for the situation where the maximum possible <code>Nthr</code> is <span class="math inline">\(\leq 2\)</span> (i.e., to be [0, 1]). If you have the maximum possible <code>Nthr</code> to be <span class="math inline">\(\leq 3\)</span> (i.e, <code>Nthr = [0 1 2]</code>), ‘NthrRatio’ should be assigned to be <code>[0.01, 0.49, 0.99]</code> for example.</li>
+</ul></li>
+<li><p>‘Ptthr’: <code>Ptthr</code> defines <code>Tobs</code> through <code>Ptthr = Tthr/Tobs</code>. Default is <code>[0.1:0.1:0.5]</code>.</p></li>
+<li><p>‘Tobs’: The length of observation moving window. Default is <code>[5:5:100]</code>;</p></li>
+<li><p>‘Tpred’: The length of prediction moving window.</p></li>
+<li><p>‘Tlead’: The length of leading window, the time gap that is for the period of silent (no-anomaly) right before big earthquakes.</p>
+<ul>
+<li>Default is [0:5:100].</li>
+</ul></li>
+<li><p>‘Mc’: The magnitude threshold. Default is <code>5</code>, which means only events of <span class="math inline">\(M_L \geq 5\)</span> will be considered as target earthquakes.</p></li>
+<li><p>‘Test’:</p>
+<ul>
+<li>If true or 1, then the PredParam is reduced to 1000 randomly picked models from the default combination.</li>
+<li>If it is a positive integer N other than 1, the predParam is reduced to N randomly picked models.</li>
+<li>Default is 0.</li>
+</ul></li>
+<li><p>‘Seed’: the seed for the random selection while ‘Test’ is enable.</p>
+<ul>
+<li>Seed must be a nonnegative integer seed less than 2^32.</li>
+<li>If seed is less than zero, the random selection has its result different everytime.</li>
+</ul></li>
+</ul>
+<p><strong>Output</strong>:</p>
+<ul>
+<li><code>PredParam</code>: The GEMSTIP/MagTIP models of total 8 free parameters: <code>G = [Mag,Rad,NthrRatio,Athr,Tthr,Tobs,Tpred,Tlead]</code>.</li>
+</ul>
+<p><strong>Examples:</strong> - <code>[PredParam, columnNames] = modparam('OutputFormat','double');</code> - <code>[PredParam_table] = modparam('OutputFormat','table');</code></p>
+</section>
+<section id="shift2tiptime" class="level3">
+<h3 class="anchored" data-anchor-id="shift2tiptime"><code>shift2TIPtime</code></h3>
+<p><code>[dt_true_in_TIP, TIPtime] = shift2TIPtime(DateTimeSAT,Tobs_TF,Tlead,Tpred)</code> gives the date time array in the domain of TIPtime, where the trues in TIPtime are defined in Tpred window according to the data in Tobs window. <code>Tobs_TF</code>:</p>
+<ul>
+<li>trues or falses according to the data in Tobs moving window.</li>
+<li>these true-falses should be exactly the same size of DateTimeSAT, where DateTimeSAT is the moving-window’s time tags (at the last day of the moving time window)</li>
+<li>e.g., vlSAT&gt;=Tthr_iMod</li>
+<li>e.g., logical(MovingWindowSum(sum<em>validateIndex</em>all<em>a</em>dti,Tobs))</li>
+</ul>
+<blockquote class="blockquote">
+<p>(these examples are taken from see dt<em>TIP</em>true.m and dt<em>TIP</em>invalid.m)</p>
+</blockquote>
+<p><code>dt_true_in_TIP</code>: the corresponding trues in the TIP time domain.</p>
+</section>
+<section id="sortmodelby" class="level3">
+<h3 class="anchored" data-anchor-id="sortmodelby"><code>sortModelBy</code></h3>
+<p>Sort model names by a certain column value. <strong>Example</strong>: <code>[sortedModelNames, I] = sortModelBy('Lat','descend',ModelNames,TheTable);</code></p>
+</section>
+<section id="sumanomalyind" class="level3">
+<h3 class="anchored" data-anchor-id="sumanomalyind"><code>sumanomalyind</code></h3>
+<p><code>[DateTimeSAT,vlSAT] = sumanomalyind(DateTime_j,sum_tsAIN_k,Nthr_array,Tobs_i)</code> calculate sum of anomaly day (<code>vlSAT</code>) and its corresponding datetime series (<code>DateTimeSAT</code>). It is simply the moving-window sum of the <code>sum_tsAIN_k</code> timeseries, where the moving-window length is <code>Tobs_i</code>; in which, <code>i</code> stands for <span class="math inline">\(i_{th}\)</span> model, <code>j</code> for <span class="math inline">\(j_{th}\)</span> station, and <code>k</code> for <span class="math inline">\(k_{th}\)</span> threshold <span class="math inline">\(A_{thr}\)</span>. Of coursely, the number of elements of the output timeseires (<code>DateTimeSAT</code>) will be <code>Tobs_i - 1</code> less than the input timeseries (<code>DateTime_j</code> or <code>DateTime_dti</code>); i.e., <code>length(sum_tsAIN_k) - length(vlSAT) =  Tobs_i - 1</code>.</p>
+<p><strong>Input arguments:</strong></p>
+<ul>
+<li><code>DateTime_j</code>: the datetime array for <code>sum_tsAIN</code>.</li>
+<li><code>sum_tsAIN_k</code>: the sum of anomaly statistical indices each day.</li>
+<li><code>Nthr_array</code>: The thresholds for <code>sum_tsAIN_k</code> calculated according to <code>NthrRatio</code>. <code>Nthr</code> is known as the threshold of the total daily amount of anomaly statistical indices.</li>
+<li><code>Tobs_i</code>: the observation window of model i.</li>
+</ul>
+<p><strong>Output arguments:</strong></p>
+<ul>
+<li><code>DateTimeSAT</code>: M-by-1 datetime array for sum of anomaly days</li>
+<li><code>vlSAT</code>: M-by-1 double array for the values of sum of anomaly days (the anomaly days is summed in the moving window of <code>Tobs</code>)</li>
+</ul>
+<p><strong>See also:</strong></p>
+<ul>
+<li><code>convAIN</code> for more details about <code>sum_tsAIN_k</code>.</li>
+</ul>
+</section>
+<section id="truncatetiptosat" class="level3">
+<h3 class="anchored" data-anchor-id="truncatetiptosat"><code>truncateTIPtoSAT</code></h3>
+<p>Internal API associated with the truncation of TIP array to the datetime array for the sum of anomaly indices.</p>
+</section>
+</div>
+</div>
+</section>
+<section id="format" class="level2">
+<h2 class="anchored" data-anchor-id="format">Format</h2>
+<div id="8ab7ca20" class="cell" data-execution_count="6">
+<section id="fmt" class="level3 cell-output cell-output-display cell-output-markdown" data-execution_count="7">
+<h3 class="anchored" data-anchor-id="fmt"><code>fmt</code></h3>
+<p><code>fmt</code> is a class that</p>
+<ol type="1">
+<li>stores all constant names</li>
+<li>stores all constant variables</li>
+</ol>
+<p>that enalbes you to modify or extend some contants without breaking other functionalities.</p>
+<p>GEMS-MagTIP depends on <code>fmt</code> to load a variety of imtermedate data, including earthquake catalog, station information table and the input data of the standard format. <code>fmt</code> save constant names and variables as <code>properties (Constant)</code> that they can be available in global scope. <code>fmt</code> also have static methods for acquiring information such as the column indices indicating the time vectors and recorded values of the input data of different types.</p>
+<p><code>properties (Constant)</code>:</p>
+<ul>
+<li><p><code>InfoFileName_molscore = '[MolchanScore]Information.mat'</code>: name to the intermediate file in the session of training (model optimization)</p></li>
+<li><p><code>InfoFileName_anomalyind = '[tsAIN]Information.mat'</code>: name to the intermediate file in the session of calculating anomaly indices</p></li>
+<li><p><code>InfoFileName_jointstation = '[JointStation]Information.mat'</code>: name to the intermediate file in the joint-station method session</p></li>
+<li><p><code>InfoFileName_statind = '[StatisticIndex]Information.mat'</code>: name to the intermediate file in calculating Statistic Index</p></li>
+<li><p><code>catalogFileName = 'catalog.mat'</code>: file name to the earthquake catalog</p></li>
+<li><p><code>stationLocationFileName = 'station_location.mat'</code>: name to the file of station information table</p></li>
+<li><p><code>tag_upperlowerthreshold = 'ULthr'</code>: tag for upper- and -lower threshold defined by <code>Athr</code></p></li>
+<li><p><code>datestrFormat = 'yyyymmdd'</code>: the format for converting datetime to string tags (<code>dt</code>)</p></li>
+<li><p><code>datetimeInputFormat = 'yyyyMMdd'</code>: the format for converting date strings (with tag <code>dt</code>) to datetime</p></li>
+<li><p><code>datetimeIncrement</code>: the increment of datetime between two consecutive files of the same station and type.</p></li>
+<li><p><code>LatitudeLimit = [21.5 26]</code>: latitude limits of the Taiwan area</p></li>
+<li><p><code>LongitudeLimit = [118 122.5]</code>: Longitude limits of the Taiwan area</p></li>
+<li><p><code>datatype_mag_1 = {'mFull', 'full'}</code>: <code>"type"</code> tag for the full field geomagnetic data (old geomagnetic stations from 2006; ‘full’ is for backward compatibility)</p></li>
+<li><p><code>datatype_mag_3 = {'mTri', 'tri'}</code>: <code>"type"</code> tag for the 3 component geomagnetic data (new geomagnetic stations from 2020; ‘tri’ is for backward compatibility)</p></li>
+<li><p><code>datatype_GEMS_HJ</code>: <code>"type"</code> tag for the data of Hong-Jia Chen 2018</p></li>
+<li><p><code>datatype_GEMS</code>: <code>"type"</code> tag for the primitive of Geoelectric data</p></li>
+</ul>
+<p><code>methods (Static)</code>:</p>
+<ul>
+<li><code>colindex2data(what_type)</code>: returns column indices to time and data part of the loaded matrix. Example: <code>[colind_time, colind_data] = colindex2data('GEMS0')</code></li>
+<li><code>filterRange(filter_tag)</code>: returns two values indicating the lower and upper limit of the filter, in the unit of Hz. Example: <code>fmt.filterRange(ULF_A)</code>.</li>
+<li><code>datasampfreq(what_type)</code>: returns the expected Sampling Frequency of a specific file/data type. Example: <code>fs = datasampfreq('GEMS0')</code>. You can obtain expected data points of the day by <code>supposedpts = fs*86400</code>.</li>
+<li><code>fmtfieldname = datatype_fieldname(what_type)</code>: returns the field name for <code>fmt</code> that you can <code>fmt.(fmtfieldname)</code>.</li>
+</ul>
+</section>
+</div>
+</section>
+<section id="others" class="level2">
+<h2 class="anchored" data-anchor-id="others">Others</h2>
+<div id="f277e355" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="8">
+<section id="molchan_cb" class="level3">
+<h3 class="anchored" data-anchor-id="molchan_cb"><code>Molchan_CB</code></h3>
+<p><code>[molt_cb,moln_cb] = Molchan_CB(N,alpha)</code> gives the confidence boundary in molchan diagram, where <code>[molt_cb,moln_cb]</code> are the points defining the boundary on the alarmed-rate-against-missing-rate phase plane.</p>
+<p><strong>Input Arguments:</strong></p>
+<ul>
+<li><code>N</code>: total number of target events/earthquakes</li>
+<li><code>alpha</code>: <code>1-alpha</code> is the confidence level. For example, <code>alpha=0.05</code> means <code>95%</code> confidence level.</li>
+</ul>
+<p><strong>Output Arguments:</strong></p>
+<ul>
+<li><code>molt_cb</code>: values corresponding to the alarmed rate</li>
+<li><code>moln_cb</code>: values corresponding to the missing rate</li>
+</ul>
+<p><strong>Hint:</strong></p>
+<ul>
+<li>Calculate the <span class="math inline">\(D\)</span> (fitting degree) values by <code>Dcb = 1 - molt_cb - moln_cb</code></li>
+</ul>
+</section>
+<section id="askquestion" class="level3">
+<h3 class="anchored" data-anchor-id="askquestion"><code>askquestion</code></h3>
+<p><strong>Example</strong></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="va">askquestion</span>(<span class="ss">'Hello, would you like to continue? [Y/N]'</span><span class="op">,</span> <span class="op">@</span>(<span class="va">x</span>) <span class="va">strcmp</span>(<span class="va">x</span><span class="op">,</span> <span class="ss">'Y'</span>))</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="va">Hello</span><span class="op">,</span> <span class="va">would</span> <span class="va">you</span> <span class="va">like</span> <span class="va">to</span> <span class="kw">continue</span>? [<span class="va">Y</span><span class="op">/</span><span class="va">N</span>]<span class="va">Y</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="va">ans</span> <span class="op">=</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="va">logical</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>   <span class="fl">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="calcfittingdegree" class="level3">
+<h3 class="anchored" data-anchor-id="calcfittingdegree"><code>calcFittingDegree</code></h3>
+<p><code>calcFittingDegree(jpathlist)</code> according to the given files (<code>jpathlist</code>) provides the overall alarmed rate, missing rate that allows the calculation of the overall fitting degree. Make sure to provide correct input list of the <code>[JointStation]</code> variable , for example, those have the same ID and are not overlapped in forecasting time interval for each group; otherwise the calculated fitting degree can be unreasonable.</p>
+<p><strong>Example:</strong></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="va">dir_png</span> <span class="op">=</span> <span class="ss">'MyResearch/Figures'</span><span class="op">;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="va">jpathlist</span> <span class="op">=</span> <span class="va">datalist</span>(<span class="ss">'[JointStation]ID[ou7ud]prp[ULF_B]*.mat'</span><span class="op">,</span> <span class="va">dir_jointstation</span>).<span class="va">fullpath</span><span class="op">;</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>[<span class="va">AlarmedRate</span><span class="op">,</span> <span class="va">MissingRate</span><span class="op">,</span> <span class="va">xticklabel</span><span class="op">,</span> <span class="va">EQKs</span><span class="op">,</span> <span class="va">TIP3s</span><span class="op">,</span> <span class="va">TIPv3s</span><span class="op">,</span><span class="va">TIPTimes</span><span class="op">,</span><span class="va">LatLons</span>] <span class="op">=</span> <span class="va">calcFittingDegree</span>(<span class="va">jpathlist</span>)<span class="op">;</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="va">FittingDegrees</span> <span class="op">=</span> <span class="fl">1</span> <span class="op">-</span> <span class="va">AlarmedRate</span> <span class="op">-</span> <span class="va">MissingRate</span><span class="op">;</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="va">plotEQKTIP3</span>(<span class="va">dir_png</span><span class="op">,</span><span class="va">prp_i</span><span class="op">,</span> <span class="va">xlabels</span><span class="op">,</span> <span class="va">EQKs</span><span class="op">,</span> <span class="va">TIP3s</span><span class="op">,</span> <span class="va">TIPv3s</span><span class="op">,</span><span class="va">TIPTimes</span><span class="op">,</span> <span class="va">LatLons</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Input Arguments</strong>:</p>
+<ul>
+<li><code>jpathlist</code>: a cell array of the full paths of <code>[JointStation]</code> files that are produced by <code>molscore3</code>. You can simpliy obtain the path list by <code>jpathlist = datalist('[JointStation]ID[ou7ud]*prp[ULF_A]*slc[Tpred-10]*.mat',dir_jointstation).fullpath;</code></li>
+</ul>
+<p><strong>Keyword Arguments</strong>:</p>
+<ul>
+<li>‘GroupTag’: The tag for grouping the files in <code>jpathlist</code>.</li>
+<li>‘GroupNames’: Results are calculated separately according to the assigned group names; alarmed rate, missing rate and so on are only calculated if the file name contains the assigned group names. For example, for <code>...,'GroupNames',{'Tpred-1', 'Tpred-5'},'GroupTag', 'slc',...</code>, only the files with their names containing tag ‘slc[Tpred-1]’ and ‘slc[Tpred-5]’ are selected, and the results of those being ‘Tpred-1’ and ‘Tpred-5’ are separately calculated. That is, the output <code>xlabel</code> is <code>{'Tpred-1', 'Tpred-5'}</code> and other output arguments (e.g.&nbsp;<code>AlarmedRate</code>) are all cell array of the same dimension as <code>xlabel</code> containing the results of the groups that are calculated separately.</li>
+<li>Noted that You cannot assign ‘GroupName’ without assigning ‘GroupTag’, but assigning ‘GroupTag’ without assigning ‘GroupName’ is OK, in this case the group names will automatically generated and sorted.</li>
+</ul>
+</section>
+<section id="checkcatalog" class="level3">
+<h3 class="anchored" data-anchor-id="checkcatalog"><code>checkcatalog</code></h3>
+<p><code>[isvalid, msg] = checkcatalog(dir_catalog)</code> check if <code>catalog.mat/csv</code> exist in <code>dir_catalog</code>, and convert the <code>catalog.csv</code> to <code>catalog.mat</code>. After successfully create <code>catalog.mat</code>, the original <code>catalog.csv</code> will be moved to the folder ‘original_csv’.</p>
+<p>If the <code>catalog.csv</code> does not meet the required format, error will occur. The <code>catalog.csv</code> has to suffice the following condtions:</p>
+<ul>
+<li>The ‘time’ variable should be in the following format: ’yyyy/MM/dd</li>
+</ul>
+<p>HH:mm’.</p>
+<ul>
+<li>Other variables except ‘time’ should belong the class of ‘double’.</li>
+<li>Basicaly the following headers (column names),</li>
+</ul>
+<p>{‘time’,‘Lon’,‘Lat’,‘Mag’,‘Depth’}, have to exist.</p>
+<p>Aliases for the column names in the <code>catalog.csv</code> are allowed; see the <strong>Aliases</strong> section below.</p>
+<p><strong>Keyword arguments</strong>: <code>'OverwriteOriginal', false</code>: The csv files in ‘original_csv’ will not be overwritten. Set <code>'OverwriteOriginal', true</code> if you have version control.</p>
+<p><strong>Aliases</strong>: For convenience, aliases of the column name of an variable in <code>catalog.csv</code> will be automatically converted:</p>
+<ul>
+<li>For earthquake magnitudes, the header of either {‘Magnitude’, ‘magnitude’, ‘ML’} will be automatically converted to ‘Mag’.</li>
+<li>For depths, the header of either {‘depth’, ‘dep’, ‘Dep’} will be converted to ‘Depth’.</li>
+<li>For longitude and latitude, either {‘lon’, ‘longitude’, ‘Longitude’},</li>
+</ul>
+<p>{‘lat’, ‘latitude’, ‘Latitude’} will be converted to ‘Lon’ and ‘Lat’, respectively.</p>
+<p>For convenience, in <code>catalog.csv</code>, if the event time is written in separated two columns ‘date’ and ‘time’, with format ‘yyyy-mm-dd’ (or ‘yyyy/mm/dd’) for ‘date’ and ‘hh:MM:ss’ (or ‘hh:MM’), they will be merged as a single ‘time’ variable sufficing the format mentioned before.</p>
+</section>
+<section id="checkstation" class="level3">
+<h3 class="anchored" data-anchor-id="checkstation"><code>checkstation</code></h3>
+<p><code>[isvalid, msg] = checkstation(dir_catalog)</code> check if <code>station_location.mat/csv</code> exist in <code>dir_catalog</code>, and convert the <code>station_location.csv</code> to <code>station_location.mat</code>. After successfully create <code>station_location.mat</code>, the original <code>station_location.csv</code> will be moved to the folder ‘original_csv’.</p>
+<p>If the <code>station_location.csv</code> does not meet the required format, error will occur. The <code>station_location.csv</code> has to suffice the following condtions:</p>
+<ul>
+<li>The ‘time’ variable should be in the following format: ’yyyy/MM/dd</li>
+</ul>
+<p>HH:mm’.</p>
+<ul>
+<li>Other variables except ‘time’ should belong the class of ‘double’.</li>
+<li>Basicaly the following headers (column names),</li>
+</ul>
+<p>{‘code’,‘format’,‘Lon’,‘Lat’} have to exist. In which,</p>
+<ul>
+<li>‘code’ is the code for the station, whereas ‘format’ is the full name of the station. For example, ‘MS’ (code) corresponds to ‘馬仕’ (format).</li>
+<li>‘Lon’ and ‘Lat’ are longitude and latitude of the station respectively.</li>
+</ul>
+<p>Aliases for the column names in the <code>station_location.csv</code> are allowed; see the <strong>Aliases</strong> section below.</p>
+<p><strong>Keyword arguments</strong>: <code>'OverwriteOriginal', false</code>: The csv files in ’original*csv’ will not be overwritten. Set <code>'OverwriteOriginal', true</code> if you have version control. <strong>Aliases</strong>: For convenience, aliases of the column name of an variable in <code>station*location.csv</code> will be automatically converted:</p>
+<ul>
+<li>For longitude and latitude, either {‘lon’, ‘longitude’, ‘Longitude’},</li>
+</ul>
+<p>{‘lat’, ‘latitude’, ‘Latitude’} will be converted to ‘Lon’ and ‘Lat’, respectively.</p>
+</section>
+<section id="chkans" class="level3">
+<h3 class="anchored" data-anchor-id="chkans"><code>chkans</code></h3>
+<p>Check the answer in the interaction command-line interface in startup0.m</p>
+</section>
+<section id="constructmolinfo" class="level3">
+<h3 class="anchored" data-anchor-id="constructmolinfo"><code>constructMolInfo</code></h3>
+<p><code>constructMolInfo(dir_molchan,InfoId)</code> construct the ‘[MolchanScore]Information.mat’ according to existing [Molchanscore]___.mat files if possible. Use this function only when you are instructed by error messages.</p>
+<p><strong>Example</strong> <code>constructMolInfo('.\output_var\MolchanScore-O04-Cfl_local', 'OT0qPb')</code></p>
+</section>
+<section id="derive_type" class="level3">
+<h3 class="anchored" data-anchor-id="derive_type"><code>derive_type</code></h3>
+<p><code>derive_type</code> derives station type from tag <code>stn[...]</code>.</p>
+</section>
+<section id="dirselectassign" class="level3">
+<h3 class="anchored" data-anchor-id="dirselectassign"><code>dirselectassign</code></h3>
+<p><code>dirselectassign(var_names...)</code> prompts user to select directories in a dialog box, and assigned the selected path to workspace with default variable name. If a variable with the same name as the default name has already in the workspace, its assignment will be ignored (i.e.&nbsp;its dialog box won’t pop out). This is a tool for convenience. You can always assign directories explicitly to variable with any name you like.</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li><p>Four windows will pop out one by one allowing you to assign directories to variables <code>dir_stat</code>, <code>dir_tsAIN</code>, <code>dir_molchan</code>, <code>dir_jointstation</code>:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="va">dirselectassign</span>(<span class="ss">'dir_stat'</span><span class="op">,</span><span class="ss">'dir_tsAIN'</span><span class="op">,</span><span class="ss">'dir_molchan'</span><span class="op">,</span><span class="ss">'dir_jointstation'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>(Read the printed message in the Command Window)</p></li>
+<li><p>Total 7 windows will pop out one by one allowing you to assign directories to the variables with default names <code>dir_stat</code>, <code>dir_tsAIN</code> , <code>dir_molchan</code>, <code>dir_jointstation</code>, <code>dir_data</code>, <code>dir_catalog</code>, <code>dir_toolbox</code>:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="va">dirselectassign</span>()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>(Read the printed message in the Command Window)</p></li>
+</ul>
+</section>
+<section id="fft_of_the_day" class="level3">
+<h3 class="anchored" data-anchor-id="fft_of_the_day"><code>fft_of_the_day</code></h3>
+<p>Fourier transform of the one-day data.</p>
+</section>
+<section id="fitting_degree_summary" class="level3">
+<h3 class="anchored" data-anchor-id="fitting_degree_summary"><code>fitting_degree_summary</code></h3>
+<p><code>fitting_degree_summary</code> gives the object for fitting-degree plot.</p>
+</section>
+<section id="formatforecastingphase" class="level3">
+<h3 class="anchored" data-anchor-id="formatforecastingphase"><code>formatForecastingPhase</code></h3>
+<p><code>[frcphase] = formatForecastingPhase(frcphase,trnphase)</code> is the function for converting the argument that the keyword option ‘ForecastingPhase’ takes.</p>
+</section>
+<section id="genid" class="level3">
+<h3 class="anchored" data-anchor-id="genid"><code>genID</code></h3>
+<p>Generate trial identifier.</p>
+</section>
+<section id="getrcs" class="level3">
+<h3 class="anchored" data-anchor-id="getrcs"><code>getRcs</code></h3>
+<p><code>SRc = getRcs(dir_molchan,targetpattern)</code> returns unique <code>Rc</code> as a <code>struct</code> with field names being the station code (stn[…]). <strong>Example</strong></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="va">targetpattern</span> <span class="op">=</span> <span class="va">sprintf</span>(<span class="ss">'[%s]stn*.mat'</span><span class="op">,</span> <span class="va">get_tags</span>(<span class="va">fmt</span>.<span class="va">InfoFileName_molscore</span><span class="op">,</span> <span class="ss">''</span><span class="op">,</span> <span class="ss">'once'</span>))<span class="op">;</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="va">SRc</span> <span class="op">=</span> <span class="va">getRcs</span>(<span class="va">dir_molchan</span><span class="op">,</span><span class="va">targetpattern</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="loadsheet" class="level3">
+<h3 class="anchored" data-anchor-id="loadsheet"><code>loadSheet</code></h3>
+<p><code>loadSheet(filepath,whatisthis)</code> is deprecated; use <code>checkcatatlog</code> and <code>checkstation</code> instead.</p>
+</section>
+<section id="mkdir_default" class="level3">
+<h3 class="anchored" data-anchor-id="mkdir_default"><code>mkdir_default</code></h3>
+<p><code>mkdir_default</code> creates/makes folders by default and return their directories with default variable names. The default structure is:</p>
+<pre><code>                   variable           default folder name
+    ╔═ dir_main ═╤═══════════════════════════════════════╗
+    ║            ├─dir_stat         =   'StatisticIndex' ║
+    ║            ├─dir_tsAIN        =   'tsAIN'          ║
+    ║            ├─dir_molchan      =   'MolchanScore'   ║
+    ║            └─dir_jointstation =   'JointStation'   ║
+    ╚════════════════════════════════════════════════════╝</code></pre>
+<p><strong>Example:</strong></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>[<span class="va">dir_stat</span><span class="op">,</span> <span class="va">dir_tsAIN</span><span class="op">,</span> <span class="va">dir_molchan</span><span class="op">,</span> <span class="va">dir_jointstation</span>] <span class="op">=</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="va">mkdir_default</span>(<span class="va">fullfile</span>(<span class="va">pwd</span><span class="op">,</span><span class="ss">'output_var'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>[<span class="va">dir_stat</span><span class="op">,</span> <span class="va">dir_jointstation</span>] <span class="op">=</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="va">mkdir_default</span>(<span class="va">fullfile</span>(<span class="va">pwd</span><span class="op">,</span><span class="ss">'output_var'</span>)<span class="op">,</span> <span class="ss">'Directories'</span><span class="op">,</span> {<span class="ss">'StatisticIndex'</span><span class="op">;</span> <span class="ss">'JointStation'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="modeldiscard" class="level3">
+<h3 class="anchored" data-anchor-id="modeldiscard"><code>modeldiscard</code></h3>
+<p>Filter models negatively (<code>modeldiscard</code>)</p>
+</section>
+<section id="modelselect" class="level3">
+<h3 class="anchored" data-anchor-id="modelselect"><code>modelselect</code></h3>
+<p>Filter models positively (<code>modelselect</code>)</p>
+</section>
+<section id="prpfunctions" class="level3">
+<h3 class="anchored" data-anchor-id="prpfunctions"><code>prpfunctions</code></h3>
+<p><code>prp_list = prpfunctions()</code> returns the list of existing preprocessing functions that you can apply (those located in the same directory (namely, <code>dir_prp = 'src/preprocess'</code>) as the function <code>no</code>). Noted that those under the sub-directories of <code>dir_prp</code> won’t be listed.</p>
+</section>
+<section id="renamecols" class="level3">
+<h3 class="anchored" data-anchor-id="renamecols"><code>renamecols</code></h3>
+<p><code>renamecols(alias, O)</code> rename the column name that matche either in <code>alias</code> of the table <code>O</code> to the <code>newname</code>.</p>
+</section>
+<section id="tabledragandfill" class="level3">
+<h3 class="anchored" data-anchor-id="tabledragandfill"><code>tabledragandfill</code></h3>
+<p>A small tool that fill the empty cells of a column by the most recent non-empty value (just like ‘click, drag, and fill’ in the excel).</p>
+<p><strong>Example</strong>: <code>CWBcatalog = tabledragandfill(CWBcatalog, colname1, colname2, ...)</code></p>
+</section>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Copyright 2025, CGRG-lab and Tsung-Hsi Wu</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
