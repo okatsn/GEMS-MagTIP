@@ -175,7 +175,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>在 GEMS-MagTIP 中，訊號處理通過預處理函數進行，這些預處理函數是位於 <code>src/preprocess</code> 的特殊函數。 <code>no</code> 函數的功能是從給定的檔案路徑匯入資料，這是必須的。 您可以使用 <code>prplist = prpfunctions()</code> 列出所有的預處理函數。 篩選函數（例如 <code>ULF_A</code>、<code>ULF_B</code>，在 <code>prplist</code> 中）共用核心函數 <code>generalfilterprocess</code>，該函數將 <code>loadfilters</code> 的輸出作為輸入。</p>
+<p>在 GEMS-MagTIP 中，訊號處理通過預處理函數進行，這些預處理函數是位於 <code>src/preprocess</code> 的特殊函數。 <code>no</code> 函數的功能是從給定的檔案路徑匯入資料，這是必須的。 您可以使用 <code>prplist = prpfunctions()</code> 列出所有的預處理函數。 濾波函數（例如 <code>ULF_A</code>、<code>ULF_B</code>，在 <code>prplist</code> 中）共用核心函數 <code>generalfilterprocess</code>，該函數將 <code>loadfilters</code> 的輸出作為輸入。</p>
 <section id="預處理函數的功能是什麼" class="level4">
 <h4 class="anchored" data-anchor-id="預處理函數的功能是什麼">預處理函數的功能是什麼？</h4>
 <ul>
@@ -195,12 +195,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="範例" class="level4">
 <h4 class="anchored" data-anchor-id="範例">範例</h4>
-<p>內建四個預處理函數，分別為 <code>BP_35</code>、<code>BP_40</code>、<code>ULF_A</code> 和 <code>ULF_B</code>；這些篩選器可透過 <code>statind</code> 階段中的 <code>'Preprocess'</code> 關鍵字參數進行應用。</p>
+<p>內建四個預處理函數，分別為 <code>BP_35</code>、<code>BP_40</code>、<code>ULF_A</code> 和 <code>ULF_B</code>；這些濾波器可透過 <code>statind</code> 階段中的 <code>'Preprocess'</code> 關鍵字參數進行應用。</p>
 <p>以下範例展示直接使用（非通過 <code>statind</code> 階段的 <code>'Preprocess'</code> 接口）<code>BP_35</code> 的方法：</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">fpath</span> <span class="op">=</span> <span class="ss">'D:\GeoMag (main)\GeoMag_GO\KUOL\stn[KUOL]dt[20150714]type[GEMS].mat'</span><span class="op">;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">M_out</span> <span class="op">=</span> <span class="va">BP_35</span>(<span class="va">fpath</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>在此範例中，資料從 <code>fpath</code> 匯入為變數，然後調用 <code>generalfilterprocess</code>，默認使用 <code>bandpass</code>，每次匯入資料時創建一個帶通濾波器，並將過濾後的資料輸出為與 <code>M</code> 具有完全相同列數的 <code>M_out</code>（但行數可能有所減少）。</p>
-<p>另一個範例則是應用現有的篩選器（例如 <code>'Filter[BP_35]samp[1]stp[093].mat'</code>）於 <code>dir_filter</code> 中（如果可能）：</p>
+<p>在此範例中，資料從 <code>fpath</code> 匯入為變數，然後調用 <code>generalfilterprocess</code>，默認使用 <code>bandpass</code>，每次匯入資料時創建一個帶通濾波器，並將濾波後的資料輸出為與 <code>M</code> 具有完全相同欄位(直行)數的 <code>M_out</code>（但橫列數可能有所減少）。</p>
+<p>另一個範例則是應用現有的濾波器（例如 <code>'Filter[BP_35]samp[1]stp[093].mat'</code>）於 <code>dir_filter</code> 中（如果可能）：</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="va">fpath</span> <span class="op">=</span> <span class="ss">'D:\GeoMag (main)\GeoMag_GO\KUOL\stn[KUOL]dt[20150714]type[GEMS].mat'</span><span class="op">;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="va">filtpaths</span> <span class="op">=</span> <span class="va">datalist</span>(<span class="ss">'Filter*.mat'</span><span class="op">,</span> <span class="va">dir_filter</span>)<span class="op">;</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="va">FOBJ</span> <span class="op">=</span> <span class="va">loadfilters</span>(<span class="va">filtpaths</span>)<span class="op">;</span> <span class="co">% load all filters as a struct FOBJ</span></span>

@@ -260,7 +260,7 @@ Warning
 <li><a href="#molscore3"><code>molscore3</code></a>：基於最高 Molchan 得分的模型參數進行預報階段，包括計算聯合測站 TIP 和基於第 2、3 步結果的概率。</li>
 </ol>
 <p>這四個階段由四個函數封裝，並提供關鍵字參數，允許我們自訂一些與模型優化和概率預報相關的超參數。</p>
-<div id="1ded34f7" class="cell" data-execution_count="1">
+<div id="cda9a4e5" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
 <section id="statind" class="level3">
 <h3 class="anchored" data-anchor-id="statind"><code>statind</code></h3>
@@ -461,7 +461,7 @@ molscore3(dir_tsAIN,dir_molchan,dir_catalog,dir_jointstation)</code></pre>
 </section>
 <section id="load-raw-data-and-convert-it-into-a-standard-format" class="level2">
 <h2 class="anchored" data-anchor-id="load-raw-data-and-convert-it-into-a-standard-format">Load raw data and convert it into a standard format</h2>
-<div id="e6b3e057" class="cell" data-execution_count="2">
+<div id="6bb94b68" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
 <section id="conv_gemsdata" class="level3">
 <h3 class="anchored" data-anchor-id="conv_gemsdata"><code>conv_gemsdata</code></h3>
@@ -591,7 +591,7 @@ molscore3(dir_tsAIN,dir_molchan,dir_catalog,dir_jointstation)</code></pre>
 </section>
 <section id="available-preprocessing-functions" class="level2">
 <h2 class="anchored" data-anchor-id="available-preprocessing-functions">Available Preprocessing Functions</h2>
-<p>在 GEMS-MagTIP 中，訊號處理通過預處理函數進行，這些預處理函數是位於 <code>src/preprocess</code> 的特殊函數。 <code>no</code> 函數的功能是從給定的檔案路徑匯入資料，這是必須的。 您可以使用 <code>prplist = prpfunctions()</code> 列出所有的預處理函數。 篩選函數（例如 <code>ULF_A</code>、<code>ULF_B</code>，在 <code>prplist</code> 中）共用核心函數 <code>generalfilterprocess</code>，該函數將 <code>loadfilters</code> 的輸出作為輸入。</p>
+<p>在 GEMS-MagTIP 中，訊號處理通過預處理函數進行，這些預處理函數是位於 <code>src/preprocess</code> 的特殊函數。 <code>no</code> 函數的功能是從給定的檔案路徑匯入資料，這是必須的。 您可以使用 <code>prplist = prpfunctions()</code> 列出所有的預處理函數。 濾波函數（例如 <code>ULF_A</code>、<code>ULF_B</code>，在 <code>prplist</code> 中）共用核心函數 <code>generalfilterprocess</code>，該函數將 <code>loadfilters</code> 的輸出作為輸入。</p>
 <section id="預處理函數的功能是什麼" class="level4">
 <h4 class="anchored" data-anchor-id="預處理函數的功能是什麼">預處理函數的功能是什麼？</h4>
 <ul>
@@ -611,18 +611,18 @@ molscore3(dir_tsAIN,dir_molchan,dir_catalog,dir_jointstation)</code></pre>
 </section>
 <section id="範例" class="level4">
 <h4 class="anchored" data-anchor-id="範例">範例</h4>
-<p>內建四個預處理函數，分別為 <code>BP_35</code>、<code>BP_40</code>、<code>ULF_A</code> 和 <code>ULF_B</code>；這些篩選器可透過 <code>statind</code> 階段中的 <code>'Preprocess'</code> 關鍵字參數進行應用。</p>
+<p>內建四個預處理函數，分別為 <code>BP_35</code>、<code>BP_40</code>、<code>ULF_A</code> 和 <code>ULF_B</code>；這些濾波器可透過 <code>statind</code> 階段中的 <code>'Preprocess'</code> 關鍵字參數進行應用。</p>
 <p>以下範例展示直接使用（非通過 <code>statind</code> 階段的 <code>'Preprocess'</code> 接口）<code>BP_35</code> 的方法：</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="va">fpath</span> <span class="op">=</span> <span class="ss">'D:\GeoMag (main)\GeoMag_GO\KUOL\stn[KUOL]dt[20150714]type[GEMS].mat'</span><span class="op">;</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="va">M_out</span> <span class="op">=</span> <span class="va">BP_35</span>(<span class="va">fpath</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>在此範例中，資料從 <code>fpath</code> 匯入為變數，然後調用 <code>generalfilterprocess</code>，默認使用 <code>bandpass</code>，每次匯入資料時創建一個帶通濾波器，並將過濾後的資料輸出為與 <code>M</code> 具有完全相同列數的 <code>M_out</code>（但行數可能有所減少）。</p>
-<p>另一個範例則是應用現有的篩選器（例如 <code>'Filter[BP_35]samp[1]stp[093].mat'</code>）於 <code>dir_filter</code> 中（如果可能）：</p>
+<p>在此範例中，資料從 <code>fpath</code> 匯入為變數，然後調用 <code>generalfilterprocess</code>，默認使用 <code>bandpass</code>，每次匯入資料時創建一個帶通濾波器，並將濾波後的資料輸出為與 <code>M</code> 具有完全相同欄位(直行)數的 <code>M_out</code>（但橫列數可能有所減少）。</p>
+<p>另一個範例則是應用現有的濾波器（例如 <code>'Filter[BP_35]samp[1]stp[093].mat'</code>）於 <code>dir_filter</code> 中（如果可能）：</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="va">fpath</span> <span class="op">=</span> <span class="ss">'D:\GeoMag (main)\GeoMag_GO\KUOL\stn[KUOL]dt[20150714]type[GEMS].mat'</span><span class="op">;</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="va">filtpaths</span> <span class="op">=</span> <span class="va">datalist</span>(<span class="ss">'Filter*.mat'</span><span class="op">,</span> <span class="va">dir_filter</span>)<span class="op">;</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="va">FOBJ</span> <span class="op">=</span> <span class="va">loadfilters</span>(<span class="va">filtpaths</span>)<span class="op">;</span> <span class="co">% load all filters as a struct FOBJ</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="va">M_out</span> <span class="op">=</span> <span class="va">BP_35</span>(<span class="va">fpath</span><span class="op">,</span> <span class="va">FOBJ</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<div id="5fc968ef" class="cell" data-execution_count="3">
+<div id="6e544c67" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
 <section id="bp_35" class="level3">
 <h3 class="anchored" data-anchor-id="bp_35"><code>BP_35</code></h3>
@@ -664,7 +664,7 @@ Note
 </section>
 <section id="filtering-functions" class="level2">
 <h2 class="anchored" data-anchor-id="filtering-functions">Filtering Functions</h2>
-<div id="9fd0ebf2" class="cell" data-execution_count="4">
+<div id="4eaba0ff" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="5">
 <section id="autobandpassfilter" class="level3">
 <h3 class="anchored" data-anchor-id="autobandpassfilter"><code>autobandpassfilter</code></h3>
@@ -721,7 +721,7 @@ Note
 </section>
 <section id="internal-api-for-tip-calculation" class="level2">
 <h2 class="anchored" data-anchor-id="internal-api-for-tip-calculation">Internal API for TIP Calculation</h2>
-<div id="8377a43e" class="cell" data-execution_count="5">
+<div id="9229bebd" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="6">
 <section id="tiparea" class="level3">
 <h3 class="anchored" data-anchor-id="tiparea"><code>TIPArea</code></h3>
@@ -1076,7 +1076,7 @@ loadAIN(dir_tsAIN,BestModelNames,TimeRange)</code></pre>
 </section>
 <section id="format" class="level2">
 <h2 class="anchored" data-anchor-id="format">Format</h2>
-<div id="23849cd2" class="cell" data-execution_count="6">
+<div id="e055db43" class="cell" data-execution_count="6">
 <section id="fmt" class="level3 cell-output cell-output-display cell-output-markdown" data-execution_count="7">
 <h3 class="anchored" data-anchor-id="fmt"><code>fmt</code></h3>
 <p><code>fmt</code> is a class that</p>
@@ -1117,7 +1117,7 @@ loadAIN(dir_tsAIN,BestModelNames,TimeRange)</code></pre>
 </section>
 <section id="others" class="level2">
 <h2 class="anchored" data-anchor-id="others">Others</h2>
-<div id="ac353d12" class="cell" data-execution_count="7">
+<div id="050b1ea7" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="8">
 <section id="molchan_cb" class="level3">
 <h3 class="anchored" data-anchor-id="molchan_cb"><code>Molchan_CB</code></h3>
