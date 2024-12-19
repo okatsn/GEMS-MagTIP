@@ -7,4 +7,6 @@ stages:
     cmd: quarto render --profile zhtw
     always_changed: true
   dvc_pull_submodule:
-    cmd: cd GEMS-MagTIP && dvc pull
+    # Initiate submodule is required in the beginning: git submodule update --init
+    cmd: dvc pull
+    wdir: GEMS-MagTIP-insider
