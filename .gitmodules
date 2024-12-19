@@ -1,3 +1,4 @@
 [submodule "GEMS-MagTIP-insider"]
 	path = GEMS-MagTIP-insider
 	url = https://github.com/okatsn/GEMS-MagTIP-insider.git
+	branch = main
