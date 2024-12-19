@@ -23,7 +23,7 @@ GEMS-MagTIP 是一個整合演算法，根據地電與地磁場資料計算地�
 
 
 
-![Schematic illustration of the TIP concept](assets/general/fig_TIP_concept.png){width=80%}
+![Schematic illustration of the TIP concept](/assets/general/fig_TIP_concept.png){width=80%}
 
 
 ::: {.content-visible when-profile="en"}
@@ -48,7 +48,7 @@ GEMSTIP（地電監測系統的TIP）專注於地電場異常的觀測，開啟�
 :::
 
 
-![Historical milestones of GEMS-MagTIP development](assets/general/DevelopmentHistory2024.png){width=80%}
+![Historical milestones of GEMS-MagTIP development](/assets/general/DevelopmentHistory2024.png){width=80%}
 
 
 ::: {.content-visible when-profile="en"}
@@ -73,13 +73,13 @@ GEMS-MagTIP 系統代表了地震前兆研究的進一步發展。它提供了�
 :::
 
 
-![Geo-electric and magnetic stations in the [Taiwan Geophysical Network for Seismology, TGNS](https://gdms.cwa.gov.tw/network_tgns.php).](assets/general/stationMap_2024.png){width=50%}
+![Geo-electric and magnetic stations in the [Taiwan Geophysical Network for Seismology, TGNS](https://gdms.cwa.gov.tw/network_tgns.php).](/assets/general/stationMap_2024.png){width=50%}
 
 
 ::: {layout="[[38,62]]"}
 
-![GEMS-MagTIP probability forecast (map)](assets/probmap_403_example.png)
+![GEMS-MagTIP probability forecast (map)](/assets/probmap_403_example.png)
 
-![GEMS-MagTIP probability forecast (time-series)](assets/probts_403_example.png)
+![GEMS-MagTIP probability forecast (time-series)](/assets/probts_403_example.png)
 
 :::
