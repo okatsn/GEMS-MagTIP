@@ -1,0 +1,8 @@
+stages:
+  # See https://dvc.org/doc/user-guide/project-structure/dvcyaml-files#stage-entries
+  quarto_render_default:
+    cmd: quarto render
+    always_changed: true
+  quarto_render_zhtw:
+    cmd: quarto render --profile zhtw
+    always_changed: true
