@@ -1,5 +1,8 @@
 # README
 
+This site is live at  https://cgrg-lab.github.io/GEMS-MagTIP/.
+
+
 ## For the maintainer of this website
 
 ### Translation to zh-TW

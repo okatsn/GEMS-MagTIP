@@ -16,17 +16,22 @@ website:
     right: 
     - icon: github
       href: https://github.com/okatsn/GEMS-MagTIP
-    - icon: globe-americas
-      href: https://okatsn.github.io/GEMS-MagTIP/
-    - icon: translate
-      href: https://okatsn.github.io/GEMS-MagTIP/zh-TW
       # KEYNOTE: you cannot set href as ./docs or ./docs/zh-TW, because it will jumps to /docs/docs/ if you click globe-americas at /docs/
+    - icon: translate
+      href: "javascript:toggleLang();"
 
 format:
   html:
-    theme: cosmo
+    theme: [cosmo,custom.scss]
     css: styles.css
     toc: true
+    code-tools: 
+      source: true
+      # you can add e.g., source: https://github.com/CGRG-lab/GEMS-MagTIP/blob/main/index.qmd
+      # in the header (format option) in each .qmd file.
+      # See: https://quarto.org/docs/output-formats/html-code.html#code-tools
+      toggle: true
+      caption: none
 
 profile:
   default: en

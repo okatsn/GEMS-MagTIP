@@ -1,5 +1,10 @@
 ---
 title: "Tutorial"
+format:
+  html: 
+    code-tools: 
+      source: https://github.com/CGRG-lab/GEMS-MagTIP/blob/main/doc_tutorial/index.qmd
+include-after-body: ../toggle-lang.html
 ---
 
 ## Requirements

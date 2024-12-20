@@ -1,5 +1,9 @@
 ---
 title: "About"
+format:
+  html: 
+    code-tools: 
+      source: https://github.com/CGRG-lab/GEMS-MagTIP/blob/main/about.qmd
 ---
 
 About this site

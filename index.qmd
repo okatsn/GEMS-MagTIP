@@ -1,5 +1,10 @@
 ---
 title: "GEMS-MagTIP"
+format:
+  html: 
+    code-tools: 
+      source: https://github.com/CGRG-lab/GEMS-MagTIP/blob/main/index.qmd
+include-after-body: /toggle-lang.html
 ---
 
 The documentation of GEMS-MagTIP: https://cgrg-lab.github.io/GEMS-MagTIP/
@@ -35,6 +40,8 @@ The development began with GEMSTIP (Geoelectric Monitoring System's Time of Incr
 Building upon GEMSTIP, MagTIP expanded the algorithm to include geomagnetic field data. 
 It greatly improves computational efficiency, support for both full-field and triaxial magnetic data, and introduces a rolling forecast system. 
 MagTIP's advancements made it possible to integrate data from both modern and legacy instruments, ensuring the preservation and utilization of valuable historical records.
+
+![Historical milestones of GEMS-MagTIP development](/assets/general/DevelopmentHistory2024.png){width=80%}
 :::
 
 ::: {.content-visible when-profile="zhtw"}
@@ -45,10 +52,11 @@ GEMSTIP（地電監測系統的TIP）專注於地電場異常的觀測，開啟�
 
 在 GEMSTIP 的基礎上，MagTIP 擴展了演算法以納入地磁場資料。MagTIP 大幅提升了計算效率，支持全磁場與三分量磁場數據，並引入滾動預測系統。MagTIP 的進展使其能整合現代與傳統儀器的資料，確保珍貴的歷史記錄得以保存與利用。
 
+![沿革](/assets/general/DevelopmentHistory2024-zhtw.png){width=80%}
 :::
 
 
-![Historical milestones of GEMS-MagTIP development](/assets/general/DevelopmentHistory2024.png){width=80%}
+
 
 
 ::: {.content-visible when-profile="en"}

@@ -1,0 +1,20 @@
+<script>
+    function toggleLang() {
+        const currentPath = window.location.pathname;
+        const pathSegments = currentPath.split('/').filter(seg => seg !== '');
+        // pathSegments might look like ["whatever", "page"] or ["zh-TW", "whatever", "page"]
+
+        if (pathSegments[0] === 'zh-TW') {
+            // If currently in zh-TW path, remove "zh-TW"
+            pathSegments.shift(); // remove the first element "zh-TW"
+        } else {
+            // If currently not in zh-TW, add "zh-TW" at the start
+            pathSegments.unshift('zh-TW');
+        }
+
+        // Reconstruct the URL
+        const newPath = '/' + pathSegments.join('/');
+        window.location.href = window.location.origin + newPath;
+    }
+</script>
+<!-- This is a javascript to be included every page. See  include-after-body: ... in .qmd headers.-->
