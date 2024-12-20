@@ -12,12 +12,13 @@ website:
   # bottom bar
     left: "Copyright 2025, CGRG-lab and Tsung-Hsi Wu" 
   navbar: 
-  # top bar
+  # top bar. See https://quarto.org/docs/websites/website-navigation.html
     right: 
     - icon: github
-      href: https://github.com/okatsn/GEMS-MagTIP
+      href: https://github.com/CGRG-lab/GEMS-MagTIP
       # KEYNOTE: you cannot set href as ./docs or ./docs/zh-TW, because it will jumps to /docs/docs/ if you click globe-americas at /docs/
     - icon: translate
+      # Quarto supports bootstrap icons: https://icons.getbootstrap.com/icons/translate/
       href: "javascript:toggleLang();"
 
 format:
@@ -34,6 +35,7 @@ format:
       caption: none
     include-in-header: toggle-lang.html
     # This way, you don't need to add `include-after-body: ../toggle-lang.html` in every header of a .qmd file.
+    # See https://quarto.org/docs/output-formats/html-basics.html#includes
 
 profile:
   default: en
