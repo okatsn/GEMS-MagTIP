@@ -4,7 +4,7 @@ format:
   html: 
     code-tools: 
       source: https://github.com/CGRG-lab/GEMS-MagTIP/blob/main/index.qmd
-include-after-body: /toggle-lang.html
+include-after-body: ./toggle-lang.html
 ---
 
 The documentation of GEMS-MagTIP: https://cgrg-lab.github.io/GEMS-MagTIP/
