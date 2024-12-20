@@ -46,7 +46,7 @@ The four stages is wrapped by four functions with keyword arguments that we can 
 :::
 
 
-::: {.callout-caution title="Docstring"}
+::: {.callout-caution title="Docstring" collapse=false}
 
 ```{julia}
 #| echo: false
@@ -71,7 +71,7 @@ Markdown.parse(reduce(*, y))
 ## Load raw data and convert it into a standard format
 
 
-::: {.callout-caution title="Docstring"}
+::: {.callout-caution title="Docstring" collapse=false}
 
 
 ```{julia}
@@ -107,7 +107,7 @@ Markdown.parse(reduce(*, y))
 {{< include "/GEMS-MagTIP-insider/src/preprocess/README-zhtw.md" >}}
 :::
 
-::: {.callout-caution title="Docstring"}
+::: {.callout-caution title="Docstring" collapse=false}
 
 ```{julia}
 #| echo: false
@@ -135,7 +135,7 @@ Markdown.parse(reduce(*, y))
 
 ## Filtering Functions
 
-::: {.callout-caution title="Docstring"}
+::: {.callout-caution title="Docstring" collapse=false}
 
 ```{julia}
 #| echo: false
@@ -150,7 +150,7 @@ Markdown.parse(reduce(*, y))
 
 ## Internal API for TIP Calculation
 
-::: {.callout-caution title="Docstring"}
+::: {.callout-caution title="Docstring" collapse=false}
 
 
 ```{julia}
@@ -165,7 +165,7 @@ Markdown.parse(reduce(*, y))
 
 ## Format
 
-::: {.callout-caution title="Docstring"}
+::: {.callout-caution title="Docstring" collapse=false}
 
 ```{julia}
 #| echo: false
@@ -176,7 +176,7 @@ getdoc(dir_0("GEMS-MagTIP-insider/src/@fmt/fmt.m"), filename_header=3) |> Markdo
 
 ## Others
 
-::: {.callout-caution}
+::: {.callout-caution title="Docstring" collapse=false}
 
 ```{julia}
 #| echo: false
