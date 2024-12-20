@@ -264,7 +264,7 @@ Docstring
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="03609004" class="cell" data-execution_count="1">
+<div id="45b798ea" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
 <section id="statind" class="level3">
 <h3 class="anchored" data-anchor-id="statind"><code>statind</code></h3>
@@ -480,7 +480,7 @@ Docstring
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="92960100" class="cell" data-execution_count="2">
+<div id="e6bfbf9e" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
 <section id="conv_gemsdata" class="level3">
 <h3 class="anchored" data-anchor-id="conv_gemsdata"><code>conv_gemsdata</code></h3>
@@ -655,7 +655,7 @@ Docstring
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="f5fc8f84" class="cell" data-execution_count="3">
+<div id="fafc50b1" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
 <section id="bp_35" class="level3">
 <h3 class="anchored" data-anchor-id="bp_35"><code>BP_35</code></h3>
@@ -713,7 +713,7 @@ Docstring
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="1b2053a0" class="cell" data-execution_count="4">
+<div id="299afc99" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="5">
 <section id="autobandpassfilter" class="level3">
 <h3 class="anchored" data-anchor-id="autobandpassfilter"><code>autobandpassfilter</code></h3>
@@ -785,7 +785,7 @@ Docstring
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="6dac3db5" class="cell" data-execution_count="5">
+<div id="97161a4a" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="6">
 <section id="tiparea" class="level3">
 <h3 class="anchored" data-anchor-id="tiparea"><code>TIPArea</code></h3>
@@ -1155,7 +1155,7 @@ Docstring
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="c76cf68e" class="cell" data-execution_count="6">
+<div id="065c6e4d" class="cell" data-execution_count="6">
 <section id="fmt" class="level3 cell-output cell-output-display cell-output-markdown" data-execution_count="7">
 <h3 class="anchored" data-anchor-id="fmt"><code>fmt</code></h3>
 <p><code>fmt</code> is a class that</p>
@@ -1211,7 +1211,7 @@ Docstring
 </div>
 <div id="callout-9" class="callout-9-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="559e1519" class="cell" data-execution_count="7">
+<div id="fcb01374" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="8">
 <section id="molchan_cb" class="level3">
 <h3 class="anchored" data-anchor-id="molchan_cb"><code>Molchan_CB</code></h3>
@@ -1412,24 +1412,41 @@ Docstring
 </main> <!-- /main -->
 <script>
     function toggleLang() {
-        const currentPath = window.location.pathname;
-        const pathSegments = currentPath.split('/').filter(seg => seg !== '');
-        // pathSegments might look like ["whatever", "page"] or ["zh-TW", "whatever", "page"]
+        var origin = window.location.origin;
+        var pathname = window.location.pathname;
+        var search = window.location.search;
+        var hash = window.location.hash;
 
-        if (pathSegments[0] === 'zh-TW') {
-            // If currently in zh-TW path, remove "zh-TW"
-            pathSegments.shift(); // remove the first element "zh-TW"
+        // This is your site's base path (without trailing slash)
+        var basePath = "/GEMS-MagTIP";
+
+        // Check if currently in Chinese version by looking for "/zh-TW/" segment
+        if (pathname.indexOf(basePath + "/zh-TW/") === 0 || pathname === basePath + "/zh-TW") {
+            // We are in the Chinese site, so remove 'zh-TW' to go back to English
+            var newPath = pathname.replace("/zh-TW", "");
+            window.location.href = origin + newPath + search + hash;
         } else {
-            // If currently not in zh-TW, add "zh-TW" at the start
-            pathSegments.unshift('zh-TW');
+            // We are in the English site, so insert '/zh-TW' after base path
+            // Make sure we only insert if not already present
+            if (pathname.indexOf(basePath) === 0) {
+                var newPath = pathname.replace(basePath, basePath + "/zh-TW");
+                window.location.href = origin + newPath + search + hash;
+            } else {
+                // If for some reason the current path doesn't start with the known base, 
+                // fallback to just adding zh-TW after origin.
+                window.location.href = origin + basePath + "/zh-TW" + pathname + search + hash;
+            }
         }
-
-        // Reconstruct the URL
-        const newPath = '/' + pathSegments.join('/');
-        window.location.href = window.location.origin + newPath;
     }
+
+
 </script>
+
 <!-- This is a javascript to be included every page. See  include-after-body: ... in .qmd headers.-->
+<!-- 
+Prompt:
+I have a website. The english site is under `<baseurl>/`, where as the Chinese version is under `<baseurl>/zh-TW/`. Please help me write a javascript function `toggleLang` which can help me switch between these two versions. For example, when I'm at `<baseurl>/whatever/page`, call the function via `javascript:toggleLang();` will jump to `<baseurl>/zh-TW/whatever/page`; on the other hand, when I'm at `<baseurl>/zh-TW/whatever/page`, call the function jumps to `<baseurl>/whatever/page`.
+ -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
