@@ -4,6 +4,26 @@ format:
   html: 
     code-tools: 
       source: https://github.com/CGRG-lab/GEMS-MagTIP/blob/main/doc_library/index.qmd
+include-after-body:
+  - text: |
+      <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const elements = document.querySelectorAll('[data-bs-toggle]');
+        const noHash = !window.location.hash; // True if there's no hash in the URL
+      
+        if (noHash) {
+          elements.forEach(element => {
+            const isCollapsed = element.classList.contains('collapsed');
+            // If it's not collapsed, click to collapse
+            if (!isCollapsed) {
+              element.click();
+            }
+          });
+        }
+      });
+      </script>
+# This is a javascript that reveal the collapsed element if linked with a hash, like doc_library/#main-functions
+# https://github.com/quarto-dev/quarto-cli/discussions/6402
 ---
 
 ::: {.content-visible when-profile="en"}
