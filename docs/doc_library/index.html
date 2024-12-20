@@ -138,7 +138,7 @@ Prompt:
 I have a website. The english site is under `<baseurl>/`, where as the Chinese version is under `<baseurl>/zh-TW/`. Please help me write a javascript function `toggleLang` which can help me switch between these two versions. For example, when I'm at `<baseurl>/whatever/page`, call the function via `javascript:toggleLang();` will jump to `<baseurl>/zh-TW/whatever/page`; on the other hand, when I'm at `<baseurl>/zh-TW/whatever/page`, call the function jumps to `<baseurl>/whatever/page`.
 
 KEYNOTE:
-ChatGPT doesn't do this job well.
+- ChatGPT doesn't do this job well. `basePath` is critical to make this script works.
  -->
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -210,7 +210,7 @@ window.Quarto = {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/okatsn/GEMS-MagTIP"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/CGRG-lab/GEMS-MagTIP"> <i class="bi bi-github" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -304,7 +304,7 @@ Docstring
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="539de118" class="cell" data-execution_count="1">
+<div id="0efe918e" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
 <section id="statind" class="level3">
 <h3 class="anchored" data-anchor-id="statind"><code>statind</code></h3>
@@ -520,7 +520,7 @@ Docstring
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="45e69664" class="cell" data-execution_count="2">
+<div id="3f94b856" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
 <section id="conv_gemsdata" class="level3">
 <h3 class="anchored" data-anchor-id="conv_gemsdata"><code>conv_gemsdata</code></h3>
@@ -695,7 +695,7 @@ Docstring
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="50e2a1e2" class="cell" data-execution_count="3">
+<div id="96b7b478" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
 <section id="bp_35" class="level3">
 <h3 class="anchored" data-anchor-id="bp_35"><code>BP_35</code></h3>
@@ -753,7 +753,7 @@ Docstring
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="fd62a3bf" class="cell" data-execution_count="4">
+<div id="fc7ae92f" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="5">
 <section id="autobandpassfilter" class="level3">
 <h3 class="anchored" data-anchor-id="autobandpassfilter"><code>autobandpassfilter</code></h3>
@@ -825,7 +825,7 @@ Docstring
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="b438f571" class="cell" data-execution_count="5">
+<div id="14971c50" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="6">
 <section id="tiparea" class="level3">
 <h3 class="anchored" data-anchor-id="tiparea"><code>TIPArea</code></h3>
@@ -1195,7 +1195,7 @@ Docstring
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="cc91cfe7" class="cell" data-execution_count="6">
+<div id="99d937a3" class="cell" data-execution_count="6">
 <section id="fmt" class="level3 cell-output cell-output-display cell-output-markdown" data-execution_count="7">
 <h3 class="anchored" data-anchor-id="fmt"><code>fmt</code></h3>
 <p><code>fmt</code> is a class that</p>
@@ -1251,7 +1251,7 @@ Docstring
 </div>
 <div id="callout-9" class="callout-9-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="07874939" class="cell" data-execution_count="7">
+<div id="aba4ca74" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="8">
 <section id="molchan_cb" class="level3">
 <h3 class="anchored" data-anchor-id="molchan_cb"><code>Molchan_CB</code></h3>
@@ -1450,46 +1450,6 @@ Docstring
 </section>
 
 </main> <!-- /main -->
-<script>
-    function toggleLang() {
-        var origin = window.location.origin;
-        var pathname = window.location.pathname;
-        var search = window.location.search;
-        var hash = window.location.hash;
-
-        // This is your site's base path (without trailing slash)
-        var basePath = "/GEMS-MagTIP";
-
-        // Check if currently in Chinese version by looking for "/zh-TW/" segment
-        if (pathname.indexOf(basePath + "/zh-TW/") === 0 || pathname === basePath + "/zh-TW") {
-            // We are in the Chinese site, so remove 'zh-TW' to go back to English
-            var newPath = pathname.replace("/zh-TW", "");
-            window.location.href = origin + newPath + search + hash;
-        } else {
-            // We are in the English site, so insert '/zh-TW' after base path
-            // Make sure we only insert if not already present
-            if (pathname.indexOf(basePath) === 0) {
-                var newPath = pathname.replace(basePath, basePath + "/zh-TW");
-                window.location.href = origin + newPath + search + hash;
-            } else {
-                // If for some reason the current path doesn't start with the known base, 
-                // fallback to just adding zh-TW after origin.
-                window.location.href = origin + basePath + "/zh-TW" + pathname + search + hash;
-            }
-        }
-    }
-
-
-</script>
-
-<!-- This is a javascript to be included every page. See  include-after-body: ... in .qmd headers.-->
-<!-- 
-Prompt:
-I have a website. The english site is under `<baseurl>/`, where as the Chinese version is under `<baseurl>/zh-TW/`. Please help me write a javascript function `toggleLang` which can help me switch between these two versions. For example, when I'm at `<baseurl>/whatever/page`, call the function via `javascript:toggleLang();` will jump to `<baseurl>/zh-TW/whatever/page`; on the other hand, when I'm at `<baseurl>/zh-TW/whatever/page`, call the function jumps to `<baseurl>/whatever/page`.
-
-KEYNOTE:
-ChatGPT doesn't do this job well.
- -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1972,6 +1932,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const elements = document.querySelectorAll('[data-bs-toggle]');
+  const noHash = !window.location.hash; // True if there's no hash in the URL
+
+  if (noHash) {
+    elements.forEach(element => {
+      const isCollapsed = element.classList.contains('collapsed');
+      // If it's not collapsed, click to collapse
+      if (!isCollapsed) {
+        element.click();
+      }
+    });
+  }
+});
+</script>
 
 
 

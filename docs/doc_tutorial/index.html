@@ -138,7 +138,7 @@ Prompt:
 I have a website. The english site is under `<baseurl>/`, where as the Chinese version is under `<baseurl>/zh-TW/`. Please help me write a javascript function `toggleLang` which can help me switch between these two versions. For example, when I'm at `<baseurl>/whatever/page`, call the function via `javascript:toggleLang();` will jump to `<baseurl>/zh-TW/whatever/page`; on the other hand, when I'm at `<baseurl>/zh-TW/whatever/page`, call the function jumps to `<baseurl>/whatever/page`.
 
 KEYNOTE:
-ChatGPT doesn't do this job well.
+- ChatGPT doesn't do this job well. `basePath` is critical to make this script works.
  -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
@@ -213,7 +213,7 @@ window.Quarto = {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/okatsn/GEMS-MagTIP"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/CGRG-lab/GEMS-MagTIP"> <i class="bi bi-github" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -445,7 +445,7 @@ window.Quarto = {
 </tbody>
 </table>
 <p>here is a partial view on an exemplary <code>station_location.csv</code>:</p>
-<div id="a045b51c" class="cell" data-execution_count="1">
+<div id="da3bf42b" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
