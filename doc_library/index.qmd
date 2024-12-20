@@ -44,6 +44,10 @@ The four stages is wrapped by four functions with keyword arguments that we can 
 這四個階段由四個函數封裝，並提供關鍵字參數，允許我們自訂一些與模型優化和概率預報相關的超參數。
 
 :::
+
+
+::: {.callout-caution title="Docstring"}
+
 ```{julia}
 #| echo: false
 
@@ -61,11 +65,13 @@ Markdown.parse(reduce(*, y))
 
 ```
 
+:::
 
 
 ## Load raw data and convert it into a standard format
 
 
+::: {.callout-caution title="Docstring"}
 
 
 ```{julia}
@@ -85,6 +91,8 @@ y = [
 Markdown.parse(reduce(*, y))
 ```
 
+:::
+
 ## Available Preprocessing Functions
 
 ::: {.content-visible when-profile="en"}
@@ -99,6 +107,7 @@ Markdown.parse(reduce(*, y))
 {{< include "/GEMS-MagTIP-insider/src/preprocess/README-zhtw.md" >}}
 :::
 
+::: {.callout-caution title="Docstring"}
 
 ```{julia}
 #| echo: false
@@ -108,6 +117,7 @@ y = [getdoc(f, filename_header=3) for f in files]
 
 Markdown.parse(reduce(*, y))
 ```
+:::
 
 ::: {.content-visible when-profile="en"}
 ::: {.callout-note}
@@ -125,6 +135,8 @@ Markdown.parse(reduce(*, y))
 
 ## Filtering Functions
 
+::: {.callout-caution title="Docstring"}
+
 ```{julia}
 #| echo: false
 
@@ -133,9 +145,13 @@ y = [getdoc(f, filename_header=3) for f in files]
 
 Markdown.parse(reduce(*, y))
 ```
+:::
 
 
 ## Internal API for TIP Calculation
+
+::: {.callout-caution title="Docstring"}
+
 
 ```{julia}
 #| echo: false
@@ -145,16 +161,22 @@ y = [getdoc(f, filename_header=3) for f in files]
 
 Markdown.parse(reduce(*, y))
 ```
+:::
 
 ## Format
+
+::: {.callout-caution title="Docstring"}
 
 ```{julia}
 #| echo: false
 
 getdoc(dir_0("GEMS-MagTIP-insider/src/@fmt/fmt.m"), filename_header=3) |> Markdown.parse
 ```
+:::
 
 ## Others
+
+::: {.callout-caution}
 
 ```{julia}
 #| echo: false
@@ -164,3 +186,4 @@ y = [getdoc(f, filename_header=3) for f in files]
 
 Markdown.parse(reduce(*, y))
 ```
+:::
