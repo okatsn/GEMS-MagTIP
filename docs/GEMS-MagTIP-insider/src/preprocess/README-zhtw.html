@@ -100,6 +100,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script>
+    function toggleLang() {
+        var origin = window.location.origin;
+        var pathname = window.location.pathname;
+        var search = window.location.search;
+        var hash = window.location.hash;
+
+        // This is your site's base path (without trailing slash)
+        var basePath = "/GEMS-MagTIP";
+
+        // Check if currently in Chinese version by looking for "/zh-TW/" segment
+        if (pathname.indexOf(basePath + "/zh-TW/") === 0 || pathname === basePath + "/zh-TW") {
+            // We are in the Chinese site, so remove 'zh-TW' to go back to English
+            var newPath = pathname.replace("/zh-TW", "");
+            window.location.href = origin + newPath + search + hash;
+        } else {
+            // We are in the English site, so insert '/zh-TW' after base path
+            // Make sure we only insert if not already present
+            if (pathname.indexOf(basePath) === 0) {
+                var newPath = pathname.replace(basePath, basePath + "/zh-TW");
+                window.location.href = origin + newPath + search + hash;
+            } else {
+                // If for some reason the current path doesn't start with the known base, 
+                // fallback to just adding zh-TW after origin.
+                window.location.href = origin + basePath + "/zh-TW" + pathname + search + hash;
+            }
+        }
+    }
+
+
+</script>
+
+<!-- This is a javascript to be included every page. See  include-after-body: ... in .qmd headers.-->
+<!-- 
+Prompt:
+I have a website. The english site is under `<baseurl>/`, where as the Chinese version is under `<baseurl>/zh-TW/`. Please help me write a javascript function `toggleLang` which can help me switch between these two versions. For example, when I'm at `<baseurl>/whatever/page`, call the function via `javascript:toggleLang();` will jump to `<baseurl>/zh-TW/whatever/page`; on the other hand, when I'm at `<baseurl>/zh-TW/whatever/page`, call the function jumps to `<baseurl>/whatever/page`.
+
+KEYNOTE:
+ChatGPT doesn't do this job well.
+ -->
 
 
 <link rel="stylesheet" href="../../../styles.css">
