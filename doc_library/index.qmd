@@ -1,5 +1,9 @@
 ---
 title: "Library"
+format:
+  html: 
+    code-tools: 
+      source: https://github.com/CGRG-lab/GEMS-MagTIP/blob/main/doc_library/index.qmd
 ---
 
 ::: {.content-visible when-profile="en"}

@@ -27,6 +27,13 @@ format:
     theme: [cosmo,custom.scss]
     css: styles.css
     toc: true
+    code-tools: 
+      source: true
+      # you can add e.g., source: https://github.com/CGRG-lab/GEMS-MagTIP/blob/main/index.qmd
+      # in the header (format option) in each .qmd file.
+      # See: https://quarto.org/docs/output-formats/html-code.html#code-tools
+      toggle: true
+      caption: none
 
 profile:
   default: en
