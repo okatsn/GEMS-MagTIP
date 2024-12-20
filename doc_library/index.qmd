@@ -4,7 +4,6 @@ format:
   html: 
     code-tools: 
       source: https://github.com/CGRG-lab/GEMS-MagTIP/blob/main/doc_library/index.qmd
-include-after-body: ../toggle-lang.html
 ---
 
 ::: {.content-visible when-profile="en"}

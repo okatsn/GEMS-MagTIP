@@ -32,6 +32,8 @@ format:
       # See: https://quarto.org/docs/output-formats/html-code.html#code-tools
       toggle: true
       caption: none
+    include-in-header: toggle-lang.html
+    # This way, you don't need to add `include-after-body: ../toggle-lang.html` in every header of a .qmd file.
 
 profile:
   default: en
