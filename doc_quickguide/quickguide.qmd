@@ -18,6 +18,7 @@ jupyter: julia-1.10
 # bibliography: main.bib
 ---
 
+<!-- KEYNOTE: This slide is not a page so don't use index.qmd as name; otherwise quarto render raises error. -->
 
 ::::{.columns}::::
 :::{.column width='60%'}
