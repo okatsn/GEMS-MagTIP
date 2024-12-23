@@ -39,7 +39,10 @@ Please don't translate headers (that starts with one or multiple `#`) in [/doc_l
 A code block may result in ChatGPT translation output error. 
 To avoid this, please find all code blocks in the documents and manually 
 remove them before feeding the qmd script to ChatGPT. 
-Here is a helpful regular expression: ```.*\n+([\n\s\r]|.)*?```
+
+Here are regular expression that might be helpful: 
+- ```.*\n+([\n\s\r]|.)*?```
+- (信息|過濾|篩選|震級|克隆|功能|加載|概率)
 
 #### Language toggle button
 
