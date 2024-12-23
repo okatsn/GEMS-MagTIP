@@ -58,14 +58,14 @@ The four stages is wrapped by four functions with keyword arguments that we can 
 
 ::: {.content-visible when-profile="zhtw"}
 
-在完整的 GEMS-MagTIP 工作流程中，主要分為四個階段，每個階段對應以下主要功能：
+在完整的 GEMS-MagTIP 工作流程中，主要分為四個階段，每個階段對應以下主要函數：
 
 1. [`statind`](#statind)：統計指標的計算。
 2. [`anomalyind`](#anomalyind)：基於統計指標計算異常指標數值。
 3. [`molscore`](#molscore)：基於異常指標的訓練階段，包括單測站 TIP 的計算、匹配目標地震的 TIP，以及計算 Molchan 得分。
-4. [`molscore3`](#molscore3)：基於最高 Molchan 得分的模型參數進行預報階段，包括計算聯合測站 TIP 和基於第 2、3 步結果的概率。
+4. [`molscore3`](#molscore3)：基於最高 Molchan 得分的模型參數進行預報階段，包括計算聯合測站 TIP 和基於第 2、3 步結果的機率。
 
-這四個階段由四個函數封裝，並提供關鍵字參數，允許我們自訂一些與模型優化和概率預報相關的超參數。
+這四個階段由四個函數封裝，並提供關鍵字參數，允許我們自訂一些與模型優化和機率預報相關的超參數。
 
 :::
 
@@ -93,6 +93,33 @@ Markdown.parse(reduce(*, y))
 
 
 ## Load raw data and convert it into a standard format
+
+::: {.content-visible when-profile="en"}
+
+Data of standard format denotes the formatted matfile that should contain only 1 field where the field name can be arbitrarily chosen. 
+Saying the field to be `M`, `M` has to be a matrix where the column indices to time and data are assigned by function `fmt.colindex2data` (see [`fmt`](#fmt)) depending on the type of the data.
+
+::: {.callout-warning}
+Noted that `fmt.colindex2data` returns a set of indices for indexing into the data of standard format, whereas `columnind` (see docstring [below](#columnind)) returns a set of indices for indexing into the raw data.
+:::
+
+The naming of standard format data is critical. 
+Please refer [`standarddataname`](#standarddataname) in the following docstring for the naming rule.
+
+
+:::
+
+
+::: {.content-visible when-profile="zhtw"}
+標準格式資料表示應包含僅有一個欄位的格式化 matfile，該欄位名稱可任意選擇。假設欄位為 `M`，則 `M` 必須是一個矩陣，其時間和資料的欄位索引需依據資料類型由函數 `fmt.colindex2data`（參見 [`fmt`](#fmt)）分配。
+
+::: {.callout-warning}
+需注意，`fmt.colindex2data` 返回一組用於標準格式資料的索引，而 `columnind`（參見 [下方的 docstring](#columnind)）則返回一組用於原始資料的索引。
+:::
+
+標準格式資料的命名至關重要。
+如需了解細節，請參考以下 docstring 中的 [`standarddataname`](#standarddataname) 以了解命名規則。
+:::
 
 
 ::: {.callout-caution title="Docstring" collapse=false}
@@ -152,7 +179,7 @@ Markdown.parse(reduce(*, y))
 
 ::: {.content-visible when-profile="zhtw"}
 ::: {.callout-note}
-`generalfilterprocess` 是 `'ULF_X'` 和 `BP_X` 系列的核心共用函數；詳情請參考[過濾功能](#filtering-functions)。
+`generalfilterprocess` 是 `'ULF_X'` 和 `BP_X` 系列的核心共用函數；詳情請參考[濾波函數](#filtering-functions)。
 :::
 
 :::
