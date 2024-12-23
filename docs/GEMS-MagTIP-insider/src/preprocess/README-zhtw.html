@@ -217,7 +217,7 @@ KEYNOTE:
 <li>匯入資料（即 <code>M</code>）</li>
 <li>執行一些預處理（例如帶通濾波）</li>
 <li>將處理後的資料輸出為與 <code>M</code> 具有相同列數的矩陣</li>
-<li>在預處理函數中使用 <code>columnind</code> 獲取時間列、數據列等的索引。</li>
+<li>在預處理函數中使用 <code>columnind</code> 獲取時間欄位、數據欄位等的索引。</li>
 </ul>
 </section>
 <section id="如何定義自訂的預處理函數與-statind-配合使用需符合以下要求" class="level4">
@@ -225,8 +225,16 @@ KEYNOTE:
 <ul>
 <li>第一個輸入參數應為標準格式檔案的路徑 <code>fpath</code>。</li>
 <li>從 <code>fpath</code> 匯入資料。</li>
-<li>確保列索引與 <code>columnind</code> 相容。</li>
+<li>確保欄位索引與 <code>columnind</code> 相容。</li>
+<li>將函數的 <code>.m</code> 檔放置於 <code>src/preprocess</code> 資料夾下 (與 <code>no.m</code> 同一個資料夾階層)。</li>
 </ul>
+</section>
+<section id="如何使用" class="level4">
+<h4 class="anchored" data-anchor-id="如何使用">如何使用</h4>
+<ol type="1">
+<li>通過<code>statind</code> 階段的 <code>'Preprocess'</code> 接口：<code>statind(..., 'Preprocess', 'ULF_A')</code> (<code>ULF_A</code> 可代換成 <code>prpfunctions()</code> 所列的任意函數名)。</li>
+<li>見以下範例。</li>
+</ol>
 </section>
 <section id="範例" class="level4">
 <h4 class="anchored" data-anchor-id="範例">範例</h4>
@@ -725,34 +733,40 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>匯入資料（即 <span class="in">`M`</span>）</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>執行一些預處理（例如帶通濾波）</span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>將處理後的資料輸出為與 <span class="in">`M`</span> 具有相同列數的矩陣</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>在預處理函數中使用 <span class="in">`columnind`</span> 獲取時間列、數據列等的索引。</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>在預處理函數中使用 <span class="in">`columnind`</span> 獲取時間欄位、數據欄位等的索引。</span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 如何定義自訂的預處理函數與 `statind` 配合使用，需符合以下要求：</span></span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>第一個輸入參數應為標準格式檔案的路徑 <span class="in">`fpath`</span>。</span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>從 <span class="in">`fpath`</span> 匯入資料。</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>確保列索引與 <span class="in">`columnind`</span> 相容。</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 範例</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>內建四個預處理函數，分別為 <span class="in">`BP_35`</span>、<span class="in">`BP_40`</span>、<span class="in">`ULF_A`</span> 和 <span class="in">`ULF_B`</span>；這些濾波器可透過 <span class="in">`statind`</span> 階段中的 <span class="in">`'Preprocess'`</span> 關鍵字參數進行應用。</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>以下範例展示直接使用（非通過 <span class="in">`statind`</span> 階段的 <span class="in">`'Preprocess'`</span> 接口）<span class="in">`BP_35`</span> 的方法：</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>確保欄位索引與 <span class="in">`columnind`</span> 相容。</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>將函數的 <span class="in">`.m`</span> 檔放置於 <span class="in">`src/preprocess`</span> 資料夾下 (與 <span class="in">`no.m`</span> 同一個資料夾階層)。</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 如何使用</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>通過<span class="in">`statind`</span> 階段的 <span class="in">`'Preprocess'`</span> 接口：<span class="in">`statind(..., 'Preprocess', 'ULF_A')`</span> (<span class="in">`ULF_A`</span> 可代換成 <span class="in">`prpfunctions()`</span> 所列的任意函數名)。</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>見以下範例。</span>
 <span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="in">```matlab</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="va">fpath</span> <span class="op">=</span> <span class="ss">'D:\GeoMag (main)\GeoMag_GO\KUOL\stn[KUOL]dt[20150714]type[GEMS].mat'</span><span class="op">;</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="va">M_out</span> <span class="op">=</span> <span class="va">BP_35</span>(<span class="va">fpath</span>)<span class="op">;</span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>在此範例中，資料從 <span class="in">`fpath`</span> 匯入為變數，然後調用 <span class="in">`generalfilterprocess`</span>，默認使用 <span class="in">`bandpass`</span>，每次匯入資料時創建一個帶通濾波器，並將濾波後的資料輸出為與 <span class="in">`M`</span> 具有完全相同欄位(直行)數的 <span class="in">`M_out`</span>（但橫列數可能有所減少）。</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 範例</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>內建四個預處理函數，分別為 <span class="in">`BP_35`</span>、<span class="in">`BP_40`</span>、<span class="in">`ULF_A`</span> 和 <span class="in">`ULF_B`</span>；這些濾波器可透過 <span class="in">`statind`</span> 階段中的 <span class="in">`'Preprocess'`</span> 關鍵字參數進行應用。</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>以下範例展示直接使用（非通過 <span class="in">`statind`</span> 階段的 <span class="in">`'Preprocess'`</span> 接口）<span class="in">`BP_35`</span> 的方法：</span>
 <span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>另一個範例則是應用現有的濾波器（例如 <span class="in">`'Filter[BP_35]samp[1]stp[093].mat'`</span>）於 <span class="in">`dir_filter`</span> 中（如果可能）：</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="in">```matlab</span></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="va">fpath</span> <span class="op">=</span> <span class="ss">'D:\GeoMag (main)\GeoMag_GO\KUOL\stn[KUOL]dt[20150714]type[GEMS].mat'</span><span class="op">;</span></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="va">filtpaths</span> <span class="op">=</span> <span class="va">datalist</span>(<span class="ss">'Filter*.mat'</span><span class="op">,</span> <span class="va">dir_filter</span>)<span class="op">;</span></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="va">FOBJ</span> <span class="op">=</span> <span class="va">loadfilters</span>(<span class="va">filtpaths</span>)<span class="op">;</span> <span class="co">% load all filters as a struct FOBJ</span></span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="va">M_out</span> <span class="op">=</span> <span class="va">BP_35</span>(<span class="va">fpath</span><span class="op">,</span> <span class="va">FOBJ</span>)<span class="op">;</span></span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="in">```matlab</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="va">fpath</span> <span class="op">=</span> <span class="ss">'D:\GeoMag (main)\GeoMag_GO\KUOL\stn[KUOL]dt[20150714]type[GEMS].mat'</span><span class="op">;</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="va">M_out</span> <span class="op">=</span> <span class="va">BP_35</span>(<span class="va">fpath</span>)<span class="op">;</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>在此範例中，資料從 <span class="in">`fpath`</span> 匯入為變數，然後調用 <span class="in">`generalfilterprocess`</span>，默認使用 <span class="in">`bandpass`</span>，每次匯入資料時創建一個帶通濾波器，並將濾波後的資料輸出為與 <span class="in">`M`</span> 具有完全相同欄位(直行)數的 <span class="in">`M_out`</span>（但橫列數可能有所減少）。</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>另一個範例則是應用現有的濾波器（例如 <span class="in">`'Filter[BP_35]samp[1]stp[093].mat'`</span>）於 <span class="in">`dir_filter`</span> 中（如果可能）：</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="in">```matlab</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="va">fpath</span> <span class="op">=</span> <span class="ss">'D:\GeoMag (main)\GeoMag_GO\KUOL\stn[KUOL]dt[20150714]type[GEMS].mat'</span><span class="op">;</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="va">filtpaths</span> <span class="op">=</span> <span class="va">datalist</span>(<span class="ss">'Filter*.mat'</span><span class="op">,</span> <span class="va">dir_filter</span>)<span class="op">;</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="va">FOBJ</span> <span class="op">=</span> <span class="va">loadfilters</span>(<span class="va">filtpaths</span>)<span class="op">;</span> <span class="co">% load all filters as a struct FOBJ</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="va">M_out</span> <span class="op">=</span> <span class="va">BP_35</span>(<span class="va">fpath</span><span class="op">,</span> <span class="va">FOBJ</span>)<span class="op">;</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

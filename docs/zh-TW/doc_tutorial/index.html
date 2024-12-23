@@ -144,6 +144,35 @@ KEYNOTE:
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -218,15 +247,15 @@ KEYNOTE:
   <ul class="collapse">
   <li><a href="#準備數據" id="toc-準備數據" class="nav-link" data-scroll-target="#準備數據">準備數據</a></li>
   <li><a href="#設置目錄路徑" id="toc-設置目錄路徑" class="nav-link" data-scroll-target="#設置目錄路徑">設置目錄路徑</a></li>
-  <li><a href="#按正確的順序執行主要功能" id="toc-按正確的順序執行主要功能" class="nav-link" data-scroll-target="#按正確的順序執行主要功能">按正確的順序執行主要功能</a></li>
+  <li><a href="#按正確的順序執行主要函數" id="toc-按正確的順序執行主要函數" class="nav-link" data-scroll-target="#按正確的順序執行主要函數">按正確的順序執行主要函數</a></li>
   <li><a href="#綜合範例腳本" id="toc-綜合範例腳本" class="nav-link" data-scroll-target="#綜合範例腳本">綜合範例腳本</a></li>
   </ul></li>
   <li><a href="#結果可視化" id="toc-結果可視化" class="nav-link" data-scroll-target="#結果可視化">結果可視化</a>
   <ul class="collapse">
-  <li><a href="#繪製每個測站的-eqk-tip" id="toc-繪製每個測站的-eqk-tip" class="nav-link" data-scroll-target="#繪製每個測站的-eqk-tip">繪製每個測站的 EQK-TIP</a></li>
-  <li><a href="#eqk-tip-在-2d-時間-空間座標系統中的表示" id="toc-eqk-tip-在-2d-時間-空間座標系統中的表示" class="nav-link" data-scroll-target="#eqk-tip-在-2d-時間-空間座標系統中的表示">EQK-TIP 在 2D 時間-空間座標系統中的表示</a></li>
+  <li><a href="#繪製eqk-tip-匹配圖" id="toc-繪製eqk-tip-匹配圖" class="nav-link" data-scroll-target="#繪製eqk-tip-匹配圖">繪製EQK-TIP 匹配圖</a></li>
+  <li><a href="#繪製二維-eqk-tip-匹配圖" id="toc-繪製二維-eqk-tip-匹配圖" class="nav-link" data-scroll-target="#繪製二維-eqk-tip-匹配圖">繪製二維 EQK-TIP 匹配圖</a></li>
   <li><a href="#繪製擬合程度" id="toc-繪製擬合程度" class="nav-link" data-scroll-target="#繪製擬合程度">繪製擬合程度</a></li>
-  <li><a href="#繪製概率圖" id="toc-繪製概率圖" class="nav-link" data-scroll-target="#繪製概率圖">繪製概率圖</a></li>
+  <li><a href="#繪製機率圖" id="toc-繪製機率圖" class="nav-link" data-scroll-target="#繪製機率圖">繪製機率圖</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -287,8 +316,8 @@ KEYNOTE:
 </section>
 <section id="getting-started" class="level2">
 <h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
-<p><a href="../doc_library/index.html#main-functions">GEMS-MagTIP 的主要功能</a> 需要以目錄中的中間數據（如 <code>.mat</code> 文件）作為輸入參數，並將輸出數據存放於指定的目錄中。</p>
-<p>以下是一個主要功能操作鏈的簡單示例：</p>
+<p><a href="../doc_library/index.html#main-functions">GEMS-MagTIP 的主要函數</a> 需要以目錄中的中間數據（如 <code>.mat</code> 文件）作為輸入參數，並將輸出數據存放於指定的目錄中。</p>
+<p>以下是一個主要函數操作鏈的簡單示例：</p>
 <section id="準備數據" class="level3">
 <h3 class="anchored" data-anchor-id="準備數據">準備數據</h3>
 <p>您需要準備/更新以下數據：</p>
@@ -428,7 +457,7 @@ KEYNOTE:
 </tbody>
 </table>
 <p>以下為 <code>station_location.csv</code> 的部分內容範例：</p>
-<div id="6efc706d" class="cell" data-execution_count="1">
+<div id="7e0cfbcd" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
@@ -560,16 +589,16 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>您可以自由組織 <code>dir_data</code> 中的文件和文件夾，或者對同一原始數據進行多次轉換，因為在 GEMS-MagTIP 中數據加載依賴於標準格式的文件名，轉換功能將處理重複的文件。</p>
+<p>您可以自由整理放置標準格式數據的 <code>dir_data</code> 中的文件和文件夾，也不必擔心對同一原始數據進行多次轉換會發生錯誤，因為在 GEMS-MagTIP 中數據讀取依賴於標準格式的文件名，而檔案轉換函數會自動處理重複的文件。</p>
 <p>參閱 <a href="../doc_library/#standarddataname"><code>standarddataname</code></a> 和 <a href="../doc_library/#write_data"><code>write_data</code></a>。</p>
 </div>
 </div>
-<p>有關更多信息，請參閱<a href="../doc_library/#load-raw-data-and-convert-it-into-a-standard-format">加載原始數據並將其轉換為標準格式</a>部分。</p>
+<p>有關更多資訊，請參閱<a href="../doc_library/#load-raw-data-and-convert-it-into-a-standard-format">讀取原始數據並將其轉換為標準格式</a>部分。</p>
 </section>
 </section>
 <section id="設置目錄路徑" class="level3">
 <h3 class="anchored" data-anchor-id="設置目錄路徑">設置目錄路徑</h3>
-<p>在運行任何主要功能之前，必須分配輸入/輸出數據或變量的目錄。</p>
+<p>在運行任何主要函數之前，必須分配輸入/輸出數據或變量的目錄。</p>
 <p>例如：</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">% For windows, use backslash `\`; for unix systems, use slash `/` in the path to directories.</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="va">dir_catalog</span> <span class="op">=</span> <span class="ss">'spreadsheet'</span><span class="op">;</span> </span>
@@ -595,7 +624,7 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>您可以使用 <a href="../doc_library/#mkdir_default"><code>mkdir_default</code></a> 自動生成主要功能所需的空目錄。</li>
+<li>您可以使用 <a href="../doc_library/#mkdir_default"><code>mkdir_default</code></a> 自動生成主要函數所需的空目錄。</li>
 <li>您可以使用 <a href="../doc_library/#dirselectassign"><code>dirselectassign</code></a> 通過文件瀏覽器界面分配目錄。</li>
 </ul>
 </div>
@@ -617,8 +646,8 @@ Important
 </div>
 </div>
 </section>
-<section id="按正確的順序執行主要功能" class="level3">
-<h3 class="anchored" data-anchor-id="按正確的順序執行主要功能">按正確的順序執行主要功能</h3>
+<section id="按正確的順序執行主要函數" class="level3">
+<h3 class="anchored" data-anchor-id="按正確的順序執行主要函數">按正確的順序執行主要函數</h3>
 <div class="sourceCode" id="cb5"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="va">statind</span>(<span class="va">dir_data</span><span class="op">,</span><span class="va">dir_stat</span>)<span class="op">;</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="va">anomalyind</span>(<span class="va">dir_stat</span><span class="op">,</span><span class="va">dir_tsAIN</span>)<span class="op">;</span> </span>
@@ -697,8 +726,9 @@ Tip
 </section>
 <section id="結果可視化" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="結果可視化">結果可視化</h2>
-<section id="繪製每個測站的-eqk-tip" class="level3">
-<h3 class="anchored" data-anchor-id="繪製每個測站的-eqk-tip">繪製每個測站的 EQK-TIP</h3>
+<section id="繪製eqk-tip-匹配圖" class="level3">
+<h3 class="anchored" data-anchor-id="繪製eqk-tip-匹配圖">繪製EQK-TIP 匹配圖</h3>
+<p>繪製每個測站的 EQK-TIP 匹配圖：</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">%% Plot EQK-TIP of each station</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">% the output directory for the images</span></span>
@@ -719,9 +749,13 @@ Tip
 <figcaption>An example of EQK-TIP plot.</figcaption>
 </figure>
 </div>
+<blockquote class="blockquote">
+<p>在此圖中，展示了由各測站最佳模型(rank 1)定義的EQK與TIP的匹配圖。黑色間隔表示在這些日期中 <span class="math inline">\(T_\text{obs}\)</span> 完全沒有資料（即此模型在這些時間點無資料可供計算），因此無法計算TIP。</p>
+</blockquote>
 </section>
-<section id="eqk-tip-在-2d-時間-空間座標系統中的表示" class="level3">
-<h3 class="anchored" data-anchor-id="eqk-tip-在-2d-時間-空間座標系統中的表示">EQK-TIP 在 2D 時間-空間座標系統中的表示</h3>
+<section id="繪製二維-eqk-tip-匹配圖" class="level3">
+<h3 class="anchored" data-anchor-id="繪製二維-eqk-tip-匹配圖">繪製二維 EQK-TIP 匹配圖</h3>
+<p>EQK-TIP 在 2D 時間-空間座標系統中的表示</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">%% EQK-TIP in a 2D temporal-spatial coordinate system</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="va">dir_png</span> <span class="op">=</span> <span class="va">fullfile</span>(<span class="va">dir_jointstation</span><span class="op">,</span><span class="ss">'png'</span><span class="op">,</span> <span class="ss">'EQKTIP3'</span>)<span class="op">;</span> <span class="va">mkdir</span>(<span class="va">dir_png</span>)<span class="op">;</span></span>
@@ -766,8 +800,8 @@ Tip
 </figure>
 </div>
 </div></div></section>
-<section id="繪製概率圖" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="繪製概率圖">繪製概率圖</h3>
+<section id="繪製機率圖" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="繪製機率圖">繪製機率圖</h3>
 <div class="sourceCode" id="cb10"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">%% Plot probability map</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">% the output directory for the images</span></span>
@@ -789,7 +823,7 @@ Tip
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../assets/probmap_403_example.png" class="img-fluid figure-img"></p>
-<figcaption>An example of probability plot.</figcaption>
+<figcaption>An example of probability plot. In this figure, the triangle denotes the location of station; circle(s) around each station denote the maximum and minimum range of detection (<span class="math inline">\(R_C\)</span>) of the models that are responsible for calculating the TIPs; the filled color of the triangle denotes the ratio of valid models of the day; and hollow triangle denotes the station that cannot provide TIP for the day.</figcaption>
 </figure>
 </div>
 </div></div></section>

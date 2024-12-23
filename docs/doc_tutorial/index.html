@@ -252,8 +252,8 @@ window.Quarto = {
   </ul></li>
   <li><a href="#visualization-of-the-results" id="toc-visualization-of-the-results" class="nav-link" data-scroll-target="#visualization-of-the-results">Visualization of the results</a>
   <ul class="collapse">
-  <li><a href="#plot-eqk-tip-of-each-station" id="toc-plot-eqk-tip-of-each-station" class="nav-link" data-scroll-target="#plot-eqk-tip-of-each-station">Plot EQK-TIP of each station</a></li>
-  <li><a href="#eqk-tip-in-a-2d-temporal-spatial-coordinate-system" id="toc-eqk-tip-in-a-2d-temporal-spatial-coordinate-system" class="nav-link" data-scroll-target="#eqk-tip-in-a-2d-temporal-spatial-coordinate-system">EQK-TIP in a 2D temporal-spatial coordinate system</a></li>
+  <li><a href="#plot-eqk-tip-matching-diagram" id="toc-plot-eqk-tip-matching-diagram" class="nav-link" data-scroll-target="#plot-eqk-tip-matching-diagram">Plot EQK-TIP Matching diagram</a></li>
+  <li><a href="#plot-2d-eqk-tip-matching-diagram" id="toc-plot-2d-eqk-tip-matching-diagram" class="nav-link" data-scroll-target="#plot-2d-eqk-tip-matching-diagram">Plot 2D EQK-TIP Matching diagram</a></li>
   <li><a href="#plot-fitting-degree" id="toc-plot-fitting-degree" class="nav-link" data-scroll-target="#plot-fitting-degree">Plot fitting degree</a></li>
   <li><a href="#plot-probability-map" id="toc-plot-probability-map" class="nav-link" data-scroll-target="#plot-probability-map">Plot probability map</a></li>
   </ul></li>
@@ -445,7 +445,7 @@ window.Quarto = {
 </tbody>
 </table>
 <p>here is a partial view on an exemplary <code>station_location.csv</code>:</p>
-<div id="da3bf42b" class="cell" data-execution_count="1">
+<div id="6c2c131e" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
@@ -714,8 +714,9 @@ Tip
 </section>
 <section id="visualization-of-the-results" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="visualization-of-the-results">Visualization of the results</h2>
-<section id="plot-eqk-tip-of-each-station" class="level3">
-<h3 class="anchored" data-anchor-id="plot-eqk-tip-of-each-station">Plot EQK-TIP of each station</h3>
+<section id="plot-eqk-tip-matching-diagram" class="level3">
+<h3 class="anchored" data-anchor-id="plot-eqk-tip-matching-diagram">Plot EQK-TIP Matching diagram</h3>
+<p>EQK-TIP of each station:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">%% Plot EQK-TIP of each station</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">% the output directory for the images</span></span>
@@ -736,9 +737,13 @@ Tip
 <figcaption>An example of EQK-TIP plot.</figcaption>
 </figure>
 </div>
+<blockquote class="blockquote">
+<p>In this figure, the match diagram of EQK and TIP defined by the model of first rank is demonstrated. The intervals of black color denotes the days where there is no data in <span class="math inline">\(T_\text{obs}\)</span> at all (i.e.&nbsp;this model is invalid at these time) and hence TIP cannot be calculated.</p>
+</blockquote>
 </section>
-<section id="eqk-tip-in-a-2d-temporal-spatial-coordinate-system" class="level3">
-<h3 class="anchored" data-anchor-id="eqk-tip-in-a-2d-temporal-spatial-coordinate-system">EQK-TIP in a 2D temporal-spatial coordinate system</h3>
+<section id="plot-2d-eqk-tip-matching-diagram" class="level3">
+<h3 class="anchored" data-anchor-id="plot-2d-eqk-tip-matching-diagram">Plot 2D EQK-TIP Matching diagram</h3>
+<p>EQK-TIP in a 2D temporal-spatial coordinate system:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">%% EQK-TIP in a 2D temporal-spatial coordinate system</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="va">dir_png</span> <span class="op">=</span> <span class="va">fullfile</span>(<span class="va">dir_jointstation</span><span class="op">,</span><span class="ss">'png'</span><span class="op">,</span> <span class="ss">'EQKTIP3'</span>)<span class="op">;</span> <span class="va">mkdir</span>(<span class="va">dir_png</span>)<span class="op">;</span></span>
@@ -806,7 +811,7 @@ Tip
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../assets/probmap_403_example.png" class="img-fluid figure-img"></p>
-<figcaption>An example of probability plot.</figcaption>
+<figcaption>An example of probability plot. In this figure, the triangle denotes the location of station; circle(s) around each station denote the maximum and minimum range of detection (<span class="math inline">\(R_C\)</span>) of the models that are responsible for calculating the TIPs; the filled color of the triangle denotes the ratio of valid models of the day; and hollow triangle denotes the station that cannot provide TIP for the day.</figcaption>
 </figure>
 </div>
 </div></div></section>

@@ -284,14 +284,14 @@ Warning
 </div>
 <section id="main-functions" class="level2">
 <h2 class="anchored" data-anchor-id="main-functions">Main Functions</h2>
-<p>在完整的 GEMS-MagTIP 工作流程中，主要分為四個階段，每個階段對應以下主要功能：</p>
+<p>在完整的 GEMS-MagTIP 工作流程中，主要分為四個階段，每個階段對應以下主要函數：</p>
 <ol type="1">
 <li><a href="#statind"><code>statind</code></a>：統計指標的計算。</li>
 <li><a href="#anomalyind"><code>anomalyind</code></a>：基於統計指標計算異常指標數值。</li>
 <li><a href="#molscore"><code>molscore</code></a>：基於異常指標的訓練階段，包括單測站 TIP 的計算、匹配目標地震的 TIP，以及計算 Molchan 得分。</li>
-<li><a href="#molscore3"><code>molscore3</code></a>：基於最高 Molchan 得分的模型參數進行預報階段，包括計算聯合測站 TIP 和基於第 2、3 步結果的概率。</li>
+<li><a href="#molscore3"><code>molscore3</code></a>：基於最高 Molchan 得分的模型參數進行預報階段，包括計算聯合測站 TIP 和基於第 2、3 步結果的機率。</li>
 </ol>
-<p>這四個階段由四個函數封裝，並提供關鍵字參數，允許我們自訂一些與模型優化和概率預報相關的超參數。</p>
+<p>這四個階段由四個函數封裝，並提供關鍵字參數，允許我們自訂一些與模型優化和機率預報相關的超參數。</p>
 <div class="callout callout-style-default callout-caution callout-titled" title="Docstring">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -304,7 +304,7 @@ Docstring
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="a558f251" class="cell" data-execution_count="1">
+<div id="a05ef40a" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
 <section id="statind" class="level3">
 <h3 class="anchored" data-anchor-id="statind"><code>statind</code></h3>
@@ -508,8 +508,23 @@ molscore3(dir_tsAIN,dir_molchan,dir_catalog,dir_jointstation)</code></pre>
 </section>
 <section id="load-raw-data-and-convert-it-into-a-standard-format" class="level2">
 <h2 class="anchored" data-anchor-id="load-raw-data-and-convert-it-into-a-standard-format">Load raw data and convert it into a standard format</h2>
+<p>標準格式資料表示應包含僅有一個欄位的格式化 matfile，該欄位名稱可任意選擇。假設欄位為 <code>M</code>，則 <code>M</code> 必須是一個矩陣，其時間和資料的欄位索引需依據資料類型由函數 <code>fmt.colindex2data</code>（參見 <a href="#fmt"><code>fmt</code></a>）分配。</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>需注意，<code>fmt.colindex2data</code> 返回一組用於標準格式資料的索引，而 <code>columnind</code>（參見 <a href="#columnind">下方的 docstring</a>）則返回一組用於原始資料的索引。</p>
+</div>
+</div>
+<p>標準格式資料的命名至關重要。 如需了解細節，請參考以下 docstring 中的 <a href="#standarddataname"><code>standarddataname</code></a> 以了解命名規則。</p>
 <div class="callout callout-style-default callout-caution callout-titled" title="Docstring">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -518,9 +533,9 @@ Docstring
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="2cc76e5f" class="cell" data-execution_count="2">
+<div id="e3b0f551" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
 <section id="conv_gemsdata" class="level3">
 <h3 class="anchored" data-anchor-id="conv_gemsdata"><code>conv_gemsdata</code></h3>
@@ -660,7 +675,7 @@ Docstring
 <li>匯入資料（即 <code>M</code>）</li>
 <li>執行一些預處理（例如帶通濾波）</li>
 <li>將處理後的資料輸出為與 <code>M</code> 具有相同列數的矩陣</li>
-<li>在預處理函數中使用 <code>columnind</code> 獲取時間列、數據列等的索引。</li>
+<li>在預處理函數中使用 <code>columnind</code> 獲取時間欄位、數據欄位等的索引。</li>
 </ul>
 </section>
 <section id="如何定義自訂的預處理函數與-statind-配合使用需符合以下要求" class="level4">
@@ -668,8 +683,16 @@ Docstring
 <ul>
 <li>第一個輸入參數應為標準格式檔案的路徑 <code>fpath</code>。</li>
 <li>從 <code>fpath</code> 匯入資料。</li>
-<li>確保列索引與 <code>columnind</code> 相容。</li>
+<li>確保欄位索引與 <code>columnind</code> 相容。</li>
+<li>將函數的 <code>.m</code> 檔放置於 <code>src/preprocess</code> 資料夾下 (與 <code>no.m</code> 同一個資料夾階層)。</li>
 </ul>
+</section>
+<section id="如何使用" class="level4">
+<h4 class="anchored" data-anchor-id="如何使用">如何使用</h4>
+<ol type="1">
+<li>通過<code>statind</code> 階段的 <code>'Preprocess'</code> 接口：<code>statind(..., 'Preprocess', 'ULF_A')</code> (<code>ULF_A</code> 可代換成 <code>prpfunctions()</code> 所列的任意函數名)。</li>
+<li>見以下範例。</li>
+</ol>
 </section>
 <section id="範例" class="level4">
 <h4 class="anchored">範例</h4>
@@ -684,7 +707,7 @@ Docstring
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="va">FOBJ</span> <span class="op">=</span> <span class="va">loadfilters</span>(<span class="va">filtpaths</span>)<span class="op">;</span> <span class="co">% load all filters as a struct FOBJ</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="va">M_out</span> <span class="op">=</span> <span class="va">BP_35</span>(<span class="va">fpath</span><span class="op">,</span> <span class="va">FOBJ</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-caution callout-titled" title="Docstring">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -693,9 +716,9 @@ Docstring
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="a0bbf8fb" class="cell" data-execution_count="3">
+<div id="02d30f4d" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
 <section id="bp_35" class="level3">
 <h3 class="anchored" data-anchor-id="bp_35"><code>BP_35</code></h3>
@@ -734,7 +757,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><code>generalfilterprocess</code> 是 <code>'ULF_X'</code> 和 <code>BP_X</code> 系列的核心共用函數；詳情請參考<a href="#filtering-functions">過濾功能</a>。</p>
+<p><code>generalfilterprocess</code> 是 <code>'ULF_X'</code> 和 <code>BP_X</code> 系列的核心共用函數；詳情請參考<a href="#filtering-functions">濾波函數</a>。</p>
 </div>
 </div>
 </section>
@@ -742,7 +765,7 @@ Note
 <section id="filtering-functions" class="level2">
 <h2 class="anchored" data-anchor-id="filtering-functions">Filtering Functions</h2>
 <div class="callout callout-style-default callout-caution callout-titled" title="Docstring">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -751,9 +774,9 @@ Docstring
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="15d25b20" class="cell" data-execution_count="4">
+<div id="99c04133" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="5">
 <section id="autobandpassfilter" class="level3">
 <h3 class="anchored" data-anchor-id="autobandpassfilter"><code>autobandpassfilter</code></h3>
@@ -814,7 +837,7 @@ Docstring
 <section id="internal-api-for-tip-calculation" class="level2">
 <h2 class="anchored" data-anchor-id="internal-api-for-tip-calculation">Internal API for TIP Calculation</h2>
 <div class="callout callout-style-default callout-caution callout-titled" title="Docstring">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -823,9 +846,9 @@ Docstring
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="3d6921dc" class="cell" data-execution_count="5">
+<div id="5b95ab4a" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="6">
 <section id="tiparea" class="level3">
 <h3 class="anchored" data-anchor-id="tiparea"><code>TIPArea</code></h3>
@@ -1184,7 +1207,7 @@ loadAIN(dir_tsAIN,BestModelNames,TimeRange)</code></pre>
 <section id="format" class="level2">
 <h2 class="anchored" data-anchor-id="format">Format</h2>
 <div class="callout callout-style-default callout-caution callout-titled" title="Docstring">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1193,9 +1216,9 @@ Docstring
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse show">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="7a9fe19e" class="cell" data-execution_count="6">
+<div id="6eba70f3" class="cell" data-execution_count="6">
 <section id="fmt" class="level3 cell-output cell-output-display cell-output-markdown" data-execution_count="7">
 <h3 class="anchored" data-anchor-id="fmt"><code>fmt</code></h3>
 <p><code>fmt</code> is a class that</p>
@@ -1203,8 +1226,8 @@ Docstring
 <li>stores all constant names</li>
 <li>stores all constant variables</li>
 </ol>
-<p>that enalbes you to modify or extend some contants without breaking other functionalities.</p>
-<p>GEMS-MagTIP depends on <code>fmt</code> to load a variety of imtermedate data, including earthquake catalog, station information table and the input data of the standard format. <code>fmt</code> save constant names and variables as <code>properties (Constant)</code> that they can be available in global scope. <code>fmt</code> also have static methods for acquiring information such as the column indices indicating the time vectors and recorded values of the input data of different types.</p>
+<p>that enables you to modify or extend some contents without breaking other functionalities.</p>
+<p>GEMS-MagTIP depends on <code>fmt</code> to load a variety of intermediate data, including earthquake catalog, station information table and the input data of the standard format. <code>fmt</code> save constant names and variables as <code>properties (Constant)</code> that they can be available in global scope. <code>fmt</code> also have static methods for acquiring information such as the column indices indicating the time vectors and recorded values of the input data of different types.</p>
 <p><code>properties (Constant)</code>:</p>
 <ul>
 <li><p><code>InfoFileName_molscore = '[MolchanScore]Information.mat'</code>: name to the intermediate file in the session of training (model optimization)</p></li>
@@ -1240,7 +1263,7 @@ Docstring
 <section id="others" class="level2">
 <h2 class="anchored" data-anchor-id="others">Others</h2>
 <div class="callout callout-style-default callout-caution callout-titled" title="Docstring">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1249,9 +1272,9 @@ Docstring
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse show">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="6bace397" class="cell" data-execution_count="7">
+<div id="57ada1e9" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="8">
 <section id="molchan_cb" class="level3">
 <h3 class="anchored" data-anchor-id="molchan_cb"><code>Molchan_CB</code></h3>
