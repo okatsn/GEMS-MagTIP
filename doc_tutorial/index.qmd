@@ -106,9 +106,9 @@ here is a partial view on an exemplary `station_location.csv`:
 :::
 
 ::: {.content-visible when-profile="zhtw"}
-[GEMS-MagTIP 的主要功能](/doc_library/index.qmd#main-functions) 需要以目錄中的中間數據（如 `.mat` 文件）作為輸入參數，並將輸出數據存放於指定的目錄中。
+[GEMS-MagTIP 的主要函數](/doc_library/index.qmd#main-functions) 需要以目錄中的中間數據（如 `.mat` 文件）作為輸入參數，並將輸出數據存放於指定的目錄中。
 
-以下是一個主要功能操作鏈的簡單示例：
+以下是一個主要函數操作鏈的簡單示例：
 
 ### 準備數據
 
@@ -174,12 +174,12 @@ For more information please refer the section [Load raw data and convert it into
 
 ::: {.content-visible when-profile="zhtw"}
 ::: {.callout-tip}
-您可以自由組織 `dir_data` 中的文件和文件夾，或者對同一原始數據進行多次轉換，因為在 GEMS-MagTIP 中數據加載依賴於標準格式的文件名，轉換功能將處理重複的文件。
+您可以自由整理放置標準格式數據的 `dir_data` 中的文件和文件夾，也不必擔心對同一原始數據進行多次轉換會發生錯誤，因為在 GEMS-MagTIP 中數據讀取依賴於標準格式的文件名，而檔案轉換函數會自動處理重複的文件。
 
 參閱 [`standarddataname`](/doc_library/#standarddataname) 和 [`write_data`](/doc_library/#write_data)。
 :::
 
-有關更多信息，請參閱[加載原始數據並將其轉換為標準格式](/doc_library/#load-raw-data-and-convert-it-into-a-standard-format)部分。
+有關更多資訊，請參閱[讀取原始數據並將其轉換為標準格式](/doc_library/#load-raw-data-and-convert-it-into-a-standard-format)部分。
 :::
 
 
@@ -195,7 +195,7 @@ For example:
 ::: {.content-visible when-profile="zhtw"}
 ### 設置目錄路徑
 
-在運行任何主要功能之前，必須分配輸入/輸出數據或變量的目錄。
+在運行任何主要函數之前，必須分配輸入/輸出數據或變量的目錄。
 
 例如：
 :::
@@ -231,7 +231,7 @@ dir_jointstation = 'output_var/JointStation';
 
 ::: {.content-visible when-profile="zhtw"}
 ::: {.callout-tip}
-- 您可以使用 [`mkdir_default`](/doc_library/#mkdir_default) 自動生成主要功能所需的空目錄。
+- 您可以使用 [`mkdir_default`](/doc_library/#mkdir_default) 自動生成主要函數所需的空目錄。
 - 您可以使用 [`dirselectassign`](/doc_library/#dirselectassign) 通過文件瀏覽器界面分配目錄。
 :::
 
@@ -247,7 +247,7 @@ dir_jointstation = 'output_var/JointStation';
 :::
 
 ::: {.content-visible when-profile="zhtw"}
-### 按正確的順序執行主要功能
+### 按正確的順序執行主要函數
 :::
 
 
