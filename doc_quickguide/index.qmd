@@ -36,3 +36,25 @@ format:
         chalkboard: true
         # Save, download and restore your sketch: https://stackoverflow.com/questions/76017331/highlight-elements-on-table-in-revealjs-quarto
 ---
+
+
+::::{.columns}::::
+:::{.column width='60%'}
+
+### [GEMS-MagTIP Documentation](https://cgrg-lab.github.io/GEMS-MagTIP/)
+
+
+<iframe width="1800" height="750" src="https://cgrg-lab.github.io/GEMS-MagTIP/" title="GEMS-MagTIP Documentation"></iframe>
+
+:::
+:::{.column width='40%'}
+Switch the language:
+![](/assets/guide_gif/language_switch.gif)
+
+Navigation:
+![](/assets/guide_gif/navbar_left.gif)
+
+Search for keywords:
+![](/assets/guide_gif/search_keyword.gif)
+:::
+::::
