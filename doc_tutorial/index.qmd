@@ -310,14 +310,17 @@ You can run `startup0.m` and follows the instruction in the command window to ad
 
 ## Visualization of the results
 
-### Plot EQK-TIP of each station
+### Plot EQK-TIP Matching diagram 
+
+EQK-TIP of each station:
 :::
 
 
 ::: {.content-visible when-profile="zhtw"}
 ## 結果可視化
 
-### 繪製每個測站的 EQK-TIP
+### 繪製EQK-TIP 匹配圖
+繪製每個測站的 EQK-TIP 匹配圖：
 :::
 
 
@@ -329,11 +332,24 @@ You can run `startup0.m` and follows the instruction in the command window to ad
 
 
 ::: {.content-visible when-profile="en"}
-### EQK-TIP in a 2D temporal-spatial coordinate system
+> In this figure, the match diagram of EQK and TIP defined by the model of first rank is demonstrated. The intervals of black color denotes the days where there is no data in $T_\text{obs}$ at all (i.e. this model is invalid at these time) and hence TIP cannot be calculated.
+
+:::
+
+
+::: {.content-visible when-profile="zhtw"}
+> 在此圖中，展示了由各測站最佳模型(rank 1)定義的EQK與TIP的匹配圖。黑色間隔表示在這些日期中 $T_\text{obs}$ 完全沒有資料（即此模型在這些時間點無資料可供計算），因此無法計算TIP。
+:::
+
+::: {.content-visible when-profile="en"}
+### Plot 2D EQK-TIP Matching diagram 
+
+EQK-TIP in a 2D temporal-spatial coordinate system:
 :::
 
 ::: {.content-visible when-profile="zhtw"}
-### EQK-TIP 在 2D 時間-空間座標系統中的表示
+### 繪製二維 EQK-TIP 匹配圖
+EQK-TIP 在 2D 時間-空間座標系統中的表示
 :::
 
 
@@ -364,7 +380,7 @@ You can run `startup0.m` and follows the instruction in the command window to ad
 :::
 
 ::: {.content-visible when-profile="zhtw"}
-### 繪製概率圖
+### 繪製機率圖
 :::
 
 
@@ -373,5 +389,5 @@ You can run `startup0.m` and follows the instruction in the command window to ad
 ```
 
 ::: {.column-margin}
-![An example of probability plot.](/assets/probmap_403_example.png)
+![An example of probability plot. In this figure, the triangle denotes the location of station; circle(s) around each station denote the maximum and minimum range of detection ($R_C$) of the models that are responsible for calculating the TIPs; the filled color of the triangle denotes the ratio of valid models of the day; and hollow triangle denotes the station that cannot provide TIP for the day.](/assets/probmap_403_example.png)
 :::
