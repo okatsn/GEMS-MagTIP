@@ -218,7 +218,7 @@ dir_jointstation = 'var-output/JointStation';
 
 ::: {.content-visible when-profile="en"}
 
-::: {.callout-tip}
+::: {#dirselect-tip .callout-tip}
 - You can use [`mkdir_default`](/doc_library/#mkdir_default) to automatically generate empty directories for main functions.
 - You can use [`dirselectassign`](/doc_library/#dirselectassign) to assign directories via file explorer interface.
 :::
@@ -230,7 +230,7 @@ dir_jointstation = 'var-output/JointStation';
 :::
 
 ::: {.content-visible when-profile="zhtw"}
-::: {.callout-tip}
+::: {#dirselect-tip .callout-tip}
 - 您可以使用 [`mkdir_default`](/doc_library/#mkdir_default) 自動生成主要函數所需的空目錄。
 - 您可以使用 [`dirselectassign`](/doc_library/#dirselectassign) 通過文件瀏覽器界面分配目錄。
 :::

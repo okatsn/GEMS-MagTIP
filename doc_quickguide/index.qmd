@@ -159,7 +159,7 @@ See also [`conv_geomagdata`](/doc_library/#conv_geomagdata) and [`conv_gemsdata`
 
 ![](/assets/guide_gif/setup_output.gif)
 
-See also: [`dirselectassign`](/doc_library/#dirselectassign)
+See also: [Tips on directory select and assignment.](/doc_library/#dirselect-tip)
 :::
 ::::
 
