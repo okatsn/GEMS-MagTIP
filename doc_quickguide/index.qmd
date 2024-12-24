@@ -242,7 +242,7 @@ See also [/GEMS-MagTIP-insider/demo/demo_script.m](/GEMS-MagTIP-insider/demo/dem
 - [Load raw data and convert it into a standard format](/doc_library/#load-raw-data-and-convert-it-into-a-standard-format)
 - [main functions](/doc_library/index.qmd#main-functions)
 :::
-::: {.content-visible when-profile="en"}
+::: {.content-visible when-profile="zhtw"}
 - [原始數據的讀取以及標準格式的轉換](/doc_library/#load-raw-data-and-convert-it-into-a-standard-format)
 - [主要函數](/doc_library/index.qmd#main-functions)
 :::
@@ -265,7 +265,7 @@ See also [/GEMS-MagTIP-insider/demo/demo_script.m](/GEMS-MagTIP-insider/demo/dem
 ## Visualization
 <iframe width="1801" height="736" src="/doc_tutorial/#visualization-of-the-results" title=""></iframe>
 :::
-::: {.content-visible when-profile="en"}
+::: {.content-visible when-profile="zhtw"}
 ## 繪製結果
 <iframe width="1801" height="736" src="/doc_tutorial/#結果可視化" title=""></iframe>
 :::
