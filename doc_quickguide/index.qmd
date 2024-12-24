@@ -152,7 +152,7 @@ See also [GEMS-MagTIP Tutorial](/doc_tutorial/).
 
 ::: {.content-visible when-profile="zhtw"}
 ### 地震目錄
-<iframe width="1801" height="736" src="/doc_tutorial/#prepare-your-data" title=""></iframe>
+<iframe width="1801" height="736" src="/doc_tutorial/#準備數據" title=""></iframe>
 :::
 
 :::
@@ -185,7 +185,7 @@ See also [GEMS-MagTIP Tutorial](/doc_tutorial/).
 :::
 ::: {.content-visible when-profile="zhtw"}
 ### 標準格式資料
-<iframe width="1801" height="736" src="/doc_tutorial/#data-of-the-standard-format" title=""></iframe>
+<iframe width="1801" height="736" src="/doc_tutorial/#標準格式數據" title=""></iframe>
 :::
 
 :::
@@ -211,7 +211,7 @@ See also [`conv_geomagdata`](/doc_library/#conv_geomagdata) and [`conv_gemsdata`
 <iframe width="1801" height="736" src="/doc_tutorial/#setting-up-directory-paths" title=""></iframe>
 :::
 ::: {.content-visible when-profile="zhtw"}
-<iframe width="1801" height="736" src="/doc_tutorial/#setting-up-directory-paths" title=""></iframe>
+<iframe width="1801" height="736" src="/doc_tutorial/#設置目錄路徑" title=""></iframe>
 :::
 :::
 :::{.column width='50%'}
