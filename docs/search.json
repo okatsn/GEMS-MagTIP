@@ -102,7 +102,7 @@
     "href": "doc_quickguide/index.html#prepare-data-1",
     "title": "A Quick Guide to GEMS-MagTIP Documentation",
     "section": "Prepare data",
-    "text": "Prepare data\n\n\nData of standard format\n\n\n\n\nSee also conv_geomagdata and conv_gemsdata."
+    "text": "Prepare data\n\n\nData of standard format in GEMS-MagTIP\n\n\n\n\nSee also conv_geomagdata and conv_gemsdata."
   },
   {
     "objectID": "doc_quickguide/index.html#setup-outputdependency-paths",
@@ -123,7 +123,14 @@
     "href": "doc_quickguide/index.html#visualization",
     "title": "A Quick Guide to GEMS-MagTIP Documentation",
     "section": "Visualization",
-    "text": "Visualization\n\nSee also: Plotting functions"
+    "text": "Visualization"
+  },
+  {
+    "objectID": "doc_quickguide/index.html#繪製結果",
+    "href": "doc_quickguide/index.html#繪製結果",
+    "title": "A Quick Guide to GEMS-MagTIP Documentation",
+    "section": "繪製結果",
+    "text": "繪製結果\n\n\nSee also: Plotting functions"
   },
   {
     "objectID": "doc_library/index.html",

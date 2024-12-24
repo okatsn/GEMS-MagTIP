@@ -457,7 +457,7 @@ window.Quarto = {
 </tbody>
 </table>
 <p>以下為 <code>station_location.csv</code> 的部分內容範例：</p>
-<div id="cc5406c6" class="cell" data-execution_count="1">
+<div id="77591f59" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
@@ -570,8 +570,8 @@ window.Quarto = {
 </section>
 </section>
 </section>
-<section id="標準格式數據" class="level4">
-<h4 class="anchored" data-anchor-id="標準格式數據">標準格式數據</h4>
+<section id="標準格式資料" class="level4">
+<h4 class="anchored" data-anchor-id="標準格式資料">標準格式資料</h4>
 <p>將原始數據轉換為標準格式非常重要。 此轉換過程包括日期時間驗證、將地電數據投影為NS-EW格式、格式化文件名稱以供索引等。</p>
 <p>以下是一個將原始數據轉換為標準格式的簡單腳本：</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">dir_gems_raw</span> <span class="op">=</span> <span class="ss">'data-raw/GEMSdat'</span><span class="op">;</span> <span class="co">% raw GEMS data</span></span>
@@ -589,7 +589,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>您可以自由整理放置標準格式數據的 <code>dir_data</code> 中的文件和文件夾，也不必擔心對同一原始數據進行多次轉換會發生錯誤，因為在 GEMS-MagTIP 中數據讀取依賴於標準格式的文件名，而檔案轉換函數會自動處理重複的文件。</p>
+<p>您可以自由整理放置標準格式資料的 <code>dir_data</code> 中的文件和文件夾，也不必擔心對同一原始數據進行多次轉換會發生錯誤，因為在 GEMS-MagTIP 中數據讀取依賴於標準格式的文件名，而檔案轉換函數會自動處理重複的文件。</p>
 <p>參閱 <a href="../doc_library/#standarddataname"><code>standarddataname</code></a> 和 <a href="../doc_library/#write_data"><code>write_data</code></a>。</p>
 </div>
 </div>
@@ -641,7 +641,7 @@ Important
 <div class="callout-body-container callout-body">
 <ul>
 <li><code>dir_catalog</code> 必須包含 <code>catalog.csv</code> 或 <code>catalog.mat</code>，以及 <code>station_location.csv</code> 或 <code>station_location.mat</code>。</li>
-<li><code>dir_data</code> 是包含 GE 或 GM 標準格式數據的目錄；請參閱 <a href="../doc_library/#conv_geomagdata"><code>conv_geomagdata</code></a> 和 <a href="../doc_library/#conv_gemsdata"><code>conv_gemsdata</code></a> 以將原始數據轉換為標準格式。</li>
+<li><code>dir_data</code> 是包含 GE 或 GM 標準格式資料的目錄；請參閱 <a href="../doc_library/#conv_geomagdata"><code>conv_geomagdata</code></a> 和 <a href="../doc_library/#conv_gemsdata"><code>conv_gemsdata</code></a> 以將原始數據轉換為標準格式。</li>
 </ul>
 </div>
 </div>
