@@ -46,20 +46,41 @@ format:
 ::::{.columns}::::
 :::{.column width='60%'}
 
-### [GEMS-MagTIP Documentation](https://cgrg-lab.github.io/GEMS-MagTIP/)
+::: {.content-visible when-profile="en"}
 
+### [GEMS-MagTIP Documentation](https://cgrg-lab.github.io/GEMS-MagTIP/) 
 
 <iframe width="1801" height="736" src="https://cgrg-lab.github.io/GEMS-MagTIP/" title="GEMS-MagTIP Documentation"></iframe>
 
 :::
+
+
+::: {.content-visible when-profile="zhtw"}
+
+### [GEMS-MagTIP 說明文件](https://cgrg-lab.github.io/GEMS-MagTIP/zh-TW)
+
+<iframe width="1801" height="736" src="https://cgrg-lab.github.io/GEMS-MagTIP/zh-TW" title="GEMS-MagTIP Documentation"></iframe>
+:::
+
+
+:::
 :::{.column width='40%'}
-Switch the language:
+[Switch the language]{.content-visible when-profile="en"} 
+[語言切換]{.content-visible when-profile="zhtw"}
+:
+
 ![](/assets/guide_gif/language_switch.gif)
 
-Navigation:
+[Navigation]{.content-visible when-profile="en"} 
+[文件瀏覽]{.content-visible when-profile="zhtw"}
+:
+
 ![](/assets/guide_gif/navbar_left.gif)
 
-Search for keywords:
+[Search for keywords]{.content-visible when-profile="en"}
+[關鍵字搜尋]{.content-visible when-profile="zhtw"}
+:
+
 ![](/assets/guide_gif/search_keyword.gif)
 :::
 ::::
@@ -68,18 +89,40 @@ Search for keywords:
 
 # Getting Started with GEMS-MagTIP
 
+::: {.content-visible when-profile="en"}
+See also [GEMS-MagTIP Tutorial](/doc_tutorial/).
+:::
+
+::: {.content-visible when-profile="zhtw"}
+請同時參照 [GEMS-MagTIP 教程](/zh-TW/doc_tutorial/)
+:::
+
+
+
+
+
+
+
+::: {.content-visible when-profile="en"}
 ## Setup the environment and add dependencies
-[Documentation reference](https://cgrg-lab.github.io/GEMS-MagTIP/doc_tutorial/#environment)
+:::
+
+::: {.content-visible when-profile="zhtw"}
+## 環境與相依套件設定
+:::
 
 ::::{.columns}::::
 :::{.column width='50%'}
-<div>
+::: {.content-visible when-profile="en"}
 
-```{=html}
-<iframe width="1801" height="736" class="embedded-docs" src="https://cgrg-lab.github.io/GEMS-MagTIP/doc_tutorial/#environment" title="Environment and Dependencies"></iframe>
-```
+<iframe width="1801" height="736" class="embedded-docs" src="/doc_tutorial/#environment" title="Environment and Dependencies"></iframe>
+:::
 
-</div>
+::: {.content-visible when-profile="zhtw"}
+
+<iframe width="1801" height="736" class="embedded-docs" src="/zh-TW/doc_tutorial/#環境" title="Environment and Dependencies"></iframe>
+:::
+
 :::
 :::{.column width='50%'}
 
@@ -90,19 +133,27 @@ Search for keywords:
 :::
 ::::
 
+::: {.content-visible when-profile="en"}
 ## Prepare data
+:::
+
+::: {.content-visible when-profile="zhtw"}
+## 資料準備
+:::
 
 
 ::::{.columns}::::
 :::{.column width='50%'}
+
+::: {.content-visible when-profile="en"}
 ### Catalog data
-<div>
+<iframe width="1801" height="736" src="/doc_tutorial/#prepare-your-data" title=""></iframe>
+:::
 
-```{=html}
-<iframe width="1801" height="736" src="https://cgrg-lab.github.io/GEMS-MagTIP/doc_tutorial/#prepare-your-data" title=""></iframe>
-```
-
-</div>
+::: {.content-visible when-profile="zhtw"}
+### 地震目錄
+<iframe width="1801" height="736" src="/doc_tutorial/#準備數據" title=""></iframe>
+:::
 
 :::
 :::{.column width='50%'}
@@ -114,21 +165,28 @@ Search for keywords:
 
 
 
-
-
+::: {.content-visible when-profile="en"}
 ## Prepare data {.unlisted}
+:::
+
+::: {.content-visible when-profile="zhtw"}
+## 資料準備 {.unlisted}
+:::
+
+
 
 
 ::::{.columns}::::
 :::{.column width='50%'}
+
+::: {.content-visible when-profile="en"}
 ### Data of standard format
-<div>
-
-```{=html}
-<iframe width="1801" height="736" src="https://cgrg-lab.github.io/GEMS-MagTIP/doc_tutorial/#data-of-the-standard-format" title=""></iframe>
-```
-
-</div>
+<iframe width="1801" height="736" src="/doc_tutorial/#data-of-the-standard-format" title=""></iframe>
+:::
+::: {.content-visible when-profile="zhtw"}
+### 標準格式資料
+<iframe width="1801" height="736" src="/doc_tutorial/#標準格式數據" title=""></iframe>
+:::
 
 :::
 :::{.column width='50%'}
@@ -139,35 +197,45 @@ See also [`conv_geomagdata`](/doc_library/#conv_geomagdata) and [`conv_gemsdata`
 ::::
 
 
-
+::: {.content-visible when-profile="en"}
 ## Setup output/dependency paths
+:::
+::: {.content-visible when-profile="zhtw"}
+## 設定輸出變數相依資料夾
+:::
+
+
 ::::{.columns}::::
 :::{.column width='50%'}
-
-<div>
-
-```{=html}
-<iframe width="1801" height="736" src="https://cgrg-lab.github.io/GEMS-MagTIP/doc_tutorial/#setting-up-directory-paths" title=""></iframe>
-```
-
-</div>
+::: {.content-visible when-profile="en"}
+<iframe width="1801" height="736" src="/doc_tutorial/#setting-up-directory-paths" title=""></iframe>
+:::
+::: {.content-visible when-profile="zhtw"}
+<iframe width="1801" height="736" src="/doc_tutorial/#設置目錄路徑" title=""></iframe>
+:::
 :::
 :::{.column width='50%'}
 
 ![](/assets/guide_gif/setup_output.gif)
 
-See also:
-- [`dirselectassign`](/doc_library/#dirselectassign)
+See also: [Tips on directory select and assignment.](/doc_library/#dirselect-tip)
 :::
 ::::
 
 
-
-## The overall workflow
+::: {.content-visible when-profile="en"}
+## An example of the overall workflow
+:::
+::: {.content-visible when-profile="zhtw"}
+## 完整流程範例
+:::
 
 ```matlab
 {{< include "/GEMS-MagTIP-insider/demo/demo_script.m" >}}
 ```
+
+See also [/GEMS-MagTIP-insider/demo/demo_script.m](/GEMS-MagTIP-insider/demo/demo_script.m) and 
+
 ::::{.columns}::::
 :::{.column width='50%'}
 
@@ -177,7 +245,8 @@ See also:
 :::
 :::{.column width='50%'}
 
-- [Available Preprocessing Functions](https://cgrg-lab.github.io/GEMS-MagTIP/doc_library/#available-preprocessing-functions)
+- [Available Preprocessing Functions](/doc_library/#available-preprocessing-functions)
+- [Tips on parallel computing](/doc_tutorial/#main-parfor)
 
 :::
 ::::
@@ -186,9 +255,7 @@ See also:
 ## Visualization
 
 ```{=html}
-<iframe width="1801" height="736" src="https://cgrg-lab.github.io/GEMS-MagTIP/doc_tutorial/#visualization-of-the-results" title=""></iframe>
+<iframe width="1801" height="736" src="/doc_tutorial/#visualization-of-the-results" title=""></iframe>
 ```
 
-See also:
-
-- [Plotting functions](/doc_library/#plotting-functions)
+See also: [Plotting functions](/doc_library/#plotting-functions)
