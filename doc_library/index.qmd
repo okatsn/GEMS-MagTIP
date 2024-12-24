@@ -228,6 +228,8 @@ getdoc(dir_0("GEMS-MagTIP-insider/src/@fmt/fmt.m"), filename_header=3) |> Markdo
 
 ## Plotting functions
 
+::: {.callout-caution}
+
 ```{julia}
 #| echo: false
 
@@ -236,6 +238,7 @@ y = [getdoc(f, filename_header=3) for f in files]
 
 Markdown.parse(reduce(*, y))
 ```
+:::
 
 ## Others
 
