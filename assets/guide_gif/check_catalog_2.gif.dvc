@@ -1,0 +1,5 @@
+outs:
+- md5: 9c5032d356d8f64333ff3778d984e98e
+  size: 336350
+  hash: md5
+  path: check_catalog_2.gif

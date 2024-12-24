@@ -1,0 +1,5 @@
+outs:
+- md5: 2aa4b29b977c657bcdafe7808ae5c5cd
+  size: 966728
+  hash: md5
+  path: conv_raw.gif
