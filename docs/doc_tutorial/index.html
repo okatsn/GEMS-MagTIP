@@ -445,7 +445,7 @@ window.Quarto = {
 </tbody>
 </table>
 <p>here is a partial view on an exemplary <code>station_location.csv</code>:</p>
-<div id="3d137cde" class="cell" data-execution_count="1">
+<div id="fc54385f" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
@@ -601,7 +601,7 @@ Tip
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">% directory for storing Molchan scores</span></span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="va">dir_jointstation</span> <span class="op">=</span> <span class="ss">'var-output/JointStation'</span><span class="op">;</span> </span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="co">% directory for the time series of EQK, TIP and probability</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div id="dirselect-tip" class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -643,18 +643,8 @@ Important
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="va">molscore</span>(<span class="va">dir_tsAIN</span><span class="op">,</span><span class="va">dir_catalog</span><span class="op">,</span><span class="va">dir_molchan</span>)<span class="op">;</span> </span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="va">molscore3</span>(<span class="va">dir_tsAIN</span><span class="op">,</span><span class="va">dir_molchan</span><span class="op">,</span><span class="va">dir_catalog</span><span class="op">,</span><span class="va">dir_jointstation</span>)<span class="op">;</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div id="main-parfor.callout-tip">
 <p><code>statind</code>, <code>molscore</code>, and <code>molscore3</code> have alternatives which run the same calculation in parallel. In most cases you can simply append <code>_parfor</code> (e.g., <code>molscore3_parfor(...)</code>) in the function name with no need to modify input arguments to do run in parallel. See <a href="../doc_library/#statind_parfor"><code>statind_parfor</code></a>, <a href="../doc_library/#molscore_parfor"><code>molscore_parfor</code></a>, and <a href="../doc_library/#molscore3_parfor"><code>molscore3_parfor</code></a>.</p>
-</div>
 </div>
 </section>
 <section id="comprehensive-sample-script" class="level3">

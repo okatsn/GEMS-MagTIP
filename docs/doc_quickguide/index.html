@@ -219,24 +219,25 @@ Tsung-Hsi Wu
 <iframe width="1801" height="736" src="https://cgrg-lab.github.io/GEMS-MagTIP/" title="GEMS-MagTIP Documentation">
 </iframe>
 </div><div class="column" style="width:40%;">
-<p>Switch the language: <img data-src="../assets/guide_gif/language_switch.gif"></p>
-<p>Navigation: <img data-src="../assets/guide_gif/navbar_left.gif"></p>
-<p>Search for keywords: <img data-src="../assets/guide_gif/search_keyword.gif"></p>
+<p><span>Switch the language</span> :</p>
+<p><img data-src="../assets/guide_gif/language_switch.gif"></p>
+<p><span>Navigation</span> :</p>
+<p><img data-src="../assets/guide_gif/navbar_left.gif"></p>
+<p><span>Search for keywords</span> :</p>
+<p><img data-src="../assets/guide_gif/search_keyword.gif"></p>
 </div></div>
 </section>
 <section>
 <section id="getting-started-with-gems-magtip" class="title-slide slide level1 center">
 <h1>Getting Started with GEMS-MagTIP</h1>
-
+<p>See also <a href="../doc_tutorial/">GEMS-MagTIP Tutorial</a>.</p>
 </section>
 <section id="setup-the-environment-and-add-dependencies" class="slide level2">
 <h2>Setup the environment and add dependencies</h2>
-<p><a href="https://cgrg-lab.github.io/GEMS-MagTIP/doc_tutorial/#environment">Documentation reference</a></p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div>
-<iframe width="1801" height="736" class="embedded-docs" src="https://cgrg-lab.github.io/GEMS-MagTIP/doc_tutorial/#environment" title="Environment and Dependencies"></iframe>
-</div>
+<iframe width="1801" height="736" class="embedded-docs" src="../doc_tutorial/#environment" title="Environment and Dependencies">
+</iframe>
 </div><div class="column" style="width:50%;">
 <p><img data-src="../assets/guide_gif/check_env.gif" width="600"></p>
 <p><img data-src="../assets/guide_gif/add_deps.gif"></p>
@@ -247,9 +248,8 @@ Tsung-Hsi Wu
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="catalog-data">Catalog data</h3>
-<div>
-<iframe width="1801" height="736" src="https://cgrg-lab.github.io/GEMS-MagTIP/doc_tutorial/#prepare-your-data" title=""></iframe>
-</div>
+<iframe width="1801" height="736" src="../doc_tutorial/#prepare-your-data" title="">
+</iframe>
 </div><div class="column" style="width:50%;">
 <p><img data-src="../assets/guide_gif/check_catalog.gif"></p>
 <p><img data-src="../assets/guide_gif/check_catalog_2.gif"></p>
@@ -260,9 +260,8 @@ Tsung-Hsi Wu
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="data-of-standard-format">Data of standard format</h3>
-<div>
-<iframe width="1801" height="736" src="https://cgrg-lab.github.io/GEMS-MagTIP/doc_tutorial/#data-of-the-standard-format" title=""></iframe>
-</div>
+<iframe width="1801" height="736" src="../doc_tutorial/#data-of-the-standard-format" title="">
+</iframe>
 </div><div class="column" style="width:50%;">
 <p><img data-src="../assets/guide_gif/conv_raw.gif"></p>
 <p>See also <a href="../doc_library/#conv_geomagdata"><code>conv_geomagdata</code></a> and <a href="../doc_library/#conv_gemsdata"><code>conv_gemsdata</code></a>.</p>
@@ -272,16 +271,15 @@ Tsung-Hsi Wu
 <h2>Setup output/dependency paths</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div>
-<iframe width="1801" height="736" src="https://cgrg-lab.github.io/GEMS-MagTIP/doc_tutorial/#setting-up-directory-paths" title=""></iframe>
-</div>
+<iframe width="1801" height="736" src="../doc_tutorial/#setting-up-directory-paths" title="">
+</iframe>
 </div><div class="column" style="width:50%;">
 <p><img data-src="../assets/guide_gif/setup_output.gif"></p>
-<p>See also: - <a href="../doc_library/#dirselectassign"><code>dirselectassign</code></a></p>
+<p>See also: <a href="../doc_library/#dirselect-tip">Tips on directory select and assignment.</a></p>
 </div></div>
 </section>
-<section id="the-overall-workflow" class="slide level2">
-<h2>The overall workflow</h2>
+<section id="an-example-of-the-overall-workflow" class="slide level2">
+<h2>An example of the overall workflow</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource matlab number-lines code-with-copy"><code class="sourceCode matlab"><span id="cb1-1"><a></a><span class="co">%% GEMS-MagTIP 2024</span></span>
 <span id="cb1-2"><a></a><span class="co">% Follow the instruction to complete the settings. They are written in startup.m </span></span>
 <span id="cb1-3"><a></a><span class="co">%% Convert Raw data to standard type</span></span>
@@ -319,6 +317,7 @@ Tsung-Hsi Wu
 <span id="cb1-35"><a></a>    <span class="ss">'OverwriteFile'</span><span class="op">,</span><span class="va">true</span><span class="op">,</span> <span class="op">...</span></span>
 <span id="cb1-36"><a></a>    <span class="ss">'ForecastingPhase'</span><span class="op">,</span> <span class="va">repmat</span>([<span class="va">datetime</span>(<span class="fl">2022</span><span class="op">,</span><span class="fl">4</span><span class="op">,</span><span class="fl">2</span>)<span class="op">,</span> <span class="va">datetime</span>(<span class="fl">2022</span><span class="op">,</span><span class="fl">9</span><span class="op">,</span><span class="fl">27</span>)]<span class="op">,</span> <span class="fl">4</span><span class="op">,</span><span class="fl">1</span>))<span class="op">;</span></span>
 <span id="cb1-37"><a></a>    <span class="co">% Manually assign forecasting phases.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>See also <a href="../GEMS-MagTIP-insider/demo/demo_script.m">/GEMS-MagTIP-insider/demo/demo_script.m</a> and</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
@@ -327,17 +326,15 @@ Tsung-Hsi Wu
 </ul>
 </div><div class="column" style="width:50%;">
 <ul>
-<li><a href="https://cgrg-lab.github.io/GEMS-MagTIP/doc_library/#available-preprocessing-functions">Available Preprocessing Functions</a></li>
+<li><a href="../doc_library/#available-preprocessing-functions">Available Preprocessing Functions</a></li>
+<li><a href="../doc_tutorial/#main-parfor">Tips on parallel computing</a></li>
 </ul>
 </div></div>
 </section>
 <section id="visualization" class="slide level2">
 <h2>Visualization</h2>
-<iframe width="1801" height="736" src="https://cgrg-lab.github.io/GEMS-MagTIP/doc_tutorial/#visualization-of-the-results" title=""></iframe>
-<p>See also:</p>
-<ul>
-<li><a href="../doc_library/#plotting-functions">Plotting functions</a></li>
-</ul>
+<iframe width="1801" height="736" src="../doc_tutorial/#visualization-of-the-results" title=""></iframe>
+<p>See also: <a href="../doc_library/#plotting-functions">Plotting functions</a></p>
 
 
 </section></section>
