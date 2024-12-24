@@ -15,7 +15,7 @@ Here is a quick guide:
 <div>
 
 ```{=html}
-<iframe class="slide-deck" src="/doc_quickguide/quickguide.html" title="A Quick Guide to GEMS-MagTIP"></iframe>
+<iframe class="slide-deck" src="/doc_quickguide" title="A Quick Guide to GEMS-MagTIP"></iframe>
 ```
 
 </div>
