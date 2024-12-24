@@ -8,7 +8,7 @@ format:
 
 The documentation of GEMS-MagTIP: [https://cgrg-lab.github.io/GEMS-MagTIP/](https://cgrg-lab.github.io/GEMS-MagTIP/)
 
-Here is a quick guide:
+Here is [a quick guide](/doc_quickguide):
 
 
 
