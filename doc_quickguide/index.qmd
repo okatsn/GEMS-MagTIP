@@ -194,6 +194,4 @@ See also
 <iframe width="1801" height="736" src="/doc_tutorial/#visualization-of-the-results" title=""></iframe>
 ```
 
-See also:
-
-- [Plotting functions](/doc_library/#plotting-functions)
+See also: [Plotting functions](/doc_library/#plotting-functions)
