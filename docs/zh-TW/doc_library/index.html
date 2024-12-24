@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9677c5b92f2e71bf8f4b0f0e965fbb86.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-52b633b1b37b9236fe574a336d88f995.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -241,6 +241,7 @@ window.Quarto = {
   <li><a href="#filtering-functions" id="toc-filtering-functions" class="nav-link" data-scroll-target="#filtering-functions">Filtering Functions</a></li>
   <li><a href="#internal-api-for-tip-calculation" id="toc-internal-api-for-tip-calculation" class="nav-link" data-scroll-target="#internal-api-for-tip-calculation">Internal API for TIP Calculation</a></li>
   <li><a href="#format" id="toc-format" class="nav-link" data-scroll-target="#format">Format</a></li>
+  <li><a href="#plotting-functions" id="toc-plotting-functions" class="nav-link" data-scroll-target="#plotting-functions">Plotting functions</a></li>
   <li><a href="#others" id="toc-others" class="nav-link" data-scroll-target="#others">Others</a></li>
   </ul>
 </nav>
@@ -304,7 +305,7 @@ Docstring
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="a05ef40a" class="cell" data-execution_count="1">
+<div id="4ee94927" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
 <section id="statind" class="level3">
 <h3 class="anchored" data-anchor-id="statind"><code>statind</code></h3>
@@ -535,7 +536,7 @@ Docstring
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="e3b0f551" class="cell" data-execution_count="2">
+<div id="8dd4d910" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
 <section id="conv_gemsdata" class="level3">
 <h3 class="anchored" data-anchor-id="conv_gemsdata"><code>conv_gemsdata</code></h3>
@@ -718,7 +719,7 @@ Docstring
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="02d30f4d" class="cell" data-execution_count="3">
+<div id="6c6bf384" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
 <section id="bp_35" class="level3">
 <h3 class="anchored" data-anchor-id="bp_35"><code>BP_35</code></h3>
@@ -776,7 +777,7 @@ Docstring
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="99c04133" class="cell" data-execution_count="4">
+<div id="17cd154f" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="5">
 <section id="autobandpassfilter" class="level3">
 <h3 class="anchored" data-anchor-id="autobandpassfilter"><code>autobandpassfilter</code></h3>
@@ -848,7 +849,7 @@ Docstring
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="5b95ab4a" class="cell" data-execution_count="5">
+<div id="8a3e99f5" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="6">
 <section id="tiparea" class="level3">
 <h3 class="anchored" data-anchor-id="tiparea"><code>TIPArea</code></h3>
@@ -1218,7 +1219,7 @@ Docstring
 </div>
 <div id="callout-9" class="callout-9-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="6eba70f3" class="cell" data-execution_count="6">
+<div id="eae4e86f" class="cell" data-execution_count="6">
 <section id="fmt" class="level3 cell-output cell-output-display cell-output-markdown" data-execution_count="7">
 <h3 class="anchored" data-anchor-id="fmt"><code>fmt</code></h3>
 <p><code>fmt</code> is a class that</p>
@@ -1260,6 +1261,94 @@ Docstring
 </div>
 </div>
 </section>
+<section id="plotting-functions" class="level2">
+<h2 class="anchored" data-anchor-id="plotting-functions">Plotting functions</h2>
+<div id="7b125eb4" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="8">
+<section id="plotcb" class="level3">
+<h3 class="anchored" data-anchor-id="plotcb"><code>plotCB</code></h3>
+<p>Plot confidence boundary Make sure <code>xpt0</code> and <code>Dcb_max</code> are both N by 1 array.</p>
+</section>
+<section id="ploteqktip1" class="level3">
+<h3 class="anchored" data-anchor-id="ploteqktip1"><code>plotEQKTIP1</code></h3>
+<p><code>plotEQKTIP1(dir_tsAIN,dir_molchan,dir_catalog,dir_output)</code> plot one-dimensional TIP time series for each station with target earthquakes (EQK) scattered over the diagram; the results are saved as png files in <code>dir_output</code>.</p>
+<p><strong>Keyword Arguments:</strong></p>
+<ul>
+<li>‘ShowTrainingPhase’: Whether to show the EQK and TIP on the plot. Default is false.</li>
+<li>‘scatter’: Set it <code>true</code> to add an additional layer of scattering points of the same color on the top of every <code>TIP==1</code>. This option allows better visual inspection on whether target earthquakes lay in the area of <code>TIP==1</code> or not. Default is <code>false</code>.</li>
+<li>‘Rank’: Choose the model by fitting degree ranking for defining EQK and TIP. Default is <code>1</code> (plot the EQK and TIP that are defined by the rank 1 model).</li>
+<li>‘OnlyStations’: Specify only a subset of station to be displayed on the plot; for example, for <code>'OnlyStations',{'MS','TW'}</code> only the results of these two stations will be displayed. In default, results of all stations will be displayed.</li>
+<li>‘datetimeTickArguments’: Manually define the datetime format of the X tick labels. For example, for <code>'datetimeTickArguments', {"yy' mmm.", 1,'months'}</code> the datetime 2012-Nov-12 will be printed as “12’ Nov.”. For more information, see <code>datetime_ticks()</code>.</li>
+<li>‘TargetPattern’: See the documentation in <code>plotProbability()</code>.</li>
+</ul>
+</section>
+<section id="ploteqktip3" class="level3">
+<h3 class="anchored" data-anchor-id="ploteqktip3"><code>plotEQKTIP3</code></h3>
+<p>Like <code>plotEQKTIP1</code>, but expand the 3D TIP array into a 2D diagram by squashing spatial coordinates (latitude and longitude) into one.</p>
+</section>
+<section id="plotfittingdegree" class="level3">
+<h3 class="anchored" data-anchor-id="plotfittingdegree"><code>plotFittingDegree</code></h3>
+<p><code>plotFittingDegree(dir_jointstation,dir_catalog,dir_png)</code> gives fitting degree analysis and molchan diagrams for each training-forecasting phase pair according to the results from <code>molscore3</code>.</p>
+</section>
+<section id="plotprobability" class="level3">
+<h3 class="anchored" data-anchor-id="plotprobability"><code>plotProbability</code></h3>
+<p><code>plotProbability(dir_jointstation,dir_catalog,dir_out)</code> plots two-dimensional probability forecasting maps; the results are saved as png files in <code>dir_output</code>.</p>
+<p><strong>Keyword Arguments:</strong></p>
+<ul>
+<li><p>‘LongitudeLimit’: The longitude limits of the displayed map. Default is <code>[119 122.5]</code>.</p></li>
+<li><p>‘LatitudeLimit’: The latitude limits of the displayed map. Default is <code>[21.5 26]</code>.</p></li>
+<li><p>‘TimeRange’: Manually assign time ranges or specific dates that must lay in the forecasting phase to plotting probability forecast. If not set, the probability forecast of every available dates will be plotted. The assigned datetime array must be either:</p>
+<ol type="1">
+<li>An N by 2 datetime array specifying N ranges at one time.</li>
+<li>An N by 1 datetime array specifying N days to be plot.</li>
+</ol></li>
+<li><p>‘PlotEpicenter’: Whether to plot the epicenter(s) of the target earthquakes on the map. Default is <code>0</code>.</p>
+<ul>
+<li><code>plotEpicenter, 1</code>: plot target events only (those in <code>Rc</code>).</li>
+<li><code>plotEpicenter,'all'</code>: plot all events even when they are not in <code>Rc</code>.</li>
+</ul></li>
+<li><p>‘Rigorous’: Whether to drop (ignore) the probability forecasts that are not in the range of the forecasting phases. Default is true. Generally the leading time window (<code>Tlead</code>) is different among models, and the probability can be calculated as far as the <code>Tlead</code> of at least one model covered. However, for the dates out of the forecasting phase, only part of the models are applied thus the probability forecast is weaker.</p></li>
+<li><p>‘TargetPattern’: the pattern for filtering the files in <code>dir_jointstation</code>. Default is to look up all files that fits the pattern “[JointStation]<em>.mat”. For example, you can manually specify it as ”</em>[ULF*A]” to give plots of that have the tag ULF<em>A in the file name only. The pattern should always begin with “<em>” and the last cahracter can never be ”</em>”. For multiple filtering at once (e.g., <code>'*[ULF_B]*[Tpred-1]'</code>), join the pattern with “</em>” and the order is important.</p></li>
+</ul>
+</section>
+<section id="plot_rc" class="level3">
+<h3 class="anchored" data-anchor-id="plot_rc"><code>plot_Rc</code></h3>
+<p>Plot radius of detection around the station.</p>
+</section>
+<section id="plot_dataoverview" class="level3">
+<h3 class="anchored" data-anchor-id="plot_dataoverview"><code>plot_dataoverview</code></h3>
+<p><code>plot_dataoverview(dir_stat, dir_catalog)</code> plot an overview of all data. <strong>Keyword Arguments:</strong></p>
+<ul>
+<li><p>‘SaveFigureTo’: the output path</p></li>
+<li><p>‘BackgroundColor’: Background color; default is white (<code>[1,1,1]</code>)</p></li>
+<li><p>‘DatetimeTicks’: The format of datetime ticks on the x-axis.</p>
+<ul>
+<li>Default is <code>{'yyyy-mm',6,'Months'}</code>, which means tick labels are in the format of <code>yyyy-mm</code> and interspaced every 6 months.</li>
+</ul></li>
+</ul>
+</section>
+<section id="plot_epicenter" class="level3">
+<h3 class="anchored" data-anchor-id="plot_epicenter"><code>plot_epicenter</code></h3>
+<p>plot epicenter <code>[scatter_handle, axes_handle] = plot_epicenter(CWBcatalog,[ax], kwargs...)</code></p>
+<p><strong>Example</strong></p>
+<pre><code>SLoc = only1field(fullfile(dir_catalog, fmt.stationLocationFileName));
+checkcatalog(dir_catalog)
+CWBcatalog = only1field(fullfile(dir_catalog, fmt.catalogFileName));
+CWBcatalog = eventFilter(CWBcatalog, 'Magnitude', 5, 'TimeRange', '20220601-20221002');
+
+figure;
+[sc1, ax1] = plot_station(SLoc,'PlotFunction','map', 'MarkerFaceColor', 'none', 'MarkerEdgeColor', '#D95319', 'StationCode', false); % plot all station
+hold(ax1, 'on');
+plot_epicenter(CWBcatalog, ax1, 'PlotFunction','map'); % plot epicenters
+set(gcf, 'Position', [100 100 792 669]);</code></pre>
+</section>
+<section id="plot_station" class="level3">
+<h3 class="anchored" data-anchor-id="plot_station"><code>plot_station</code></h3>
+<p>plot map and station. See <code>plot_epicenter</code>.</p>
+</section>
+</div>
+</div>
+</section>
 <section id="others" class="level2">
 <h2 class="anchored" data-anchor-id="others">Others</h2>
 <div class="callout callout-style-default callout-caution callout-titled" title="Docstring">
@@ -1274,8 +1363,8 @@ Docstring
 </div>
 <div id="callout-10" class="callout-10-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="57ada1e9" class="cell" data-execution_count="7">
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="8">
+<div id="3b329d66" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="9">
 <section id="molchan_cb" class="level3">
 <h3 class="anchored" data-anchor-id="molchan_cb"><code>Molchan_CB</code></h3>
 <p><code>[molt_cb,moln_cb] = Molchan_CB(N,alpha)</code> gives the confidence boundary in molchan diagram, where <code>[molt_cb,moln_cb]</code> are the points defining the boundary on the alarmed-rate-against-missing-rate phase plane.</p>
@@ -1297,24 +1386,24 @@ Docstring
 <section id="askquestion" class="level3">
 <h3 class="anchored" data-anchor-id="askquestion"><code>askquestion</code></h3>
 <p><strong>Example</strong></p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="va">askquestion</span>(<span class="ss">'Hello, would you like to continue? [Y/N]'</span><span class="op">,</span> <span class="op">@</span>(<span class="va">x</span>) <span class="va">strcmp</span>(<span class="va">x</span><span class="op">,</span> <span class="ss">'Y'</span>))</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="va">Hello</span><span class="op">,</span> <span class="va">would</span> <span class="va">you</span> <span class="va">like</span> <span class="va">to</span> <span class="kw">continue</span>? [<span class="va">Y</span><span class="op">/</span><span class="va">N</span>]<span class="va">Y</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="va">ans</span> <span class="op">=</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="va">logical</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>   <span class="fl">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="va">askquestion</span>(<span class="ss">'Hello, would you like to continue? [Y/N]'</span><span class="op">,</span> <span class="op">@</span>(<span class="va">x</span>) <span class="va">strcmp</span>(<span class="va">x</span><span class="op">,</span> <span class="ss">'Y'</span>))</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="va">Hello</span><span class="op">,</span> <span class="va">would</span> <span class="va">you</span> <span class="va">like</span> <span class="va">to</span> <span class="kw">continue</span>? [<span class="va">Y</span><span class="op">/</span><span class="va">N</span>]<span class="va">Y</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="va">ans</span> <span class="op">=</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="va">logical</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>   <span class="fl">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="calcfittingdegree" class="level3">
 <h3 class="anchored" data-anchor-id="calcfittingdegree"><code>calcFittingDegree</code></h3>
 <p><code>calcFittingDegree(jpathlist)</code> according to the given files (<code>jpathlist</code>) provides the overall alarmed rate, missing rate that allows the calculation of the overall fitting degree. Make sure to provide correct input list of the <code>[JointStation]</code> variable , for example, those have the same ID and are not overlapped in forecasting time interval for each group; otherwise the calculated fitting degree can be unreasonable.</p>
 <p><strong>Example:</strong></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="va">dir_png</span> <span class="op">=</span> <span class="ss">'MyResearch/Figures'</span><span class="op">;</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="va">jpathlist</span> <span class="op">=</span> <span class="va">datalist</span>(<span class="ss">'[JointStation]ID[ou7ud]prp[ULF_B]*.mat'</span><span class="op">,</span> <span class="va">dir_jointstation</span>).<span class="va">fullpath</span><span class="op">;</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>[<span class="va">AlarmedRate</span><span class="op">,</span> <span class="va">MissingRate</span><span class="op">,</span> <span class="va">xticklabel</span><span class="op">,</span> <span class="va">EQKs</span><span class="op">,</span> <span class="va">TIP3s</span><span class="op">,</span> <span class="va">TIPv3s</span><span class="op">,</span><span class="va">TIPTimes</span><span class="op">,</span><span class="va">LatLons</span>] <span class="op">=</span> <span class="va">calcFittingDegree</span>(<span class="va">jpathlist</span>)<span class="op">;</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="va">FittingDegrees</span> <span class="op">=</span> <span class="fl">1</span> <span class="op">-</span> <span class="va">AlarmedRate</span> <span class="op">-</span> <span class="va">MissingRate</span><span class="op">;</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="va">plotEQKTIP3</span>(<span class="va">dir_png</span><span class="op">,</span><span class="va">prp_i</span><span class="op">,</span> <span class="va">xlabels</span><span class="op">,</span> <span class="va">EQKs</span><span class="op">,</span> <span class="va">TIP3s</span><span class="op">,</span> <span class="va">TIPv3s</span><span class="op">,</span><span class="va">TIPTimes</span><span class="op">,</span> <span class="va">LatLons</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="va">dir_png</span> <span class="op">=</span> <span class="ss">'MyResearch/Figures'</span><span class="op">;</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="va">jpathlist</span> <span class="op">=</span> <span class="va">datalist</span>(<span class="ss">'[JointStation]ID[ou7ud]prp[ULF_B]*.mat'</span><span class="op">,</span> <span class="va">dir_jointstation</span>).<span class="va">fullpath</span><span class="op">;</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>[<span class="va">AlarmedRate</span><span class="op">,</span> <span class="va">MissingRate</span><span class="op">,</span> <span class="va">xticklabel</span><span class="op">,</span> <span class="va">EQKs</span><span class="op">,</span> <span class="va">TIP3s</span><span class="op">,</span> <span class="va">TIPv3s</span><span class="op">,</span><span class="va">TIPTimes</span><span class="op">,</span><span class="va">LatLons</span>] <span class="op">=</span> <span class="va">calcFittingDegree</span>(<span class="va">jpathlist</span>)<span class="op">;</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="va">FittingDegrees</span> <span class="op">=</span> <span class="fl">1</span> <span class="op">-</span> <span class="va">AlarmedRate</span> <span class="op">-</span> <span class="va">MissingRate</span><span class="op">;</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="va">plotEQKTIP3</span>(<span class="va">dir_png</span><span class="op">,</span><span class="va">prp_i</span><span class="op">,</span> <span class="va">xlabels</span><span class="op">,</span> <span class="va">EQKs</span><span class="op">,</span> <span class="va">TIP3s</span><span class="op">,</span> <span class="va">TIPv3s</span><span class="op">,</span><span class="va">TIPTimes</span><span class="op">,</span> <span class="va">LatLons</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Input Arguments</strong>:</p>
 <ul>
 <li><code>jpathlist</code>: a cell array of the full paths of <code>[JointStation]</code> files that are produced by <code>molscore3</code>. You can simpliy obtain the path list by <code>jpathlist = datalist('[JointStation]ID[ou7ud]*prp[ULF_A]*slc[Tpred-10]*.mat',dir_jointstation).fullpath;</code></li>
@@ -1393,10 +1482,10 @@ Docstring
 <p><strong>Example:</strong></p>
 <ul>
 <li><p>Four windows will pop out one by one allowing you to assign directories to variables <code>dir_stat</code>, <code>dir_tsAIN</code>, <code>dir_molchan</code>, <code>dir_jointstation</code>:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="va">dirselectassign</span>(<span class="ss">'dir_stat'</span><span class="op">,</span><span class="ss">'dir_tsAIN'</span><span class="op">,</span><span class="ss">'dir_molchan'</span><span class="op">,</span><span class="ss">'dir_jointstation'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="va">dirselectassign</span>(<span class="ss">'dir_stat'</span><span class="op">,</span><span class="ss">'dir_tsAIN'</span><span class="op">,</span><span class="ss">'dir_molchan'</span><span class="op">,</span><span class="ss">'dir_jointstation'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>(Read the printed message in the Command Window)</p></li>
 <li><p>Total 7 windows will pop out one by one allowing you to assign directories to the variables with default names <code>dir_stat</code>, <code>dir_tsAIN</code> , <code>dir_molchan</code>, <code>dir_jointstation</code>, <code>dir_data</code>, <code>dir_catalog</code>, <code>dir_toolbox</code>:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="va">dirselectassign</span>()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="va">dirselectassign</span>()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>(Read the printed message in the Command Window)</p></li>
 </ul>
 </section>
@@ -1419,8 +1508,8 @@ Docstring
 <section id="getrcs" class="level3">
 <h3 class="anchored" data-anchor-id="getrcs"><code>getRcs</code></h3>
 <p><code>SRc = getRcs(dir_molchan,targetpattern)</code> returns unique <code>Rc</code> as a <code>struct</code> with field names being the station code (stn[…]). <strong>Example</strong></p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="va">targetpattern</span> <span class="op">=</span> <span class="va">sprintf</span>(<span class="ss">'[%s]stn*.mat'</span><span class="op">,</span> <span class="va">get_tags</span>(<span class="va">fmt</span>.<span class="va">InfoFileName_molscore</span><span class="op">,</span> <span class="ss">''</span><span class="op">,</span> <span class="ss">'once'</span>))<span class="op">;</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="va">SRc</span> <span class="op">=</span> <span class="va">getRcs</span>(<span class="va">dir_molchan</span><span class="op">,</span><span class="va">targetpattern</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="va">targetpattern</span> <span class="op">=</span> <span class="va">sprintf</span>(<span class="ss">'[%s]stn*.mat'</span><span class="op">,</span> <span class="va">get_tags</span>(<span class="va">fmt</span>.<span class="va">InfoFileName_molscore</span><span class="op">,</span> <span class="ss">''</span><span class="op">,</span> <span class="ss">'once'</span>))<span class="op">;</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="va">SRc</span> <span class="op">=</span> <span class="va">getRcs</span>(<span class="va">dir_molchan</span><span class="op">,</span><span class="va">targetpattern</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="loadsheet" class="level3">
 <h3 class="anchored" data-anchor-id="loadsheet"><code>loadSheet</code></h3>
@@ -1437,10 +1526,10 @@ Docstring
     ║            └─dir_jointstation =   'JointStation'   ║
     ╚════════════════════════════════════════════════════╝</code></pre>
 <p><strong>Example:</strong></p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>[<span class="va">dir_stat</span><span class="op">,</span> <span class="va">dir_tsAIN</span><span class="op">,</span> <span class="va">dir_molchan</span><span class="op">,</span> <span class="va">dir_jointstation</span>] <span class="op">=</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="va">mkdir_default</span>(<span class="va">fullfile</span>(<span class="va">pwd</span><span class="op">,</span><span class="ss">'output_var'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb29"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>[<span class="va">dir_stat</span><span class="op">,</span> <span class="va">dir_jointstation</span>] <span class="op">=</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="va">mkdir_default</span>(<span class="va">fullfile</span>(<span class="va">pwd</span><span class="op">,</span><span class="ss">'output_var'</span>)<span class="op">,</span> <span class="ss">'Directories'</span><span class="op">,</span> {<span class="ss">'StatisticIndex'</span><span class="op">;</span> <span class="ss">'JointStation'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>[<span class="va">dir_stat</span><span class="op">,</span> <span class="va">dir_tsAIN</span><span class="op">,</span> <span class="va">dir_molchan</span><span class="op">,</span> <span class="va">dir_jointstation</span>] <span class="op">=</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="va">mkdir_default</span>(<span class="va">fullfile</span>(<span class="va">pwd</span><span class="op">,</span><span class="ss">'output_var'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>[<span class="va">dir_stat</span><span class="op">,</span> <span class="va">dir_jointstation</span>] <span class="op">=</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="va">mkdir_default</span>(<span class="va">fullfile</span>(<span class="va">pwd</span><span class="op">,</span><span class="ss">'output_var'</span>)<span class="op">,</span> <span class="ss">'Directories'</span><span class="op">,</span> {<span class="ss">'StatisticIndex'</span><span class="op">;</span> <span class="ss">'JointStation'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="modeldiscard" class="level3">
 <h3 class="anchored" data-anchor-id="modeldiscard"><code>modeldiscard</code></h3>

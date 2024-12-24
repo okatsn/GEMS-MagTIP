@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9677c5b92f2e71bf8f4b0f0e965fbb86.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-52b633b1b37b9236fe574a336d88f995.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -445,7 +445,7 @@ window.Quarto = {
 </tbody>
 </table>
 <p>here is a partial view on an exemplary <code>station_location.csv</code>:</p>
-<div id="6c2c131e" class="cell" data-execution_count="1">
+<div id="3d137cde" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
@@ -562,9 +562,9 @@ window.Quarto = {
 <h4 class="anchored" data-anchor-id="data-of-the-standard-format">Data of the standard format</h4>
 <p>Converting raw data into a standard format is crucial. The conversion involves verification of date-time, conduct projection for geo-electric data to NS-EW, format the file name for indexing, and etc..</p>
 <p>Here is the minimal script for converting raw data into the standard format:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">dir_gems_raw</span> <span class="op">=</span> <span class="ss">'rawdata/GEMSdat'</span><span class="op">;</span> <span class="co">% raw GEMS data</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="va">dir_mag_raw</span> <span class="op">=</span> <span class="ss">'rawdata/MAG'</span><span class="op">;</span> <span class="co">% raw MAG data</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="va">dir_data</span> <span class="op">=</span> <span class="ss">'dataStandard'</span><span class="op">;</span> <span class="co">% output directory</span></span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">dir_gems_raw</span> <span class="op">=</span> <span class="ss">'data-raw/GEMSdat'</span><span class="op">;</span> <span class="co">% raw GEMS data</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="va">dir_mag_raw</span> <span class="op">=</span> <span class="ss">'data-raw/MAG'</span><span class="op">;</span> <span class="co">% raw MAG data</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="va">dir_data</span> <span class="op">=</span> <span class="ss">'data-standard'</span><span class="op">;</span> <span class="co">% output directory</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="va">conv_gemsdata</span>(<span class="va">dir_gems_raw</span><span class="op">,</span> <span class="va">dir_data</span><span class="op">,</span> <span class="va">dir_catalog</span>)<span class="op">;</span> </span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="va">conv_geomagdata</span>(<span class="va">dir_mag_raw</span><span class="op">,</span> <span class="va">dir_data</span>)<span class="op">;</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -589,17 +589,17 @@ Tip
 <p>Assigning directories for input/output data or variables is necessary before running any of the main function.</p>
 <p>For example:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">% For windows, use backslash `\`; for unix systems, use slash `/` in the path to directories.</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="va">dir_catalog</span> <span class="op">=</span> <span class="ss">'spreadsheet'</span><span class="op">;</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="va">dir_catalog</span> <span class="op">=</span> <span class="ss">'GEMS-MagTIP-insider/spreadsheet'</span><span class="op">;</span> </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">% directory of event catalog &amp; station location</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="va">dir_data</span> <span class="op">=</span> <span class="ss">'dataStandard'</span><span class="op">;</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="va">dir_data</span> <span class="op">=</span> <span class="ss">'standard-data'</span><span class="op">;</span> </span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="co">% directory of geomagnetic timeseries of "standard format"</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="va">dir_stat</span> <span class="op">=</span> <span class="ss">'output_var/StatisticIndex'</span><span class="op">;</span> </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="va">dir_stat</span> <span class="op">=</span> <span class="ss">'var-output/StatisticIndex'</span><span class="op">;</span> </span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="co">% directory of statistic indices</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="va">dir_tsAIN</span> <span class="op">=</span> <span class="ss">'output_var/tsAIN'</span><span class="op">;</span> </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="va">dir_tsAIN</span> <span class="op">=</span> <span class="ss">'var-output/tsAIN'</span><span class="op">;</span> </span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="co">% directory for storing anomaly index number (AIN)</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="va">dir_molchan</span> <span class="op">=</span> <span class="ss">'output_var/Molchan'</span><span class="op">;</span> </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="va">dir_molchan</span> <span class="op">=</span> <span class="ss">'var-output/Molchan'</span><span class="op">;</span> </span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">% directory for storing Molchan scores</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="va">dir_jointstation</span> <span class="op">=</span> <span class="ss">'output_var/JointStation'</span><span class="op">;</span> </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="va">dir_jointstation</span> <span class="op">=</span> <span class="ss">'var-output/JointStation'</span><span class="op">;</span> </span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="co">% directory for the time series of EQK, TIP and probability</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
