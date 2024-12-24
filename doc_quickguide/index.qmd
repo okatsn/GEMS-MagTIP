@@ -179,12 +179,12 @@ See also [GEMS-MagTIP Tutorial](/doc_tutorial/).
 :::{.column width='50%'}
 
 ::: {.content-visible when-profile="en"}
-### Data of standard format
+### Data of standard format in GEMS-MagTIP
 <iframe width="1801" height="736" src="/doc_tutorial/#data-of-the-standard-format" title=""></iframe>
 :::
 ::: {.content-visible when-profile="zhtw"}
-### 標準格式資料
-<iframe width="1801" height="736" src="/doc_tutorial/#標準格式數據" title=""></iframe>
+### GEMS-MagTIP 專有的標準格式資料
+<iframe width="1801" height="736" src="/doc_tutorial/#標準格式資料" title=""></iframe>
 :::
 
 :::

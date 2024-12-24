@@ -144,7 +144,7 @@ Here is the minimal script for converting raw data into the standard format:
 :::
 
 ::: {.content-visible when-profile="zhtw"}
-#### 標準格式數據
+#### 標準格式資料
 
 將原始數據轉換為標準格式非常重要。
 此轉換過程包括日期時間驗證、將地電數據投影為NS-EW格式、格式化文件名稱以供索引等。
@@ -174,7 +174,7 @@ For more information please refer the section [Load raw data and convert it into
 
 ::: {.content-visible when-profile="zhtw"}
 ::: {.callout-tip}
-您可以自由整理放置標準格式數據的 `dir_data` 中的文件和文件夾，也不必擔心對同一原始數據進行多次轉換會發生錯誤，因為在 GEMS-MagTIP 中數據讀取依賴於標準格式的文件名，而檔案轉換函數會自動處理重複的文件。
+您可以自由整理放置標準格式資料的 `dir_data` 中的文件和文件夾，也不必擔心對同一原始數據進行多次轉換會發生錯誤，因為在 GEMS-MagTIP 中數據讀取依賴於標準格式的文件名，而檔案轉換函數會自動處理重複的文件。
 
 參閱 [`standarddataname`](/doc_library/#standarddataname) 和 [`write_data`](/doc_library/#write_data)。
 :::
@@ -237,7 +237,7 @@ dir_jointstation = 'var-output/JointStation';
 
 ::: {.callout-important}
 - `dir_catalog` 必須包含 `catalog.csv` 或 `catalog.mat`，以及 `station_location.csv` 或 `station_location.mat`。
-- `dir_data` 是包含 GE 或 GM 標準格式數據的目錄；請參閱 [`conv_geomagdata`](/doc_library/#conv_geomagdata) 和 [`conv_gemsdata`](/doc_library/#conv_gemsdata) 以將原始數據轉換為標準格式。
+- `dir_data` 是包含 GE 或 GM 標準格式資料的目錄；請參閱 [`conv_geomagdata`](/doc_library/#conv_geomagdata) 和 [`conv_gemsdata`](/doc_library/#conv_gemsdata) 以將原始數據轉換為標準格式。
 :::
 :::
 
