@@ -17,7 +17,8 @@ Here is [a quick guide](/doc_quickguide):
 
 GEMS-MagTIP 的文件： [https://cgrg-lab.github.io/GEMS-MagTIP/zh-TW/](https://cgrg-lab.github.io/GEMS-MagTIP/)
 
-[快速指南](/zh-TW/doc_quickguide):
+[快速指南](/doc_quickguide):
+<!-- KEYNOTE: Noted that there is no need to fix cross-references/linking for different profile, e.g., `/doc_quickguide` to `/zh-TW/doc_quickguide` at all. -->
 :::
 
 

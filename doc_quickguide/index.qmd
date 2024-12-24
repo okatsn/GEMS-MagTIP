@@ -41,7 +41,6 @@ format:
         footer: <https:&#x2F;&#x2F;github.com&#x2F;CGRG-lab&#x2F;GEMS-MagTIP&#x2F;>
 ---
 
-<!-- KEYNOTE: This slide is not a page so don't use index.qmd as name; otherwise quarto render raises error. -->
 
 ::::{.columns}::::
 :::{.column width='60%'}
@@ -94,7 +93,7 @@ See also [GEMS-MagTIP Tutorial](/doc_tutorial/).
 :::
 
 ::: {.content-visible when-profile="zhtw"}
-請同時參照 [GEMS-MagTIP 教程](/zh-TW/doc_tutorial/)
+請同時參照 [GEMS-MagTIP 教程](/doc_tutorial/)
 :::
 
 
@@ -115,12 +114,12 @@ See also [GEMS-MagTIP Tutorial](/doc_tutorial/).
 :::{.column width='50%'}
 ::: {.content-visible when-profile="en"}
 
-<iframe width="1801" height="736" class="embedded-docs" src="/doc_tutorial/#environment" title="Environment and Dependencies"></iframe>
+<iframe width="1801" height="736" src="/doc_tutorial/#environment" title="Environment and Dependencies"></iframe>
 :::
 
 ::: {.content-visible when-profile="zhtw"}
 
-<iframe width="1801" height="736" class="embedded-docs" src="/zh-TW/doc_tutorial/#環境" title="Environment and Dependencies"></iframe>
+<iframe width="1801" height="736" src="/doc_tutorial/#環境" title="Environment and Dependencies"></iframe>
 :::
 
 :::
@@ -218,7 +217,7 @@ See also [`conv_geomagdata`](/doc_library/#conv_geomagdata) and [`conv_gemsdata`
 
 ![](/assets/guide_gif/setup_output.gif)
 
-See also: [Tips on directory select and assignment.](/doc_library/#dirselect-tip)
+See also: [Tips on directory select and assignment.](/doc_tutorial/#dirselect-tip)
 :::
 ::::
 
@@ -251,11 +250,13 @@ See also [/GEMS-MagTIP-insider/demo/demo_script.m](/GEMS-MagTIP-insider/demo/dem
 :::
 ::::
 
-
+::: {.content-visible when-profile="en"}
 ## Visualization
-
-```{=html}
 <iframe width="1801" height="736" src="/doc_tutorial/#visualization-of-the-results" title=""></iframe>
-```
+:::
+::: {.content-visible when-profile="en"}
+## 繪製結果
+<iframe width="1801" height="736" src="/doc_tutorial/#結果可視化" title=""></iframe>
+:::
 
 See also: [Plotting functions](/doc_library/#plotting-functions)
