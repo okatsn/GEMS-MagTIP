@@ -238,14 +238,25 @@ See also [/GEMS-MagTIP-insider/demo/demo_script.m](/GEMS-MagTIP-insider/demo/dem
 ::::{.columns}::::
 :::{.column width='50%'}
 
+::: {.content-visible when-profile="en"}
 - [Load raw data and convert it into a standard format](/doc_library/#load-raw-data-and-convert-it-into-a-standard-format)
 - [main functions](/doc_library/index.qmd#main-functions)
+:::
+::: {.content-visible when-profile="en"}
+- [原始數據的讀取以及標準格式的轉換](/doc_library/#load-raw-data-and-convert-it-into-a-standard-format)
+- [主要函數](/doc_library/index.qmd#main-functions)
+:::
 
 :::
 :::{.column width='50%'}
-
+::: {.content-visible when-profile="en"}
 - [Available Preprocessing Functions](/doc_library/#available-preprocessing-functions)
 - [Tips on parallel computing](/doc_tutorial/#main-parfor)
+:::
+::: {.content-visible when-profile="zhtw"}
+- [可用的預處理函數](/doc_library/#available-preprocessing-functions)
+- [關於平行運算的提示](/doc_tutorial/#main-parfor)
+:::
 
 :::
 ::::

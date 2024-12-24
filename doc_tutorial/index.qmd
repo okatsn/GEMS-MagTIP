@@ -263,7 +263,7 @@ molscore3(dir_tsAIN,dir_molchan,dir_catalog,dir_jointstation);
 
 ::: {.content-visible when-profile="en"}
 
-::: {#main-parfor.callout-tip}
+::: {#main-parfor .callout-tip}
 `statind`, `molscore`, and `molscore3` have alternatives which run the same calculation in parallel.
 In most cases you can simply append `_parfor` (e.g., `molscore3_parfor(...) `) in the function name with no need to modify input arguments to do run in parallel. 
 See [`statind_parfor`](/doc_library/#statind_parfor), [`molscore_parfor`](/doc_library/#molscore_parfor), and [`molscore3_parfor`](/doc_library/#molscore3_parfor).
