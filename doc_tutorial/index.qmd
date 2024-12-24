@@ -319,6 +319,8 @@ EQK-TIP of each station:
 ::: {.content-visible when-profile="zhtw"}
 ## 結果可視化
 
+See also: [Plotting functions](/doc_library/#plotting-functions)
+
 ### 繪製EQK-TIP 匹配圖
 繪製每個測站的 EQK-TIP 匹配圖：
 :::

@@ -66,7 +66,7 @@ Search for keywords:
 
 
 
-# A quick guide for how to use GEMS-MagTIP
+# Getting Started with GEMS-MagTIP
 
 ## Setup the environment and add dependencies
 [Documentation reference](https://cgrg-lab.github.io/GEMS-MagTIP/doc_tutorial/#environment)
@@ -133,12 +133,14 @@ Search for keywords:
 :::
 :::{.column width='50%'}
 ![](/assets/guide_gif/conv_raw.gif)
+
+See also [`conv_geomagdata`](/doc_library/#conv_geomagdata) and [`conv_gemsdata`](/doc_library/#conv_gemsdata).
 :::
 ::::
 
 
 
-## Setup Directory Paths
+## Setup output/dependency paths
 ::::{.columns}::::
 :::{.column width='50%'}
 
@@ -153,5 +155,40 @@ Search for keywords:
 :::{.column width='50%'}
 
 ![](/assets/guide_gif/setup_output.gif)
+
+See also:
+- [`dirselectassign`](/doc_library/#dirselectassign)
 :::
 ::::
+
+
+
+## The overall workflow
+
+```matlab
+{{< include "/GEMS-MagTIP-insider/demo/demo_script.m" >}}
+```
+::::{.columns}::::
+:::{.column width='50%'}
+
+- [Load raw data and convert it into a standard format](/doc_library/#load-raw-data-and-convert-it-into-a-standard-format)
+- [main functions](/doc_library/index.qmd#main-functions)
+
+:::
+:::{.column width='50%'}
+
+- [Available Preprocessing Functions](https://cgrg-lab.github.io/GEMS-MagTIP/doc_library/#available-preprocessing-functions)
+
+:::
+::::
+
+
+## Visualization
+
+```{=html}
+<iframe width="1801" height="736" src="https://cgrg-lab.github.io/GEMS-MagTIP/doc_tutorial/#visualization-of-the-results" title=""></iframe>
+```
+
+See also:
+
+- [Plotting functions](/doc_library/#plotting-functions)
