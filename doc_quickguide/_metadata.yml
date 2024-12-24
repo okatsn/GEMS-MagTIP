@@ -14,6 +14,7 @@ format:
         parallax-background-size: "1920px 1200px"
         parallax-background-horizontal: 20
         parallax-background-vertical: 20
-        footer: <https:&#x2F;&#x2F;github.com&#x2F;CGRG-lab&#x2F;GEMS-MagTIP&#x2F;>
         chalkboard: true
         # Save, download and restore your sketch: https://stackoverflow.com/questions/76017331/highlight-elements-on-table-in-revealjs-quarto
+        controls: true
+        controls-layout: edges

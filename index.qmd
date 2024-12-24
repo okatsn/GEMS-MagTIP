@@ -10,7 +10,15 @@ The documentation of GEMS-MagTIP: [https://cgrg-lab.github.io/GEMS-MagTIP/](http
 
 Here is a quick guide:
 
-<iframe width="800" height="450" src="doc_quickguide/quickguide.html" title="A Quick Guide to GEMS-MagTIP"></iframe>
+
+
+<div>
+
+```{=html}
+<iframe class="slide-deck" src="/doc_quickguide/quickguide.html" title="A Quick Guide to GEMS-MagTIP"></iframe>
+```
+
+</div>
 
 ::: {.content-visible when-profile="en"}
 

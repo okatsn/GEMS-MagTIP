@@ -16,6 +16,9 @@ author: # https://quarto.org/docs/authoring/front-matter.html
 date: 2024-12-23
 jupyter: julia-1.10
 # bibliography: main.bib
+format: 
+    revealjs:
+        footer: <https:&#x2F;&#x2F;github.com&#x2F;CGRG-lab&#x2F;GEMS-MagTIP&#x2F;>
 ---
 
 <!-- KEYNOTE: This slide is not a page so don't use index.qmd as name; otherwise quarto render raises error. -->
