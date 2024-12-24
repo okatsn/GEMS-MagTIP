@@ -1,0 +1,5 @@
+outs:
+- md5: c55cda802e7a34c78e23903fe7c13320
+  size: 90573
+  hash: md5
+  path: check_env.gif

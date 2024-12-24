@@ -29,3 +29,18 @@ div.callout-caution.callout-style-default>.callout-header {
 //     padding-top: 0.1em;
 //     padding-right: 0.35em;
 // }
+
+
+.slide-deck {
+    border: 3px solid #dee2e6;
+    width: 100%;
+    height: 475px;
+}
+
+@media only screen and (max-width: 600px) {
+    .slide-deck {
+        height: 400px;
+    }
+}
+
+// https://github.com/quarto-dev/quarto-web/blob/3f4d584979d504e866fea5c355f310c17133aa8f/styles.css#L127

@@ -153,9 +153,9 @@ Here is the minimal script for converting raw data into the standard format:
 :::
 
 ```matlab
-dir_gems_raw = 'rawdata/GEMSdat'; % raw GEMS data
-dir_mag_raw = 'rawdata/MAG'; % raw MAG data
-dir_data = 'dataStandard'; % output directory
+dir_gems_raw = 'data-raw/GEMSdat'; % raw GEMS data
+dir_mag_raw = 'data-raw/MAG'; % raw MAG data
+dir_data = 'data-standard'; % output directory
 conv_gemsdata(dir_gems_raw, dir_data, dir_catalog); 
 conv_geomagdata(dir_mag_raw, dir_data); 
 ```
@@ -202,17 +202,17 @@ For example:
 
 ```matlab
 % For windows, use backslash `\`; for unix systems, use slash `/` in the path to directories.
-dir_catalog = 'spreadsheet'; 
+dir_catalog = 'GEMS-MagTIP-insider/spreadsheet'; 
         % directory of event catalog & station location
-dir_data = 'dataStandard'; 
+dir_data = 'standard-data'; 
         % directory of geomagnetic timeseries of "standard format"
-dir_stat = 'output_var/StatisticIndex'; 
+dir_stat = 'var-output/StatisticIndex'; 
         % directory of statistic indices
-dir_tsAIN = 'output_var/tsAIN'; 
+dir_tsAIN = 'var-output/tsAIN'; 
         % directory for storing anomaly index number (AIN)
-dir_molchan = 'output_var/Molchan'; 
+dir_molchan = 'var-output/Molchan'; 
         % directory for storing Molchan scores
-dir_jointstation = 'output_var/JointStation'; 
+dir_jointstation = 'var-output/JointStation'; 
         % directory for the time series of EQK, TIP and probability
 ```
 
@@ -318,6 +318,8 @@ EQK-TIP of each station:
 
 ::: {.content-visible when-profile="zhtw"}
 ## 結果可視化
+
+See also: [Plotting functions](/doc_library/#plotting-functions)
 
 ### 繪製EQK-TIP 匹配圖
 繪製每個測站的 EQK-TIP 匹配圖：

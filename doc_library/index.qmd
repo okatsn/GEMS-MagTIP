@@ -97,7 +97,7 @@ Markdown.parse(reduce(*, y))
 ::: {.content-visible when-profile="en"}
 
 Data of standard format denotes the formatted matfile that should contain only 1 field where the field name can be arbitrarily chosen. 
-Saying the field to be `M`, `M` has to be a matrix where the column indices to time and data are assigned by function `fmt.colindex2data` (see [`fmt`](#fmt)) depending on the type of the data.
+Saying the field to be `M`, `M` has to be a matrix where the column indices to time and data are assigned by function `fmt.colindex2data` (see [`fmt`](#format)) depending on the type of the data.
 
 ::: {.callout-warning}
 Noted that `fmt.colindex2data` returns a set of indices for indexing into the data of standard format, whereas `columnind` (see docstring [below](#columnind)) returns a set of indices for indexing into the raw data.
@@ -224,6 +224,18 @@ Markdown.parse(reduce(*, y))
 getdoc(dir_0("GEMS-MagTIP-insider/src/@fmt/fmt.m"), filename_header=3) |> Markdown.parse
 ```
 :::
+
+
+## Plotting functions
+
+```{julia}
+#| echo: false
+
+files = filelistall(dir_0("GEMS-MagTIP-insider/src/plot"))
+y = [getdoc(f, filename_header=3) for f in files]
+
+Markdown.parse(reduce(*, y))
+```
 
 ## Others
 

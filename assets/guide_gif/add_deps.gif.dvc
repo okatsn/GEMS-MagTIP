@@ -1,0 +1,5 @@
+outs:
+- md5: abe5dc26834fe6c1a54557b15e7966d2
+  size: 224863
+  hash: md5
+  path: add_deps.gif

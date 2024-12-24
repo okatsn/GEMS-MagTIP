@@ -1,0 +1,5 @@
+outs:
+- md5: f44eb4628bb45e3eef401b342c80cd22
+  size: 2923500
+  hash: md5
+  path: setup_output.gif
