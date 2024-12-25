@@ -23,6 +23,22 @@ The website is rendered on local, based on the contents of DVC tracked files and
 There is a unix-based shell script [update_pull_render.sh](update_pull_render.sh); 
 run `. update_pull_render.sh` to pull contents from DVC remote, update the submodule, and run quarto render for all profiles at once.
 
+### Linking/Cross-reference
+
+Noted that there is no need to fix cross-references/linking for different profile (`en` or `zhtw`), e.g., use `/doc_quickguide` for both profile.
+
+However, please be aware that some section for different profile has different header, e.g., `/doc_tutorial/#setting-up-directory-paths` and `/doc_tutorial/#設置目錄路徑`.
+
+### Profile specific contents
+
+The English/Chinese contents locates separately in the div (`:::`) of `.content-visible` class. See https://quarto.org/docs/authoring/conditional.html#content-visible.
+
+For links that has different text to show but the same url, you can use `[[English Label]{.content-visible when-profile="en"}[英文標籤]{.content-visible when-profile="zhtw"}](/the/same/path)`.
+
+### Gif and Video
+
+Gif is recorded via [LICEcap](https://www.cockos.com/licecap/) with 6 FPS, and converted to MP4 via [marshallku/gifconverter](https://github.com/marshallku/gifconverter).
+
 ### Translation to zh-TW
 
 The zh-TW contents (中文版內容) lives under https://cgrg-lab.github.io/GEMS-MagTIP/zh-TW, whereas 
