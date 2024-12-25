@@ -270,4 +270,4 @@ See also [/GEMS-MagTIP-insider/demo/demo_script.m](/GEMS-MagTIP-insider/demo/dem
 <iframe width="1801" height="736" src="/doc_tutorial/#結果可視化" title=""></iframe>
 :::
 
-See also: [Plotting functions](/doc_library/#plotting-functions)
+[[Also see: Plotting functions]{.content-visible when-profile="en"}[同時參照：繪圖函式]{.content-visible when-profile="zhtw"}](/doc_library/#plotting-functions)
