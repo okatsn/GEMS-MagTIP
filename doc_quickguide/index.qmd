@@ -238,25 +238,18 @@ See also [/GEMS-MagTIP-insider/demo/demo_script.m](/GEMS-MagTIP-insider/demo/dem
 ::::{.columns}::::
 :::{.column width='50%'}
 
-::: {.content-visible when-profile="en"}
-- [Load raw data and convert it into a standard format](/doc_library/#load-raw-data-and-convert-it-into-a-standard-format)
-- [main functions](/doc_library/index.qmd#main-functions)
-:::
-::: {.content-visible when-profile="zhtw"}
-- [原始數據的讀取以及標準格式的轉換](/doc_library/#load-raw-data-and-convert-it-into-a-standard-format)
-- [主要函數](/doc_library/index.qmd#main-functions)
-:::
+
+- [[Load raw data and convert it into a standard format]{.content-visible when-profile="en"}[原始數據的讀取以及標準格式的轉換]{.content-visible when-profile="zhtw"}](/doc_library/#load-raw-data-and-convert-it-into-a-standard-format)
+- [[main functions]{.content-visible when-profile="en"}[主要函數]{.content-visible when-profile="zhtw"}](/doc_library/index.qmd#main-functions)
 
 :::
 :::{.column width='50%'}
-::: {.content-visible when-profile="en"}
-- [Available Preprocessing Functions](/doc_library/#available-preprocessing-functions)
-- [Tips on parallel computing](/doc_tutorial/#main-parfor)
-:::
-::: {.content-visible when-profile="zhtw"}
-- [可用的預處理函數](/doc_library/#available-preprocessing-functions)
-- [關於平行運算的提示](/doc_tutorial/#main-parfor)
-:::
+
+- [[Available Preprocessing Functions]{.content-visible when-profile="en"}[可用的預處理函數]{.content-visible when-profile="zhtw"}](/doc_library/#available-preprocessing-functions)
+- [[Tips on parallel computing]{.content-visible when-profile="en"}[關於平行運算的提示]{.content-visible when-profile="zhtw"}](/doc_tutorial/#main-parfor)
+
+
+
 
 :::
 ::::
@@ -270,4 +263,4 @@ See also [/GEMS-MagTIP-insider/demo/demo_script.m](/GEMS-MagTIP-insider/demo/dem
 <iframe width="1801" height="736" src="/doc_tutorial/#結果可視化" title=""></iframe>
 :::
 
-See also: [Plotting functions](/doc_library/#plotting-functions)
+[[Also see: Plotting functions]{.content-visible when-profile="en"}[同時參照：繪圖函式]{.content-visible when-profile="zhtw"}](/doc_library/#plotting-functions)
