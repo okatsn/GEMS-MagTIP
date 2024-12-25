@@ -68,19 +68,21 @@ format:
 [語言切換]{.content-visible when-profile="zhtw"}
 :
 
-![](/assets/guide_gif/language_switch.gif)
+{{< video "/assets/guide_gif/language_switch.mp4" >}}
+
 
 [Navigation]{.content-visible when-profile="en"} 
 [文件瀏覽]{.content-visible when-profile="zhtw"}
 :
 
-![](/assets/guide_gif/navbar_left.gif)
+{{< video "/assets/guide_gif/navbar_left.mp4" >}}
+
 
 [Search for keywords]{.content-visible when-profile="en"}
 [關鍵字搜尋]{.content-visible when-profile="zhtw"}
 :
 
-![](/assets/guide_gif/search_keyword.gif)
+{{< video "/assets/guide_gif/search_keyword.mp4" >}}
 :::
 ::::
 
@@ -125,9 +127,10 @@ See also [GEMS-MagTIP Tutorial](/doc_tutorial/).
 :::
 :::{.column width='50%'}
 
-![](/assets/guide_gif/check_env.gif){width="600"}
+{{< video "/assets/guide_gif/check_env.mp4" >}}
 
-![](/assets/guide_gif/add_deps.gif)
+
+{{< video "/assets/guide_gif/add_deps.mp4" >}}
 
 :::
 ::::
@@ -156,9 +159,9 @@ See also [GEMS-MagTIP Tutorial](/doc_tutorial/).
 
 :::
 :::{.column width='50%'}
-![](/assets/guide_gif/check_catalog.gif)
+{{< video "/assets/guide_gif/check_catalog.mp4" >}}
 
-![](/assets/guide_gif/check_catalog_2.gif)
+{{< video "/assets/guide_gif/check_catalog_2.mp4" >}}
 :::
 ::::
 
@@ -189,7 +192,7 @@ See also [GEMS-MagTIP Tutorial](/doc_tutorial/).
 
 :::
 :::{.column width='50%'}
-![](/assets/guide_gif/conv_raw.gif)
+{{< video "/assets/guide_gif/conv_raw.mp4" >}}
 
 See also [`conv_geomagdata`](/doc_library/#conv_geomagdata) and [`conv_gemsdata`](/doc_library/#conv_gemsdata).
 :::
@@ -215,7 +218,7 @@ See also [`conv_geomagdata`](/doc_library/#conv_geomagdata) and [`conv_gemsdata`
 :::
 :::{.column width='50%'}
 
-![](/assets/guide_gif/setup_output.gif)
+{{< video "/assets/guide_gif/setup_output.mp4" >}}
 
 See also: [Tips on directory select and assignment.](/doc_tutorial/#dirselect-tip)
 :::
