@@ -1,0 +1,30 @@
+name: Checkout GEMS with Submodules
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  checkout-with-submodules:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      # Step 1: Checkout the GEMS repository
+      - name: Checkout GEMS with submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive # This initializes and updates all nested submodules
+          token: ${{ secrets.ACCESS_GEMS }}
+      - uses: julia-actions/setup-julia@v2
+        with:
+          version: "1.10.6"
+      - uses: julia-actions/cache@v2
+      - uses: okatsn/add-registry@v2
+      - uses: julia-actions/julia-buildpkg@v1
+      - run: |
+          julia --project=@. -e 'include("push_sftp.jl")' "${{ secrets.FTP_URL }}" "${{ secrets.SFTP_URL }}" "${{ secrets.FTP_USERNAME }}" "${{ secrets.FTP_PASSWORD }}"
