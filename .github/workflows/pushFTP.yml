@@ -1,0 +1,22 @@
+name: Checkout GEMS with Submodules
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  checkout-with-submodules:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the GEMS repository
+      - name: Checkout GEMS with submodules
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive # This initializes and updates all nested submodules
+          fetch-depth: 0 # Ensures full history is fetched, required for submodules
+
