@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - push-ftp
   pull_request:
     branches:
       - main
