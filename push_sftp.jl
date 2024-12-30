@@ -3,9 +3,10 @@ using Suppressor
 using OkFiles
 using JSON
 using Tar
+using Dates
 
 # Access SFTP
-start_dir = "home" # Change to "TWGEFN_文件上傳區"
+start_dir = "Workspace_GEMSMagTIP" # Change to "TWGEFN_文件上傳區"
 
 ftp = @suppress SFTP(joinpath(ARGS[1], # ftp_url
         start_dir), ARGS[3], # username
@@ -19,7 +20,9 @@ sftp = @suppress SFTP(joinpath(ARGS[2], start_dir), ARGS[3], ARGS[4]; create_kno
 statStructs = sftpstat(ftp)
 
 
-Tar.create("GEMS-MagTIP-insider", "GEMS-MagTIP-insider.tar")
+target_file = "GEMS-MagTIP-insider_$(today()).tar"
+
+Tar.create("GEMS-MagTIP-insider", target_file)
 
 
-SFTPClient.upload(ftp, "GEMS-MagTIP-insider.tar")
+SFTPClient.upload(ftp, target_file)
