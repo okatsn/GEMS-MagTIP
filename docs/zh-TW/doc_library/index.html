@@ -305,7 +305,7 @@ Docstring
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="2ab46a0d" class="cell" data-execution_count="1">
+<div id="04b69083" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="2">
 <section id="statind" class="level3">
 <h3 class="anchored" data-anchor-id="statind"><code>statind</code></h3>
@@ -490,6 +490,12 @@ molscore3(dir_tsAIN,dir_molchan,dir_catalog,dir_jointstation)</code></pre>
 <li>Define the total number of random combinations among the best models of each station for joint-station TIP calculation.</li>
 <li>Default is 500, which means for every station a random permutation of ranking numbers (based on the fitting degree) of the best models is performed with each sequence of ranking number having 500 elements, and the ith joint-station model parameter combination is thus from the best models of each station indexed by the ith element of each permutation.</li>
 </ul></li>
+<li><p>‘WithExtra’</p>
+<ul>
+<li>If ‘WithExtra’ is <code>true</code>, the returned <code>InfoTable</code> will include a variable for <code>Other</code> data.</li>
+<li>Please refer the output arguments of <code>jointstation</code>.</li>
+<li>Default is <code>false</code>.</li>
+</ul></li>
 </ul>
 <p><strong>Input and output:</strong></p>
 <ul>
@@ -536,7 +542,7 @@ Docstring
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="cfeaedd3" class="cell" data-execution_count="2">
+<div id="87fb86a8" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="3">
 <section id="conv_gemsdata" class="level3">
 <h3 class="anchored" data-anchor-id="conv_gemsdata"><code>conv_gemsdata</code></h3>
@@ -720,7 +726,7 @@ Docstring
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="c0d0ed77" class="cell" data-execution_count="3">
+<div id="30c7705b" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
 <section id="bp_35" class="level3">
 <h3 class="anchored" data-anchor-id="bp_35"><code>BP_35</code></h3>
@@ -778,7 +784,7 @@ Docstring
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="5558ceaf" class="cell" data-execution_count="4">
+<div id="6a1640e1" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="5">
 <section id="autobandpassfilter" class="level3">
 <h3 class="anchored" data-anchor-id="autobandpassfilter"><code>autobandpassfilter</code></h3>
@@ -850,11 +856,13 @@ Docstring
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="10367e1c" class="cell" data-execution_count="5">
+<div id="6ac6ee66" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="6">
 <section id="tiparea" class="level3">
 <h3 class="anchored" data-anchor-id="tiparea"><code>TIPArea</code></h3>
-<p><code>isinS</code> indicates the points of xLon, yLat that are in the range of <code>Rc</code> centered at <code>Lon</code>, <code>Lat</code>. <strong>Unit:</strong></p>
+<p>Given the Longitude <code>Lon</code>, Latitude <code>Lat</code> and the radius <code>Rc</code>, <code>[isinS,insideRatio] = TIPArea(Lon,Lat,Rc,xLon,yLat)</code> returns a logical vector indicating whether each grid point specified by <code>xLon</code> and <code>yLat</code> is inside <code>Rc</code> centered at (<code>Lon</code>, <code>Lat</code>).</p>
+<p><code>TIPArea</code> used <code>isInpolygon</code> of <code>okatsn/toolbox</code> which simply splits circles by <code>NaN</code> before applying matlab’s <code>inpolygon</code>. In the official documentation of <code>inpolygon</code> in the section “Points Inside Multiply Connected Polygon”, if the polygon in the inner loop are defined in a counterclockwise direction while the outer one in a clockwise direction, <code>inpolygon</code> identifies the points inside the outer polygon but not inside the inner polygon. What the official documentation didn’t explicitly say is, if two (or more) polygons are all defined in the same direction, which is our case that all circles are defined in the counterclockwise direction, <code>inpolygon</code> identifies points in either polygon, which the expected behavior in our application. That is, when the TIP area of one station overlapped with the TIP area of another one station, <code>isinS</code> is <code>true</code> if a grid point is inside of either and <code>(xLon(isinS), yLat(isinS))</code> are essentially the union of the TIP area of all stations.</p>
+<p><strong>Unit:</strong></p>
 <ul>
 <li><code>xLon</code> (<code>yLat</code>): degree of longitude (latitude).</li>
 <li><code>Rc</code>: kilometer. Noted that <code>Rc</code> is convert to the unit of degree and be the mean of those based on the latitude and longitude of the center respectively. (Hint: when converting km to deg, it depends on latitude and the longitude. For example, at lower latitude, the distance of 1 deg interval in longitude is much larger than that of 1 deg interval at high latitude.)</li>
@@ -867,15 +875,15 @@ Docstring
 </ul>
 <p><strong>Output:</strong></p>
 <ul>
-<li><code>isinS</code>: <code>xLon(isinS),yLat(isinS)</code> specify all the points (clearly non-repeated) that are within the ranges of radii <code>Rc</code> inside the centers specified by <code>Lon</code>, <code>Lat</code>.</li>
+<li><code>isinS</code>: a N by 1 array, where <code>xLon(isinS),yLat(isinS)</code> specify all the points (clearly non-repeated) that are within the ranges of radii <code>Rc</code> inside the centers specified by <code>Lon</code>, <code>Lat</code>.</li>
 </ul>
 </section>
 <section id="tipspatialtemporal" class="level3">
 <h3 class="anchored" data-anchor-id="tipspatialtemporal"><code>TIPspatialtemporal</code></h3>
-<p><strong>Output:</strong></p>
-<ul>
-<li><code>isinTS</code>: a S by T logical array specifying spatial-temporal points that are within the ranges of radii <code>Rc</code> inside the centers specified by <code>Lon</code>, <code>Lat</code>, where <code>[Rc, Lon, Lat] = LatLonRc_TIPtrue</code> is a M by 3 array where <span class="math inline">\(M \geq T\)</span> must be satisfied.</li>
-</ul>
+<p>Given the dates to calculate TIP area <code>dates_TIPtrue</code>, the range (<code>Rc</code>) around the center point (<code>LatLon</code>) in <code>LatLonRc_TIPtrue</code>, and the grid points of the entire map (<code>xLon</code>, <code>yLat</code>), <code>[dt_TIP_true_uniq,TIP_true_area,isinTS] = TIPspatialtemporal(dates_TIPtrue,LatLonRc_TIPtrue, xLon, yLat)</code> returns the unique and sorted vector of dates (<code>dt_TIP_true_uniq</code>) and the vector of spatial TIP area <code>TIP_true_area</code> for each date in <code>dt_TIP_true_uniq</code>.</p>
+<p>The value of <code>TIP_true_area</code> is the ratio of spatial TIP area to total area. When in the context of calculating the total amount of alarmed area, <code>sum(TIP_true_area)</code> is the alarmed area ratio to the entire 2D space specified by <code>xLon</code> and <code>yLat</code> (i.e., which are all grid points in the region of <code>[TwLat0, TwLat1],[TwLon0, TwLon1]</code>). See <code>TIPArea</code> for more information.</p>
+<p><code>isinTS</code> is a S by T logical array specifying spatial-temporal points that are within the ranges of radii <code>Rc</code> inside the centers specified by <code>Lon</code>, <code>Lat</code>, where <code>[Rc, Lon, Lat] = LatLonRc_TIPtrue</code> is a M by 3 array where <span class="math inline">\(M \geq T\)</span> must be satisfied.</p>
+<p>Noted that <code>dt_TIP_true_uniq</code> are successive (e.g., 1, 2, 4) dates but not necessarily consecutive (e.g., 1, 2, 3).</p>
 </section>
 <section id="bestmodel" class="level3">
 <h3 class="anchored" data-anchor-id="bestmodel"><code>bestmodel</code></h3>
@@ -1049,7 +1057,7 @@ dt_TIPvalid = unique(TIPtime([1:3,2:4,3:5,....]))
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>         <span class="va">sum_tsAINs</span><span class="op">,</span><span class="va">sum_validateInds</span><span class="op">,</span><span class="va">DateTime_dti</span><span class="op">,...</span></span>
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>         <span class="va">CWBcatalog</span><span class="op">,</span><span class="ss">'CalculateHitRate'</span><span class="op">,</span><span class="va">true</span><span class="op">,...</span></span>
 <span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>         <span class="ss">'CalculateAlarmedRate'</span><span class="op">,</span><span class="va">true</span><span class="op">,</span><span class="ss">'CalculateProbability'</span><span class="op">,</span><span class="va">HitRates_trn</span><span class="op">,...</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>         <span class="ss">'StationLocation'</span><span class="op">,</span><span class="va">StationLocation</span><span class="op">,</span> <span class="ss">'Verbose'</span><span class="op">,</span> <span class="va">true</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>         <span class="ss">'StationLocation'</span><span class="op">,</span><span class="va">StationLocation</span><span class="op">,</span> <span class="ss">'WithExtra'</span><span class="op">,</span> <span class="va">true</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Keyword Arguments:</strong></p>
 <ul>
 <li><p>‘CalculateHitRate’: Whether to calculate the hit rates. Default is <code>false</code>.</p></li>
@@ -1074,11 +1082,11 @@ dt_TIPvalid = unique(TIPtime([1:3,2:4,3:5,....]))
 <li><code>sum_validateInds</code>: A J-by-1 cell array with each cell corresponding to <code>BestmodelNames</code>. See <code>loadAIN()</code>.</li>
 <li><code>DateTime_dti</code>: A T by 1 datetime array for the time series in <code>sum_tsAINs</code> and the <code>sum_validateInds</code>.</li>
 <li><code>CWBcatalog</code>: A table of earthquake catalog. You may load <code>CWBcatalog</code> using <code>only1field([dir_catalog filesep 'catalog.mat'])</code>.</li>
-<li><code>Verbose</code>: Output an additional <code>struct</code> of <code>Other</code> variables.</li>
+<li><code>WithExtra</code>: Output an additional <code>struct</code> of supplementary data as the <code>Other</code> variable.</li>
 </ul>
 <p><strong>Output arguments:</strong></p>
 <ul>
-<li><p><code>HitRates</code>, <code>AlarmedRates</code>: M by 1 array, being the hit rates (alarmed rates) of each combination of best models. M is the amounts of total combinations (the <code>totalM</code> in <code>bestmodel()</code>). They are <code>AlarmedRateForecasting</code> and <code>HitRatesForecasting</code> of <code>molscore3</code>’s output.</p></li>
+<li><p><code>HitRates</code>, <code>AlarmedRates</code>: M by 1 array, being the hit rates (alarmed rates) of each combination of best models. M is the amounts of total combinations (the <code>totalM</code> in <code>bestmodel()</code>). They are <code>AlarmedRateForecasting</code> and <code>HitRatesForecasting</code> of <code>molscore3</code>’s output. <code>AlarmedRates(i)</code> can be a number or <code>NaN</code> (when <code>0/0</code>).</p></li>
 <li><p><code>SpatialProbability</code>: A S by T array of the temporal-spatial forecasting probabilities. It is the output variable <code>Probability</code> of <code>molscore3()</code>.</p></li>
 <li><p><code>xLon</code> (<code>yLat</code>): The longitudes (latitudes) of all spatial points as a S by 1 array. It is the output variable <code>ProbabilityLon</code> (<code>ProbabilityLat</code>) of <code>molscore3()</code>.</p></li>
 <li><p><code>validStationTime</code>: A T by J table of the ratio of valid models each day each station. This is for <code>plotProbability()</code>, that the ratio will be demonstrated as gradient color in the marker of each station. If the ratio is zero, the marker on map will be hollow. It is the output variable <code>validStationTime</code> of <code>molscore3()</code>.</p></li>
@@ -1091,13 +1099,13 @@ dt_TIPvalid = unique(TIPtime([1:3,2:4,3:5,....]))
 <li><code>InStation</code>: Indicates the target earthquake is of which station.</li>
 <li><code>EqkDist</code>: The distance between the station (as specified by <code>InStation</code>) and hypocenter of the target earthquake. Also see <code>simpleStationEQKdist3D</code>.</li>
 </ul></li>
-<li><p><code>Other</code>: The additional output when ‘Verbose’ is <code>true</code>.</p>
+<li><p><code>Other</code>: The additional output when ‘WithExtra’ is <code>true</code>.</p>
 <ul>
 <li><code>Other.nEQK</code>: The number of target earthquakes for each model in forecasting phase.</li>
-<li><code>Other.areaTIP</code>: The total area (spatial + temporal) of TIP for each model in forecasting phase. See <code>TIPspatialtemporal</code> and <code>TIPArea</code>.</li>
-<li><code>Other.nEQK .* HitRates</code> is the number of hitted earthquakes in this forecasting phase.</li>
-<li><code>Other.areaTIP .* AlarmedRates</code> is the total amount of alarmed TIP area in this forecasting phase.</li>
-<li>Noted that it is nonsesnse to set ‘Verbose’ to be <code>true</code> when ‘calculateHitRate’ and ‘calculateAlarmedRate’ are <code>false</code>.</li>
+<li><code>Other.areaTIP</code>: The total area (spatial + temporal, i.e., <code>sum(TIP_valid_area)</code>) of TIP for each model in forecasting phase. See <code>TIPspatialtemporal</code> and <code>TIPArea</code>.</li>
+<li><code>Other.nEQK .* HitRates</code> is the number of hitted earthquakes for each model in this forecasting phase.</li>
+<li><code>Other.areaTIP .* AlarmedRates</code> is the total amount of alarmed TIP area (i.e., <code>sum(TIP_true_area)</code>) for each model in this forecasting phase.</li>
+<li>Noted that it is nonsesnse to set ‘WithExtra’ to be <code>true</code> when ‘calculateHitRate’ and ‘calculateAlarmedRate’ are <code>false</code>.</li>
 </ul></li>
 </ul>
 </section>
@@ -1220,7 +1228,7 @@ Docstring
 </div>
 <div id="callout-9" class="callout-9-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="8280ff1f" class="cell" data-execution_count="6">
+<div id="d254e31e" class="cell" data-execution_count="6">
 <section id="fmt" class="level3 cell-output cell-output-display cell-output-markdown" data-execution_count="7">
 <h3 class="anchored" data-anchor-id="fmt"><code>fmt</code></h3>
 <p><code>fmt</code> is a class that</p>
@@ -1274,7 +1282,7 @@ Caution
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<div id="ab540e7d" class="cell" data-execution_count="7">
+<div id="6b4bf0e2" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="8">
 <section id="plotcb" class="level3">
 <h3 class="anchored" data-anchor-id="plotcb"><code>plotCB</code></h3>
@@ -1376,7 +1384,7 @@ Docstring
 </div>
 <div id="callout-11" class="callout-11-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="df0d5752" class="cell" data-execution_count="8">
+<div id="ea4216f8" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display cell-output-markdown" data-execution_count="9">
 <section id="molchan_cb" class="level3">
 <h3 class="anchored" data-anchor-id="molchan_cb"><code>Molchan_CB</code></h3>
