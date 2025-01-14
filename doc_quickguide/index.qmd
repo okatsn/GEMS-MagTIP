@@ -224,10 +224,10 @@ See also: [Tips on directory select and assignment.](/doc_tutorial/#dirselect-ti
 
 
 ::: {.content-visible when-profile="en"}
-## An example of the overall workflow
+## An example of the overall workflow {.scrollable}
 :::
 ::: {.content-visible when-profile="zhtw"}
-## 完整流程範例
+## 完整流程範例 {.scrollable}
 :::
 
 ::: {.content-visible when-profile="en"}
