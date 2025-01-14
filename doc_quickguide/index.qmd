@@ -38,7 +38,7 @@ format:
         # show the navigation button on slide
         controls-layout: edges
         # at left-right edges
-        footer: <https:&#x2F;&#x2F;github.com&#x2F;CGRG-lab&#x2F;GEMS-MagTIP&#x2F;>
+        footer: <https:&#x2F;&#x2F;github.com&#x2F;CGRG-lab&#x2F;GEMS-MagTIP&#x2F>
 ---
 
 
