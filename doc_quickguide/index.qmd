@@ -232,6 +232,14 @@ See also: [Tips on directory select and assignment.](/doc_tutorial/#dirselect-ti
 ## 完整流程範例
 :::
 
+::: {.content-visible when-profile="en"}
+> ⚠️ This is only a script for demonstration; please according to your purpose to assign parameters.
+:::
+
+::: {.content-visible when-profile="zhtw"}
+> ⚠️ 這是範例。您需要依照說明文件，根據您的需求與目的調整參數。
+:::
+
 ```matlab
 {{< include "/GEMS-MagTIP-insider/demo/demo_script.m" >}}
 ```
