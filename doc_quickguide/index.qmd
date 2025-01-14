@@ -68,21 +68,19 @@ format:
 [語言切換]{.content-visible when-profile="zhtw"}
 :
 
-{{< video "/assets/guide_gif/language_switch.mp4" >}}
-
+![](/assets/guide_gif/language_switch.gif)
 
 [Navigation]{.content-visible when-profile="en"} 
 [文件瀏覽]{.content-visible when-profile="zhtw"}
 :
 
-{{< video "/assets/guide_gif/navbar_left.mp4" >}}
-
+![](/assets/guide_gif/navbar_left.gif)
 
 [Search for keywords]{.content-visible when-profile="en"}
 [關鍵字搜尋]{.content-visible when-profile="zhtw"}
 :
 
-{{< video "/assets/guide_gif/search_keyword.mp4" >}}
+![](/assets/guide_gif/search_keyword.gif)
 :::
 ::::
 
