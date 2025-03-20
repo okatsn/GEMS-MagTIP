@@ -73,7 +73,11 @@ format:
 Julia Object ⟷ External Format (JSON, CSV)
 
 
-## Introducing Serde.jl
+## Introducing [Serde](https://gemini.google.com/app/dec6da4247bff4a4): A format-agnostic (de)serialization framework
+
+
+
+## Serde.jl
 
 <iframe src="https://bhftbootcamp.github.io/Serde.jl/stable/" width="100%" height="500px"></iframe>
 
