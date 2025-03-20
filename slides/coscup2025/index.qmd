@@ -72,6 +72,17 @@ format:
 
 Julia Object ⟷ External Format (JSON, CSV)
 
+
+## Introducing Serde.jl
+
+<iframe src="https://bhftbootcamp.github.io/Serde.jl/stable/" width="100%" height="500px"></iframe>
+
+- Provides serialization/deserialization between Julia objects and external formats
+- Clean, consistent API for converting to/from JSON, CSV, and other formats
+- Type-driven architecture fits perfectly with Julia's design philosophy
+- Enables seamless data exchange with minimal boilerplate
+
+
 ## Serde.jl Integration in GEMSMagTIP
 
 ```julia
