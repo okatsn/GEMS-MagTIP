@@ -179,6 +179,26 @@ end
 phase = deser(Phase, date_string)  # Works with any format
 ```
 
+## Type Conversion: One Method, Many Uses
+
+```julia
+# Define a single conversion method for Phase type
+function Serde.deser(::Type{GEMSMagTIP.Phase}, data::AbstractString)
+    # Works for any field of type Phase across different structs
+    return GEMSMagTIP.Phase(data)
+end
+
+# The actual Phase constructor handles the parsing
+function Phase(data::AbstractString)
+    v = split(data, "-")
+    return Phase(Dates.Date.(v, frc_date_format))
+end
+
+# Usage remains simple regardless of complexity
+models = read_data("bestModels.csv", Vector{BestModels})
+stats = read_data("StatInd.csv", Vector{StatInd})
+```
+
 ## Complex Data Transformation: StatInd Example
 
 ```julia
@@ -195,3 +215,50 @@ println(stat.DateTime)  # Date(2014, 1, 1)
 println(stat.var.var_S_NS)  # -0.092
 println(stat.var.var_K_EW)  # 13.064
 ```
+
+## File-based Dispatch Pattern
+
+```julia
+# File-based dispatch pattern (core_read.jl)
+function core_read(path)
+    fname = basename(path)
+    core_read(Val(Symbol(fname)), path) # Dispatch by filename
+end
+
+# Dispatch to specific file types (const_filename.jl)
+const file_bestmodels = Symbol("bestModels.csv")
+const file_statind = Symbol("StatInd.csv")
+
+# Type-specific handlers
+core_read(::Val{file_bestmodels}, path) = _vec_deser(BestModels, path)
+core_read(::Val{file_statind}, path) = _statind_deser(StatInd, path)
+
+# General deserialization path - handles most cases
+function _vec_deser(T, path)
+    rows = CSV.File(path) |> CSV.rowtable
+    return Serde.to_deser(Vector{T}, rows) # Convert to typed objects
+end
+
+# Special case deserialization for complex transformations
+function _statind_deser(T, path)
+    stat = CSV.read(path, DataFrame)
+    # Group all var_* columns into a single NamedTuple field
+    stat1 = @chain stat begin
+        transform(AsTable(r"\Avar\_") => ByRow(identity) => :var)
+        select(Not(r"\Avar\_"))
+    end
+    rows = stat1 |> CSV.rowtable
+    return Serde.to_deser(Vector{T}, rows)
+end
+```
+
+## Summary
+
+- **Filename-Driven Logic**: Users don't need to specify data types - the system infers them from filenames
+- **Extensibility**: Add support for new file formats by simply defining new dispatch methods
+- **Clean Interfaces**: Client code remains simple while complexity is handled behind the scenes
+- **Composability**: Each component handles one responsibility:
+- **core_read**: Routes by filename
+- **Type-specific methods**: Handle special cases
+- `Serde.deser`: Handles field-level conversions
+- **Real-world** Example: Converting dozens of specialized geophysical data formats without code duplication
