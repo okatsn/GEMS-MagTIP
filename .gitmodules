@@ -2,3 +2,7 @@
 	path = GEMS-MagTIP-insider
 	url = https://github.com/okatsn/GEMS-MagTIP-insider.git
 	branch = main
+[submodule "GEMSMagTIP.jl"]
+	path = GEMSMagTIP.jl
+	url = https://github.com/okatsn/GEMSMagTIP.jl.git
+	branch = main
