@@ -1,0 +1,42 @@
+---
+title: "GEMS-MagTIP: Scientific Data Processing with Julia"
+subtitle: "Leveraging Julia's Type System for Geophysical Data Analysis"
+author: "CGRG Lab"
+format:
+  revealjs:
+    theme: [default, custom.css]
+    slide-number: true
+    code-fold: false
+    highlight-style: github
+    transition: slide
+    background-transition: fade
+    footer: "GEMS-MagTIP Package | github.com/okatsn/GEMSMagTIP.jl"
+---
+
+## What is GEMS-MagTIP?
+
+- Julia package for **G**eophysical **E**lectromagnetic **M**agnetic **S**ignal analysis
+- Focuses on Magnetic Thermal Ionization Precursors (MagTIP)
+- Provides seamless data deserialization from GEMS-MagTIP-insider MATLAB outputs
+- Type-safe data structures for geophysical analysis
+- Built with core Julia principles: multiple dispatch, type stability, composability
+
+## Design Philosophy
+
+- Strong type system using Julia's struct system
+- Leverages Serde.jl for serialization/deserialization
+- Modular architecture with clear separation of concerns
+- Extensible design for handling diverse geophysical data formats
+- Comprehensive test coverage ensuring reliability
+
+## Key Data Structures
+
+:::: {.columns}
+::: {.column width="50%"}
+- **Phase**: Time period representation
+- **FittingDegree**: Model fitting statistics
+- **BestModels**: Optimized parameter sets
+:::
+::: {.column width="50%"}
+- **StatInd**: Statistical indicators
+- **Info**: Metadata an
