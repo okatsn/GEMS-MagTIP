@@ -18,7 +18,9 @@ format:
 I'm Tsung-Hsi, Wu (吳宗羲)
 
 - **Affiliation**: National Central University, Dept. of Earth Sciences (postdoc research fellow).
-- **Expertise**: geophysics; earthquake dynamics; stochastic process
+- **Expertise**: geophysics; earthquake dynamics; pre-seismic geoelectromagnetic precursor analysis; stochastic process
+- **Research interests**: Reproducible research, communicating data effectively... 
+<!-- Referring https://youtu.be/2DbuqYKOsrY?si=oT9FQ-sszMAkVKLg&t=68 -->
 - **Hobby**: programming with julia, rock climbing
 - **Contact me**: [okatsn@gmail.com](); [https://github.com/okatsn](https://github.com/okatsn)
 
