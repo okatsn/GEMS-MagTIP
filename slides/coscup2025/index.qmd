@@ -13,6 +13,34 @@ format:
     footer: "GEMS-MagTIP Package | github.com/okatsn/GEMSMagTIP.jl"
 ---
 
+# About me 
+
+I'm Tsung-Hsi, Wu (吳宗羲)
+
+- **Affiliation**: National Central University, Dept. of Earth Sciences (postdoc research fellow).
+- **Expertise**: geophysics; earthquake dynamics; stochastic process
+- **Hobby**: programming with julia, rock climbing
+- **Contact me**: [okatsn@gmail.com](); [https://github.com/okatsn](https://github.com/okatsn)
+
+![](https://raw.githubusercontent.com/okatsn/COSCUP_2023_Slides/master/about_twaiswcf/AboutMe_causual.jpg){.absolute bottom=360 right=0 width=300}
+
+<!-- TODO: Import images and use local images instead. -->
+
+
+## Main Research Topics {.scrollable .unlisted}
+
+My research in Earth Sciences focuses on innovative methodologies and analytical techniques to enhance the understanding of <span class="fragment highlight-forestgreen" fragment-index=1>stochastic earthquake dynamics</span>, <span class="fragment highlight-indianred" fragment-index=2>earthquake precursor detection</span>, and <span class="fragment highlight-steelblue" fragment-index=3>soil water content estimation</span>. 
+Below are the main areas of my research:
+
+::: {.image-container}
+![](Fig_research_roadmap.png){width="1920px" fig-align="center"}
+:::
+
+<!-- TODO: import images -->
+
+
+# TODO: <Section name>
+
 ## What is GEMS-MagTIP?
 
 - Julia package for **G**eophysical **E**lectromagnetic **M**agnetic **S**ignal analysis
