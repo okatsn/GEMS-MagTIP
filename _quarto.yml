@@ -1,6 +1,9 @@
 project:
   type: website
   output-dir: docs
+  render: 
+    - "*.qmd"
+
 # KEYNOTE: 
 # - It is necessary to have docs/index.html, because 
 #   I choose the folder /docs to be deployed on Github page.

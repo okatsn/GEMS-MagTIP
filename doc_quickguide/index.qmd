@@ -14,7 +14,6 @@ author: # https://quarto.org/docs/authoring/front-matter.html
       affiliation: "National Central University"
 # institute: "National Central University" # This attaches to the first author only
 date: 2025-01-14
-jupyter: julia-1.10
 # bibliography: main.bib
 format: 
     revealjs:
