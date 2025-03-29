@@ -41,6 +41,8 @@ Gif is recorded via [LICEcap](https://www.cockos.com/licecap/) with 6 FPS, and c
 
 ### Translation to zh-TW
 
+The translation of the Chinese (zh-TW) version of this documentation is assisted by ChatGPT.
+
 The zh-TW contents (中文版內容) lives under https://cgrg-lab.github.io/GEMS-MagTIP/zh-TW, whereas 
 the English contents lives under https://cgrg-lab.github.io/GEMS-MagTIP/zh-TW.
 The zh-TW is translated from English contents.
@@ -50,13 +52,10 @@ The zh-TW is translated from English contents.
 The headers in [/doc_library/index.qmd](/doc_library/index.qmd) were intended to be identical for both language version, in order to avoid the necessity to fix reference links in the post processes.
 Please don't translate headers (that starts with one or multiple `#`) in [/doc_library/index.qmd](/doc_library/index.qmd).
 
-#### When assisted with ChatGPT
-
-A code block may result in ChatGPT translation output error. 
-To avoid this, please find all code blocks in the documents and manually 
-remove them before feeding the qmd script to ChatGPT. 
+#### Useful regular expression for identifying improper translation
 
 Here are regular expression that might be helpful: 
+
 - ```.*\n+([\n\s\r]|.)*?```
 - (信息|過濾|篩選|震級|克隆|功能|加載|概率)
 
