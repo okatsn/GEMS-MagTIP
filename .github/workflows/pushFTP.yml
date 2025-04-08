@@ -22,6 +22,12 @@ jobs:
         with:
           submodules: recursive # This initializes and updates all nested submodules
           token: ${{ secrets.ACCESS_GEMS }}
+
+      # Step 2: Update submodules to latest commit on their branches
+      - name: Update submodules to latest
+        run: |
+          git submodule update --remote --recursive
+
       - uses: julia-actions/setup-julia@v2
         with:
           version: "1.10.6"
@@ -30,8 +36,3 @@ jobs:
       - uses: julia-actions/julia-buildpkg@v1
       - run: |
           julia --project=@. -e 'include("push_sftp.jl")' "${{ secrets.FTP_URL }}" "${{ secrets.SFTP_URL }}" "${{ secrets.FTP_USERNAME }}" "${{ secrets.FTP_PASSWORD }}"
-      - name: Show Payload (if sent)
-        run: |
-          echo "Triggered by Repo A"
-          echo "Payload:"
-          echo "${{ github.event.client_payload }}"
