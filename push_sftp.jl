@@ -6,7 +6,7 @@ using Tar
 using Dates
 
 # Access SFTP
-start_dir = "Workspace_GEMSMagTIP" # Change to "TWGEFN_文件上傳區"
+start_dir = "Workspace_GEMSMagTIP" # SETME: This should be identical to your root folder for push in NAS.
 
 ftp = @suppress SFTP(joinpath(ARGS[1], # ftp_url
         start_dir), ARGS[3], # username
