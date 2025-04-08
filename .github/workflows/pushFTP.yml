@@ -22,6 +22,12 @@ jobs:
         with:
           submodules: recursive # This initializes and updates all nested submodules
           token: ${{ secrets.ACCESS_GEMS }}
+
+      # Step 2: Update submodules to latest commit on their branches
+      - name: Update submodules to latest
+        run: |
+          git submodule update --remote --recursive
+
       - uses: julia-actions/setup-julia@v2
         with:
           version: "1.10.6"
