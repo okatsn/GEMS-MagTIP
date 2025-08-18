@@ -1,0 +1,13 @@
+# Use `git add --renormalize .` command in modern Git to re-apply the attributes to all files in your repository 
+
+# Set default behavior to ensure LF line endings for all text files
+* text=auto eol=lf
+
+# Exclude known binary files from line ending normalization
+*.jpg binary
+*.png binary
+*.pdf binary
+*.exe binary
+
+# Forcing CRLF for specific files, like Windows batch scripts
+*.bat text eol=crlf
