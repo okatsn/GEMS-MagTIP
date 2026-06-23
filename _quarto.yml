@@ -1,22 +1,22 @@
 project:
   type: website
   output-dir: docs
-  render: 
+  render:
     - "*.qmd"
 
-# KEYNOTE: 
-# - It is necessary to have docs/index.html, because 
+# KEYNOTE:
+# - It is necessary to have docs/index.html, because
 #   I choose the folder /docs to be deployed on Github page.
-#   In this project, I make profile `en` as default, and 
+#   In this project, I make profile `en` as default, and
 #   set its output-dir to docs.
 website:
   title: "GEMS-MagTIP"
-  page-footer:     
+  page-footer:
   # bottom bar
-    left: "Copyright 2025, CGRG-lab and Tsung-Hsi Wu" 
-  navbar: 
+    left: "Copyright {{< meta date >}}, CGRG-lab and Tsung-Hsi Wu"
+  navbar:
   # top bar. See https://quarto.org/docs/websites/website-navigation.html
-    right: 
+    right:
     - icon: github
       href: https://github.com/CGRG-lab/GEMS-MagTIP
       # KEYNOTE: you cannot set href as ./docs or ./docs/zh-TW, because it will jumps to /docs/docs/ if you click globe-americas at /docs/
@@ -29,7 +29,7 @@ format:
     theme: [cosmo,custom.scss]
     css: styles.css
     toc: true
-    code-tools: 
+    code-tools:
       source: true
       # you can add e.g., source: https://github.com/CGRG-lab/GEMS-MagTIP/blob/main/index.qmd
       # in the header (format option) in each .qmd file.
@@ -44,6 +44,9 @@ profile:
   default: en
   # default profile when using `quarto render`
   # otherwise, you may need to run `quarto render --profile en`
-  group: 
+  group:
     - [en, zhtw]
 
+# META DATA
+date: today
+date-format: YYYY
