@@ -2,5 +2,6 @@
     "devcontainer_name": "GEMSMagTIP",
     "service": "devgmm",
     "image": "imggmm",
-    "docker_compose_name": "gems-magtip"
+    "docker_compose_name": "gems-magtip",
+    "dind": false
 }
