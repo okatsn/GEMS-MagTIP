@@ -1,11 +1,11 @@
-md5: 4591f23ecaf17a9bac7385ca90188861
+md5: a615d5f327042971057d5a21649ce4e7
 frozen: true
 deps:
 - path: 
     cwa-geamtip/report-2024/probabilitymap/[Probability]ID[AMn6ei]prp[BP_35]frc[20240402-20240625]trn[20210401-20240401]at[20240402].png
   repo:
     url: https://github.com/okatsn/ok-assets-registry.git
-    rev_lock: cae97e6de15e121b6ae17b2821747b7771def2cf
+    rev_lock: 41aa62e71cc2ee4296e7e6dda78f6cf74ebdb5ad
 outs:
 - md5: 7b2404b0d00e85c84fcd0f90323fff1a
   size: 333580
